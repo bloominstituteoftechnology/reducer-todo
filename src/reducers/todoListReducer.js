@@ -6,6 +6,7 @@ export const todoListReducer = (state, {type, payload}) => {
             const newTodo ={
                 id: Date.now(),
                 todo: payload.todo,
+                tags: payload.tags,
                 deadline: payload.deadline,
                 completed: false
             }
