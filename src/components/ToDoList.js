@@ -2,9 +2,8 @@ import React from 'react'
 import {ToDoItem} from './ToDoItem'
 import {useStateValue} from '../hooks/useStateValue'
 import styled from 'styled-components'
-export const ToDoList = () => {
+export const ToDoList = (props) => {
     const [{todoList}, dispatch]=useStateValue()
-
     return (
         <ToDoDiv>
             <button onClick ={() => dispatch({type: 'REMOVE_COMPLETED'})}>Remove Completed</button>

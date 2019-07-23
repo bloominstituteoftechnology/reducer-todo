@@ -122,7 +122,7 @@ const StyledSelect = styled(Select)`
 
 const Submit = styled.input`
     border: 1px solid #bdbdbd;
-    background: #f2f2f2;
+    background: ${props => props.theme.primaryColor};
     border-radius: 5px;
     padding: 5px;
     background-position: 8px 9px;
