@@ -36,6 +36,6 @@ const theme = {
     largeFont: '3.5rem',
     mediumFont: '2.8rem',
     smallFont: '2.0rem',
-    tinyFont: '1rem',
+    tinyFont: '1.5rem',
     fontColor: 'aquamarine'
 }

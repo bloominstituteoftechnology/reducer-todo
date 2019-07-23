@@ -5,8 +5,8 @@ import styled from 'styled-components'
 
 
 const {Option} = Select
-const list = ['Yard work', 'House work', 'School', 'CS Practice', 'Leisure', 'Family']
-const options = list.map(item => <Option key={item}>{item}</Option>)
+const list = ['Yard Work', 'House Work', 'School Work', 'Leisure', 'Family', 'Bills']
+const options = list.sort().map(item => <Option key={item}>{item}</Option>)
 
 export const AddForm = () => {
     const [input, setInput] = useState({todo: '', deadline: '2019-07-23', tags: []});
@@ -66,29 +66,31 @@ const Form = styled.form`
     margin: 0 auto;
 
     .inputDiv{
-        border-bottom: 1px solid #efefef;
+        border-bottom: 1px solid ${props=> props.theme.primaryColor};
         margin: 20px auto;
         padding-bottom: 10px;
-        width: 400px;
+        width: 600px;
 
         label{
             float: left;
-            width: 150px;
+            width: 250px;
             text-align: right;
-            padding-right: 10px;
+            padding-right: 30px;
+            padding-top: 3px;
+            font-size: ${props => props.theme.tinyFont};
         }
 
         input{
-            border: 1px solid #bdbdbd;
-            background: #f2f2f2;
+            border: 1px solid ${props=> props.theme.primaryColor};
+            background: ${props => props.theme.secondaryColor};
             border-radius: 5px;
             padding: 5px;
-            background-position: 8px 9px;
             margin-bottom: 20px;
             width: 175px;
+
             &:focus{
                 background-color: #ffffff;
-                border: 1px solid #b1e1e4;
+                border: 1px solid ${props=> props.theme.primaryColor};
                 outline: none;
             }
         }
@@ -100,27 +102,27 @@ const Form = styled.form`
             width: 150px;
             margin: 0 auto;
             text-align: center;
+            font-size: ${props => props.theme.tinyFont};
         }
     }
 `
 
 const StyledSelect = styled(Select)`
     &&{
-        border-bottom: 1px solid #efefef;
         display: block;
         margin: 20px auto;
         width: 700px; 
-        border: 1px solid #bdbdbd;
+        border: 1px solid ${props=> props.theme.primaryColor};
         border-radius: 5px;
         &:focus{
             background-color: #ffffff;
-            border: 1px solid #b1e1e4;
+            border: 1px solid ${props=> props.theme.primaryColor};
             outline: none;
         }
     }
 `
 
-const Submit = styled.input`
+export const Submit = styled.input`
     border: 1px solid #bdbdbd;
     background: ${props => props.theme.primaryColor};
     border-radius: 5px;
@@ -128,9 +130,12 @@ const Submit = styled.input`
     background-position: 8px 9px;
     margin: 0 auto;
     width: 175px;
+    font-size: ${props => props.theme.tinyFont}
+    color: ${props => props.theme.secondaryColor}
     &:hover{
-        background-color: #ffffff;
-        border: 1px solid #b1e1e4;
+        background-color: ${props => props.theme.secondaryColor};
+        border: 1px solid ${props => props.theme.primaryColor};
+        color: ${props => props.theme.primaryColor}
         outline: none;
     }
 `
