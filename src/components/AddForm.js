@@ -2,13 +2,13 @@ import React, {useState} from 'react'
 import {useStateValue} from '../hooks/useStateValue'
 
 export const AddForm = () => {
-    const [input, setInput] = useState('');
+    const [input, setInput] = useState({todo: '', deadline: '2019-07-23'});
     const [, dispatch] = useStateValue()
 
     const addItem = (e) => {
         e.preventDefault();
         dispatch({type: 'ADD_TODO', payload: input})
-        setInput('')
+        setInput({todo: '', deadline: '2019-07-23'})
     }
 
     return (
@@ -17,8 +17,17 @@ export const AddForm = () => {
                 <label>Add To-Do Item:</label>
                 <input 
                     type='text'
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
+                    name='todo'
+                    required
+                    value={input.todo}
+                    onChange={(e) => setInput({...input, [e.target.name]: e.target.value})}
+                />
+                <label>Completion Deadline</label>
+                <input
+                    type="date"
+                    name='deadline'
+                    value={input.deadline}
+                    onChange={(e) => setInput({...input, [e.target.name]: e.target.value})}
                 />
                 <input
                     type="submit"

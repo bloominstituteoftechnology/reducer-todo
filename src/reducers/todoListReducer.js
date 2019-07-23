@@ -1,9 +1,12 @@
+import moment from 'moment'
+
 export const todoListReducer = (state, {type, payload}) => {
     switch(type){
         case 'ADD_TODO':
             const newTodo ={
                 id: Date.now(),
-                todo: payload,
+                todo: payload.todo,
+                deadline: payload.deadline,
                 completed: false
             }
             return [...state, newTodo]
@@ -13,7 +16,11 @@ export const todoListReducer = (state, {type, payload}) => {
         case 'COMPLETE_ITEM':
             const completedItem = state.map(todo => {
                 if(todo.id === payload)
-                    return {...todo, completed:!todo.completed}
+                    todo.completed=!todo.completed
+                if(todo.completed)
+                    return {...todo, timeCompleted: moment().format('MMMM Do YYYY')}
+                else
+                    delete todo.timeCompleted
                 return todo
             })
             return [...completedItem]
