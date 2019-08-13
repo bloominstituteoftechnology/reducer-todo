@@ -55,6 +55,10 @@ export const toDoReducer = (toDoTasks, action) => {
           return toDoTask;
         }
       });
+    case "DELETE_COMPLETED_TODO":
+      return toDoTasks.filter(toDoTask => {
+        return toDoTask.completed !== true;
+      });
 
     default:
       return toDoTasks;

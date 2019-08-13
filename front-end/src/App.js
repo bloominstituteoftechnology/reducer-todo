@@ -38,6 +38,12 @@ function App() {
     });
   };
 
+  const deleteCompletedToDoTask = () => {
+    dispatch({
+      type: "DELETE_COMPLETED_TODO"
+    });
+  };
+
   const hasToDoTasks = toDoTasks.length > 0;
 
   let displayToDoTasks;
@@ -49,6 +55,7 @@ function App() {
         completeToDoTask={completeToDoTask}
         deleteToDoTask={deleteToDoTask}
         undoCompletedToDoTask={undoCompletedToDoTask}
+        deleteCompletedToDoTask={deleteCompletedToDoTask}
       />
     );
   } else {
