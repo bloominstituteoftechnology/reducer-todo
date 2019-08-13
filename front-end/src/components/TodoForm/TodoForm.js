@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { format } from "date-fns";
 import { Button, Card, Form, Message } from "semantic-ui-react";
+import { DateInput } from "semantic-ui-calendar-react";
 import styles from "./TodoForm.module.scss";
 export default class TodoForm extends Component {
   constructor() {
@@ -8,7 +10,8 @@ export default class TodoForm extends Component {
       task: {
         id: new Date().getTime(),
         task_name: "",
-        completed: false
+        completed: false,
+        completed_by: ""
       },
       errorMessage: ""
     };
@@ -21,8 +24,6 @@ export default class TodoForm extends Component {
       this.props.newTask(this.state.task);
       this.reset();
     }
-
-    //console.log(this.state.taskName);
   };
 
   handleInputChange = event => {
@@ -32,6 +33,11 @@ export default class TodoForm extends Component {
     this.setState({ errorMessage: "" });
   };
 
+  handleDueDateChange = (event, { name, value }) => {
+    this.setState({
+      task: { ...this.state.task, [name]: value }
+    });
+  };
   reset = () => {
     this.setState({
       task: {
@@ -66,19 +72,33 @@ export default class TodoForm extends Component {
         </Card.Content>
         <Card.Content className={styles.toDoFormContent}>
           <Form onSubmit={this.handleSubmit} className={styles.toDoForm}>
-            <Form.Field>
-              <label htmlFor="taskName">Task</label>
-              <input
-                className={styles.taskInput}
-                name="taskName"
-                placeholder="Name"
-                onChange={this.handleInputChange}
-                value={this.state.task.task_name}
-              ></input>
-            </Form.Field>
-            {this.state.errorMessage && (
-              <Message negative content={this.state.errorMessage} />
-            )}
+            <Form.Group widths="equal">
+              <Form.Field>
+                <input
+                  className={styles.taskInput}
+                  name="taskName"
+                  placeholder="Task Name"
+                  onChange={this.handleInputChange}
+                  value={this.state.task.task_name}
+                ></input>
+              </Form.Field>
+              {this.state.errorMessage && (
+                <Message negative content={this.state.errorMessage} />
+              )}
+              <Form.Field>
+                <DateInput
+                  dateFormat="YYYY-MM-DD"
+                  iconPosition="left"
+                  inline
+                  name="completed_by"
+                  minDate={format(new Date(), "YYYY-MM-DD")}
+                  onChange={this.handleDueDateChange}
+                  placeholder="Due Date"
+                  value={this.state.task.completed_by}
+                />
+              </Form.Field>
+            </Form.Group>
+
             <Button type="submit" className={styles.createTaskButton}>
               Create
             </Button>

@@ -9,6 +9,7 @@ function App() {
   const [toDoTasks, dispatch] = useReducer(toDoReducer, initialToDoTasks);
 
   const addToDoTask = task => {
+    console.log(task);
     dispatch({
       type: "ADD_TODO",
       todo: task
