@@ -1,12 +1,18 @@
-import React, { useReducer } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import { Grid, Message, GridColumn } from "semantic-ui-react";
-
+import axios from "axios";
 import { initialToDoTasks, toDoReducer } from "./reducers/todoReducer.js";
 import Navbar from "./components/Navbar/Navbar";
 import AddTodo from "./components/TodoForm/TodoForm";
 import ToDoTasks from "./components/TodoList/TodoList";
 function App() {
   const [toDoTasks, dispatch] = useReducer(toDoReducer, initialToDoTasks);
+
+  // useEffect(() => {
+  //   axios.get("http://localhost:5000/api/todos").then(response => {
+  //     setToDos(response.data);
+  //   });
+  // }, []);
 
   const addToDoTask = task => {
     console.log(task);
