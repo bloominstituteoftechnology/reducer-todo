@@ -1,0 +1,8 @@
+@import "../../assets/shared.module.scss";
+.deleteButton {
+  color: $deepRed !important;
+}
+
+.completedTask {
+  text-decoration: line-through;
+}

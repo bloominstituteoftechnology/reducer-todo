@@ -1,0 +1,10 @@
+@import "../../assets/styles/shared.module.scss";
+.toDoListCard {
+  .cardHeaderContent {
+    font-family: $headingFont !important;
+    background-color: $cardHeaderColor !important;
+    .cardHeader {
+      color: $lightFontColor !important;
+    }
+  }
+}
