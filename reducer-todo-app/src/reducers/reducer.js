@@ -4,7 +4,7 @@ export const initialState = {
     id: 24601
   };
 
-  export const titleReducer = (state, action) => {
+  export const simpleReducer = (state, action) => {
       switch(action.type) {
           default: 
             return state;
