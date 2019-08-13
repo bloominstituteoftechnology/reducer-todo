@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useState } from 'react';
-import AppContext from './context/AppContext';
-import { ADD_TODO } from './reducers/TodosReducer';
+import  AppContext from '../context/AppContext';
+import { ADD_TODO } from '../reducers/TodoReducer';
 
 const style = {
     display: 'flex',
@@ -8,7 +8,7 @@ const style = {
     width: '200px'
 };
 
-function Form() {
+function TodosApp() {
     const [todoText, setTodoText] = useState('');
     const { todosDispatch } = useContext(AppContext);
     const inputField = useRef(null);
