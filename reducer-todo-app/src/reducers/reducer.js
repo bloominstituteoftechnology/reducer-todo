@@ -1,10 +1,14 @@
 export const initialState = {
-    todoitem: "Let's learn reducers!",
-    completed: false,
-    id: 24601
+    todos: [
+        {
+            todoitem: "Let's learn reducers!",
+            completed: false,
+            id: 24601
+        }
+    ]
   };
 
-  export const simpleReducer = (state, action) => {
+  export const reducer = (state, action) => {
       switch(action.type) {
           default: 
             return state;
