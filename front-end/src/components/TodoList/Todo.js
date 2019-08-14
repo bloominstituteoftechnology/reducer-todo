@@ -9,7 +9,7 @@ const Todo = ({ task, completeTask, deleteTask, undoTask }) => {
         <Grid.Row columns={5} verticalAlign="middle">
           <Grid.Column width={1}>
             <Checkbox
-              checked={task.completed}
+              checked={task.is_completed === 0 ? false : true}
               onChange={() => completeTask(task.id)}
             />
           </Grid.Column>
@@ -23,15 +23,15 @@ const Todo = ({ task, completeTask, deleteTask, undoTask }) => {
           <Grid.Column width={8}>
             <Header
               as="h5"
-              className={task.completed ? styles.completedTask : ""}
+              className={task.is_completed ? styles.completedTask : ""}
             >
-              {task.task_name}
+              {task.name}
             </Header>
           </Grid.Column>
           <Grid.Column width={3}>
             {!task.completed && (
               <Header as={"h5"} color="red">
-                Due {format(task.completed_by, "MM/DD/YYYY")}
+                Due {format(task.start_time, "MM/DD/YYYY")}
               </Header>
             )}
           </Grid.Column>

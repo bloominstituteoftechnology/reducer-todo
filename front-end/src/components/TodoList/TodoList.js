@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Card, Grid, List } from "semantic-ui-react";
 
 import Task from "./Todo";
-import styles from "./ToDoList.module.scss";
+// import styles from "./ToDoList.module.scss";
 
 const ToDoList = ({
   tasks,

@@ -33,6 +33,8 @@ export let initialToDoTasks = [
 
 export const toDoReducer = (toDoTasks, action) => {
   switch (action.type) {
+    case "INITIALIZE":
+      return action.payload;
     case "ADD_TODO":
       return [...toDoTasks, action.todo];
     case "DELETE_TODO":
