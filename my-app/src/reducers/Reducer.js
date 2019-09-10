@@ -1,26 +1,30 @@
 
 //reducer
 export const initialState = {
-    item: 'Learn about reducers',
-    completed: false,
-    id: 3892987589
-  }
+    title: "Let's learn reducers!",
+    editing: false
+  };
+
+
 
   export const todoReducer = (state, action) => {
     switch (action.type) {
       case "TOGGLE_EDITING":
         return {
-          ...state,
-          completed: !state.completed
-        };
+            item: 'Learn about reducers',
+            completed: false,
+            id: 1
+          }
       case "UPDATE_TITLE":
         return {
-          ...state,
-          completed: !state.completed,
-          title: action.payload
-        };
+            item: 'Learn about react',
+            completed: false,
+            id: 2
+          }
       default:
         return state;
     }
   };
+
+
   
