@@ -1,7 +1,7 @@
 import React from "react";
-import Todo from "/Todo";
+import Todo from "../ToDo";
 
-const TodoList = props => {
+const ToDoList = props => {
     console.log(props);
     return (
         <div className="todo-list">
@@ -15,4 +15,4 @@ const TodoList = props => {
     );
 };
 
-export default TodoList;
+export default ToDoList;
