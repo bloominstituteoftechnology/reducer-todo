@@ -8,8 +8,12 @@
   flex-direction: column;
   width: 400px;
   height: auto;
-  background: red;
+  background: lightgray;
  
+}
+
+.Items{
+  padding: 10px;
 }
 
 .Input{

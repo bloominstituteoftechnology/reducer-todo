@@ -1,7 +1,7 @@
 import React, { useState, useReducer } from "react";
 import { initialState, todoReducer } from "../reducers/Reducer";
 
-import Todo from "./Todo";
+
 
 const TodoList = props => {
     const [state, dispatch] = useReducer(todoReducer, initialState);
@@ -26,11 +26,14 @@ return (
           
         {state.map(state=> {
             return(
-                state.item
+                <div className="Items">
+                {state.item}</div>
+                
             )
             
         }
             )}
+            
             <input
             className="Input"
             type="text"
@@ -39,12 +42,14 @@ return (
             onChange={handleChanges}
           />
 
-
+        <button 
+        className="BtnAddItem"  
            onClick={() => {
             dispatch({ type: "Toggle", payload: toggle });
             setToggle("");
           }}
-
+          > Toggle Item
+        </button>
 
 
         
