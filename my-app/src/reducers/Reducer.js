@@ -1,39 +1,42 @@
 
 //reducer
-export const initialState = {
-    title: "Let's learn reducers!",
-    completed: false
-  };
+export const initialState = [
+    {
+        item: 'Learn about javaScript',
+        completed: false,
+        id: 1
+      },
 
+
+      {
+        item: 'Learn about reducers',
+        completed: false,
+        id: 2
+      },
+
+
+      {
+        item: 'Learn about react',
+        completed: false,
+        id: 3
+      },
+
+      {
+        item: 'Learn about ',
+        completed: false,
+        id: 4
+      }
+
+
+]
+    
 
 
   export const todoReducer = (state, action) => {
     switch (action.type) {
 
-        case "one":
-                return {
-                    ...state,
-                    item: 'Learn about CSS',
-                    completed: false,
-                    id: 1
-                  }
-
-      case "TOGGLE_EDITING":
-        return {
-            ...state,
-            item: 'Learn about react',
-            completed: false,
-            id: 2
-          }
-      case "UPDATE_TITLE":
-        return {
-            ...state,
-            item: 'Learn about Reducers',
-            completed: false,
-            id: 3
-          }
-      default:
-        return state;
+    default:
+            return state;
     }
   };
 
