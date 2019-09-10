@@ -6,7 +6,7 @@ import { initialState, todoReducer } from "../reducers/Reducer";
 const TodoList = props => {
     const [state, dispatch] = useReducer(todoReducer, initialState);
 
-    const [newTitleText, setNewTitleText] = useState("");
+    const [newTitleText, setNewTitleText,] = useState("");
     const [toggle, setToggle] = useState("");
 
 
@@ -42,14 +42,21 @@ return (
             onChange={handleChanges}
           />
 
-        <button 
-        className="BtnAddItem"  
-           onClick={() => {
-            dispatch({ type: "Toggle", payload: toggle });
-            setToggle("");
-          }}
-          > Toggle Item
-        </button>
+
+
+        {state.map(state=> {
+            return(
+                
+                onClick={() => {
+                    dispatch({ type: "Toggle", payload: state.id });
+                    setToggle("");
+                  }}
+                
+            )
+            
+        }
+            )}  
+
 
 
         

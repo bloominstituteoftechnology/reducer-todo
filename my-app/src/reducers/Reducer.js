@@ -22,7 +22,7 @@ export const initialState = [
       },
 
       {
-        item: 'Learn about',
+        item: 'Learn CSS',
         completed: false,
         id: 4
       }
@@ -44,8 +44,8 @@ export const initialState = [
 
                 }];
 
-
         case "Toggle":
+
                     let Clicktoggle =
 
                 state.map(item => {
