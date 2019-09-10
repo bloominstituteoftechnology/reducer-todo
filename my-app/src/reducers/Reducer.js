@@ -22,7 +22,7 @@ export const initialState = [
       },
 
       {
-        item: 'Learn about ',
+        item: 'Learn about',
         completed: false,
         id: 4
       }
@@ -34,6 +34,37 @@ export const initialState = [
 
   export const todoReducer = (state, action) => {
     switch (action.type) {
+        case "AddTodo":
+            return [...state,
+                {
+            
+              item: action.payload,
+              completed: false,
+              id: Date.now()
+
+                }];
+
+
+        case "Toggle":
+                    let Clicktoggle =
+
+                state.map(item => {
+                        if (item.id === action.payload) {
+                        return {
+                          ...item,
+                          completed: !item.completed
+                        }
+                      } else {
+                        return item;
+                      }
+                      });
+                      return Clicktoggle;
+                     
+                    
+                
+                  
+     
+    
 
     default:
             return state;
