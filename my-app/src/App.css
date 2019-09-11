@@ -13,7 +13,9 @@
 }
 
 .Items{
+  
   padding: 10px;
+
 }
 
 .Input{
@@ -23,5 +25,6 @@
 
 }
 .BtnAddItem{
+  
   margin: 10px;
 }
