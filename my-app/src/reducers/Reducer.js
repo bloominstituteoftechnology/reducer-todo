@@ -34,6 +34,9 @@ export const initialState = [
 
   export const todoReducer = (state, action) => {
     switch (action.type) {
+
+// ADD TODO
+
         case "AddTodo":
             return [...state,
                 {
@@ -44,15 +47,18 @@ export const initialState = [
 
                 }];
 
+
+// TOGGLE TODO
+
         case "Toggle":
 
-                    let Clicktoggle =
+            let Clicktoggle =
 
-                state.map(item => {
-                        if (item.id === action.payload) {
-                        return {
-                          ...item,
-                          completed: !item.completed
+            state.map(item => {
+                    if (item.id === action.payload) {
+                    return {
+                        ...item,
+                        completed: !item.completed
                         }
                       } else {
                         return item;
@@ -61,15 +67,28 @@ export const initialState = [
                       return Clicktoggle;
                      
                     
-                
-                  
+// SUBTRACT TODO
+
+        case "SubtractTodo":
+       let Subtract =
+       state.filter(item => {
+           if (item.completed === true) {
+               return !item.completed
+           }else{
+               return item
+           }
+           }
+       )
+       return Subtract;           
+
+
      
     
 
     default:
             return state;
-    }
-  };
-
-
+    };
   
+
+
+}

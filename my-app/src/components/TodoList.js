@@ -7,7 +7,7 @@ const TodoList = props => {
     const [state, dispatch] = useReducer(todoReducer, initialState);
 
     const [newTitleText, setNewTitleText,] = useState("");
-    const [toggle, setToggle] = useState("");
+    //const [toggle, setToggle] = useState("");
 
 
     const handleChanges = e => {
@@ -24,17 +24,33 @@ return (
   
       <div className="Container">
           
+            <h1>REDUCER TODO</h1>
+            
+
+
+
         {state.map(state=> {
-            return(
-                <div className="Items">
-                {state.item}</div>
-                
+            return( 
+            
+                <div onClick={() => {
+                    dispatch({ type: "Toggle", payload: state.id });
+                    //setToggle("");
+                  }} >
+
+                  {state.item + ", "}
+               
+                  
+                  </div>
+                  
             )
-            
+             
         }
-            )}
-            
-            <input
+            )}  
+
+
+{/* Input field */}
+
+        <input
             className="Input"
             type="text"
             name="newTitle"
@@ -42,33 +58,29 @@ return (
             onChange={handleChanges}
           />
 
-
-
-        {state.map(state=> {
-            return(
-                
-                onClick={() => {
-                    dispatch({ type: "Toggle", payload: state.id });
-                    setToggle("");
-                  }}
-                
-            )
-            
-        }
-            )}  
-
-
-
-        
+        {/* ADD TO DO */}
         <button
         className="BtnAddItem"
           onClick={() => {
             dispatch({ type: "AddTodo", payload: newTitleText });
-            setNewTitleText("");
+            
           }}
         >
           Add Item
         </button>
+
+        {/* Subtract TO DO */}
+        <button
+        className="BtnAddItem"
+          onClick={() => {
+            dispatch({ type: "SubtractTodo", payload: newTitleText });
+            
+          }}
+        >
+          Subtract Item
+        </button>
+
+
 
 
 
