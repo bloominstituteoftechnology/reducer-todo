@@ -18,7 +18,7 @@ const Todo = props => {
 
         {state.map(state => {
           return (
-            <div
+            <div className = {state.completed ? "completed" : ""}
               onClick={() => {
                 dispatch({ type: "Toggle", payload: state.id });
               }}
