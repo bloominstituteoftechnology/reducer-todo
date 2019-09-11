@@ -1,7 +1,9 @@
-import React from "react";
-import TodoForm from "./components/ToDo-Form";
-import ToDoList from "./components/ToDo-List";
+import React, { useState, useReducer } from "react";
+import TodoForm from "./components/ToDoForm";
+import TodoList from "./components/ToDoList";
+
 import "./components/ToDo.css";
+import { listReducer, initialState } from "./components/reducers/listReducers";
 
 const todoData = [
   {
@@ -13,62 +15,32 @@ const todoData = [
     task: "Bake Cookies",
     id: 1528817084358,
     completed: false
+
   }
 ];
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      todo: todoData
-    };
-  }
+function App() {
+  const [task, setTask] = useState([]);
+  const [state, dispatch] = useReducer(listReducer, initialState);
+  const toggleItem = id => dispatch({ type: "TOGGLE_ITEM", payload: id });
 
-  addTask = taskName => {
-    const newTask = {
-      task: taskName,
-      id: Date.now(),
-      completed: false
-    };
-    this.setState({
-      todo: [...this.state.todo, newTask]
-    });
-    console.log(this.state.todo, "New Task has been added");
+
+  const clearCompleted = () => {
+    dispatch({ type: "CLEAR_ITEMS" });
   };
 
-  toggleItem = id => {
-    this.setState({
-      todo: this.state.todo.map(item => {
-        if (item.id === id) {
-          return {
-            ...item,
-            completed: !item.completed
-          };
-        } else {
-          return item;
-        }
-      })
-    });
-  };
-
-  clearCompleted = () => {
-    this.setState({
-      todo: this.state.todo.filter(task => !task.completed)
-    });
-  };
-  render() {
-    return (
-        <div className = "MainList">
-          <h2>Welcome to your Todo App!</h2>
-          <TodoForm addTask={this.addTask} />
-          <ToDoList
-              todo={this.state.todo}
-              toggleItem={this.toggleItem}
-              clearCompleted={this.clearCompleted}
-          />
-        </div>
-    );
-  }
+  console.log(state);
+  return (
+      <div>
+        <h2>Welcome to your Todo App!</h2>
+        <TodoForm dispatch={dispatch} />
+        <TodoList
+            todo={state.todoData}
+            toggleItem={toggleItem}
+            clearCompleted={clearCompleted}
+        />
+      </div>
+  );
 }
 
 export default App;

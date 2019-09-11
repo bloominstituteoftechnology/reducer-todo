@@ -1,8 +1,8 @@
 import React from "react";
-import Todo from "../ToDo";
+import Todo from "./Todo";
 
-const ToDoList = props => {
-    console.log(props);
+const TodoList = props => {
+    console.log("Props in TodoList", props);
     return (
         <div className="todo-list">
             {props.todo.map((task, id) => (
@@ -15,4 +15,4 @@ const ToDoList = props => {
     );
 };
 
-export default ToDoList;
+export default TodoList;
