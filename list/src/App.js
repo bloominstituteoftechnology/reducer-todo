@@ -3,6 +3,7 @@ import './App.css';
 
 import {initialState, reducer} from "./reducers/reducer"
 import Form from "./components/Form"
+import Item from "./components/Item"
 
 function App() {
 
@@ -12,7 +13,7 @@ function App() {
     <div className="App">
       <Form dispatch={dispatch}/>
       {state.map(item => {
-        return <p key={item.id}>{item.item}</p>
+        return <Item key={item.id} item={item} dispatch={dispatch}/>
       })}
     </div>
   );
