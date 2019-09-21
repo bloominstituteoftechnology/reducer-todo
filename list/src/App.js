@@ -12,9 +12,11 @@ function App() {
   return (
     <div className="App">
       <Form dispatch={dispatch}/>
+      <button onClick={() => dispatch({type: "removeCompleted"})}>Remove Completed</button>
       {state.map(item => {
         return <Item key={item.id} item={item} dispatch={dispatch}/>
       })}
+      
     </div>
   );
 }
