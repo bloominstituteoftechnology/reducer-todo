@@ -1,5 +1,5 @@
 export const initialState = [{
-        item: 'bergur',
+        item: 'borgur',
         completed: false,
         id: 0
     },
@@ -9,7 +9,7 @@ export const initialState = [{
         id: 1
     },
     {  
-        item: 'banananana',
+        item: 'bananananananana',
         completed: false,
         id: 2
     },

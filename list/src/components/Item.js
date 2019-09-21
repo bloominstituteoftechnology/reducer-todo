@@ -5,7 +5,7 @@ const Item = (props) => {
     return (
         <div>
             <p 
-                className={props.item.completed ? "completed": ""}
+                className={props.item.completed ? "completed todo": "todo"}
                 onClick={() => {
                     props.dispatch({type: "toggleCompleteness", payload:props.item.id})
                     console.log(props.item.id)
