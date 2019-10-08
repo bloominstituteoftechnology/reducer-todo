@@ -44,6 +44,13 @@ export const reducer = (state, action) => {
                 };
             })
         };
+
+
+        case "CLEAR_CHORE":
+            return{
+                ...state,
+                todos: state.todos.filter(item=>!item.completed)
+            };
             
 
     

@@ -1,7 +1,8 @@
 import React,{useState} from 'react';
 
 
-const TodoForm = ({dispatch}) => {
+const TodoForm = ({dispatch, state}) => {
+    // console.log("state",state)
     const [newChore, setNewChore] = useState("");
 
     const handleChanges = e =>{
@@ -13,10 +14,10 @@ const TodoForm = ({dispatch}) => {
         dispatch({ type: 'ADD_CHORE', payload: newChore })
         }
 
-    // const clearChore = e =>{
-    //     e.preventDefault();
-    //     dispatch({type: "CLEAR_CHORE", })
-    // }
+    const clearChore = e =>{
+        e.preventDefault();
+        dispatch({type: "CLEAR_CHORE", payload: state.todos.completed })
+    }
     
 
     const handleSubmit = e =>{
@@ -32,7 +33,7 @@ const TodoForm = ({dispatch}) => {
                 onChange={handleChanges}
             />
             <button type="submit" onClick={submitChore}>Add Chore</button>
-            <button type="submit"  >Clear Chores</button>
+            <button type="submit" onClick={clearChore} >Clear Completed</button>
         </form>
     
 )
