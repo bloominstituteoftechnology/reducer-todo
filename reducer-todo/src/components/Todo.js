@@ -1,4 +1,8 @@
 import React from 'react';
+import Checkbox from '@material-ui/core/Checkbox';
+
+
+
 
 function Todo({ todo, dispatch }) {
     const toggleCompleted = () => {
@@ -9,12 +13,16 @@ function Todo({ todo, dispatch }) {
     };
 
     return (
+
         <div
             onClick={toggleCompleted}
             className={`todo$(todo.completed ? "completed" : "")`}
             style={{ textDecoration: todo.completed ? "line-through" : "" }}
+
         >
             <p>{todo.item}</p>
+
+
 
         </div>
     );
