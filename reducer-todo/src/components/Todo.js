@@ -12,9 +12,9 @@ function Todo({ todo, dispatch }) {
         <div
             onClick={toggleCompleted}
             className={`todo$(todo.completed ? "completed" : "")`}
-        // style={{ textDecoration: todo.completed ? "line-through" : "" }}
+            style={{ textDecoration: todo.completed ? "line-through" : "" }}
         >
-            {/* <p>{todo.item}</p> */}
+            <p>{todo.item}</p>
 
         </div>
     );
