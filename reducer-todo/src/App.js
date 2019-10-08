@@ -1,18 +1,43 @@
-import React,{useReducer} from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useReducer} from "react";
 import { initialState, reducer } from './reducer/reducer';
-import Todolist from './components/Todolist';
-import TodosForm from './components/TodosForm';
+import TodosForm from "./components/TodosForm";
+import TodosList from "./components/Todolist";
 
-function App() {
-  const [todos, dispatch] = useReducer(reducer, initialState);
+const App = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const  addTodo =  event  => {
+      event.preventDefault();
+        dispatch({ type:"ADD_TODOS", payload: state.todo});
+      };
+    
+     const handleChange = event => {
+       dispatch({ type:"HANDLE_CHANGE", payload: event.target.value });
+      };
+    
+      const toggleComplete = todo => {
+       dispatch({ type:"TOGGLE_COMPLETE", payload: todo});
+      };
+    
+     const  clearCompleted = () => {
+        const newTodos = state.todos.filter(todo => !todo.isCompleted);
+        dispatch({ type:"CLEAR_COMPLETED", payload: newTodos });
+      };
+
   return (
-    <div className="App">
-      <Todolist todos={todos}></Todolist>
-      <TodosForm></TodosForm>
-    </div>
-  );
+          <div>
+            <h1>Todo List</h1>
+            <TodosForm
+              title={state.todo}
+              onChange={handleChange}
+              addTodo={addTodo}
+              clearCompleted={clearCompleted}
+            />
+            <TodosList
+              todos={state.todos}
+              onToggleComplete={toggleComplete}
+            />
+          </div>
+        );
 }
 
-export default App;
+ export default App;
