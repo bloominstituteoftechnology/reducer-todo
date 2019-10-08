@@ -1,17 +1,34 @@
-import React from "react"
-import {initialState, reducer} from '../reducers/todoReducer.js'
+import React, {useState} from "react"
+// import Item from './item'
 
-export default function Form () {
+
+
+
+export default function Form ({ dispatch}) {
     
+    const [items, setItem] = useState('');
 
-    return (
-        <div className="form-container">
-            <form>
-                Add To-do Item:
-                <input type="text" name="todo-item" placeholder="Enter Here"/>
-            </form>
-            <button>Add Item</button>
+    const handleChanges = e => {        
+        setItem(e.target.value);
+        
+    }
+console.log(items)
+    return (        
+            <div className="form-container">
+                <form onSubmit= {(e)=> 
+                    {dispatch({type: 'ADD_ITEM', payload: items });
+                    e.preventDefault();
+                    }
+                    
+                    }>
+                    Add To-do Item:
+                    <input onChange={handleChanges} type="text" name="todo-item" value={items} placeholder="Enter Here"/>
+                
+                <button  type="submit" >Add Item</button>
+                </form>
+                
+            </div>
             
-        </div>
+        
     )
 }
