@@ -1,8 +1,9 @@
-import React, {useReducer, useState} from 'react';
+import React, {useReducer} from 'react';
 import { initialState, reducer, showReducer, ADD_TODO, INPUT_RESET, UPDATE_TEXT, TOGGLE, reducerString, initialText, initialSetShow, VISIBILITY } from '../reducers/reducer';
 import Form from './Form';
 import VisibilityControl from './VisibilityControl';
 import TodoRow from './TodoRow';
+import TodoTable from './TodoTable';
 
 export default function Todos(){
 
@@ -39,7 +40,9 @@ export default function Todos(){
     return (
         <div>
         <Form newItemItext={newItemItext} updateNewTextValue={updateNewTextValue} createNewTodo={createNewTodo}/>
+        <TodoTable todoTableRows={todoTableRows}/>
         <VisibilityControl description="Completed Tasks" isChecked={showCompleted} callback={(checked) => showDispatch({type: VISIBILITY, payload: checked})}/>
+        <h4>All tasks</h4>
         {
             todoItems.map((todo) => {
             return <div key={todo.id}>
@@ -50,7 +53,7 @@ export default function Todos(){
         }
         {showCompleted && <table>
                 <thead>
-                    <tr><th>Description</th></tr>
+                    <tr><th>Completed Tasks</th></tr>
                 </thead>
                 <tbody>
                     {todoTableRows(true)}
