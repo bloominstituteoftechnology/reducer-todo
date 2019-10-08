@@ -15,8 +15,8 @@ export default function Form ({ dispatch}) {
 console.log(items)
     return (        
             <div className="form-container">
-                <form onSubmit= {(e)=> 
-                    {dispatch({type: 'ADD_ITEM', payload: items });
+                <form onSubmit= {(e)=> {
+                    dispatch({type: 'ADD_ITEM', payload: items });
                     e.preventDefault();
                     }
                     
@@ -26,6 +26,10 @@ console.log(items)
                 
                 <button  type="submit" >Add Item</button>
                 </form>
+                <button onClick ={() => {
+                    dispatch({type: 'CLEAR_COMPLETED'})}} >
+                    Clear
+                    </button>
                 
             </div>
             

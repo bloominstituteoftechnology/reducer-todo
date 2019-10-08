@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <Form dispatch={dispatch}/>
-      <List state={state} />
+      <List state={state} dispatch={dispatch} />
     </div>
   );
 }
