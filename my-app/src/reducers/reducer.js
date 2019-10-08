@@ -28,7 +28,24 @@ export const reducer = (state, action) => {
 
 
         case "TOGGLE_CHORE":
+
+        return{
+            ...state,
+            todos: 
+            state.todos.map(todo =>{
+                console.log("todo",todo)
+                if (todo.id === action.payload){
+                    return {
+                        ...todo,
+                        completed: !todo.completed
+                    };
+                }else{
+                    return todo;
+                };
+            })
+        };
             
+
     
 
 

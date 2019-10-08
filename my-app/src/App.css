@@ -20,3 +20,8 @@
 .App-link {
   color: #09d3ac;
 }
+
+
+.completed {
+  text-decoration: line-through;
+}

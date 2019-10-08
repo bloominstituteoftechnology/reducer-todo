@@ -32,7 +32,7 @@ const TodoForm = ({dispatch}) => {
                 onChange={handleChanges}
             />
             <button type="submit" onClick={submitChore}>Add Chore</button>
-            <button type="submit" onClick={clearChore} ></button>
+            <button type="submit"  >Clear Chores</button>
         </form>
     
 )
