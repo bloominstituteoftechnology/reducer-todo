@@ -1,28 +1,33 @@
 import uuid from "uuid";
 
+const date = new Date('July 22, 2019 07:22:13')
+const date1 = new Date('July 22, 2020 07:22:13')
+const date2 = new Date('July 22, 2021 07:22:13')
 const initialTodos = [
   {
     title: "Learn about reducers",
     isCompleted: false,
-    id: 389298789
+    id: date.toString(),
   },
   {
-    title: "Learn about reducers",
+    title: " Review Frontend Masters",
     isCompleted: false,
-    id: 3892987589
+    id:date1.toString(),
   },
   {
-    title: "Learn about reducers",
+    title: "Attempt replit assignment",
     isCompleted: false,
-    id: 389298759
+    id: date2.toString(),
   }
 ];
 
+//slices of state
 const initialState = {
   todos: initialTodos,
   todo: ""
 };
 
+//action type
 const ADD_TODOS = "ADD_TODOS";
 const HANDLE_CHANGE = "HANDLE_CHANGE";
 const TOGGLE_COMPLETE = "TOGGLE_COMPLETE";
@@ -35,7 +40,7 @@ function reducer(state, action) {
       return { ...state, todo: action.payload };
     case ADD_TODOS:
       const newTodo = {
-        id: uuid(),
+        id: Date(Date.now()).toString(),
         title: state.todo,
         isCompleted: false
       };

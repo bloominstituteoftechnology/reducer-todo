@@ -2,8 +2,8 @@ import React from "react";
 
 const Todo = (props) => {
   const { isCompleted, todo, onToggleComplete, title } = props;
-  return (
-          <li
+  return (<div className="date-todo">
+          <ul
             className="todo"
             style={{
               textDecoration: isCompleted ? "line-through" : undefined,
@@ -12,9 +12,9 @@ const Todo = (props) => {
             }}
             onClick={() => onToggleComplete(todo)}
           >
-            {title}
-          </li>
-        );
+            {title} is due by {todo.id}
+          </ul>
+          </div> );
 }
 
 export default Todo;
