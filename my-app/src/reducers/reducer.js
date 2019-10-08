@@ -14,19 +14,25 @@ todos: [
 export const reducer = (state, action) => {
     switch(action.type){
         case "ADD_CHORE":
+            
             const newChore = {
                 item: action.payload,
                 completed: false,
                 id: Date.now()
             };
+
         return{
             ...state,
             todos: [...state.todos, newChore]
-        }
+        };
+
+
+        case "TOGGLE_CHORE":
+            
     
 
 
-    default;
+    default:
     return state;
     }
     

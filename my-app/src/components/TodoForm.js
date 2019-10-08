@@ -1,31 +1,42 @@
-import React from 'react';
-import {initialState, reducer} from "./reducers/reducer";
+import React,{useState} from 'react';
 
-const TodoForm = () => {
+
+const TodoForm = ({dispatch}) => {
     const [newChore, setNewChore] = useState("");
 
-    handleChanges = e =>{
-        e.preventDefault()
+    const handleChanges = e =>{
         setNewChore(e.target.value);
+    };
+
+    const submitChore = e =>{
+        e.preventDefault();
+        dispatch({ type: 'ADD_CHORE', payload: newChore })
+        }
+
+    // const clearChore = e =>{
+    //     e.preventDefault();
+    //     dispatch({type: "CLEAR_CHORE", })
+    // }
+    
+
+    const handleSubmit = e =>{
+        e.preventDefault();
     }
 
     return (
-    <div>
-        <input
-            type="text"
-            name="newTodo"
-            value={newChore}
-            onChange={handleChanges}
-        />
-        <button
-            onClick={() =>
-                dispatch({ type: 'ADD_CHORE', payload: newChore })
-            }
-            >
-        Add Chore</button>
-    </div>
+        <form onSubmit={handleSubmit}>
+            <input
+                type="text"
+                name="newTodo"
+                value={newChore}
+                onChange={handleChanges}
+            />
+            <button type="submit" onClick={submitChore}>Add Chore</button>
+            <button type="submit" onClick={clearChore} ></button>
+        </form>
+    
 )
-};
+    };
 
 
 export default TodoForm;
