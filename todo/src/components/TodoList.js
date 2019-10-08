@@ -1,13 +1,22 @@
-import React from 'react';
+import React, {useState, useReducer} from 'react';
 import Todo from './Todo';
+import {initialState, reducer} from '../reducers/reducer';
 
-const TodoList = props => {
+const TodoList = () => {
+
+    const [{tasks}, dispatch] = useReducer(reducer, initialState);
+
     return (
         <div className='todo-list'>
-            {props.tasks.map(item=>(
-                <Todo key={item.id} item={item} toggleTask={props.toggleTask}/>
+            {tasks.map(task=>(
+                console.log(task),
+                <Todo key={task.id} task={task}/>
             ))}
-            <button className='clear-button' onClick={props.clearCompleted}>Remove Completed</button>
+            
+            <button className='clear-button' 
+                onClick={()=> dispatch({type: 'TOGGLE_COMPLETED'})} >
+                Remove Completed
+            </button>
         </div>
     )
 };
