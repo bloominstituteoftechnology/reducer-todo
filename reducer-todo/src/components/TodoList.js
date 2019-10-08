@@ -1,18 +1,20 @@
-import React, { useReducer } from 'react';
-import Todo from './Todo';
-import TodoForm from './TodoForm'
+import React, { useReducer } from "react";
 
-import { reducer } from '../reducers/todoReducer'
+import { reducer, todo } from "../reducers/todoReducer";
+import Todo from "./Todo";
+import TodoForm from "./TodoForm";
 
-const TodoList = (props) => {
-    const [{ toggle }, dispatch] = useReducer(reducer, intialState);
+const TodoList = props => {
+    const [state, dispatch] = useReducer(reducer, todo);
 
     return (
-        <div className="todo-list">
+        <div>
             <TodoForm dispatch={dispatch} />
             {state.map(todo => {
-                return <Todo key={todo.id} todo={todo} dispatch={dispatch} />
+                return <Todo key={todo.id} todo={todo} dispatch={dispatch} />;
             })}
         </div>
-    )
-}
+    );
+};
+
+export default TodoList;

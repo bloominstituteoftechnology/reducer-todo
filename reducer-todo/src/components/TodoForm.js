@@ -1,9 +1,11 @@
-import React, { useState, useReducer } from 'react';
-import { reducer, todo } from '../reducers/todoReducer';
+import React, { useState, useReducer } from "react";
+import { reducer, todo } from "../reducers/todoReducer";
+import TodoList from "./TodoList";
 
 const TodoForm = ({ dispatch }) => {
-    const [item, setItem] = useState('');
-    console.log('state.todo', state, todo);
+    const [item, setItem] = useState("");
+
+    // console.log("state.todo", state, todo);
 
     const handleChanges = e => {
         setItem(e.target.value);
@@ -12,16 +14,16 @@ const TodoForm = ({ dispatch }) => {
     const submitForm = e => {
         e.preventDefault();
         dispatch({
-            type: 'ADD_TODO',
+            type: "ADD_TODO",
             payload: item
-        })
-        setItem('');
-    }
+        });
+        setItem("");
+    };
 
     const clearCompleted = e => {
         e.preventDefault();
         dispatch({
-            type: 'CLEAR_COMPLETED'
+            type: "CLEAR_COMPLETED"
         });
     };
 
@@ -30,10 +32,10 @@ const TodoForm = ({ dispatch }) => {
             <form onSubmit={submitForm}>
                 <label htmlFor="todo" hidden>
                     Todo
-                </label>
+        </label>
                 <input name="todo" onChange={handleChanges} value={item} />
                 <button>Add Todo</button>
-                <button onClick={clearCompleted}>Clear Clear Completed</button>
+                <button onClick={clearCompleted}>Clear Completed</button>
             </form>
         </div>
     );
