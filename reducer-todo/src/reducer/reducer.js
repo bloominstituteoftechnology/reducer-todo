@@ -1,23 +1,21 @@
 import uuid from "uuid";
+import moment from "moment";
 
-const date = new Date('July 22, 2019 07:22:13')
-const date1 = new Date('July 22, 2020 07:22:13')
-const date2 = new Date('July 22, 2021 07:22:13')
 const initialTodos = [
   {
     title: "Learn about reducers",
     isCompleted: false,
-    id: date.toString(),
+    id: moment('July 22 2019 07:22:13').format('MMMM Do YYYY, h:mm:ss a'),
   },
   {
     title: " Review Frontend Masters",
     isCompleted: false,
-    id:date1.toString(),
+    id:moment('February 22 2020 07:22:13').format('MMMM Do YYYY, h:mm:ss a'),
   },
   {
     title: "Attempt replit assignment",
     isCompleted: false,
-    id: date2.toString(),
+    id:moment('January 22 2020 07:22:13').format('MMMM Do YYYY, h:mm:ss a'),
   }
 ];
 
