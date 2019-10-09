@@ -11,8 +11,10 @@ const App = () => {
     dispatch({ type: "ADD_TODOS", payload: state.todo });
   };
 
-  const handleChange = event => {
-    dispatch({ type: "HANDLE_CHANGE", payload: event.target.value });
+  const handleChange =  todo => event => {
+    console.log("edited Todo", todo, event.target.value)
+    // var inputValue  = event.target.value;
+    dispatch({ type: "HANDLE_CHANGE", payload : { inputValue: event.target.value, todo} });
   };
 
   const toggleComplete = todo => {
@@ -25,14 +27,22 @@ const App = () => {
   };
 
   // const overDue = () => {
-  //   if (todo.due_by === Date.now()) return todo 
+  //   if (todo.due_by === Date.now()) return todo
   // }
 
+  const editTodo =  todo => e => {
+    e.preventDefault();
+    dispatch({ type: "EDIT_TODO", payload: todo });
+  };
 
   return (
     <div className="todos">
       <h1>Todo List</h1>
-      <TodosList todos={state.todos} onToggleComplete={toggleComplete} />
+      <TodosList
+        editTodo={editTodo}
+        todos={state.todos}
+        onToggleComplete={toggleComplete}
+      />
       <TodosForm
         title={state.todo}
         onChange={handleChange}

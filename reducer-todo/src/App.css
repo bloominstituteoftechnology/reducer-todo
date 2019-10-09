@@ -29,6 +29,12 @@
 .icon-button {
   background-color: lightcoral;
    border: none;
+   border-radius: 7em;
+}
+
+.icon-button:hover {
+  background-color: antiquewhite;
+ cursor: pointer;
 }
 .todos-form > button {
 
@@ -49,6 +55,7 @@
 .todos-form > input {
   margin: 0.5em;
   padding: 0.5em;
+  border: 1px solid lightcoral;
 }
 
 .App-logo {

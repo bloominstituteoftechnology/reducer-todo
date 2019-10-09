@@ -1,4 +1,3 @@
-import uuid from "uuid";
 import moment from "moment";
 
 const date = new Date('July 22 2019 07:22:13')
@@ -39,12 +38,23 @@ const ADD_TODOS = "ADD_TODOS";
 const HANDLE_CHANGE = "HANDLE_CHANGE";
 const TOGGLE_COMPLETE = "TOGGLE_COMPLETE";
 const CLEAR_COMPLETED = "CLEAR_COMPLETED";
+const EDIT_TODO = "EDIT_TODO";
 
 function reducer(state, action) {
   console.log("reducer state", state);
   switch (action.type) {
     case HANDLE_CHANGE:
-      return { ...state, todo: action.payload };
+      const editedTodo = {...action.payload.todo, title:action.payload.inputValue}
+      console.log("edited Todo", editedTodo)
+        const newEditedTodos = state.todos.map(_todo => {
+          if (_todo.id === action.payload.todo.id) {
+            return editedTodo;
+          } else {
+            return _todo;
+          }
+        });
+        return { todos: newEditedTodos };
+      // return { ...state, todo: action.payload };
     case ADD_TODOS:
       const newTodo = {
         id: Date(Date.now()).toString(),
@@ -69,6 +79,11 @@ function reducer(state, action) {
     case CLEAR_COMPLETED:
       return { ...state, todos: action.payload };
       // case OVER_DUE:
+      case EDIT_TODO:
+        return {...state, todo: action.payload.title}
+        
+  
+
 
     default:
       return state;
