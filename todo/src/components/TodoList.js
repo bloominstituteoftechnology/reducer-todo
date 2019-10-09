@@ -24,19 +24,22 @@ function TodoList() {
     // function to add todo when form is submitted
     const handleSubmit = event => {
         event.preventDefault();
-        dispatch({ type: 'ADDITEM', payload: newItem})
-        console.log(state);
+        dispatch({ type: 'ADDITEM', payload: newItem});
+        setNewItem(
+            {   item: '',
+                completed: false,
+                id: Date.now()
+            }
+        )
     }
 
     // return JSX that maps uncompleted TodoItem components to the screen
     return (
         <div>
             <div>
-                {state.map( item => {
-                    if (item.completed === false) {
-                        return <TodoItem key={item.id} item={item}/> 
-                    }
-                })}
+                {state.map( item =>
+                    <TodoItem key={item.id} item={item} dispatch={dispatch}/> 
+                )}
             </div>
             <form onSubmit={handleSubmit}>
                 <input type="text" 
@@ -46,6 +49,7 @@ function TodoList() {
                     onChange={(e) => handleChanges(e)}/>
                 <button>Add</button>
             </form>
+            <button onClick={() => dispatch({ type: 'CLEAR'})}>Clear Completed</button>
         </div>
     )
 };
