@@ -1,5 +1,7 @@
+import {useReducer} from 'react';
+
 export const initialState = {
-    tasks: [
+    tasks:[
         {
         task: 'Eat the apples.',
         id: 22,
@@ -10,32 +12,45 @@ export const initialState = {
         id: 23,
         completed: false,
         },
-    ]
-};
+        {
+        task: 'Rake the dirt.',
+        id: 24,
+        completed: false,
+        },
+        {
+        task: 'Find secret treasure.',
+        id: 25,
+        completed: false,
+        },
+]};
 
 export const reducer = (state, action) => {
     switch (action.type){
+
         case 'TOGGLE_COMPLETE':
             return {
                 ...state,
-                completed: !state.completed
+                tasks: state.tasks.map(task=>{
+                    if (task.id === action.payload){
+                        return { ...task, completed: !task.completed}
+                    } 
+                    else {
+                        return task;
+                    }
+                })
             };
+
+
         case 'ADD_TASK':
-            const newTask = {
-                task: action.payload,
-                id: Date.now(),
-                completed: false,
-            };
-            return{
-                ...state,
-                task: [...state.tasks, newTask]
-            };
-        case 'REMOVE_COMPLETED':
             return {
                 ...state,
-                initialState: [...state.tasks, !state.task.completed]
+                tasks: [...state.tasks, {task: action.payload, completed: false, id: Date.now()}]
             };
+
+
+        case 'CLEAR_COMPLETED':
+            return {...state, tasks: state.tasks.filter(task => !task.completed)};
         default:
-                return state;
+            return state;
     }
 }

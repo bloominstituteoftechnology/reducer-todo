@@ -35,24 +35,14 @@ h2{
   align-items: center;
 }
 
-.task{    
+.not-completed{    
   background-color: none;
-  border-bottom: .5px solid rgba(32, 32, 32, 0.815);
-  width: 45%;
-  text-align: left;
-  margin-bottom: 5px;
-  font-weight: 600;
   font-size: 1.25rem;
 }
 
-.taskcompleted{
+.completed{
   background-color: none;
-  border-bottom: .5px solid rgba(32, 32, 32, 0.815);
-  width: 45%;
-  text-align: left;
-  margin-bottom: 5px;
-  font-weight: 600;
-  font-size: 1.25rem;
+  font-size: 1.20rem;
   text-decoration: line-through;
   color: #0000008f;
 }
