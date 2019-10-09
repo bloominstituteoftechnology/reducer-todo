@@ -1,16 +1,21 @@
-import React from 'react';
-import Task from '../TodoComponents/Todo.js';
+import React from 'react'
 
+const TodoList = ({todoArr, toggleTodo}) => {
+console.log("TCL: TodoList -> toggleTodo", toggleTodo)
+console.log("TCL: TodoList -> todoArray", todoArr)
 
-const TodoList=props=>{
-    return (
-        <div className='Todo-List'>
-            {props.todos.map(task=>(
-                <Task key={task.id} task={task} toggleToDo={props.toggleToDo}/>
-            ))}
-            <button className='clear-form' onClick={props.clearCompleted}>Clear Completed Tasks</button>
+return (
+        <div>            
+        {todoArr.map(todo => (
+            <div key={todo.id}
+                onClick={() => toggleTodo(todo.id)}
+                className={todo.completed ? "completed" : ""}>
+                {todo.item}
+            </div>
+        ))}
+            
         </div>
-    );
-};
+    )
+}
 
-export default TodoList;
+export default TodoList

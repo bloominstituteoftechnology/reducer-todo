@@ -1,44 +1,39 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-class TodoForm extends React.Component{
-    constructor(){
-        super();
-        this.state={
-          task:''
-        };
-      }
+const TodoForm = (props) => {
+    const {addTodo, clearTodo} = props;
 
-      handChange=e=>{
-        this.setState({task:e.target.value})
-      }
+    const [item, setItem]=useState('');
 
-      onSubmit=(e)=>{
-          e.preventDefault();
-       this.props.addTodo(this.state.task);
-       this.setState({
-         task: ''
-       })
-      }
+    const handleChange =e => setItem(e.target.value)
 
-    render(){
-        console.log('...rendering form');
-        return(
-            <form
-            onSubmit={this.onSubmit}>
-                <input
-                type='text'
-                name='task'
-                value={this.state.task}
-                className='task'
-                onChange={(e)=>this.handChange(e)}
-                />
 
-                <button
-                type='submit'
-                >Add Task</button>
-            </form>
-        );
+    const handleSubmit = e =>{
+        e.preventDefault();
+        addTodo(item)
+        setItem('')
     }
+
+    const handleClear =e =>{
+        e.preventDefault();
+        clearTodo();
+    }
+
+    return (
+        <div>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type='text'
+                    name='item'
+                    value={item}
+                    onChange={handleChange}
+                    placeholder='Add To Do:'
+                    />
+                    <button type='submit'>Add To Do</button>
+                    <button onClick={handleClear}>Clear To Do</button>
+            </form>
+        </div>
+    )
 }
 
 export default TodoForm;
