@@ -8,12 +8,12 @@ const TodoList = props => {
     console.log(state);
 
     return (
-        <div>
+        <>
             <TodoForm dispatch={dispatch} />
             {state.map(todo => {
                 return <Todo key={todo.id} todo={todo} dispatch={dispatch} />
             })}
-        </div>
+        </>
     )
 } 
 

@@ -24,7 +24,7 @@ const TodoForm = ({ dispatch }) => {
     };
 
     return (
-        <div>
+        <div className = "todo-form">
             <form onSubmit={submitForm}>
                 <label htmlFor="todo" hidden>
                     Todo

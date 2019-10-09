@@ -1,22 +1,50 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=PT+Sans&display=swap');
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'PT Sans', sans-serif;
 }
-
-.App-logo {
-  height: 40vmin;
+body{
+  background: yellow;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding-top: 50px;
 }
-
-.App-link {
-  color: #09d3ac;
+h1{
+  font-size: 3rem;
+}
+form{
+  padding: 25px 0;
+  width: 800px;
+  display: flex;
+  justify-content: center;
+}
+input{
+  height: 50px;
+  width: 60%;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 1.3rem;
+}
+button{
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+  width: 20%;
+  margin: 0 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.4s;
+}
+button:hover{
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.todo{
+  font-size: 1.4rem;
+  display: list-item;
+  width: 600px;
 }
