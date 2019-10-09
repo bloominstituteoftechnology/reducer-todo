@@ -21,15 +21,15 @@ In this project, you build an app that let's you display a todo list from reduce
 - [x] Clone your OWN version of the repository in your terminal
 - [x] CD into the project base directory `cd reducer-todo`
 - [x] Create a new react app using CRA
-- [ ] Using the same command tool (yarn or npm) start up the app using `yarn start` or `npm start`
+- [x] Using the same command tool (yarn or npm) start up the app using `yarn start` or `npm start`
 - [x] Create a new branch: git checkout -b `<firstName-lastName>`.
 - [x] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
+- [x] Push commits: git push origin `<firstName-lastName>`.
 
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repository). **Please don't merge your own pull request**
-- [ ] Add your team lead as a reviewer on the pull-request
+- [x] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repository). **Please don't merge your own pull request**
+- [x] Add your team lead as a reviewer on the pull-request
 - [ ] Your team lead will count the project as complete by merging the branch back into master.
 - [ ] Do your magic!
 
