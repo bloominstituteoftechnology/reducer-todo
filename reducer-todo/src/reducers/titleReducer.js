@@ -7,12 +7,12 @@ export const initialState = {
 //reducer function
 export const titleReducer = (state, action) => {
     switch(action.type) {
-        case 'TOGGLE_EDITING':
+        case TOGGLE_EDITING:
             return {
                 ...state,
                 editing: !state.editing
             };
-        case 'UPDATE_TITLE':
+        case UPDATE_TITLE:
         return {
             ...state,
             title: action.payload,
@@ -22,3 +22,6 @@ export const titleReducer = (state, action) => {
                 return state;
     }
 }
+
+export const TOGGLE_EDITING = 'TOGGLE_EDITING'
+export const UPDATE_TITLE = 'UPDATE_TITLE'

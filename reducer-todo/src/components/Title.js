@@ -1,6 +1,6 @@
 import React, {useState, useReducer } from 'react';
 
-import {initialState, titleReducer} from '../reducers/titleReducer';
+import {initialState, titleReducer, TOGGLE_EDITING, UPDATE_TITLE} from '../reducers/titleReducer';
 
 const Title = () => {
     const [newTitleText, setNewTitleText] = useState();
@@ -18,7 +18,7 @@ const Title = () => {
                     {state.title}{''}
                     <i
                     className= "far fa-edit"
-                    onClick={() => dispatch({type: 'TOGGLE_EDITING'})}
+                    onClick={() => dispatch({type: TOGGLE_EDITING})}
                     />
                 </h1>
             ) : (
@@ -32,10 +32,10 @@ const Title = () => {
                         />
                         <button
                             onClick={() => 
-                                dispatch({type: 'UPDATE_TITLE', 
+                                dispatch({type: UPDATE_TITLE, 
                                             payload: newTitleText})
                         }
-                        >Change Title
+                        >List Title
                         </button>
                 </div>
             )
