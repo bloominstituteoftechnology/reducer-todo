@@ -10,7 +10,10 @@
   width: 60vw;
   margin-left: 20vw;
 }
-
+.edit-icon {
+  width: 5vw;
+  height: 10vh;
+}
 .todos > h1 {
   font-size: 1.3em;
   font-weight: inherit;
@@ -21,6 +24,11 @@
   margin: 1em;
   padding: 1em;
   text-align: center;
+}
+
+.icon-button {
+  background-color: lightcoral;
+   border: none;
 }
 .todos-form > button {
 

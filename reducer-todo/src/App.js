@@ -24,6 +24,11 @@ const App = () => {
     dispatch({ type: "CLEAR_COMPLETED", payload: newTodos });
   };
 
+  // const overDue = () => {
+  //   if (todo.due_by === Date.now()) return todo 
+  // }
+
+
   return (
     <div className="todos">
       <h1>Todo List</h1>

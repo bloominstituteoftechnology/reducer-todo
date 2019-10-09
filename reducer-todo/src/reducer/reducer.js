@@ -1,21 +1,30 @@
 import uuid from "uuid";
 import moment from "moment";
 
+const date = new Date('July 22 2019 07:22:13')
+const date1 = new Date('February 22, 2020 07:22:13')
+const date2 = new Date('January 22, 2021 07:22:13')
 const initialTodos = [
   {
     title: "Learn about reducers",
     isCompleted: false,
     id: moment('July 22 2019 07:22:13').format('MMMM Do YYYY, h:mm:ss a'),
+    due_by: date,
+    overDue: "Task is NOT overdue"
   },
   {
     title: " Review Frontend Masters",
     isCompleted: false,
     id:moment('February 22 2020 07:22:13').format('MMMM Do YYYY, h:mm:ss a'),
+    due_by: date1,
+    overDue: "Task is NOT overdue"
   },
   {
     title: "Attempt replit assignment",
     isCompleted: false,
     id:moment('January 22 2020 07:22:13').format('MMMM Do YYYY, h:mm:ss a'),
+    due_by: date2,
+    overDue: "Task is NOT overdue"
   }
 ];
 
@@ -40,7 +49,8 @@ function reducer(state, action) {
       const newTodo = {
         id: Date(Date.now()).toString(),
         title: state.todo,
-        isCompleted: false
+        isCompleted: false,
+        due_by: Date.now(),
       };
       return { ...state, todos: state.todos.concat(newTodo) };
     case TOGGLE_COMPLETE:
@@ -58,6 +68,7 @@ function reducer(state, action) {
       return { ...state, todos: newTodos };
     case CLEAR_COMPLETED:
       return { ...state, todos: action.payload };
+      // case OVER_DUE:
 
     default:
       return state;
