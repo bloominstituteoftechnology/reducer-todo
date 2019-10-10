@@ -9,10 +9,7 @@ function App() {
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const addTask = task => {
-    dispatch({
-      
-    })}
+ 
 
   const toggleComplete = (id) => {
     dispatch({
