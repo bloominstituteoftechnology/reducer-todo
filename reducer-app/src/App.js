@@ -1,23 +1,34 @@
 import React, {useReducer} from 'react';
+import Form from './components/Form';
+import TodoList from './components/TodoList'
 import './App.css';
 
-import initialState from './reducers/Reducer';
-import Reducer from './reducers/Reducer';
+import {reducer, initialState} from './reducers/Reducer';
 
 function App() {
 
-  const [state, dispatch] = useReducer();
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const addTask = task => {
-    dispatch()
+    dispatch({
+      
+    })}
+
+  const toggleComplete = (id) => {
+    dispatch({
+      type: 'TOGGLE_ITEM',
+      payload: id
+    })
   }
 
   console.log(state)
 
   
   return (
+  
     <div className="App">
-      hello
+    <Form dispatch={dispatch} />
+    <TodoList todos= {state.todos} toggleComplete={toggleComplete} />
     </div>
   );
 }
