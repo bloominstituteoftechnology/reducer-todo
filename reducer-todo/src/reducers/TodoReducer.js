@@ -1,39 +1,54 @@
 
-export const itemList = {
-    id: Date.now(),
-    input: "Get'er Done",
-    completed: false
+export const initialState = {
+    todos: [
+        {
+        id: Date.now(),
+        item: "Learn React",
+        completed: false
+        },
+        {
+        id: Date.now(),
+        item: "Learn React",
+        completed: false
+        }
+    ]
+    
 };
 
 export const todoReducer = (todoState, action) => {
     switch(action.type) {
-        case TOGGLE_COMPLETED:
-            return {
-                ...todoState,
-                completed: !todostate.completed,
-                
-            }
+        
         case ADD_ITEM:
+            letnewItem = {
+                id: Date.now(),
+                item: action.payload,
+                completed: false
+            };
             return {
                 ...todoState,
-                input: "",
-                items: [
-                    ...StaticRange.items,
-                    {item: todoState.input, id: Date.now(), completed: false}
-                ]
+                todos: [...todoState.todos, newItem]
             };
-            case CLEAR_TODO:
-                const clearState = todoState.items.filter(item => {
-                    return item.completed ? "" : item;
-                })
-                return {
-                    ...StaticRange,
-                    items: clearState
-                };
-            case UPDATE_INPUT:
-                return {
-                    ...StaticRange, input: action.payload
-                };
+        case TOGGLE_COMPLETED:
+            let updatedTodos = todoState.todos.map(item => {
+                if(item.id === action.payload) {
+                    return {
+                        ...item,
+                        completed: !item.purchased
+                    };
+                }else {
+                    return item;
+                }
+            });
+            return {
+                ...todoState,
+                todos: updatedTodos
+            };    
+        case CLEAR_TODO:
+            return {
+                ...todoState,
+                todos: StaticRange.todos.filter(item => !item.completed)
+            };    
+            
             default: 
             return todoState;
     }
