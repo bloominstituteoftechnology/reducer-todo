@@ -43,7 +43,6 @@ const DELETE_TODO = "DELETE_TODO";
 
 //reducer
 function reducer(state, action) {
-  console.log("reducer state", state);
   switch (action.type) {
     case HANDLE_CHANGE:
       return { ...state, todo: action.payload };
@@ -72,7 +71,12 @@ function reducer(state, action) {
       return { ...state, todos: action.payload };
     // case OVER_DUE:
     case EDIT_TODO:
-      return { ...state, todo: action.payload.title };
+        const newEditedTodo = state.todos.filter(_todo => {
+          return _todo.id !== action.payload.id;
+        });
+      return { ...state,
+         todo: action.payload.title,
+         todos: newEditedTodo};
     case DELETE_TODO:
       const newDeletedTodo = state.todos.filter(_todo => {
         return _todo.id !== action.payload;

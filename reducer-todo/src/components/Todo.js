@@ -3,7 +3,6 @@ import edit_icon from "../imgs/edit_icon.png";
 import delete_sign from "../imgs/delete_sign.png";
 
 const Todo = props => {
-  console.log("props from todo", props);
 
   const { isCompleted, editTodo, todo, deleteTodo, onToggleComplete, title } = props;
   return (

@@ -2,7 +2,6 @@ import React from "react";
 import Todo from "./Todo";
 
 const TodosList = props => {
-  console.log("props", props);
   const { todos, editTodo, deleteTodo, onToggleComplete } = props;
   return (
     <ul className="todo-list">
