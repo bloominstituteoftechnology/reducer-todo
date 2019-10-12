@@ -6,15 +6,22 @@ import "./App.css";
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  
   const addTodo = event => {
     event.preventDefault();
     dispatch({ type: "ADD_TODOS", payload: state.todo });
   };
 
-  const handleChange =  todo => event => {
-    console.log("edited Todo", todo, event.target.value)
+  const deleteTodo = id => event => {
+    event.preventDefault();
+    console.log("delete Todo", id);
+    dispatch({type: "DELETE_TODO", payload: id});
+  }
+
+  const handleChange =  event => {
+    console.log("edited Todo", event.target.value);
     // var inputValue  = event.target.value;
-    dispatch({ type: "HANDLE_CHANGE", payload : { inputValue: event.target.value, todo} });
+    dispatch({ type: "HANDLE_CHANGE", payload : event.target.value });
   };
 
   const toggleComplete = todo => {
@@ -40,6 +47,7 @@ const App = () => {
       <h1>Todo List</h1>
       <TodosList
         editTodo={editTodo}
+        deleteTodo={deleteTodo}
         todos={state.todos}
         onToggleComplete={toggleComplete}
       />
