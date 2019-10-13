@@ -1,0 +1,78 @@
+.App {
+  text-align: center;
+  
+}
+
+.todos {
+  background-color:antiquewhite;
+  text-align: center;
+  font-family: 'Mansalva', cursive;
+  width: 60vw;
+  margin-left: 20vw;
+}
+.edit-icon {
+  width: 5vw;
+  height: 10vh;
+}
+.todos > h1 {
+  font-size: 1.3em;
+  font-weight: inherit;
+}
+
+.date-todo {
+  background-color: lightcoral;
+  margin: 1em;
+  padding: 1em;
+  text-align: center;
+}
+
+.icon-button {
+  background-color: lightcoral;
+   border: none;
+   border-radius: 7em;
+}
+
+.icon-button:hover {
+  background-color: antiquewhite;
+ cursor: pointer;
+}
+.todos-form > button {
+
+  background-color: antiquewhite;
+  border: 1px solid lightcoral;
+  margin: 0.5em;
+  padding: 0.5em;
+
+}
+
+.todos-form > button:hover {
+
+  background-color: lightcoral ;
+  border: 1px solid antiquewhite;
+  cursor: pointer;
+}
+
+.todos-form > input {
+  margin: 0.5em;
+  padding: 0.5em;
+  border: 1px solid lightcoral;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
