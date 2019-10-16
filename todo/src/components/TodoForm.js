@@ -24,9 +24,11 @@ const TodoForm = ({dispatch}) => {
                     value={newTask}
                     onChange={handleChange}
                 />
-                <button onClick={()=> dispatch({type: 'ADD_TASK', payload: newTask})}>Add</button>
+                <div>
+                    <button onClick={()=> dispatch({type: 'ADD_TASK', payload: newTask})}>Add</button>
 
-                <button className = 'clear-btn' onClick={()=> dispatch({type: 'CLEAR_COMPLETED'})}>Clear</button>
+                    <button onClick={()=> dispatch({type: 'CLEAR_COMPLETED'})}>Clear Completed</button>
+                </div>
             </form>
         );
     }

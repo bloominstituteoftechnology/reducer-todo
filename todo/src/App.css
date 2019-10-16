@@ -47,12 +47,13 @@ h2{
   color: #0000008f;
 }
 
+
 button {
   background: #b4c517;
   border: none;
-  font-size: 1.25rem;
+  font-size: 1.05rem;
   padding: 7px 15px;
-  margin: 5px 15px;
+  margin: 5px;
   color: #000;
   font-family: Sawarabi Mincho;
 }
@@ -67,7 +68,7 @@ button:hover{
 input{
   height: 1.75rem;
   width: 70%;
-  margin: 0 auto;
+  margin-top: 20px;
   border: none;
   background: none;
   border-bottom: 2px solid #fff;
