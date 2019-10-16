@@ -14,13 +14,10 @@ const App = () => {
 
   const deleteTodo = id => event => {
     event.preventDefault();
-    console.log("delete Todo", id);
     dispatch({type: "DELETE_TODO", payload: id});
   }
 
   const handleChange =  event => {
-    console.log("edited Todo", event.target.value);
-    // var inputValue  = event.target.value;
     dispatch({ type: "HANDLE_CHANGE", payload : event.target.value });
   };
 
