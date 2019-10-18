@@ -3,8 +3,6 @@ import { initialState, reducer } from '../reducers/title';
 
 const Todo = () => {
     const [newTodo, setNewTodo] = useState();
-   
-
     const [state, dispatch] = useReducer(reducer, initialState)
 
     const handleChanges = e => {
@@ -20,7 +18,7 @@ const Todo = () => {
     const handleSubmit = e => {
         e.preventDefault();
         setNewTodo("");
-        dispatch({ type: "UPDATE_TITLE", payload: newTodo || state.todo })
+        dispatch({ type: "UPDATE_TODO", payload: newTodo || state.todo })
         dispatch({ type: "TOGGLE_EDITING" })
     };
 
