@@ -40,7 +40,8 @@ const [state, dispatch] = useReducer(reducer, initialState)
                     {console.log(item)}
                 </div>
             )) }
-            <button className='clear-btn' onClick={() => dispatch({ type: 'CLEAR_COMPLETED' })}>
+
+            <button className='clear-btn' onClick={() => dispatch({ type: 'CLEAR_COMPLETED' }) } >
                 Clear
             </button>
         </div>
