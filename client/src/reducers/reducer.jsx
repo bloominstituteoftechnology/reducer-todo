@@ -15,11 +15,6 @@ export const initialState = {
             completed: false,
             id: 3
         },
-        {
-            task: 'Learn nothing',
-            completed: false,
-            id: 4
-        },
     ]
 };
 
@@ -32,9 +27,9 @@ export const reducer = (state, action) => {
                 id: Date.now()
             };
             return {
-                ...state,
-                todos: [...state.todos, newTask]
+                ...state, todos: [...state.todos, newTask]
             };
+            
         case 'TOGGLE_TASK':
             return {
                 ...state,
