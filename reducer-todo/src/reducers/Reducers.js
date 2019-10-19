@@ -10,6 +10,7 @@ export const initialState = {
 
 export const reducer = (state, action) => {
     switch(action.type) {
+
         case 'ADD_TODO':
             return{
                 ...state, addTodo: [ ...state.addTodo,
@@ -19,8 +20,54 @@ export const reducer = (state, action) => {
                     id: Date.now(),
                 }]
             }
-            
-            default:
+
+        case "TOGGLE_EDITING":
+
+            const Todos = state.addTodo.map(todo => {
+                if (todo.id === action.payload.id) {
+                    return {
+                        ...todo,
+                        completed: !todo.completed
+                    }
+                } else {
+                    return todo;
+                }
+            })
+
+            return {
+                ...state,
+                addTodo: Todos
+            }
+
+            case 'CLEAR_COMPLETED':
+                return {
+                    addTodo: state.addTodo.filter(todo => 
+                        !todo.completed )
+                }
+
+              default:
                 return state;
     }
 }
+
+
+
+
+// export const initialState = {
+//     todo: "",
+//     editing: false
+// }
+
+// export function todo(state, action) {
+//     switch (action.type) {
+        
+//         case "UPDATE_TODO":
+//             return {
+//                 ...state,
+//                 todo: action.payload
+//             }
+
+//         default:
+//             return state;
+//     }
+// }
