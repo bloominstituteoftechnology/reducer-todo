@@ -1,9 +1,9 @@
 import React, { useState, useReducer } from "react";
-import { initialState, reducer } from '../reducers/title';
+import { reducer } from '../reducers/Reducers';
 
 const Todo = () => {
     const [newTodo, setNewTodo] = useState();
-    const [state, dispatch] = useReducer(reducer, initialState)
+    const [state, dispatch] = useReducer(reducer)
 
     const handleChanges = e => {
         setNewTodo(e.target.value);
@@ -11,7 +11,6 @@ const Todo = () => {
 
     const handleEdit = e => {
         e.preventDefault();
-        // setEditing(!editing);
         dispatch({ type: "TOGGLE_EDITING" })
     };
 
@@ -33,7 +32,7 @@ const Todo = () => {
                         value={newTodo}
                         onChange={handleChanges}
                     />
-                    <button type="submit">Save</button>
+                    <button type="submit">Add Todo</button>
                 </form>
             ) : (
                     <div>

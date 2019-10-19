@@ -1,12 +1,12 @@
 import React, { useState, useReducer } from 'react';
-import { initialState, reducer } from '../reducers/Reducers';
+import { reducer } from '../reducers/Reducers';
 
-export function ClearTodo() {
+function ClearTodo() {
     const [clearTodo, setNewClearTodo] = useState();
-    const [state, dispatch] = useReducer(reducer, initialState)
+    const [state, dispatch] = useReducer(reducer)
 
     const handleChanges = e => {
-        setNewTitle(e.target.value);
+        setNewClearTodo(e.target.value);
     };
 
     const handleEdit = e => {
@@ -14,8 +14,8 @@ export function ClearTodo() {
         dispatch({ type: "TOGGLE_CLEAR" })
     }; 
 
-    const ClearTodo = e => {
-        event.preventDefault() 
+    const handleSubmit = e => {
+        e.preventDefault() 
         return (
             <div>
                 {state.clearTodo ? (
@@ -28,8 +28,15 @@ export function ClearTodo() {
                         onChange={handleChanges} />
                         <button type='submit'>Clear Todo's</button>
                     </form>
+                ) : (
+                        <div>
+                            <h1>{state.todo}</h1>
+                            <button onClick={handleEdit}>Edit</button>
+                        </div>
                     )}
             </div>
-        )   
-    }    
-}   
+        );
+    };
+}
+
+    export default ClearTodo;

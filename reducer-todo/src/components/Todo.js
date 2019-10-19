@@ -1,23 +1,22 @@
-export const initialState = {
-    todo: "",
-    editing: false
-}
+import React, { useState, useReducer } from 'react';
+import { initialState, reducer } from '.'
 
-export function Todo(state, action) {
-    switch (action.type) {
-        case "TOGGLE_EDITING":
-            return {
-                ...state,
-                editing: !state.editing 
-            }
+function Todo() {
 
-        case "UPDATE_TODO":
-            return {
-                ...state,
-                todo: action.payload
-            }
+const [todo, setTodo] = useState();
+const [state, dispatch] = useReducer(reducer, initialState)
 
-        default:
-            return state;
-    }
+    return(
+        <div>
+            <form onSubmit={handleSubmit}>
+               <input 
+               type='text'
+               name='todo'
+               placeholder='Add Todo'
+               value={todo}
+               onChange={handleChanges} />
+
+            </form>
+        </div>
+    )
 }

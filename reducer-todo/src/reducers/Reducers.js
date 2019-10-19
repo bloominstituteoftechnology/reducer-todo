@@ -1,18 +1,26 @@
-
-import React, { useReducer } from 'react';
-
- export function Reducer() {
-
-    const [state, dispatch] = useReducer(reducer, initialState)
-     {
-         item: 'Learn about reducers',
+export const initialState = {
+     addTodo: [
+         {
+             item: 'Learn about reducers',
              completed: false,
-                 id: 3892987589
-     }
+             id: 3892987589 
+         }
+     ]
+}
 
-     return (
-         <>
-
-         </>
-     )
- }
+export const reducer = (state, action) => {
+    switch(action.type) {
+        case 'ADD_TODO':
+            return{
+                ...state, addTodo: [ ...state.addTodo,
+                {
+                    item: action.payload,
+                    completed: false,
+                    id: Date.now(),
+                }]
+            }
+            
+            default:
+                return state;
+    }
+}
