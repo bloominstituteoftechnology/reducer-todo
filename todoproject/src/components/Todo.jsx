@@ -1,8 +1,7 @@
 import React from 'react';
-import { state } from '../reducers/todoReducer';
 
 const Todo = (props) => {
-    console.log('Todo Component Props: ', props.state)
+    console.log('Todo Component Props: ', props)
     return (
         <div className='todo-list'>
             {props.state.map(todo => {
