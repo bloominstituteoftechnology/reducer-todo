@@ -1,9 +1,11 @@
 import React from 'react';
+import { state } from '../reducers/todoReducer';
 
-const Todo = () => {
+const Todo = (props) => {
+    console.log('Todo Component Props: ', props)
     return (
-        <div>
-
+        <div className='todo-card'>
+            <p>{state.item}</p>
         </div>
     )
 }
