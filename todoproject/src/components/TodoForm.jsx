@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const TodoForm = () => {
+    const [inputText, setInputText] = useState('')
+
+    const handleChanges = event => {
+        setInputText(event.target.value);
+    }
+
     return (
         <div>
             <form>
@@ -9,6 +15,8 @@ const TodoForm = () => {
                 id='todo'
                 type='text'
                 name='todo'
+                value={inputText}
+                onChange={handleChanges}
                 />
             </form>
         </div>

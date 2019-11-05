@@ -3,13 +3,13 @@ import React, { useReducer } from 'react';
 import Todo from './components/Todo';
 import TodoForm from './components/TodoForm'
 
-import { state, reducer } from './reducers/todoReducer';
+import { initialState, reducer } from './reducers/todoReducer';
 import './App.css';
 
 function App() {
 
-  const [{ item, completed, id }, dispatch ] = useReducer(reducer, state)
-  // console.log('Reducer State from App: ', state)
+  const [state, dispatch ] = useReducer(reducer, initialState)
+  console.log('Reducer State from App: ', state)
 
   return (
     <div className="App"> 
