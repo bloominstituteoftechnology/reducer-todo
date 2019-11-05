@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-
+import reducer from "./Reducers/reducer";
 
 function App() {
   return (

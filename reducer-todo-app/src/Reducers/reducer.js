@@ -1,5 +1,5 @@
-import React from "react";
+export const todo = [{ item: "Learn about reducers", completed: false, id: 1 }]; // initial state
 
-const todo = {item: "Learn abou reducers", completed: false, id: 1};
-
-export default todo;
+export const reducer = (state === initalState, action) => {
+    return state;
+};
