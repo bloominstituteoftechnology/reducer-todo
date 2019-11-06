@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import './App.css';
-import reducer from "./Reducers/reducer";
+import { reducer, initialState } from "./Reducers/reducer";
+
+
 
 function App() {
   return (
