@@ -12,7 +12,7 @@ function App() {
     setNewTask(e.target.value)
   }
 
-  const submitForm = e => {
+  const addTask = e => {
     e.preventDefault()
     dispatch({type: 'ADD_TASK', payload: newTask})
     setNewTask('') 
@@ -22,11 +22,15 @@ function App() {
     dispatch({type: 'MARK_COMPLETED', payload: task.id})
   }
 
+  const clearCompleted = () => {
+    dispatch({type: 'CLEAR_COMPLETED'})
+  }
+
 
   return (
     <div className="App">
       <h1>Reducer Todo List</h1>
-      <form onSubmit={submitForm}>
+      <form onSubmit={addTask}>
         <input 
           type='text'
           name= 'newToDo'
@@ -36,6 +40,7 @@ function App() {
         />
         <button type='submit'>Add Task</button>
       </form>
+      <button onClick={() => clearCompleted()}>Clear completed</button>
       <TaskList tasks={state} markCompleted={markCompleted}/>
     </div>
   );
