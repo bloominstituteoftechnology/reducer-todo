@@ -28,7 +28,7 @@ const CardMap = ({ bMap, dispatch}) => {
                 </div>
             </div>
             <div className="cBottom">
-                <button className="bCard" onClick={clearCompletedTodo}>Clear Completed</button>
+                <button className="bCard" onClick={clearCompletedTodo}>Done</button>
             </div>
         </div>
     )
