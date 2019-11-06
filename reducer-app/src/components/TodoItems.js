@@ -1,4 +1,11 @@
 import React from "react";
+import styled from 'styled-components'
+
+const TodoDiv = styled.div`
+height: 300px;
+width: 400px;
+background: rgb(31,121,100);
+`
 
 const Task = props => {
     return(
