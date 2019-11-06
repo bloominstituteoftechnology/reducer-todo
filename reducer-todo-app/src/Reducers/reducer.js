@@ -9,7 +9,7 @@ export const initialState = {
 };
 
 export const reducer = (state, action) => {
-  //action is a built-in object that REQUIRES a type property and has an optional payload/data property
+  // action is a built in object that REQUIRES a type property and has an optional payload/data property
   switch (action.type) {
     case "ADD_TODO":
       const newTodo = {
@@ -32,7 +32,7 @@ export const reducer = (state, action) => {
       };
 
     case "CLEAR_COMPLETED":
-      return { ...state, tasks: state.tasks.map(item => !item.completed) };
+      return { ...state, tasks: state.tasks.filter(item => !item.completed) };
     default:
       return state;
   }
