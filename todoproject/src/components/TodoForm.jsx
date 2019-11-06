@@ -6,6 +6,7 @@ import { initialState, reducer } from '../reducers/todoReducer';
 
 const TodoForm = () => {
     const [state, dispatch] = useReducer(reducer, initialState)
+    console.log('TODOFORM STATE: ', state)
     const [inputText, setInputText] = useState('')
 
     const handleChanges = event => {
@@ -16,6 +17,11 @@ const TodoForm = () => {
         event.preventDefault();
         dispatch({ type: 'ADD_TODO', payload: inputText })
         setInputText('')
+    }
+
+    const clearForm = event => {
+        event.preventDefault();
+        dispatch({ type: 'CLEAR_COMPLETED', payload: state})
     }
 
     return (
@@ -30,6 +36,7 @@ const TodoForm = () => {
                 onChange={handleChanges}
                 />
                 <button onClick={handleSubmit}>Add</button>
+                <button onClick={clearForm}>Clear</button>
             </form>
                 <Todo state={state} dispatch={dispatch}/>
         </div>
