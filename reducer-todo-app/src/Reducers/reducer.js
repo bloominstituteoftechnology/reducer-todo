@@ -4,9 +4,9 @@ export const reducer = (state, action) => {
     switch(action.type) {
         case "ADD_TODO":
             const newTodo = {
-                task: action.payload,
-                id: Date.now(),
-                completed: false
+                item: action.payload,
+                completed: false,
+                id: Date.now()
             };
             return [...state, newTodo];
             default: return state;
