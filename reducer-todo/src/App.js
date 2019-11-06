@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import TodoForm from "./components/todoForm";
 import Todo from "./components/todo";
 import './App.css';
-import { ADD } from "./actions/actions";
 
 
 function App() {

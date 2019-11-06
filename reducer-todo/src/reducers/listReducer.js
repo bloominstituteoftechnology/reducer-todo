@@ -19,6 +19,13 @@ export const listReducer = (state, action) => {
                 id: Date.now()
             }
             return [...state, newTodo]
+        case "COMPLETED":
+            return state.map(e => e.id === action.id ? { ...e, completed: !e.completed } : e);
+        case "REMOVE":
+            return state.filter(e => !e.completed);
+
+
+
         default:
             throw state;
     }
