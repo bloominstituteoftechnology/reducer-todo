@@ -30,7 +30,6 @@ function App() {
     dispatch({type: 'DELETE_TASK', payload: task.id})
   }
 
-
   return (
     <div className="App">
       <h1>Reducer Todo List</h1>
