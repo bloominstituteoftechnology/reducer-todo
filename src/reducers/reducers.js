@@ -14,7 +14,6 @@ export const reducer = (state, action) => {
 
     case 'ADD_EDITED_TASK':
       return state.map(task => {
-        // console.log('action.payload', action.payload.originalTask)
         if (task.id === action.payload.originalTask.id) {
           return {...task,
             item: action.payload.editedTask,
