@@ -1,0 +1,21 @@
+.ok {
+	min-height: 400px;
+}
+
+.fireIcon {
+	width: auto;
+	height: 24vh;
+	margin: 5%;
+}
+
+.fire {
+	padding-top: 10%;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	margin: 0 auto;
+	align-self: center;
+	color: #bb4628;
+}
