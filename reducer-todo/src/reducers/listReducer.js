@@ -1,12 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-export const initialState = { list: [], item: '', completed: false, id: '' };
+export const initialState = [
+    {
+        item: 'Learn about reducers',
+        completed: false,
+        id: Date.now(),
+        itemArray: []
+    }
+];
 
 export const listReducer = (state, action) => {
     switch (action.type) {
+        case "ADD-TODO":
+            const newTodo = {
+                item: action.payload,
+                completed: false,
+                id: Date.now()
+            }
+            return [...state, newTodo]
         default:
-            throw new Error("No action matched!");
+            throw state;
     }
-
-}
+};
