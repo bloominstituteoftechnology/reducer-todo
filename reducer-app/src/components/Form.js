@@ -37,10 +37,11 @@ function Form({ dispatch }) {
 				onChange={handleChange}
 				name="todoName"
 				className='input'
+				required
 			/>
 
 			<div><button className="button" type="submit">Submit </button>
-			<button className="button" onClick={clearItems}>Clear  </button></div>
+			<button className="button" onClick={clearItems}>Clear Completed </button></div>
 		</form>
 	);
 }
