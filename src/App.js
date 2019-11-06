@@ -6,16 +6,33 @@ import TaskList from './components/TaskList';
 function App() {
 
   const [newTask, setNewTask] = useState('')
+  const [editedTask, setEditedTask] = useState('')
   const [state, dispatch] = useReducer(reducer, initialState)
 
   const changeHandler = e => {
     setNewTask(e.target.value)
   }
 
+  const editChangeHandler = e => {
+    setEditedTask(e.target.value)
+  }
+
   const addTask = e => {
     e.preventDefault()
     dispatch({type: 'ADD_TASK', payload: newTask})
-    setNewTask('') 
+    setNewTask('')
+  }
+
+  const addEditedTask = (task) => {
+    return event => {
+      event.preventDefault()
+      dispatch({type: 'ADD_EDITED_TASK', payload: task})
+    }
+    // return event => {
+    //   event.preventDefault()
+    //   console.log('task', editedTask)
+    //   dispatch({type: 'ADD_EDITED_TASK', payload: editedTask})
+    // }
   }
 
   const markCompleted = (task) => {
@@ -28,6 +45,10 @@ function App() {
 
   const deleteTask = (task) => {
     dispatch({type: 'DELETE_TASK', payload: task.id})
+  }
+
+  const editTask = (task) => {
+    dispatch({type: 'EDIT_TASK', payload: task.id})
   }
 
   return (
@@ -44,7 +65,17 @@ function App() {
         <button type='submit'>Add Task</button>
       </form>
       <button onClick={() => clearCompleted()}>Clear completed</button>
-      <TaskList tasks={state} markCompleted={markCompleted} deleteTask={deleteTask}/>
+      <TaskList 
+        tasks={state} 
+        markCompleted={markCompleted} 
+        deleteTask={deleteTask}
+        editTask={editTask}
+        addTask={addTask}
+        editChangeHandler={editChangeHandler}
+        editedTask={editedTask}
+        addEditedTask={addEditedTask}
+        newTask={newTask}
+      />
     </div>
   );
 }

@@ -7,9 +7,18 @@ export const reducer = (state, action) => {
       const newTask = {
         item: action.payload,
         completed: false,
-        id: Date.now()
+        id: Date.now(),
+        editing: false
       }
       return [...state, newTask];
+
+    case 'ADD_EDITED_TASK':
+      return state.map(task => {
+        if (task.id === action.payload.id) {
+          return {...task,
+            editing: false} 
+          }  else return {...task}
+      })
     
     case 'MARK_COMPLETED':
       return state.map(task => {
@@ -27,6 +36,13 @@ export const reducer = (state, action) => {
     case 'DELETE_TASK':
       return state.filter(task => {
         return task.id !== action.payload 
+      })
+
+    case 'EDIT_TASK':
+      return state.map(task => {
+        if(task.id === action.payload) {
+          return {...task, editing: true}  
+        } else return {...task}
       })
 
     default: return state
