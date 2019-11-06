@@ -4,7 +4,7 @@ import { initialState, taskReducer } from '../reducers/reducer';
 
 
 const TodoForm = () => {
-const [ todo, setTodo] = useState ();
+const [ todo, setTodo] = useState ("");
 const [ state, dispatch ] = useReducer(taskReducer, initialState)
    
 const handleChanges = event => {
@@ -13,15 +13,16 @@ const handleChanges = event => {
 
 const handleSubmit = event => {
     event.preventDefault();
-    setTodo(" ");
     dispatch({ type: "ADD_TODO", payload: todo || state.todo })
-    dispatch({ type: "TOGGLE_TODO"})
-}
+    dispatch({ type: "TOGGLE_TODO"});
+    setTodo(" ");
+};
 
 const handleDelete = event => {
     event.preventDefault();
     dispatch({ type: "DELETE_TODO" });
 };
+
 
 
 return (        
