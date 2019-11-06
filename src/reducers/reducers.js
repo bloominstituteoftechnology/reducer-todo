@@ -14,7 +14,6 @@ export const reducer = (state, action) => {
     case 'MARK_COMPLETED':
       return state.map(task => {
         if (task.id === action.payload) {
-          console.log(task)
           return {...task, completed: !task.completed} 
         } else return {...task}
       }) 
@@ -24,6 +23,11 @@ export const reducer = (state, action) => {
         return task.completed === false
       })  
       return completedTasks
+
+    case 'DELETE_TASK':
+      return state.filter(task => {
+        return task.id !== action.payload 
+      })
 
     default: return state
   }

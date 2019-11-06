@@ -26,6 +26,10 @@ function App() {
     dispatch({type: 'CLEAR_COMPLETED'})
   }
 
+  const deleteTask = (task) => {
+    dispatch({type: 'DELETE_TASK', payload: task.id})
+  }
+
 
   return (
     <div className="App">
@@ -41,7 +45,7 @@ function App() {
         <button type='submit'>Add Task</button>
       </form>
       <button onClick={() => clearCompleted()}>Clear completed</button>
-      <TaskList tasks={state} markCompleted={markCompleted}/>
+      <TaskList tasks={state} markCompleted={markCompleted} deleteTask={deleteTask}/>
     </div>
   );
 }
