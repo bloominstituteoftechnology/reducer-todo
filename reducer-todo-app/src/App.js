@@ -5,6 +5,7 @@ import { reducer, initialState } from "./Reducers/reducer";
 
 // Components
 import TodoForm from "./Components/TodoForm";
+import TodoList from './Components/TodoList';
 
 
 
@@ -15,13 +16,19 @@ function App() {
     dispatch({ type: "ADD_TODO", payload: todoName })
   }
 
+  const toggleTodo = id => {
+    dispatch({ type: "TOGGLE_TODO", payload: id});
+  }
+
   const clearCompleted = id => {
     dispatch({ type: "CLEAR_COMPLETED" })
   }
+  
   return (
     <div className="App">
       <h1>Welcome to My React To-Do App!</h1>
       <TodoForm addTodo={addTodo} clearCompleted={clearCompleted}/>
+      <TodoList {...state} toggleTodo={toggleTodo}/>
     </div>
   );
 }

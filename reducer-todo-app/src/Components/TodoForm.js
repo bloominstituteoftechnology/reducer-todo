@@ -16,9 +16,9 @@ const handleSubmit = (e) => {
     return (
         <form onSubmit={handleSubmit}>
             <input
-                type='text'
+                type="text"
                 value={todoInput}
-                name='goal'
+                name="task"
                 onChange={handleChanges}
             />
             <button type="submit">Add Task</button>
