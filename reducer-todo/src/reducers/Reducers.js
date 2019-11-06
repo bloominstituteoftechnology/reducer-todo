@@ -1,10 +1,16 @@
-import react from 'react'
 
-const Reducers = (state, action) => {
-    return action(state)
+
+export const appReducer = (state, action) => {
+    switch(action.type){
+        case "ADD_TODO":
+            return{...state, item: action.payload, completed: false, id: new Date(), }
+
+        default:
+            return state;
+    }
 }
 
-const initialState = [ {
+export const initialState = [ {
     item: 'Learn about reducers',
     completed: false,
     id: 3892987589
@@ -17,4 +23,4 @@ const initialState = [ {
 
 
 ]
-  export default {initialState, Reducers}
+  export default initialState;
