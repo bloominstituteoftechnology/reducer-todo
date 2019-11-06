@@ -6,15 +6,10 @@ import TaskList from './components/TaskList';
 function App() {
 
   const [newTask, setNewTask] = useState('')
-  const [editedTask, setEditedTask] = useState('')
   const [state, dispatch] = useReducer(reducer, initialState)
 
   const changeHandler = e => {
     setNewTask(e.target.value)
-  }
-
-  const editChangeHandler = e => {
-    setEditedTask(e.target.value)
   }
 
   const addTask = e => {
@@ -28,11 +23,6 @@ function App() {
       event.preventDefault()
       dispatch({type: 'ADD_EDITED_TASK', payload: task})
     }
-    // return event => {
-    //   event.preventDefault()
-    //   console.log('task', editedTask)
-    //   dispatch({type: 'ADD_EDITED_TASK', payload: editedTask})
-    // }
   }
 
   const markCompleted = (task) => {
@@ -71,8 +61,6 @@ function App() {
         deleteTask={deleteTask}
         editTask={editTask}
         addTask={addTask}
-        editChangeHandler={editChangeHandler}
-        editedTask={editedTask}
         addEditedTask={addEditedTask}
         newTask={newTask}
       />

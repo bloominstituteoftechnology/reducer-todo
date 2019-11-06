@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Task = (props) => {
+
+  const [editedTask, setEditedTask] = useState(props.task.item)
+
+
+  const editChangeHandler = e => {
+    setEditedTask(e.target.value)
+  }
+
   return (
     <div>
       {!props.task.editing ?
@@ -17,8 +25,8 @@ const Task = (props) => {
           <input 
             type= 'text'
             name= 'editedTask'
-            onChange={props.editChangeHandler}
-            value={props.task.item}
+            onChange={editChangeHandler}
+            value={editedTask}
           />
           <button type='submit'>Done</button>
         </form>
