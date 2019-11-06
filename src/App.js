@@ -6,7 +6,7 @@ import TaskList from './components/TaskList';
 function App() {
 
   const [newTask, setNewTask] = useState('')
-  const [{ tasks }, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, initialState)
 
   const changeHandler = e => {
     setNewTask(e.target.value)
@@ -17,6 +17,11 @@ function App() {
     dispatch({type: 'ADD_TASK', payload: newTask})
     setNewTask('') 
   }
+
+  const markCompleted = (task) => {
+    dispatch({type: 'MARK_COMPLETED', payload: task.id})
+  }
+
 
   return (
     <div className="App">
@@ -31,7 +36,7 @@ function App() {
         />
         <button type='submit'>Add Task</button>
       </form>
-      <TaskList tasks={tasks}/>
+      <TaskList tasks={state} markCompleted={markCompleted}/>
     </div>
   );
 }

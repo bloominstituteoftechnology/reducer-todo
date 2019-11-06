@@ -2,7 +2,11 @@ import React from 'react';
 
 const Task = (props) => {
   return (
-    <li>{props.task}</li>
+    <li 
+      className={props.task.completed ? 'completed' : null}
+      onClick={(e) => props.markCompleted(props.task)}>
+      {props.task.item}
+    </li>
   )
 }
 

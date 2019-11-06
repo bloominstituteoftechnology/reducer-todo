@@ -1,9 +1,5 @@
-export const initialState = {
-  tasks: [],
-  item: 'Learn about reducers',
-  completed: false,
-  id: 3892987589
-}
+export const initialState = []
+
 
 export const reducer = (state, action) => {
   switch(action.type) {
@@ -13,12 +9,14 @@ export const reducer = (state, action) => {
         completed: false,
         id: Date.now()
       }
-      return {
-        ...state,
-        tasks: [...state.tasks, newTask]
-      };
+      return [...state, newTask];
     
     case 'MARK_COMPLETED':
+      return state.map(task => {
+        if (task.id === action.payload) {
+          return {...task, completed: !task.completed} 
+        } else return task
+      })       
     default: return state
   }
 }
