@@ -1,8 +1,14 @@
+*{
+  box-sizing: border-box;
+  font-family: 'Bitter', serif;}
 .App {
   text-align: center;
+  box-sizing: border-box;
 }
 
-
+h1, h5{
+  font-family: 'Bitter', serif;
+}
 .App {
   background-color: #282c34;
   min-height: 100vh;
@@ -11,7 +17,19 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
-  background: rgb(168,135,144);
+  color: rgb(98,46,71);
+  background:#EDE6DE;
 }
 
+
+
+.container{
+  height: auto;
+  max-height: 675px;
+  width: 85vw;
+  max-width: 575px;
+  margin: 0 auto;
+  BACKGROUND:rgb(224,165,39,.2);
+  box-shadow: 0px 2px 4px #BB4628;
+  padding: 3%;
+}

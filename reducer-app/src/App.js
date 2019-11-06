@@ -19,11 +19,11 @@ function App() {
 
 	return (
 		<div className="App">
-      
-			<h1>Lets Get This Done ! </h1>
-						<TodoList todos={state.todos} toggleComplete={toggleComplete} />
-            <Form dispatch={dispatch} />
-
+			<div className="container">
+				<h1>Let's Quest!</h1>
+				<TodoList todos={state.todos} toggleComplete={toggleComplete} />
+				<Form dispatch={dispatch} />
+			</div>
 		</div>
 	);
 }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './form.styles.css'
 
 function Form({ dispatch }) {
 	const [todoName, setTodoName] = useState("");
@@ -29,16 +30,17 @@ function Form({ dispatch }) {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit}className='form'>
 			<input
 				type="text"
 				value={todoName}
 				onChange={handleChange}
 				name="todoName"
+				className='input'
 			/>
 
-			<button type="submit">Submit</button>
-			<button onClick={clearItems}>Clear Completed</button>
+			<div><button className="button" type="submit">Submit </button>
+			<button className="button" onClick={clearItems}>Clear  </button></div>
 		</form>
 	);
 }
