@@ -1,9 +1,11 @@
-export const initialState = [{
+export const initialState = 
+[
+    {
     item: 'Learn about reducers',
     completed: false,
     id: Date.now(),
-    itemArray: []
-}]
+    }
+]
 
 export const reducer = (state, action) => {
     switch(action.type) {
@@ -13,8 +15,15 @@ export const reducer = (state, action) => {
                     completed: false,
                     id: Date.now()
                 };
-
             return [...state, newItem];
+        case 'TOGGLE_COMPLETED':
+            return state.map(todo => {
+                if(todo.id === action.payload) {
+                    return { ...todo, completed: !todo.completed }
+                } else {
+                    return todo
+                }
+            })
         default: 
             return state;
     }

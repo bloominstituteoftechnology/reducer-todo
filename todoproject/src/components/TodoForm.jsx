@@ -31,7 +31,7 @@ const TodoForm = () => {
                 />
                 <button onClick={handleSubmit}>Add</button>
             </form>
-            <Todo state={state} />
+                <Todo state={state} dispatch={dispatch}/>
         </div>
     )
 }
