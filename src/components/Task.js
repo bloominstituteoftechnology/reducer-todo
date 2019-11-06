@@ -21,7 +21,7 @@ const Task = (props) => {
           <i className="far fa-edit" onClick={() => props.editTask(props.task)}></i> 
           <i className="far fa-trash-alt" onClick={() => props.deleteTask(props.task)}></i>
         </> :
-        <form onSubmit={props.addEditedTask(props.task)}>
+        <form onSubmit={props.addEditedTask(props.task, editedTask)}>
           <input 
             type= 'text'
             name= 'editedTask'

@@ -18,11 +18,13 @@ function App() {
     setNewTask('')
   }
 
-  const addEditedTask = (task) => {
+  const addEditedTask = (originalTask, editedTask) => {
+    // console.log('originalTask', originalTask)
+    // console.log('editedTask', editedTask)
     return event => {
       event.preventDefault()
-      dispatch({type: 'ADD_EDITED_TASK', payload: task})
-    }
+      dispatch({type: 'ADD_EDITED_TASK', payload: {originalTask, editedTask}})
+    } //? payload is old task. how to get edited task to add_edited_task action?
   }
 
   const markCompleted = (task) => {
