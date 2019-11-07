@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+}
+
+/* My CSS starts here */
+.item {
+  font-size: 20px;
+}
+
+.itemcompleted {
+  text-decoration: line-through;
+}
