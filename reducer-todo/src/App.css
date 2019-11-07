@@ -24,3 +24,16 @@
 .addedTask{
   cursor: pointer;
 }
+
+.item {
+  background-color: #e64944;
+  width: 45%;
+  text-align: left;
+  margin: 4px 0;
+  cursor: pointer;
+}
+
+.item.Done{
+  text-decoration: line-through;
+  background-color: yellow;
+}

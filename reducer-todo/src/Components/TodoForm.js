@@ -1,8 +1,5 @@
-import React, {useState, useReducer} from 'react';
-import { initialState, todoReducer } from './reducers/reducer';
-
+import React, {useState} from 'react';
 const TodoForm = (props) => {
-    // const [state, dispatch] = useReducer(todoReducer,initialState);
     const [newTodo, setNewTodo] = useState("");
 
     const handleChanges = event => {
@@ -11,9 +8,11 @@ const TodoForm = (props) => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        // setNewTodo('')
         props.dispatch({type:'ADD_TODO', payload: newTodo})
+        setNewTodo('');
     }
+
+    
 
     return(
         <div>
