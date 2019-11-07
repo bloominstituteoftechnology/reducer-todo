@@ -7,6 +7,6 @@
   font-size: 20px;
 }
 
-.item.completed {
+.itemcompleted {
   text-decoration: line-through;
 }

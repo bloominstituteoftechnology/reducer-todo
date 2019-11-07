@@ -20,11 +20,15 @@ export const reducer = (state, action) => {
       return { ...state, tasks: [...state.tasks, newTodo] };
 
     case "TOGGLE_TODO":
+        // const toggle = state.tasks.map(item => {
+        //     if (item.id === action.payload)
+        // })
       return {
         ...state,
         tasks: state.tasks.map(item => {
-          if (item.id === action.payload)
+          if (item.id === action.payload) {
             return { ...item, completed: !item.completed };
+          }
           else {
             return item;
           }

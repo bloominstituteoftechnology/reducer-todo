@@ -18,7 +18,8 @@ function App() {
     dispatch({ type: "TOGGLE_TODO", payload: id });
   };
 
-  const clearCompleted = id => {
+  const clearCompleted = (e) => {
+    e.preventDefault();
     dispatch({ type: "CLEAR_COMPLETED" });
   };
 
