@@ -1,52 +1,28 @@
-import React, { useState, useReducer } from "react";
-import { initialState, taskReducer } from '../reducers/reducer';
-import { ADD_TODO, DELETE_TODO  } from '../reducers/reducer';
+import React, { useState } from "react";
+// import { Reducer, initialState } from "../reducers/Reducer";
 
+const TodoForm = props => {
+  const [name, setName] = useState("");
 
+  const handleChanges = e => {
+    setName(e.target.value);
+  };
 
+  const submitItem = e => {
+    e.preventDefault();
+    setName("");
+  };
 
-const TodoForm = () => {
-const [ todo, setTodo] = useState ("");
-const [ state, dispatch ] = useReducer(taskReducer, initialState)
-   
-const handleChanges = event => {
-    setTodo(event.target.value);
+  return (
+    <form onSubmit={submitItem}>
+      <input  type="text" value={name} name="name" onChange={handleChanges} />
+      <button
+        onClick={() => props.dispatch({ type: "ADD_ITEM", payload: name })}
+      >
+        Add
+      </button>
+    </form>
+  );
 };
-
-const submitForm = event => {
-    event.preventDefault();
-    dispatch({
-        type: ADD_TODO,
-        payload: todo
-      });
-      setTodo("");
-};
-
-const handleDelete = event => {
-    event.preventDefault();
-    dispatch({ type: DELETE_TODO });
-};
-
-
-
-return (        
-        <form onSubmit={submitForm}>
-          
-            <label className="search-text"htmlFor= "todo">Enter To Do {state.todo}</label> 
-            <input 
-            className="search-text"
-            type="text"
-            name="newToDo"
-            value={todo}
-            onChange={handleChanges}
-            />
-
-            <button className="submit-btn">Submit</button>
-            <button className="delete-btn" onClick = {handleDelete} >Clear</button>
-        </form> 
-        ) 
-}  
-
-
 
 export default TodoForm;

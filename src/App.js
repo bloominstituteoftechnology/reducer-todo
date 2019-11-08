@@ -1,21 +1,18 @@
 import React from 'react';
-import TodoList from './components/TodoList';
+import Todo from './components/Todo';
 import './App.css';
 
 
 
 function App() {
-
-
+  
   return (
-    <div className="App">
-    <h2>To Do App</h2>
-    
-     <TodoList />
+    <div>
+      <h2>Welcome to your Todo App!</h2>
+     
+      <Todo/>
+      </div>
 
-    
-      
-    </div>
   );
 }
 
