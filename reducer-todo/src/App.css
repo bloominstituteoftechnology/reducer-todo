@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  border: 1px solid red;
+  height: 100vh;
+  padding: 5rem;
+  background: #edc3a3;
 }
 
 .App-logo {
@@ -23,17 +27,24 @@
 
 .addedTask{
   cursor: pointer;
+  /* border: 2px solid black; */
 }
 
 .item {
-  background-color: #e64944;
-  width: 45%;
+  background-color: #d38a52;
+  width: 30%;
   text-align: left;
-  margin: 4px 0;
+  margin: 4px auto;
   cursor: pointer;
+  border-radius: 0.75rem;
+  text-align: center; 
 }
 
 .item.Done{
   text-decoration: line-through;
-  background-color: yellow;
+  background-color: #9e541c;
+}
+
+li{
+  list-style: none;
 }
