@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
-import Todo from './Todos/Todo';
+import TodoForm from './Todos/TodoForm';
 
 
 function App() {
   return (
     <div className="App">
-      <Todo />
+      <h1>Reducer ToDo</h1>
+     <TodoForm />
       
     </div>
   );
