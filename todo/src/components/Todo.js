@@ -5,10 +5,29 @@ const Todo = () => {
   const [state, dispatch] = useReducer(todoReducer, initialState)
   const [newTodo, setNewTodo] = useState();
 
+  const handleChanges = e => {
+    setNewTodo(e.target.value);
+  };
+
   return(
     <form>  
-      <input className='input' />
-      {state.item}
+      <input 
+        className='input'
+        name='newTodo'
+        value={newTodo}
+        onChange={handleChanges} 
+      />
+      <button
+        onClick={() => {
+
+        }}
+      >
+        Add Todo
+      </button>
+      <h2>Todo List</h2>
+      <p>
+        {state.item}
+      </p>
     </form>
   )
 }
