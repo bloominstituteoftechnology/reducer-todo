@@ -1,12 +1,16 @@
 import React, { useState, useReducer } from 'react';
-import { initialState, todoReducer };
+import { initialState, todoReducer } from '../reducers/reducer.js';
 
-const todo = () => {
-  const [state, dispatch] = useReducer(reducer, initialState)
+const Todo = () => {
+  const [state, dispatch] = useReducer(todoReducer, initialState)
+  const [newTodo, setNewTodo] = useState();
 
   return(
-    <div>
-      
-    </div>
+    <form>  
+      <input className='input' />
+      {state.item}
+    </form>
   )
 }
+
+export default Todo;

@@ -6,6 +6,7 @@ export const initialState = {
 
 export const todoReducer = (state, action) => {
   switch(action.type){
-    return state ;
+    default:
+      return state;
   }
 }
