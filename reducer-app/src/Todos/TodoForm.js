@@ -21,7 +21,7 @@ const TodoForm = ({ dispatch }) => {
 
   return (
     <div>
-      <form>
+      <form className='form'>
         <label htmlFor="todo">New Todo</label>
         <input
           id="todo"

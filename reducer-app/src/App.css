@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: rgb(223, 96, 102);
+  margin: 100px;
 }
 
 .App-logo {
@@ -28,5 +30,25 @@
 .todo.completed {
   text-decoration: line-through rgb(25, 182, 19);
   margin-bottom: 20px;
-  
+}
+
+.form {
+  color: rgb(43, 22, 27);
+  padding: 10px;
+}
+
+label {
+  padding: 10px;
+}
+
+button {
+  margin: 10px;
+}
+
+h1 {
+  padding: 20px;
+}
+
+.outside {
+  background-color: black;
 }
