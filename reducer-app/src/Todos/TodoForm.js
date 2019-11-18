@@ -1,24 +1,22 @@
-import React, { useState, useReducer } from "react";
-import Todo from "./Todo";
-import { initialState, reducer } from "../Reducers/Reducer";
+import React, { useState } from "react";
 
-const TodoForm = () => {
-  const [state, dispatch] = useReducer(initialState, reducer);
-  const [input, setInput] = useState("");
+
+const TodoForm = ({ dispatch }) => {
+  const [item, setItem] = useState("");
 
   const handleChanges = e => {
-    setInput(e.target.value);
+    setItem(e.target.value);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch({ type: "ADD_TODO", payload: input });
-    setInput("");
+    dispatch({ type: "ADD_TODO", payload: item });
+    setItem("")
   };
 
   const ClearSubmit = e => {
     e.preventDefault();
-    dispatch({ type: "CLEAR_COMPLETED", payload: state });
+    dispatch({ type: "CLEAR_COMPLETED" });
   };
 
   return (
@@ -29,13 +27,12 @@ const TodoForm = () => {
           id="todo"
           type="text"
           name="todo"
-          value={input}
+          value={item}
           onChange={handleChanges}
         />
         <button onClick={handleSubmit}>Add ToDo</button>
         <button onClick={ClearSubmit}>Clear ToDo</button>
       </form>
-      <Todo state={state} dispatch={dispatch} />
     </div>
   );
 };

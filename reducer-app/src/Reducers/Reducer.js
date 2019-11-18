@@ -1,20 +1,24 @@
-export const initialState = [
+export const todo = [
   {
     item: "Learn about reducers",
     completed: false,
-    id: Date.now()
+    id: 1
+  },
+  {
+    item: "Learn about redux",
+    completed: false,
+    id: 2
   }
 ];
 
 export const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_TODO":
-      const newItem = {
-        item: action.payload,
-        completed: false,
-        id: Date.now()
-      };
-      return [...state, newItem];
+      return [
+        ...state,
+        { item: action.payload, completed: false, id: Date.now() }
+      ];
+
     case "TOGGLE_COMPLETED":
       return state.map(todo => {
         if (todo.id === action.payload) {

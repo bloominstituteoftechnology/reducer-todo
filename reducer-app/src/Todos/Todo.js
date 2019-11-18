@@ -1,19 +1,20 @@
-import React, {useReducer} from "react";
-import { initialState, reducer } from "../Reducers/Reducer";
+import React from "react";
 
-
-const Todo = () => {
-    const [state, dispatch] = useReducer(initialState, reducer);
+const Todo = ({ todo, dispatch }) => {
+  const toggledCompleted = () => {
+    dispatch({
+      type: "TOGGLE_COMPLETED",
+      payload: todo.id
+    });
+  };
   return (
-    <div className='todo-list'>
-            {state.map(todo => {
-                return (
-                    <div style={todo.completed ? {textDecoration:'line-through'} : null} key={todo.id} >
-                        <p onClick={() => {dispatch({ type: 'TOGGLE_COMPLETED', payload: todo.id })}}>{todo.item}</p>
-                    </div>
-                )
-            })}
-        </div>
+    <div
+      onClick={toggledCompleted}
+      className={`todo$(todo.completed ? "completed)" : "" `}
+      style={{ textDecoration: todo.completed ? "line-through" : "" }}
+    >
+      <p>{todo.item}</p>
+    </div>
   );
 };
 
