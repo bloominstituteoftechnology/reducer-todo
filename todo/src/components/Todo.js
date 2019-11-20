@@ -10,25 +10,38 @@ const Todo = () => {
   };
 
   return(
-    <form>  
-      <input 
-        className='input'
-        name='newTodo'
-        value={newTodo}
-        onChange={handleChanges} 
-      />
-      <button
-        onClick={() => {
-
-        }}
-      >
-        Add Todo
-      </button>
-      <h2>Todo List</h2>
-      <p>
-        {state.item}
-      </p>
-    </form>
+    <div>
+      {!state.editing ? (
+        <p>
+          {state.title}{" "}
+          <i
+            onClick={() => dispatch({ type: "TOGGLE_EDITING" })}
+          />
+        </p>
+      ) : (
+      <form>  
+        <input 
+          className='input'
+          type='text'
+          name='newTodo'
+          value={newTodo}
+          onChange={handleChanges} 
+        />
+        <button
+          onClick={() => {
+            dispatch({ type: 'SET_TODO', payload: newTodo });
+            setNewTodo('');
+            dispatch({ type: "TOGGLE_EDITING" })
+          }}
+        >
+          Add Todo
+        </button>
+        <h2>Todo List</h2>
+        <p>
+          {state.item}
+        </p>
+      </form>
+      )}</div>
   )
 }
 
