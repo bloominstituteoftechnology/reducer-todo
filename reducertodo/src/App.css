@@ -1,0 +1,68 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+ul {
+  width: 100%;
+  text-align: left;
+  list-style: none;
+  padding: 2vw;
+  margin: 0px 0px 28vw 0px;
+}
+
+li {
+  color: #fff;
+  font-size: 3vw;
+  padding: 2vw;
+  font-family: arial;
+  border-bottom: 0.5vw solid #fff;
+  text-transform: uppercase;
+  position:relative;
+   transition:opacity 1s ease;
+   -webkit-transition:opacity 1s ease;
+   cursor: pointer;
+}
+
+input {
+  padding: 5%;
+  border: 0;
+  outline: 0;
+  text-indent: 10px; 
+}
+
+button {
+  box-sizing: border-box;
+  appearance: none;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 20px;
+  padding: 5%;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+}
