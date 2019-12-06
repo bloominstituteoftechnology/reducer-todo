@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Sawarabi+Mincho&display=swap");
 /* <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&display=swap" rel="stylesheet"> */
-
 /* font-family: 'Sawarabi Mincho', sans-serif; */
 
 body{
@@ -16,7 +15,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  align-content: center;
+  align-content: baseline;
   height: 25vh;
   background: #000000;
   color: white;
@@ -38,15 +37,20 @@ h2{
 .not-completed{    
   background-color: none;
   font-size: 1.25rem;
+  cursor: pointer
 }
 
+.not-completed:hover{
+  cursor: pointer;
+  color: #000000d2; 
+}
 .completed{
   background-color: none;
   font-size: 1.20rem;
   text-decoration: line-through;
   color: #0000008f;
+  cursor: pointer
 }
-
 
 button {
   background: #b4c517;
@@ -56,6 +60,7 @@ button {
   margin: 5px;
   color: #000;
   font-family: Sawarabi Mincho;
+  cursor: pointer
 }
 button:hover{
   transform: scale(1.025);
@@ -63,15 +68,21 @@ button:hover{
 
 .clear-button{
   margin-top: 30px;
+  cursor: pointer
+}
+
+form{
+  display: flex;
 }
 
 input{
-  height: 1.75rem;
-  width: 70%;
+  height: 2rem;
+  width: 30vw;
   margin-top: 20px;
   border: none;
   background: none;
   border-bottom: 2px solid #fff;
+  font-size: 1.75rem;
   color: #fff;
   font-size: 1.25rem;
 }
