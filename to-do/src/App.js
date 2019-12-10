@@ -1,5 +1,6 @@
 import React, {useReducer} from 'react';
 import Todo from './Components/Todo';
+import TodoForm from './Components/TodoForm';
 import {state, reducer} from './reducers/todoReducers';
 import './App.css';
 
@@ -10,7 +11,9 @@ function App() {
   return (
     <div className="App">
       <h1>Welcome to your Todo List</h1>
+      
       <Todo state={state}/>
+      <TodoForm />
     </div>
   );
 }
