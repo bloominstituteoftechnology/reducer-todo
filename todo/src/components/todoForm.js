@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button } from '../Styles/styles';
 
 const TodoForm = props => {
   const [input, setInput] = useState('');
@@ -21,8 +22,8 @@ const TodoForm = props => {
         value={input}
         onChange={event => setInput(event.target.value)}
       />
-      <button type="submit">Add Todo</button>
-      <button onClick={handleClear}>Clear Completed</button>
+      <Button type="submit">Add Todo</Button>
+      <Button onClick={handleClear}>Clear Completed</Button>
     </form>
   );
 };
