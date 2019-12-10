@@ -4,11 +4,12 @@ import ToDoCard from './ToDoCard';
 
 const ToDoList = () => {
 
-  console.log('initial state in ToDoList', initialState);
+  const [noteState, dispatch] = useReducer(reducer, initialState);
+  console.log(noteState);
 
   return (
     <div>
-        {initialState.map(note => (
+        {noteState.map(note => (
           <ToDoCard item={note.item} />
         ))
       }
