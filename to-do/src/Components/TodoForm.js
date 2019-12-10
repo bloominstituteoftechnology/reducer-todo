@@ -1,36 +1,46 @@
 import React, { useState, useReducer } from 'react';
-import Todo from'./Todo';
-import {initialState, reducer} from '../reducers/todoReducers';
+
+import Todo from './Todo';
+
+import { initialState, reducer } from '../reducers/todoReducers';
 
 const TodoForm = () => {
-    const [input, setInput] = useState('')
-    const [state, dispatch] = useReducer(reducer, initialState);
-    const handleChange = e => {
-        setInput(e.target.value);
+    const [state, dispatch] = useReducer(reducer, initialState)
+    console.log('state', state)
+    const [inputText, setInputText] = useState('')
+
+    const handleChanges = event => {
+        setInputText(event.target.value);
     }
 
     const handleSubmit = event => {
         event.preventDefault();
-        dispatch({ type: 'ADD_TODO', payload: input })
-        setInput('')
+        dispatch({ type: 'ADD_TODO', payload: inputText })
+        setInputText('')
     }
 
-    return(
-    <div>
-    <form>
-    <label>Todo</label>
-    <input 
-    
-    value={input}
-    onChange={handleChange}
-    />
+    const clearForm = event => {
+        event.preventDefault();
+        dispatch({ type: 'CLEAR_COMPLETED', payload: state})
+    }
 
-    <button onClick={handleSubmit}>New Todo</button>
-</form>
-
-<Todo state={state} />
-</div>
+    return (
+        <div>
+            <form>
+                <label htmlFor='todo'>Enter Todo</label>
+                <input 
+                id='todo'
+                type='text'
+                name='todo'
+                value={inputText}
+                onChange={handleChanges}
+                />
+                <button onClick={handleSubmit}>Add</button>
+                <button onClick={clearForm}>Clear</button>
+            </form>
+                <Todo state={state} dispatch={dispatch}/>
+        </div>
     )
-};
+}
 
 export default TodoForm;
