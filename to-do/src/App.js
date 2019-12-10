@@ -10,6 +10,7 @@ function App() {
   return (
     <div className="App">
       <h1>Welcome to your Todo List</h1>
+      <Todo />
     </div>
   );
 }
