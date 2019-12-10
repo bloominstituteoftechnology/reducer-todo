@@ -33,6 +33,7 @@ const ToDoList = () => {
             <ToDoCard 
             item={note.item}
             completed={note.completed}
+            id={note.id}
             />
           ))
         }
