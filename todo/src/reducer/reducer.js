@@ -25,5 +25,18 @@ export const todoReducer = (state =[], event) => {
 
                 ]
             }
+        case "tgl_done": return {
+            ...state,
+            todos: state.todos.map(todo => todo.id === event.id ? {
+                ...todo,
+                completed: !todo.completed
+            }: todo)
+        }
+        case "Clear": return {
+            ...state, todos: state.todos.filter(todo => !todo.completed)
+            
+        }
+        default: return state
+
     }
 }
