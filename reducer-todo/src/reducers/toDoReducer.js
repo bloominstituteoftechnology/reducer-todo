@@ -14,6 +14,11 @@ export const reducer = (state, action) => {
         completed: false,
         id: Date.now()}
       ]
+    case 'TOGGLE_COMPLETED':
+      return [{
+        ...state, 
+        completed: !state.completed,
+      }]
     default: 
       return state;
   }

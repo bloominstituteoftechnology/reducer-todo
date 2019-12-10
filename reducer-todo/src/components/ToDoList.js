@@ -10,8 +10,7 @@ const ToDoList = () => {
   const handleChanges = e => {
     setNewNoteText(e.target.value);
   }
-  console.log(newNoteText);
-
+  console.log(noteState);
 
   return (
     <div>
@@ -31,7 +30,10 @@ const ToDoList = () => {
       </div>
       <div>
           {noteState.map(note => (
-            <ToDoCard item={note.item} />
+            <ToDoCard 
+            item={note.item}
+            completed={note.completed}
+            />
           ))
         }
       </div>
