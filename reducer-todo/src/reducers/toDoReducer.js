@@ -8,12 +8,12 @@ export const reducer = (state, action) => {
   console.log(state, action)
   switch(action.type) {
     case 'CREATE_NOTE':
-      return [{
+      return [
         ...state, 
-        item: action.payload,
+        {item: action.payload,
         completed: false,
-        id: Date.now(),
-      }]
+        id: Date.now()}
+      ]
     default: 
       return state;
   }
