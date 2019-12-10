@@ -1,4 +1,4 @@
-export const state = [{
+export const initialState = [{
     item: 'Learn about reducers',
     completed: false,
     id: Date.now()
@@ -10,9 +10,9 @@ export const state = [{
     id: Date.now()
 }
 ];
-export const reducer = (action, state) => {
+export const reducer = (action, payload) => {
     switch(action.type) {
         default: 
-            return state;
+            return initialState;
     }
 };
