@@ -3,7 +3,17 @@ import React from 'react';
 const TodoForm = () => {
     return (
         <div>
-            <h1>test</h1>
+            <form>
+                <label>Creat new Todo</label>
+                        <input
+                        id='todo'
+                        type='text'
+                        name= 'todo'
+                        
+                        
+                        
+                        />         
+            </form>
         </div>
     )
 }
