@@ -10,7 +10,7 @@ export const initialState = [{
     id: Date.now()
 }
 ];
-export const reducer = (action, payload) => {
+export const reducer = (action, state) => {
     switch(action.type) {
         default: 
             return initialState;

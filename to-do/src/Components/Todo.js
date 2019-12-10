@@ -1,5 +1,5 @@
 import React from 'react';
-import {state} from '../reducers/todoReducers';
+
 
 
 const Todo = (props) => {
