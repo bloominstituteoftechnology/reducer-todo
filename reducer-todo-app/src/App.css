@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+.Task.completed{
+  text-decoration: line-through;
+}

@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useReducer } from 'react';
 import './App.css';
 
+// importing todo components
+import TodoForm from './components/TodoForm';
+import TodoList from './components/TodoList';
+
+// import initialState and reducer from todoReducer
+import { initialState, reducer } from './reducers/todoReducer';
+
 function App() {
+  // setting up useReducer hook
+  const [state, dispatch ] = useReducer(reducer, initialState);
+  // setting up the useState
+  const [input, setInput] = useState();
+
+  // checking what is in the state
+  // console.log(state)
+
+  const handleChanges = (e) => {
+    setInput(e.target.value)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setInput('')
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Reducer Todo App</h1>
+      <TodoForm state={state} input={input} handleChanges={handleChanges} dispatch={dispatch} handleSubmit={handleSubmit} />
+      <TodoList state={state} dispatch={dispatch} />
     </div>
   );
 }
 
 export default App;
+
