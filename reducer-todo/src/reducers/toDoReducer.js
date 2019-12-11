@@ -15,10 +15,15 @@ export const reducer = (state, action) => {
         id: Date.now()}
       ]
     case 'TOGGLE_COMPLETED':
-      return [{
-        ...state, 
-        completed: !state.completed,
-      }]
+      let idSelectorArray = state.map(note => {
+        if(action.payload === note.id) {
+          return {...note, completed: !note.completed}
+        } else {
+          return note;
+        }
+      })
+      console.log('id selector array from inside toggle completed', idSelectorArray)
+      return idSelectorArray;
     default: 
       return state;
   }

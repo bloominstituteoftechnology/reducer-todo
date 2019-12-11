@@ -1,11 +1,9 @@
-import React, {useReducer} from 'react';
-import { initialState, reducer} from '../reducers/toDoReducer';
+import React from 'react';
 
 const ToDoCard = props => {
-  const [noteState, dispatch] = useReducer(reducer, initialState);
 
   return(
-    <div onClick={() => dispatch({ type: 'TOGGLE_COMPLETED', payload: props.id })}>
+    <div onClick={() => props.dispatch({ type: 'TOGGLE_COMPLETED', payload: props.id })}>
       <h3>{props.item}</h3>
       <p>{props.completed.toString()}</p>
     </div>

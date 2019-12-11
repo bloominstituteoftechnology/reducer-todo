@@ -31,6 +31,7 @@ const ToDoList = () => {
       <div>
           {noteState.map(note => (
             <ToDoCard 
+            dispatch={dispatch}
             item={note.item}
             completed={note.completed}
             id={note.id}
