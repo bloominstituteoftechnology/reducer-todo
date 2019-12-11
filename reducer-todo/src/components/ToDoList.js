@@ -27,6 +27,11 @@ const ToDoList = () => {
             dispatch({ type: 'CREATE_NOTE', payload: newNoteText})
           }}
         >Submit</button>
+        <button 
+          onClick={() => {
+            dispatch({ type: 'CLEAR_COMPLETED'})
+          }}
+        >Clear Completed</button>
       </div>
       <div>
           {noteState.map(note => (

@@ -14,6 +14,7 @@ export const reducer = (state, action) => {
         completed: false,
         id: Date.now()}
       ]
+
     case 'TOGGLE_COMPLETED':
       let idSelectorArray = state.map(note => {
         if(action.payload === note.id) {
@@ -22,8 +23,12 @@ export const reducer = (state, action) => {
           return note;
         }
       })
-      console.log('id selector array from inside toggle completed', idSelectorArray)
       return idSelectorArray;
+
+    case 'CLEAR_COMPLETED':
+      let filteredArray = state.filter(note => note.completed === false)
+      return filteredArray;
+
     default: 
       return state;
   }

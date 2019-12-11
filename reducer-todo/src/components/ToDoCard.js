@@ -5,7 +5,7 @@ const ToDoCard = props => {
   return(
     <div onClick={() => props.dispatch({ type: 'TOGGLE_COMPLETED', payload: props.id })}>
       <h3>{props.item}</h3>
-      <p>{props.completed.toString()}</p>
+      <p>Completed? {props.completed.toString()}</p>
     </div>
   )
 }
