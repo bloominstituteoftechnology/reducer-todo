@@ -1,0 +1,21 @@
+// * {
+//     border: 1px solid grey;
+// }
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40%;
+    margin-right: 40%;
+    align-items: center;
+}
+.todo-form {
+    input{
+        margin-left: 15%;
+        margin-bottom: 5%;
+        height: 40px;
+    }
+    button{
+        margin: 5%;
+        margin-left: 15%;
+    }
+}
