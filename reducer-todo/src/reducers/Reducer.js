@@ -1,7 +1,8 @@
 export const todos = [{
     item: 'Learn about reducers',
     completed: false,
-    id: 3892987589
+    id: 3892987589,
+    deadline: ''
 }];
 
 export const reducer = (state, action) => {
@@ -31,6 +32,8 @@ export const reducer = (state, action) => {
                 return todo;
             }
             });
+        case 'deadline':
+            return state.map(todo => todo.id === action.payload.id ? {...todo, deadline: action.payload.deadline} : todo);
         default: 
             return state;
     }
