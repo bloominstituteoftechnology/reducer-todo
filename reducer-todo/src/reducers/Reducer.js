@@ -9,7 +9,7 @@ export const reducer = (state, action) => {
         case 'add':
         return(
             [...state, {
-                item: action.payload,
+                item: action.payload.todo,
                 completed: false,
                 id: Math.floor(Math.random() * (10000000000 - 1000000000)) + 1000000000
             }]
@@ -17,7 +17,20 @@ export const reducer = (state, action) => {
         case 'clear':
             return state.filter(todo => !todo.completed);
         case 'toggle':
-            return state.map(todo => todo.id === action.payload ? {...todo, completed: !todo.completed} : todo);
+            return state.map(todo => {
+                if(todo.id === action.payload){
+                const completed = !todo.completed;
+                const newTodo = {...todo, completed: completed, timeCompleted: ''};
+                if(completed){
+                    const date = new Date();
+                    const timestamp = date.getTime();
+                    newTodo['timeCompleted'] = timestamp;
+                }
+                return newTodo;
+            }else{
+                return todo;
+            }
+            });
         default: 
             return state;
     }

@@ -1,6 +1,15 @@
 import React from 'react';
+import { useInput } from './useInput';
 
-const TodoForm = ({ todoInput, handleTodoInput, handleSubmit, dispatch }) => {
+const TodoForm = ({ dispatch }) => {
+    const [todoInput, setTodoInput, handleTodoInput] = useInput('');
+
+    const handleSubmit = (e) => {
+    const todo = e.target.todoInput.value;
+    dispatch({type: 'add', payload: {todo: todo}});
+    setTodoInput('');
+    e.preventDefault();
+  };
     return(
         <form className='todo-form' onSubmit={handleSubmit}>
             <input type='text' name='todoInput' placeholder='Enter todo'
