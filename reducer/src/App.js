@@ -30,7 +30,12 @@ function App() {
 
   return (
     <div className="App">
-
+      <TodoList state={state} handleComplete={handleComplete} />
+      <TodoForm addTodo={addTodo} />
+      <button onClick={(e) => {
+        e.preventDefault()
+        clearComplete()
+      }}>Clear Todo</button>
     </div>
   );
 }
