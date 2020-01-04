@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import './App.css';
 
 // import Todo Components
@@ -7,15 +7,27 @@ import './App.css';
 
 function App() {
   const [ state, dispatch ] = useReducer(reducer, initialState);
-  const [ input, setInput ] = useState();
 
-  const handleChanges = (e) => {
-    e.preventDefault();
-    setInput('')
+  const addTodo = (input) => {
+    const newTodo = {
+      todo: input,
+      completed: false,
+      id: Math.random()
+    }
+    dispatch({ type: "ADD_TODO", payload: newTodo })
+  }
+
+  const handleComplete = (id) => {
+    dispatch({ type: "COMPLETED_TODO", payload: id })
+  }
+
+  const clearComplete = () => {
+    dispatch({ type: "CLEAR_COMPLETED" })
   }
 
   return (
     <div className="App">
+      
     </div>
   );
 }
