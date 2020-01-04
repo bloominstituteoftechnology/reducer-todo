@@ -2,8 +2,11 @@ import React, { useReducer } from 'react';
 import './App.css';
 
 // import Todo Components
+import { TodoForm } from './components/TodoForm'
+import { TodoList } from './components/TodoList'
 
 // import initialState and recuder from todoReducer
+import { initialState, reducer } from './reducers/todoReducer'
 
 function App() {
   const [ state, dispatch ] = useReducer(reducer, initialState);
@@ -27,7 +30,7 @@ function App() {
 
   return (
     <div className="App">
-      
+
     </div>
   );
 }
