@@ -1,4 +1,5 @@
 import React from 'react';
+import { List } from 'semantic-ui-react'
 
 const Todo = ({todo, dispatch}) => {
 
@@ -10,13 +11,14 @@ const Todo = ({todo, dispatch}) => {
     }
 
     return (
-        <div onClick = {toggleCompleted}
+        <List onClick = {toggleCompleted}
              className = {`todo${todo.completed ? 'completed': ''}`}
              style = {{ textDecoration: todo.completed ? 'line-through':''}}>
-            <p>
-                {todo.item}
-            </p>
-        </div>
+            <List.Item>
+                <List.Icon name = 'arrow right'/>
+                <List.Content>{todo.item}</List.Content>
+            </List.Item>
+        </List>
     )
 }
 
