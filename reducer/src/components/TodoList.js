@@ -8,6 +8,17 @@ const TodoList = () => {
   const [state, dispatch] = useReducer(todoReducer, initialState);
   console.log(state);
 
+  const addTodo = e => {
+    e.preventDefault();
+    let ToDo = { item: input, completed: false, ID: Date.now() };
+    dispatch({ type: "ADD_TODO", payload: ToDo });
+    setInput("");
+  };
+
+  const handleChanges = e => {
+    setInput(e.target.value);
+  };
+
   return (
     <div>
       {state.todos.map(todo => {
