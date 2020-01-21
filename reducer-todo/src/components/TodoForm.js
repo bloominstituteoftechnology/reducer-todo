@@ -3,7 +3,7 @@ import { ListReducer, initialState } from "./../reducers/ListReducer";
 import Todo from "./Todo";
 
 const TodoForm = props => {
-  console.log("Bank's Closed", props);
+  console.log("Seat's Taken", props);
 
   //   toggleCompleted = id => {
   //     const newTodoList = props.todos.map(item => {

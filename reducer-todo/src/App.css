@@ -53,15 +53,24 @@ p {
   border: 1px solid skyblue;
   margin: 0 20px 0 20px;
   padding: 20px 0 20px 0;
+  font-size: 1.8rem;
 }
 
 p:hover {
-  background: lightcyan;
   border: 1px solid black;
   cursor: pointer;
 }
 
-p:active {
+.completed {
   background-color: lightsalmon;
   text-decoration: line-through;
+}
+
+.fakeTitle {
+  color: lightseagreen;
+  text-decoration: line-through;
+}
+
+.realTitle {
+  color:lightskyblue;
 }
