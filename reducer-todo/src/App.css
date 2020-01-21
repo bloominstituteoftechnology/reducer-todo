@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+.form {
+  border: 1px solid black;
+}
+
+input {
+  border: 1px solid skyblue;
+}
+
+.todoArea {
+  border: 1px solid dodgerblue;
+}
+
+p {
+  border: 1px solid skyblue;
+  margin: 0 20px 0 20px;
+  padding: 20px 0 20px 0;
+}
+
+p:hover {
+  background: lightcyan;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+p:active {
+  background-color: lightsalmon;
+  text-decoration: line-through;
+}
