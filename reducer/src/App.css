@@ -59,6 +59,7 @@ label{
 input{
   margin:1%;
   padding: 12px 20px;
+  padding-top: 2%;
 
 }
 
@@ -78,7 +79,7 @@ input{
   justify-content: center;
 }
 .App{
-	width:75%;
+	width:65%;
 	text-align: center;
   background-color: rgba(17, 25, 33, .7);	
   margin: 2%;
