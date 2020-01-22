@@ -14,14 +14,18 @@ export const TodoReducer = (state, action) => {
             return [...state, {item: action.payload, completed: false, id: Date.now()}]
         };
         case 'CHECK_COMPLETED': {
-                return state.map((item) => {
-                return item.id === action.payload ?
-                {...item, completed: !item.completed} :
-                item
-            })
+            let current = state.find(todo => todo.id === Number(action.payload));
+            let index = state.indexOf(current);
+            let newState = [...state];
+            newState[index].completed = !newState[index].completed;
+            return newState;
         };
         case 'CLEAR_COMPLETED': {
-            return state.filter((item) => !item.completed)
+            let newState = [...state];
+            let filtered = newState.filter(todo => {
+                return todo.completed === false
+            })
+            return filtered;
         }
         default: {
             return state;
