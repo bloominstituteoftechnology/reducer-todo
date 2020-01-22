@@ -1,22 +1,20 @@
 
-// import React from 'react';
+ import React from 'react';
 
-// import Todo from './Todo';
+ import Todo from './Todo';
 
 
 
-// const TodoList = props => {
-//     // const sortedTodoList = this.state.todoList.sort(
-//     //     (a, b) => a.completed - b.completed
-//     //   );
-//     return (
-//         <div>
-//             {props.list.map(item =>(
-//                 <Todo key={item.id} item={item} toggleItem={props.toggleItem} />
-//             ))}
+ const TodoList = props => {
+
+    return (
+        <div>
+            {props.state.map(item =>(
+                <Todo key={item.id} item={item} toggleItem={props.toggleItem} />
+            ))}
                 
-//         </div>
-//     );
-// };
+        </div>
+    );
+};
 
-// export default TodoList;
+export default TodoList;
