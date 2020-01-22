@@ -1,0 +1,85 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+/* My styles */
+body{
+  background: url('opfem.jpg');
+}
+.doneParent p{
+  font-size: 1.8rem;
+  font-family:Montserrat;
+}
+
+.doneParent .done{
+  text-decoration: line-through;
+  color: darkred;
+  font-family: 'Great Vibes', cursive;
+}
+button{
+  margin:1%;
+  font-size: 1.2rem;
+  font-family: 'Montserrat';
+  color:#AC3B61;
+  padding:20px 28px;
+  border-radius: 50%;
+  border: #E7717D 2px solid;
+  background-color: #EEE2DC;
+}
+label{
+  font-size: 2.2rem;
+  font-family: 'Great Vibes', bold;
+  color:white;
+}
+input{
+  margin:1%;
+  padding: 12px 20px;
+
+}
+
+.App h1{
+  font-size: 4.8rem;
+  font-family: 'Great Vibes', cursive;
+  color: #EEE2DC;
+}
+
+.App p{
+  font-size: 2.6rem;
+  font-family: 'Great Vibes', bold;
+  color: #EEE2DC;
+}
+#root{
+  display: flex;
+  justify-content: center;
+}
+.App{
+	width:75%;
+	text-align: center;
+  background-color: rgba(17, 25, 33, .7);	
+  margin: 2%;
+}
