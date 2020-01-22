@@ -9,7 +9,7 @@ export const TaskList = () => {
 
     return (
         <div>
-            <h1>{state[0].task}</h1>
+            <h1>Todo List </h1>
         </div>    
     )
 

@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useReducer} from 'react'
+import React, {useState, useReducer} from 'react'
 import { initialState, toDoReducer } from '../reducers/reducer'
 
 import Task from './Task'
@@ -8,27 +8,25 @@ const TaskForm = () => {
     
     const [state, dispatch] = useReducer(toDoReducer, initialState)
      const [newtask, setnewTask] = useState('')
-
-      
+  
      const handleChange = e =>  {
-            setnewTask(e.target.value)
-            console.log('HC', newtask)
+            setnewTask(e.target.value)          
         }
 
         const handleSubmit = e =>  {
             e.preventDefault()
             // 
             dispatch({type: "Set_Task", payload: newtask })
-            setnewTask('')
-            console.log('HS', state)
+            setnewTask('')          
         }
-
-
 
         const toggleCompleted = (id) => {
-            dispatch({ type: "Toggle_Completed", id: id })
+            dispatch({ type: "Toggle_Completed", payload: id })
         }
 
+        const handleDestroy = () => {
+            dispatch({ type: "Destroy_Completed" })
+        }
 
     return (
         <>
@@ -49,6 +47,8 @@ const TaskForm = () => {
             })}
            
         </div>
+
+        <button onClick={handleDestroy}>Destroy</button>
         </>
        
     )
