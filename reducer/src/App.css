@@ -84,3 +84,7 @@ input{
   background-color: rgba(17, 25, 33, .7);	
   margin: 2%;
 }
+
+.App .list .card{
+  background-color: #8FC1E3;
+}
