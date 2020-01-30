@@ -28,7 +28,7 @@ const AddTodoForm = ({ addTodo }) => {
             <form onSubmit={e => handleSubmit(e)}>
                 {console.log(date)}
                 <input name="title" type="text" value={item} onChange={e => handleChange(e)} />
-                <DatePicker selected={date} onChange={handleDateChange}/>
+                <DatePicker selected={date} onChange={handleDateChange} minDate={Date.now()}/>
                 <button type="submit">Add Todo</button>
             </form>
         </div>
