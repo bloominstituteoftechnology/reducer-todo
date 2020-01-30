@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react'
 import { reducer, initialState } from '../reducers/Reducer'
 
-import moment from 'moment'
+import Moment from 'react-moment'
 
 import AddTodoForm from './AddTodoForm'
 const Todos = () => {
@@ -30,12 +30,13 @@ const Todos = () => {
     }
     return (
         <div>
-            <h2>Todos</h2>
             <AddTodoForm addTodo={addTodo}/>
+            <h2>Todos</h2>
             {state.todos.map(todo => {
-                return <div key={todo.id} onClick={() => toggleCompleted(todo.id)} >
+                return <div className="todo" key={todo.id} onClick={() => toggleCompleted(todo.id)} >
+                    {todo.completeBy < Date.now() ? <h6>OVERDUE</h6> : null}
                     <h3 className={todo.completed === true ? 'completed' : null}>{todo.item}</h3>
-                    <h6>Complete by: {moment().format("MMM Do YYYY")}</h6>
+                    <h6>Complete by: {<Moment format="MMM Do YYYY" date={todo.completeBy}/>}</h6>
                 </div>
             })}
             <button onClick={() => clearCompleted()}>Clear Completed</button>

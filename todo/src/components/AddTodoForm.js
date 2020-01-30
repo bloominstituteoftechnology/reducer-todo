@@ -26,8 +26,9 @@ const AddTodoForm = ({ addTodo }) => {
     return (
         <div>
             <form onSubmit={e => handleSubmit(e)}>
-                {console.log(date)}
-                <input name="title" type="text" value={item} onChange={e => handleChange(e)} />
+                <h3>Add new todo</h3>
+                <input name="title" type="text" value={item} onChange={e => handleChange(e)} placeholder="Todo Title"/>
+                <h5>Complete By:</h5>
                 <DatePicker selected={date} onChange={handleDateChange} minDate={Date.now()}/>
                 <button type="submit">Add Todo</button>
             </form>

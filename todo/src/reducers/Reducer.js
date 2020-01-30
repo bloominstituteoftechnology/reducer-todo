@@ -4,7 +4,7 @@ export const initialState = {
             item: 'Learn about reducers',
             completed: false,
             id: 3892987589,
-            completeBy: 1580353544158
+            completeBy: new Date('2020-01-28')
         }
     ]
 }
