@@ -1,24 +1,31 @@
-export const initialState = {
+export const initialTodos = [
+    {
     item: "Learn about reducers",
     completed: false,
-    id: 1
-  };
-  
-  export const toDoReducer = (state, action) => {
+    id: 143849304
+  },
+  {
+    item: "Exercise",
+    completed: false,
+    id: 385048380
+  }
+];
+
+  export const toDoReducer = (todos, action) => {
     switch (action.type) {
       case "TOGGLE_COMPLETED":
         return {
-          ...state,
-          completed: !state.completed
+            ...todos,
+            completed: !todos.completed
         };
       case "ADD_TASK":
         return {
-          ...state,
+          ...todos,
           item: action.payload,
           completed: false,
           id: new Date()
-        };
+          };
       default:
-        return state;
+        return todos;
     }
   };

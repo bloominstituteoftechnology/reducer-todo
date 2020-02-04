@@ -1,34 +1,35 @@
 import React, { useReducer, useState } from "react";
-import { initialState, toDoReducer } from "./reducers/todoReducer";
+import { initialTodos, toDoReducer } from "./reducers/todoReducer";
 
-const TodoForm = () => {
-  const [state, dispatch] = useReducer(toDoReducer, initialState);
+const TodoForm = (props) => {
+  //const [todos, dispatch] = useReducer(toDoReducer, initialTodos);
   const [newTask, setNewTask] = useState("");
 
-  const toggleCompleted = e => {
+  /*const toggleCompleted = e => {
     dispatch({ type: "TOGGLE_COMPLETED" });
-  };
+  };*/
   
   const handleChanges = e => {
     setNewTask(e.target.value);
   };
 
-  const handleAddTask = e => {
-    dispatch({ type: "ADD_TASK", payload: newTask });
+  const handleSubmit = e => {
+    e.preventdefault();
   };
 
   return (
     <div>
       <h1>To Do List</h1>
         <div>
-          <h1>{state.item}</h1>
-          <input
-            type="text"
-            name="newTask"
-            value={newTask}
-            onChange={handleChanges}
-          />
-          <button onClick={handleAddTask}>Add Task</button>
+        <form onSubmit={handleSubmit}>
+                <input 
+                    onChange={handleChanges}
+                    type="text"
+                    name="todo"
+                    value={props.newTask}
+                    />
+                    <button>Add</button>
+            </form>
         </div>
     </div>
   );
