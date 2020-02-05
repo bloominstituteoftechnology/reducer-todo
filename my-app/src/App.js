@@ -13,8 +13,8 @@ const App = () => {
     e.preventDefault();
   };
 
-  const toggleCompleted = e => {
-    dispatch({ type: "TOGGLE_COMPLETED" });
+  const toggleCompleted = (id) => {
+    dispatch({ type: "TOGGLE_COMPLETED", payload: id});
   };
   
   const handleChanges = e => {
