@@ -24,8 +24,9 @@ const [state, dispatch ] = useReducer( todoReducer, initialState);
             newTodo = {newTodo}
             dispatch = {dispatch}
         />
-        <div>{state.items.map(todo => (
-            <div  key = {todo.id} >
+        <div className = "todo-list">
+          {state.items.map(todo => (
+            <div className = "todo-item" key = {todo.id} >
                 <ToDo 
                     dispatch = {dispatch}
                     key = {props.id} 

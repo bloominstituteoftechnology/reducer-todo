@@ -18,11 +18,11 @@ import React from "react";
                 <button  
                     type="submit"
                     onClick={() => props.dispatch({ type: "CREATE_TODO", payload: props.newTodo })}>
-                    Add 
+                    Add new task
                 </button>
 
                 <button onClick={() => props.dispatch({ type: "CLEAR_COMPLETED"})}>
-                    Clear Completed Items
+                    Clear Completed
                 </button>
             </div>
         </form>
