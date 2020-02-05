@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  width: 70%;
+  margin: auto;
+}
+
+.todo.completed {
+  text-decoration: line-through;
+  color: lightgray;
+}
+
+.todo-list {
+  color: red;
+}
+
+h1 {
+  color: blue;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+form button {
+  width: 20%;
+}
