@@ -4,7 +4,7 @@ import SearchForm from "./SearchForm";
 import style from "styled-components";
 
 const Li = style.div`
-	background: #ccff00;
+	background: ;
 	height: -10px;
 `;
 

@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useReducer } from "react";
+import ToDoList from "./components/ToDoList";
+import ToDoForm from "./components/ToDoForm";
+import "./components/Todo.css";
+import { initialState, errandReducer } from "./reducer/index";
 
-function App() {
+const App = () => {
+  const [state, dispatch] = useReducer(errandReducer, initialState);
+
+  const addNewTask = newTaskName => {
+    dispatch({ type: "ADD_NEW_TASK", payload: newTaskName });
+  };
+
+  const toggleCompleted = id => {
+    dispatch({ type: "TOGGLE_COMPLETED", payload: id });
+  };
+
+  const clearCompleted = () => {
+    dispatch({ type: "CLEAR_COMPLETED" });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='appDiv'>
+      <div className='paper'>
+        <div className='pattern'>
+          <div className='notes'>
+            <h1>Reducer To-Do</h1>
+            <ToDoList errands={state.tasks} toggleCompleted={toggleCompleted} />
+          </div>
+        </div>
+      </div>
+      <ToDoForm addNewTask={addNewTask} clearCompleted={clearCompleted} />
     </div>
   );
-}
+};
 
 export default App;
