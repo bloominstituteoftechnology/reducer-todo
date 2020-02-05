@@ -39,7 +39,7 @@ export const toDoReducer = (state, action) => {
             return [
                 ...state,
                 {
-                    id: new Date(),
+                    id: Date.now(),
                     name: action.payload,
                     complete: false
                 }
@@ -50,6 +50,12 @@ export const toDoReducer = (state, action) => {
                     ? { ...todo, complete: !todo.complete }
                     : todo
             )
+
+        case 'REMOVE_COMPLETE':
+            let completedTodo = state.filter(
+                todo=> todo.complete === false
+            );
+            return completedTodo
         default:
             return state
     }

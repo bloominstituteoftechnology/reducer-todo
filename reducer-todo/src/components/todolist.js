@@ -18,17 +18,27 @@ const TodoList = () => {
         setNewTodo(e.target.value);
     };
 
-    const handleToggleTodo = complete =>{
-        dispatch({type: 'TOGGLE_TODO'});
-        console.log('hi', complete);
+    const handleToggleTodo = (id) => {
+        dispatch({ type: 'TOGGLE_TODO', id: id});
+        console.log('hi');
     };
+
+    const handleRemoveComplete = () => {
+        dispatch({type: 'REMOVE_COMPLETE'})
+        console.log('click!');
+    }
+
+
     return (
         <div>
             {state.map(todo => 
                 <Todo
                 key={todo.id}
                 name={todo.name}
-                onClick= {handleToggleTodo}
+                state={state}
+                complete={todo.complete}
+                todo={todo}
+                handleToggleTodo={handleToggleTodo}
                 />
             )}
             <input
@@ -39,6 +49,7 @@ const TodoList = () => {
             onChange={handleChanges}
             />
             <button onClick={handleAddTodo}>Add</button>
+            <button onClick={handleRemoveComplete}>Remove Completed Items</button>
         </div>
     )
 };
