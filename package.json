@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "short-id": "^0.1.0-1",
+    "shortid": "^2.2.15"
+  }
+}
