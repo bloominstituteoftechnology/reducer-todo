@@ -1,0 +1,64 @@
+.notes {
+  padding-top: 100px;
+  padding-left: 56px;
+  padding-right: 16px;
+  line-height: 22px;
+  font-size: 19px;
+  letter-spacing: 1px;
+  word-spacing: 5px;
+}
+
+h3 {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  margin-top: -2%;
+  padding: 1%;
+}
+
+ol {
+  width: 95%;
+  margin: auto 40%;
+  margin-bottom: 3%;
+}
+
+li {
+  margin: 0.5% 2%;
+}
+
+.item.completed {
+  text-decoration: line-through 3px black;
+}
+
+.form1 {
+  display: flex;
+  width: 50%;
+  margin-left: 34%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.btn1 {
+  width: 50%;
+  margin: 10% auto;
+}
+
+.btn2 {
+  width: 20%;
+  margin: 0 auto;
+}
+
+.formGoLeft {
+  width: 50%;
+  margin: 0 auto;
+  padding-bottom: 2%;
+  margin-top: 5%;
+  border-radius: 5%;
+}
