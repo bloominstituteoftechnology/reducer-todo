@@ -12,19 +12,27 @@ export const initialTodos = [
 ];
 
   export const toDoReducer = (todos, action) => {
+      console.log(action);
     switch (action.type) {
       case "TOGGLE_COMPLETED":
-        return {
-            ...todos,
-            completed: !todos.completed
-        };
+        return todos.map(item => {
+            if (action.payload === item.id) {
+                item.completed = !item.completed;
+                //console.log(item);
+            }
+            return item
+        })
       case "ADD_TASK":
-        return {
+        return [
           ...todos,
-          item: action.payload,
+          {item: action.payload,
           completed: false,
-          id: new Date()
-          };
+          id: new Date()}
+        ];
+
+        case "CLEAR_COMPLETED":
+            return todos.filter(item => item.completed === false);
+
       default:
         return todos;
     }

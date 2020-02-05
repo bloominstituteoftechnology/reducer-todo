@@ -1,34 +1,20 @@
-import React, { useReducer, useState } from "react";
-import { initialTodos, toDoReducer } from "./reducers/todoReducer";
+import React from "react";
 
 const TodoForm = (props) => {
-  //const [todos, dispatch] = useReducer(toDoReducer, initialTodos);
-  const [newTask, setNewTask] = useState("");
-
-  /*const toggleCompleted = e => {
-    dispatch({ type: "TOGGLE_COMPLETED" });
-  };*/
   
-  const handleChanges = e => {
-    setNewTask(e.target.value);
-  };
-
-  const handleSubmit = e => {
-    e.preventdefault();
-  };
-
   return (
-    <div>
+    <div className="form-box">
       <h1>To Do List</h1>
-        <div>
-        <form onSubmit={handleSubmit}>
+        <div className="form-container">
+        <form onSubmit={props.handleSubmit}>
                 <input 
-                    onChange={handleChanges}
+                    onChange={props.handleChanges}
                     type="text"
                     name="todo"
                     value={props.newTask}
                     />
-                    <button>Add</button>
+                    <button type="submit">Add</button>
+                    <button onClick={props.clearCompleted}>Clear Completed</button>
             </form>
         </div>
     </div>

@@ -2,13 +2,16 @@ import React from "react";
 
 const Todo = (props) => {
     return (
-        <div
-        onClick={event => props.toggleCompleted(props.todos.id)}
-        className={`todos${props.todos.completed ? "completed" : ""}`}
-    >
-        <p>{props.todos.item}</p>    
+        <div>{props.todos.map(item => (
+            <p
+                key={item.id}
+                className={item.completed ? "completed" : ""}
+                onClick={() => props.toggleCompleted(item.id)}>
+                    {item.item}
+                </p>
+        ))}
 
-    </div>
+        </div>
     );
 };
 
