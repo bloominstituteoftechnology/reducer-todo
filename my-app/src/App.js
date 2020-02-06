@@ -23,8 +23,9 @@ const App = () => {
   };
 
   const clearCompleted = e => {
-    dispatch({type: "CLEAR COMPLETED"});
     e.preventDefault();
+    dispatch({type: "CLEAR_COMPLETED"});
+    
   }
 
   return(
@@ -37,7 +38,7 @@ const App = () => {
         newTask={newTask}
         clearCompleted={clearCompleted} />
       </div>
-      <Todo todos={todos} toggleCompleted={toggleCompleted}/>
+      <Todo todos={todos} toggleCompleted={toggleCompleted} clearCompleted={clearCompleted}/>
     </div>
   )
 }

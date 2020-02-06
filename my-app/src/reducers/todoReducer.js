@@ -18,7 +18,7 @@ export const initialTodos = [
         return todos.map(item => {
             if (action.payload === item.id) {
                 item.completed = !item.completed;
-                //console.log(item);
+                console.log(item);
             }
             return item
         })
