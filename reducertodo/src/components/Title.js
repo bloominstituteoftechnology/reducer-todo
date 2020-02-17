@@ -1,14 +1,9 @@
 import React, { useState, useReducer } from 'react';
-
 import { titleReducer, initialState } from '../reducers/titleReducer';
 
-// dispatch takes in an action object, and calls the reducer function with state and that action.
-
 const Title = () => {
-  const [state, dispatch] = useReducer(titleReducer, initialState); // two args - reducer, initialState
+  const [state, dispatch] = useReducer(titleReducer, initialState); 
   console.log(state, dispatch);
-  // const [title, setTitle] = useState('Hello earthlings!');
-  // const [editing, setEditing] = useState(false);
   const [newTitleText, setNewTitleText] = useState('');
 
   const handleChanges = e => {
@@ -36,8 +31,6 @@ const Title = () => {
           />
           <button
             onClick={() => {
-              // setTitle(newTitleText);
-              // setEditing(false);
               dispatch({ type: 'UPDATE_TITLE', payload: newTitleText });
             }}
           >

@@ -1,6 +1,6 @@
 export const initialState = {
     editing: false,
-    title: 'First Name your List'
+    title: 'Give your list a name ! '
   };
   
   export const titleReducer = (state, action) => {
