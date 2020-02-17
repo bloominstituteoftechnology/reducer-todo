@@ -1,24 +1,71 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import uuid from 'uuid';
+
+const theID = uuid()
+
+// Step 1 => Set State variables and shape
+const initialState = {
+  addToDo: {
+    item: ''
+  },
+  toDoList : [
+    {
+      item: 'Fix Aircon',
+      completed: false,
+      id: 1
+    }
+  ]
+}
+
+// Step 2 => Define action types
+const ADD_ITEM = 'ADD_ITEM';
+
+function reducer(state, action){
+  switch(action.type){
+    case ADD_ITEM:
+      const newItem = action.payload
+    return{
+      ...state,
+      addToDo
+
+    }
+  }
+
+}
+
+
 
 function App() {
+
+
+
+  const onChange = event => {
+    const input = event.target.name
+    dispatch({
+      type: ADD_ITEM,
+      payload: toDoItem,
+    })
+  }
+
+  const submitThis = event => {
+    debugger
+    event.preventDefault();
+    const toDoItem = {
+
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <form onSubmit={submitThis}>
+        <label>Add to your To Do List:</label>
+        <input 
+        placeholder="Add to your To Do list:"
+        onChange={onChange}
+        value={}
+        />
+      </form>
+
     </div>
   );
 }
