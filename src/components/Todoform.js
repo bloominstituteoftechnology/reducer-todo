@@ -13,11 +13,28 @@ const Todoform = props => {
         e.preventDefault();
         console.log('to do', newTodo)
         dispatch({ type: 'Add_TODO', payload: newTodo})
-;
-const handleDeleter = e =>{
+    };
+const handleDelete = e =>{
     e.preventDefault();
     dispatch({type: "DELETE_TODO", payload: newTodo})
 
 };
-    }
-}
+
+return(
+    <div>
+        <form>
+            <input
+            id='newTodo'
+            type='text'
+            name='newTodo'
+            value={newTodo}
+            onChange={handleChanges}
+            />
+            <button onClick={handleSubmit}>What To Do? </button>
+            <button onClick={handleDelete}>All Done! </button>
+        </form>
+        <Todo id={state.id} dipatch={dispatch} state={state} newTodo={newTodo}/>
+    </div>
+);
+};
+export default Todoform;
