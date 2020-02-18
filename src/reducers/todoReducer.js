@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 
 // Initial State
-export const initialState = (
+export const initialState = [
     {
         item: 'Learn about reducers',
         completed: false,
@@ -26,21 +26,24 @@ export const initialState = (
         item: 'Remind someone else about reducers',
         completed: false,
         id: 3892987593
+      },
+
+      {
+        item: 'Remind someone else about reducers',
+        completed: false,
+        id: 3892987599
       }
-)
+    ]
 
 export const todoReducer = (state, action) => {
     switch (action.type){
         case 'ADD_TODO':
-          const newTodo = {
+
+          console.log('state: ', state, 'action: ', action)
+          return {
             item: action.payload,
             completed: false,
             id: Date.now()
-          }
-          console.log('state: ', state, 'action: ', action)
-          return {
-            ...state,
-            todo: [...state.todos, newTodo]
           }
         default:
             return state;

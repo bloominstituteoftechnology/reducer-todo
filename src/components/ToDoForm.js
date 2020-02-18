@@ -7,14 +7,15 @@ const TodoForm = props => {
     const [todoInput, setTodoInput] = useState('');
 
     const handleChange = e => {
+        e.preventDefault();
         setTodoInput(e.target.value)
     }
 
     return (
         <div>
-            <p>Add New Todo</p>
+            <h1>Todo List</h1>
             <input
-            className='todoInput'
+            className='' //todoInput
             type='text'
             value={todoInput}
             onChange={handleChange}

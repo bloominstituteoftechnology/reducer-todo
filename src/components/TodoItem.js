@@ -4,10 +4,12 @@ import Todo from './Todo';
 
 const TodoItem = props => {
     const [state, dispatch] = useReducer(todoReducer,initialState);
-
+    console.log(props)
+    console.log('state ',state)
     return (
         <div>
-            {state.todos.map(note => (
+            {state.map(note => (
+                
                 <Todo
                 task={note.item}
                 completed={note.completed}
