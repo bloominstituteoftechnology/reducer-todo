@@ -1,7 +1,7 @@
 
 
 export const initialState = {
-    todo: "Get grocery",
+    todoList: [],
     completed: false,
     id:1
 
