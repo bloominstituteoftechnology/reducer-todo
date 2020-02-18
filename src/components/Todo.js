@@ -29,7 +29,7 @@ const Todo = props => {
     return(
         <div>
             <form>
-                <label htmlFor='todo'> Add Item To Do: </label>
+                <label htmlFor='todo'> What To Do: </label>
                 <input
                 id='todo'
                 name='todo'
@@ -39,7 +39,7 @@ const Todo = props => {
             </form>
 
             <button onClick={handleSubmit}>Add Item To Do</button>
-            <button onClick={handleDelete}>Clear Items That Are Finished</button>
+            <button onClick={handleDelete}>Clear Items Once Finished</button>
             <TodoList state={state} dispatch={dispatch} handleToggle = {handleToggle} />
 
         </div>
