@@ -14,10 +14,10 @@ export const todoReducer = (state, action) => {
             return {
                 ...state,
                 todosArray:[...state.todosArray,{
-                    id:Date.now(),
+                    
                     item:action.payload,
-                    completed:false
-
+                    completed:false,
+                    id:Date.now(),
                 }]
             };
             case 'CLEAR_COMPLETED':
@@ -28,7 +28,7 @@ export const todoReducer = (state, action) => {
                 case 'TOGGLE_COMPLETED':
                     return {
                         ...state,
-                        todosArray:state.todosArray.map(e=>e.id === action.payload ? {...e, complete: !e.complete} : e)
+                        todosArray:state.todosArray.map(e=>e.id === action.payload ? {...e, completed: !e.completed} : e)
                     }
 
             default:

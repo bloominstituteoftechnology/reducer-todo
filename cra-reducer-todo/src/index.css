@@ -12,6 +12,3 @@ code {
     monospace;
 }
 
-.task.completed {
-  text-decoration: line-through;
-}
