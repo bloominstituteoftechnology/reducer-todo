@@ -4,7 +4,7 @@ import TodoList from './TodoList';
 
 const Todo = props => {
     const [state, dispatch] = useReducer(reducer, initialState);
-    const [newTodoItem, setNewTodoItem] = useState ('';
+    const [newTodoItem, setNewTodoItem] = useState ('');
     
     const handleChange = e => {
         setNewTodoItem(e.target.value);
@@ -16,7 +16,7 @@ const Todo = props => {
         setNewTodoItem('');
     };
 
-    handleDelete = e => {
+    const handleDelete = e => {
         e.preventDefault();
         dispatch({ type: 'CLEAR_DONE' });
     }
