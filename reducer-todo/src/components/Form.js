@@ -37,7 +37,7 @@ const[state,setState] = useState('')
     
     return(
         <div>
-            <form onSubmit = {handleSubmit} >
+            <form className= "form" onSubmit = {handleSubmit} >
                 <input
                 type = "text"
                 name = "newTodo" 

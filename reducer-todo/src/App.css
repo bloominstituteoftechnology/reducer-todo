@@ -57,5 +57,11 @@
   button{
     background: #196767;
     color:white;
+    padding:0.5%;
+    border-radius: 6px;
 
+  }
+  .form{
+    margin: 2%;
+    
   }
