@@ -22,16 +22,10 @@ function App() {
 }
 //--------------
 
-
 const addNewTodo = (newText) =>{
-  const newItem = {
-    task: newText,
-    completed: false,
-    id:Date.now()
-  }
-dispatch({
+  dispatch({
   type: "ADD_TODO",
-  payload:newItem
+  payload:(newText)
 })
 }
 //------------------
@@ -39,7 +33,8 @@ dispatch({
   return (
     <div className="App"> 
       {/* <button onClick = {addNewTodo}>Add Todo</button> */}
-      <Form addtodo ={addNewTodo} newText = {state.newText}/>     
+          
+      <Form addNewTodo = {addNewTodo} />
       <Display toggle = {toggleTodo} todos = {state.todos}/>
       <button onClick ={filterTodo}>delete completed</button>
      

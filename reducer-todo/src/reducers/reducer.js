@@ -36,16 +36,15 @@ export function reducer (state, action){
                     todos: state.todos.filter(i =>!i.completed)
                 }
             case 'ADD_TODO':
+            const newTodo = {
+                task:action.payload,
+                completed:false,
+                id:Date.now()
+                }               
                 return{
                     ...state,
-                    todo:{
-                        task: action.payload,
-                        completed: false,
-                        id: Date.now()
-                    }
-                    // todos: state.todos.push({task: state.newText}),
-                    // completed: false                    
-                }
+                    todos: [...state.todos,newTodo]                                   
+         }
         default:
             return state
     }

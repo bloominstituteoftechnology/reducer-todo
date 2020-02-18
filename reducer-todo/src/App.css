@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  border:#196767 4px solid;
+  width:40%;
+  margin: 0 auto;
+  padding:5%;
+  background: #eafafa;
+  border-radius: 12px;
 }
 
 .App-logo {
@@ -39,4 +45,17 @@
 
 .completed{
   text-decoration: line-through;
+  }
+
+  .display{
+    background:#d6f5f5;
+    width: 80%;
+    margin:0 auto;
+    border: 1px solid  #196767;
+    border-radius: 7px;
+  }
+  button{
+    background: #196767;
+    color:white;
+
   }

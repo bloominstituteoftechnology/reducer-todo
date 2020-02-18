@@ -7,7 +7,7 @@ export default function Display (props){
 
     return(
 
-        <div>
+        <div className ="display">
             {props.todos.map(i =>(
                 <Todo toggle = {props.toggle} key = {i.id} todo = {i}/>
                 ))}{""}
