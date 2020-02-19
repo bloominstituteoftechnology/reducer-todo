@@ -14,7 +14,8 @@ export function addToDoItem({ toDoItem }){
 export function changingFormData({currentFormData}) {
     return {
         type: types.FORM_CHANGE,
-        payload: { currentFormData
+        payload: { 
+            currentFormData
         }
     }
 }
