@@ -35,16 +35,39 @@ export const initialState = [
       }
     ]
 
-export const todoReducer = (state, action) => {
+export const todoReducer = (state = initialState, action) => {
     switch (action.type){
         case 'ADD_TODO':
 
           console.log('state: ', state, 'action: ', action)
-          return {
+          
+          return  [...state,{
+            
             item: action.payload,
             completed: false,
-            id: Date.now()
-          }
+            id: Date.now(),
+               
+          }]
+
+        case 'TOGGLE':
+          let complete = state.map(toggle => {
+            if(toggle.id === action.payload){
+              return {
+                ...toggle,
+                completed: !toggle.completed
+              }
+            }
+            else {
+              return toggle
+            }
+          })
+
+          return complete;
+
+        case 'CLEAR':
+          return [...state.filter]
+
+
         default:
             return state;
     }
