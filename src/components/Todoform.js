@@ -12,11 +12,11 @@ const Todoform = props => {
     const handleSubmit = e =>{
         e.preventDefault();
         console.log('to do', newTodo)
-        dispatch({ type: 'Add_TODO', payload: newTodo})
+        dispatch({ type: 'ADD_TODO', payload: newTodo})
     };
 const handleDelete = e =>{
     e.preventDefault();
-    dispatch({type: "DELETE_TODO", payload: newTodo})
+    dispatch({type: 'DELETE_TODO', payload: newTodo})
 
 };
 
