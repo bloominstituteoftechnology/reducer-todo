@@ -22,6 +22,7 @@ const TodoForm = props => {
   return (
     <div>
       <form>
+        <div className='form-container'>
         <input
           id='newTodo'
           type="text"
@@ -31,6 +32,7 @@ const TodoForm = props => {
         />
       <button onClick={handleSubmit}>Add Task</button>
       <button onClick={handleDelete}>Completed Task</button>
+      </div>
       </form>
       <Todo id={state.id} dispatch={dispatch} state={state} newTodo={newTodo}/>
     </div>

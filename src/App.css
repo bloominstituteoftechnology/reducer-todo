@@ -1,15 +1,45 @@
 .App {
   text-align: center;
+  
+}
+body {
+  background:  #5f65e9;
 }
 
 h1 {
-  color: blue;
+  color:black;
   font-size: 100px;
+  margin: 0;
+  
 
 }
 
 p {
-  color: orange;
+  color:black;
   font-size: 80px;
   
+}
+.form-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+
+
+}
+button {
+  height: 100px;
+  width: 300px;
+  border-radius:30px;
+  margin: 40px;
+  font-size: 30px;
+  font-weight: bold;
+  background: pink;
+}
+
+input {
+  height: 100px;
+  width: 600px;
+  font-size: 50px;
+
 }
