@@ -1,6 +1,6 @@
 export const initialState = [{
     
-    item: "Finish Project",
+    item: "",
     completed: false,
     id: Date.now()
   },
@@ -26,9 +26,3 @@ export const reducer = (state, action) => {
       return state;
       };   
 };
-            
-
-
-
-
-            
