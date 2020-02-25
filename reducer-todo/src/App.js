@@ -6,7 +6,7 @@ import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 
 //reducers
-import { initialState, todoReducer } from './reducers/reducer';
+import { initialState, todoReducer } from './reducers/reducers';
 
 function App() {
 
