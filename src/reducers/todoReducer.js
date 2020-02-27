@@ -58,16 +58,20 @@ export const todoReducer = (state = initialState, action) => {
               }
             }
             else {
-              return toggle
+              return toggle;
             }
           })
 
           return complete;
-
-        case 'CLEAR':
-          return [...state.filter]
-
-
+          case 'CLEAR':
+              let remove = state.filter(item => {
+                if (item.completed) {
+                  return !item.completed
+                } else {
+                  return item
+                }
+              })
+              return remove
         default:
             return state;
     }

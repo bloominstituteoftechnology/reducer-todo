@@ -39,14 +39,11 @@ const TodoForm = props => {
             </div>
             <div>
                 {/* <TodoItem state={state} /> */}
-                {state.map(param => {
+                {state.map(state => {
                     return (
                         <div className={state.completed ? 'completed' : ''} onClick={() => { dispatch({ type: 'TOGGLE', payload: state.id }) }} >
 
-                            <Todo
-                                task={param.item}
-                                key={param.id}
-                            />
+                            <p>{state.item}</p>
 
                         </div>
 
