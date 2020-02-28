@@ -1,4 +1,4 @@
-export const initialState = {
+const initialState = {
   items: [
     { todo: "Take out Trash", completed: false, id: 1 },
     { todo: "Wash Dishes", completed: false, id: 2 },
@@ -8,7 +8,7 @@ export const initialState = {
   ]
 };
 
-export const reducer = (state = initialState, action) => {
+export const TodoListReducer = (state = initialState, action) => {
   console.log("Reducer", state, action);
   switch (action.type) {
     case "ADD_ITEM":
