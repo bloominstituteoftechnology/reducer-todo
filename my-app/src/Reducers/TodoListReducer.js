@@ -1,17 +1,12 @@
 export const initialState = {
   items: [
-    { todo: "Take out Trash", completed: false, id: 1 },
-    { todo: "Wash Dishes", completed: false, id: 2 },
-    { todo: "Meal Prep", completed: false, id: 3 },
-    { todo: "Learn more Programming", completed: false, id: 4 },
-    { todo: "Hit the Gym", completed: false, id: 5 }
+    { todo: "Take out Trash", completed: false, id: new Date() },
+    { todo: "Wash Dishes", completed: false, id: new Date() },
+    { todo: "Meal Prep", completed: false, id: new Date() },
+    { todo: "Learn more Programming", completed: false, id: new Date() },
+    { todo: "Hit the Gym", completed: false, id: new Date() }
   ]
 };
-
-// const addItem = {
-//   type: "ADD_ITEM",
-//   payload: "Clean Bathroom"
-// };
 
 export const TodoListReducer = (state = initialState, action) => {
   console.log("Reducer", state, action);
@@ -23,7 +18,10 @@ export const TodoListReducer = (state = initialState, action) => {
           { todo: action.payload, completed: false, id: new Date() }
         ]
       };
-
+    case "MARK_DONE":
+      return {
+        completed: true
+      };
     default:
       return state;
   }

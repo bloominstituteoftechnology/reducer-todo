@@ -3,6 +3,7 @@ import { initialState, TodoListReducer } from "../Reducers/TodoListReducer";
 
 const TodoList = () => {
   const [newItem, setNewItem] = useState("");
+  const [finished, setFinished] = useState("");
   const [state, dispatch] = useReducer(TodoListReducer, initialState);
 
   console.log(state.items);
@@ -13,6 +14,10 @@ const TodoList = () => {
 
   const addItem = event => {
     dispatch({ type: "ADD_ITEM", payload: newItem });
+  };
+
+  const todoFinished = e => {
+    dispatch({ type: "MARK_DONE" });
   };
 
   return (
@@ -29,7 +34,15 @@ const TodoList = () => {
           <ul>
             <li>
               {state.items.map(item => {
-                return <p>{item.todo}</p>;
+                return (
+                  <p
+                    onClick={todoFinished}
+                    className={`todo${
+                      state.items.completed ? " completed" : ""
+                    }`}>
+                    {item.todo}
+                  </p>
+                );
               })}
             </li>
           </ul>
