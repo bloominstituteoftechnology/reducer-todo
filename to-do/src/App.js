@@ -15,7 +15,7 @@ function App() {
       <div className="App">
           <h1>Todo List</h1>
           <TodoForm addTodo={addTodo} clearCompleted={clearCompleted}/>
-          {/* <TodoList todos={state.todos} toggleComplete={toggleComplete}/> */}
+          <TodoList todos={state.todos} toggleComplete={toggleComplete}/>
       </div>
     );
 }

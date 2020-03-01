@@ -1,4 +1,3 @@
-import React, {useReducer} from 'react';
 
 export const initialState = {
     todos: [
@@ -17,10 +16,18 @@ export function todoReducer(state, action){
             return {
                 ...state, todos: [...state.todos, {item: action.payload, id: Date.now(),
                 completed:false,}]
+            };
+            case 'CLEAR_COMPLETED': 
+                return {
+                    ...state, todos: state.todos.filter((todo) =>  !todo.completed )
+                };
+            case 'TOGGLE_COMPLETE': {
+                return {
+                    ...state, todos: state.todos.map((todo) => (todo.id === action.payload ? {...todo, completed: !todo.completed}: todo))
+                }
             }
         default:
             return state;
 
     }
 };
-
