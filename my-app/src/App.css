@@ -36,3 +36,9 @@ li {
   padding-left: 8px;
   cursor: pointer;
 }
+
+.clear {
+  background-color: #fff;
+  font-size: large;
+  color: #0c09b6;
+}

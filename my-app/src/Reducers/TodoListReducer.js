@@ -22,6 +22,10 @@ export const TodoListReducer = (state = initialState, action) => {
       return {
         completed: true
       };
+    case "CLEAR_TODO":
+      return {
+        state
+      };
     default:
       return state;
   }

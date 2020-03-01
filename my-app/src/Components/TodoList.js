@@ -20,6 +20,10 @@ const TodoList = () => {
     dispatch({ type: "MARK_DONE" });
   };
 
+  const clearTodo = event => {
+    dispatch({ type: "CLEAR_TODO" });
+  };
+
   return (
     <div>
       <div className="form-container">
@@ -30,6 +34,10 @@ const TodoList = () => {
           placeholder="Add new Todo"
         />
         <button onClick={addItem}>Add Todo</button>
+        <br></br>
+        <button className="clear" onClick={clearTodo}>
+          Clear Todo List
+        </button>
         <div>
           <ul>
             <li>
