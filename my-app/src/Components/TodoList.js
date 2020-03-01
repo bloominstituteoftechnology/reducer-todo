@@ -1,46 +1,41 @@
-import React from "react";
-import { connect } from "react-redux";
-import { addItem } from "../Execute/TodoExecute";
+import React, { useState, useReducer } from "react";
+import { initialState, TodoListReducer } from "../Reducers/TodoListReducer";
 
-class TodoList extends React.Component {
-  state = {
-    newItem: ""
+const TodoList = () => {
+  const [newItem, setNewItem] = useState("");
+  const [state, dispatch] = useReducer(TodoListReducer, initialState);
+
+  console.log(state.items);
+
+  const handleChanges = e => {
+    setNewItem(e.target.value);
   };
 
-  handleChanges = e => {
-    this.setState({ newItem: e.target.value });
+  const addItem = event => {
+    dispatch({ type: "ADD_ITEM", payload: newItem });
   };
 
-  render() {
-    return (
-      <React.Fragment>
-        <div className="todo-list">
-          {this.props.items.map((item, id) => (
-            <h4 key={id}>
-              {item.todo}
-              {item.completed}
-            </h4>
-          ))}
-        </div>
+  return (
+    <div>
+      <div className="form-container">
         <input
           type="text"
-          value={this.state.newItem}
-          onChange={this.handleChanges}
+          value={newItem}
+          onChange={handleChanges}
           placeholder="Add new Todo"
         />
-        <button onClick={() => this.props.addItem(this.state.newItem)}>
-          Add Todo
-        </button>
-      </React.Fragment>
-    );
-  }
-}
-
-const mapStateToProps = state => {
-  console.log("mapStateToProps in TodoList", state);
-  return {
-    items: ""
-  };
+        <button onClick={addItem}>Add Todo</button>
+        <div>
+          <ul>
+            <li>
+              {state.items.map(item => {
+                return <p>{item.todo}</p>;
+              })}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
 };
-
-export default connect(mapStateToProps, { addItem })(TodoList);
+export default TodoList;

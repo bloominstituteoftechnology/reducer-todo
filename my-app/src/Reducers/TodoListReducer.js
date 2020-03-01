@@ -1,4 +1,4 @@
-const initialState = {
+export const initialState = {
   items: [
     { todo: "Take out Trash", completed: false, id: 1 },
     { todo: "Wash Dishes", completed: false, id: 2 },
@@ -8,17 +8,32 @@ const initialState = {
   ]
 };
 
+// const addItem = {
+//   type: "ADD_ITEM",
+//   payload: "Clean Bathroom"
+// };
+
 export const TodoListReducer = (state = initialState, action) => {
   console.log("Reducer", state, action);
   switch (action.type) {
     case "ADD_ITEM":
-      const newItem = { todo: action.payload };
       return {
-        ...state,
-        items: [...state.items, newItem]
+        items: [
+          ...state.items,
+          { todo: action.payload, completed: false, id: new Date() }
+        ]
       };
 
     default:
       return state;
   }
 };
+
+// let currentState = initialState;
+// const dispatch = action => {
+//   currentState = TodoListReducer(currentState, action);
+// };
+
+// dispatch(addItem);
+
+// console.log("New Todo State", currentState);

@@ -1,5 +1,5 @@
 import React from "react";
-import { Title } from "./Components/Title";
+import { TodoListReducer, initialState } from "./Reducers/TodoListReducer";
 import TodoList from "./Components/TodoList";
 import "./App.css";
 
@@ -8,7 +8,6 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Stateful Todo App</h1>
-        {/* <Title /> */}
         <TodoList />
       </header>
     </div>
