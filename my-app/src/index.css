@@ -5,7 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: lightblue;
+  /* background-color: lightblue; */
+  
+  background: -moz-linear-gradient(45deg, #0D38CE 0%, #E4ECEB 50%, #DAEFEF 100%);
+  background: -webkit-linear-gradient(45deg, #0D38CE 0%, #E4ECEB 50%, #DAEFEF 100%);
+  background: linear-gradient(45deg, #0D38CE 0%, #E4ECEB 50%, #DAEFEF 100%);
   
 }
 
