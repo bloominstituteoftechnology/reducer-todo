@@ -1,31 +1,40 @@
 export const initialState = {
   items: [
-    { todo: "Take out Trash", completed: false, id: new Date() },
-    { todo: "Wash Dishes", completed: false, id: new Date() },
-    { todo: "Meal Prep", completed: false, id: new Date() },
-    { todo: "Learn more Programming", completed: false, id: new Date() },
-    { todo: "Hit the Gym", completed: false, id: new Date() }
+    { todo: "Take out Trash", completed: false, id: Date.now() },
+    { todo: "Wash Dishes", completed: false, id: Date.now() },
+    { todo: "Meal Prep", completed: false, id: Date.now() },
+    { todo: "Learn more Programming", completed: false, id: Date.now() },
+    { todo: "Hit the Gym", completed: false, id: Date.now() }
   ]
 };
 
 export const TodoListReducer = (state = initialState, action) => {
-  console.log("Reducer", state, action);
+  //console.log("Reducer", state, action);
   switch (action.type) {
     case "ADD_ITEM":
       return {
         items: [
           ...state.items,
-          { todo: action.payload, completed: false, id: new Date() }
+          { todo: action.payload, completed: false, id: Date.now() }
         ]
       };
     case "MARK_DONE":
+      console.log(action);
       return {
-        completed: true
+        ...state,
+        items: state.items.map(item =>
+          item.id === action.payload
+            ? { ...item, completed: !item.completed }
+            : item
+        )
       };
     case "CLEAR_TODO":
-      return {
-        state
-      };
+      return { ...state.items, items: [...state.items] }.map(item => {
+        if (item.completed === true) {
+          state.items.splice(state.items.indexOf(item), 1);
+        }
+        return state;
+      });
     default:
       return state;
   }

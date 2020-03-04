@@ -16,8 +16,8 @@ const TodoList = () => {
     dispatch({ type: "ADD_ITEM", payload: newItem });
   };
 
-  const todoFinished = e => {
-    dispatch({ type: "MARK_DONE" });
+  const todoFinished = id => {
+    dispatch({ type: "MARK_DONE", payload: id });
   };
 
   const clearTodo = event => {
@@ -44,10 +44,8 @@ const TodoList = () => {
               {state.items.map(item => {
                 return (
                   <p
-                    onClick={todoFinished}
-                    className={`todo${
-                      state.items.completed ? " completed" : ""
-                    }`}>
+                    onClick={() => todoFinished(item.id)}
+                    className={`todo${item.completed ? " completed" : ""}`}>
                     {item.todo}
                   </p>
                 );
