@@ -29,12 +29,10 @@ export const TodoListReducer = (state = initialState, action) => {
         )
       };
     case "CLEAR_TODO":
-      return { ...state.items, items: [...state.items] }.map(item => {
-        if (item.completed === true) {
-          state.items.splice(state.items.indexOf(item), 1);
-        }
-        return state;
-      });
+      return {
+        ...state,
+        items: state.items.filter(item => item.completed === false)
+      };
     default:
       return state;
   }
