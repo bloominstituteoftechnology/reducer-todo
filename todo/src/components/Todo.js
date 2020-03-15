@@ -1,9 +1,11 @@
 import React from 'react';
 
-let Todo = () => {
+let Todo = props => {
+    console.log('todo props', props)
     return (
         <div>
-            <p>I'm a task!</p>
+            <h3>{props.name}</h3>
+            <p>{props.status ? 'Completed' : 'Incomplete'}</p>
         </div>
     )
 }

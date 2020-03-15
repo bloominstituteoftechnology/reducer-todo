@@ -1,14 +1,19 @@
 export const initialState = {
-    tasks = [ 
+    tasks: [ 
         {
+            id: 1,
             item: 'Fix bedroom window',
-            completed: false,
-            id: 03132020
+            completed: false
         }, 
         {
+            id: 2,
             item: 'Water plants',
-            completed: true, 
-            id: 03142020
+            completed: true
+        },
+        {
+            id: 3,
+            item: 'Go to the gym',
+            completed: false
         }
     ]
 }
