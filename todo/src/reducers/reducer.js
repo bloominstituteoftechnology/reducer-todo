@@ -1,11 +1,14 @@
  export const initialState = {
-       todos: [
+    todos:
+    [
         {
         item: 'Learn About Reducers',
         completed: false,
         id: 3892987589
-        } 
-       ]
+        }
+
+    ]
+
 };
 
  export const reducer = (state, action) => {

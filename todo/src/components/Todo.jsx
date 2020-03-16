@@ -5,12 +5,17 @@ const Todo = () => {
     
     const [state, dispatch] = useReducer(reducer, initialState);
   
-    const [newTodo, setNewTodo] = useState([]);
+    const [newTodo, setNewTodo] = useState();
+
 
     const handleChanges = e => {
         setNewTodo(e.target.value);
     }
-    console.log(state);
+
+    const addNewTodo = e => {
+        e.preventDefault();
+        dispatch({type: 'ADD_TODO', payload: newTodo});
+    }
     
     
     return (
@@ -22,7 +27,6 @@ const Todo = () => {
                  className={state.completed ? 'completed' : ''}
                  >{elem.item}</h1>
             ))}
-            <form>
                 <label htmlFor='todo'>Todo:
                     <input 
                         id='todo' 
@@ -33,9 +37,8 @@ const Todo = () => {
                         onChange={handleChanges}
                         />
                 </label>
-                <button onClick={() => dispatch({type: 'ADD_TODO', payload: newTodo})}>Add New Todo</button>
+                <button onClick={addNewTodo}>Add New Todo</button>
                 <button onClick={() => dispatch({type: 'CLEAR_COMPLETED'})}>Clear Completed</button>
-            </form>
         </div>
     );
 };
