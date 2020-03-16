@@ -25,17 +25,18 @@ const TodoForm = ({ addNewTask, filterTasks }) => {
 
     return (
         <div>
-            <p>this is the form</p>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
                     name="newTask"
-                    placeholder="Add a new task"
+                    placeholder="What do you need to do today?"
                     value={newTaskName}
                     onChange={handleChanges}
                 />
-                <button type="submit">Add</button>
-                <button type="button" onClick={handleClearCompleted}>Clear</button>
+                <div>
+                    <button type="submit">Add a New Task</button>
+                    <button type="button" onClick={handleClearCompleted}>Clear Your Completed Tasks</button>
+                </div>
             </form>
         </div>
     )

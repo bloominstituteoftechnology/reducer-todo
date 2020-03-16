@@ -35,7 +35,10 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>Elysia's To Do List</h1>
+        <div className="header-text">
+          <h1>Hello, Elysia!</h1>
+          {/* <p>Here's what you're working on today.</p> */}
+        </div>
       </header>
       <TodoForm 
         addNewTask={addNewTask}

@@ -1,38 +1,137 @@
-.App {
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Nunito:400,600&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  font-size: 62.5%;
+}
+
+body {
+  line-height: 1.4;
+  color: #2D2D2D;
+  background-color: #F7F6F2;
+  font-family: 'Nunito', sans-serif;
+}
+
+h1 {
+  font-family: 'Crimson Text', serif;
+  font-size: 3.6rem;
+  text-align: center;
+
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+header {
+  background-color: white;
+  padding: 20px 0 16px;
+}
+
+header p {
+  font-size: 1.4rem;
+  /* font-weight: 600; */
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* .header-text {
+  color: white;
+  background-color: #FF9D73;
+  border-radius: 20px;
+  margin: 0 auto;
+  padding: 12px 0 16px;
+  width: 50%;
+  transform: translateY(30px);
+} */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+form {
+  width: 50%;
+  max-width: 500px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+form div {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  width: 49%;
+  font-size: 1.4rem;
+  font-family: 'Nunito', sans-serif;
+  border: none;
+  border-radius: 12px;
+  padding: 4px;
+  margin: 4px 0 12px;
+  cursor: pointer;
+}
+
+button[type=submit] {
+  background-color: #2D2D2D;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+button[type=button] {
+  border: 1px solid #2D2D2D;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.task-panel {
+  width: 50%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.task {
+  background-color: white;
+  /* border: 1px solid #2D2D2D; */
+  border-radius: 12px;
+  padding: 10px 8px;
+  margin: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.task-details {
+  width: 90%;
+}
+
+i {
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.task-completed {
+  background-color: #E3E9DE;
+  color: #799F66;
+  font-weight: 600;
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 8px;
+  margin: 4px 0;
+}
+
+.task-incomplete {
+  background-color: #FFEBE3;
+  color: #E48159;
+  font-weight: 600;
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 8px;
+  margin: 4px 0;
 }
