@@ -1,0 +1,44 @@
+.App {
+  text-align: center;
+}
+
+li {
+  list-style-type: none;
+  color: rgb(0, 0, 0);
+  font-weight: bolder;
+  font-size: x-large;
+}
+
+.form-container {
+  width: 85vw;
+  min-height: 80vh;
+  max-width: 1024px;
+  margin: 35px auto;
+  background: #fff;
+  padding: 15px;
+  box-shadow: 10px 20px 30px rgb(0, 26, 255),
+    6px 12px 18px rgba(4, 208, 235, 0.932);
+}
+
+.todo.completed {
+  background-color: #fffb09;
+  text-decoration: line-through;
+}
+
+.todo {
+  background-color: #0c09b6;
+  width: 45%;
+  height: 45px;
+  text-align: center;
+  font-weight: bolder;
+  font-size: x-large;
+  margin: 4px 0;
+  padding-left: 8px;
+  cursor: pointer;
+}
+
+.clear {
+  background-color: #fff;
+  font-size: large;
+  color: #0c09b6;
+}
