@@ -19,5 +19,16 @@ export const initialState = {
 }
 
 export const todoReducer = (state, action) => {
-    console.log(state)
+    switch(action.type) {
+        case 'ADD_NEW_TASK':
+            const newTask = {
+                id: Date.now(),
+                item: action.payload,
+                completed: false
+            }
+            return {
+                ...state,
+                tasks: [...state.tasks, newTask]
+            }
+    }
 }

@@ -9,6 +9,13 @@ import { todoReducer, initialState } from './reducers/todoReducer';
 function App() {
   const [state, dispatch] = useReducer(todoReducer, initialState);
   console.log('initial state', state);
+  
+  const addNewTask = newTaskName => {
+    dispatch({
+      type: 'ADD_NEW_TASK',
+      payload: newTaskName
+    });
+  }
 
 
   return (
@@ -16,7 +23,7 @@ function App() {
       <header>
         <h1>Elysia's To Do List</h1>
       </header>
-      <TodoForm />
+      <TodoForm addNewTask={addNewTask}/>
       <TodoList tasks={state.tasks} />
     </div>
   );
