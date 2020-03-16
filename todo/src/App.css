@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: lavender;
+}
+
+
+.container {
+  width: 70vw;
+  display: flex;
+  justify-content: center;
+  padding-top: 2%;
+  padding-left: 7%;
+  padding-right: 7%;
+}
+
+.btn {
+  color: black;
+  background-color: rgb(255, 168, 255);
+  padding: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  margin-right: 2%;
+  height: 38px;
+}
+
+
+.btn:hover {
+  background: white;
+  color: purple;
+}
+
+::placeholder {
+  font-size: 1.2rem;
+}
+
+input {
+  border: 1px solid plum;
+  height: 38px;
+  width: 500px;
+  padding-top: 2%;
+  padding-left: 3%;
+  padding-bottom: 1%;
+}
+
+.todos {
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  border: 1px solid plum;
+}
+
+.clearbtn {
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 1.1rem;
+  background: black;
+  color: white;
+  height: 38px;
+  width: 200px;
+  margin: 1%;
+
+}
+
+.clearbtn:hover {
+  background: white;
+  color: black;
+}
+
+li {
+  font-size: 1.2rem;
+  margin: 2%;
+}
+
+.topOfForm {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.addTodo {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin: 1%;
+
+}
+
+.done {
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 1.1rem;
+  color: black;
+  background-color: rgb(255, 168, 255);
+  height: 35px;
+  width: 50px;
+  margin: 1%;
+
+}
+
+.done:hover {
+  background: #f4f4f4;
+  color: purple;
+}
