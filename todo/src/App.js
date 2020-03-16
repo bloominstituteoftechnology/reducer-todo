@@ -25,14 +25,26 @@ function App() {
     //console.log('clicked id:', clickedId, state.tasks);
   }
 
+  const filterTasks = () => {
+    dispatch({
+      type: 'FILTER_COMPLETED_TASKS'
+    })
+  }
+
 
   return (
     <div className="App">
       <header>
         <h1>Elysia's To Do List</h1>
       </header>
-      <TodoForm addNewTask={addNewTask}/>
-      <TodoList tasks={state.tasks} toggleTask={toggleTask} />
+      <TodoForm 
+        addNewTask={addNewTask}
+        filterTasks={filterTasks}  
+      />
+      <TodoList 
+        tasks={state.tasks} 
+        toggleTask={toggleTask} 
+      />
     </div>
   );
 }

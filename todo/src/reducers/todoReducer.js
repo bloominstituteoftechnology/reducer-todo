@@ -19,6 +19,7 @@ export const initialState = {
 }
 
 export const todoReducer = (state, action) => {
+    console.log(action)
     switch(action.type) {
         case 'ADD_NEW_TASK':
             const newTask = {
@@ -31,7 +32,7 @@ export const todoReducer = (state, action) => {
                 tasks: [...state.tasks, newTask]
             }
         case 'TOGGLE_TASK_STATUS':
-            let updatedTasks = state.tasks.map(task => {
+            const updatedTasks = state.tasks.map(task => {
                 if (task.id === action.payload) {
                     return {...task, completed: !task.completed}
                 } else {
@@ -42,5 +43,17 @@ export const todoReducer = (state, action) => {
                 ...state,
                 tasks: updatedTasks
             }
+        case 'FILTER_COMPLETED_TASKS':
+            const incompleteTasks = state.tasks.filter( task => {
+                if (task.completed === false) {
+                    return {...task}
+                }
+            }) 
+            return {
+                ...state,
+                tasks: incompleteTasks
+            }
+        default: 
+            return state;
     }
 }
