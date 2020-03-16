@@ -21,7 +21,7 @@ const TodoForm = ({ addNewTask, filterTasks }) => {
         filterTasks();
     }
 
-    console.log(newTaskName);
+    //console.log(newTaskName);
 
     return (
         <div>

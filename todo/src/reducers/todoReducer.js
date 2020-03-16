@@ -3,17 +3,20 @@ export const initialState = {
         {
             id: 1,
             item: 'Fix bedroom window',
-            completed: false
+            completed: false,
+            date_completed: null
         }, 
         {
             id: 2,
             item: 'Water plants',
-            completed: true
+            completed: true,
+            date_completed: 'January 5'
         },
         {
             id: 3,
             item: 'Go to the gym',
-            completed: false
+            completed: false,
+            date_completed: null
         }
     ]
 }
@@ -34,7 +37,11 @@ export const todoReducer = (state, action) => {
         case 'TOGGLE_TASK_STATUS':
             const updatedTasks = state.tasks.map(task => {
                 if (task.id === action.payload) {
-                    return {...task, completed: !task.completed}
+                    return {
+                        ...task, 
+                        completed: !task.completed,
+                        date_completed: !task.completed ? Date.now() : null
+                    }
                 } else {
                     return task
                 }

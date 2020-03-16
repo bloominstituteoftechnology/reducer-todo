@@ -1,7 +1,8 @@
 import React from 'react';
+import moment from 'moment';
 
 let Todo = props => {
-    console.log('todo props', props)
+    //console.log('todo props', props)
     return (
         <div onClick={() => props.toggleTask(props.id)}>
             <h3>
@@ -9,6 +10,7 @@ let Todo = props => {
                  {props.name}
             </h3>
             <p>{props.status ? 'Completed' : 'Incomplete'}</p>
+            {props.date != null ? <p>{moment(props.date).calendar()}</p> : null}
         </div>
     )
 }

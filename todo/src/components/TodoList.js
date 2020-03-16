@@ -2,7 +2,7 @@ import React from 'react';
 import Todo from './Todo';
 
 const TodoList = props => {
-    console.log('todo list props:', props)
+    //console.log('todo list props:', props)
 
     return (
         <div>
@@ -14,6 +14,7 @@ const TodoList = props => {
                         id={task.id}
                         name={task.item}
                         status={task.completed}
+                        date={task.date_completed}
                         toggleTask={props.toggleTask}
                     />
                 )
