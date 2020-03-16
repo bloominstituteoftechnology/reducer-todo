@@ -1,0 +1,9 @@
+.App {
+  text-align: center;
+}
+
+.completed{
+  text-decoration: strike-through;
+  cursor: pointer;
+  color: rgba(0,0,0,0.2);
+}

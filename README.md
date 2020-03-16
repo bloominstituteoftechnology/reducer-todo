@@ -1,60 +1,13 @@
-# Module Project: The Reducer Pattern - Reducer Todo
-
-This project allows you to practice the concepts and techniques learned in this module and apply them in a concrete project. This module explored the reducer pattern. During the module, you studied what immutability is, what reducers, actions and dispatch are, and how to use the reducer hook. In your project you will demonstrate proficiency of these subjects and principles by creating an application using each of these.
-
-## Instructions
-
-**Read these instructions carefully. Understand exactly what is expected _before_ starting this project.**
-
-### Commits
-
-Commit your code regularly and meaningfully. This helps both you and your team lead in case you ever need to return to old code for any number of reasons.
-
-### Description
-
-In this project, you build an app that let's you display a todo list from reducer state, and update todo items as completed and clear completed todos from the list by dispatching different actions.
-
-## Project Set Up
-
-- [ ] Create a forked copy of this project.
-- [ ] Add your team lead as collaborator on Github.
-- [ ] Clone your OWN version of the repository in your terminal.
-- [ ] CD into the project base directory `cd reducer-todo`.
-- [ ] Create a new react app running `npx create-react-app todo --use-npm`.
-- [ ] CD into the react app directory `cd todo`.
-- [ ] Start up the app using `npm start`.
-- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
-- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
-
-Follow these steps for completing your project.
-
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repository). **Please don't merge your own pull request**
-- [ ] Add your team lead as a reviewer on the pull-request
-- [ ] Your team lead will count the project as complete by merging the branch back into master.
-- [ ] Do your magic!
 
 ## Minimum Viable Product
 
-1. Set an initial state value through a reducer and render a list of todos from that state
-1. Add a form that dispatches an "ADD_TODO" action to be able to add a todo item to your list
-1. Build a function that let's you mark todo items as completed when you click on them
-1. Biuld a function that let's you clear completed todos when you click on a "Clear Completed" button
+Set an initial state value through a reducer and render a list of todos from that state
 
-### STEP 1 - Build a simple reducer and initial state
+Add a form that dispatches an "ADD_TODO" action to be able to add a todo item to your list
 
-- In a folder called `reducers` add a reducer file and build out a simple reducer with just a default return for now
-- In the same file, build your initial state object that has a list of todos with the following shape:
+Build a function that let's you mark todo items as completed when you click on them
 
-```js
-{
-  item: 'Learn about reducers',
-  completed: false,
-  id: 3892987589
-}
-```
-
-- Export both the reducer and the initial state object
+Biuld a function that let's you clear completed todos when you click on a "Clear Completed" button
 
 ### STEP 2 - Set up state in your component
 
