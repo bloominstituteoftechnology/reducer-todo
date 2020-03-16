@@ -1,46 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 
-class TodoForm extends React.Component {
-  // Constructor with state
-  constructor(props) {
-    super();
-    this.state = {
-      task: ""
-    };
-  }
-  handleChanges = e => {
-    this.setState({
+const TodoForm = (props) => {
+
+  const [state,setState] = useState( {
+    task: ""
+  });
+
+  const handleChanges = e => {
+    setState({
         task: e.target.value
     });
-    
-  };
+};
+
   // class property to submit form
-  submitForm = e => {
+  const submitForm = e => {
     e.preventDefault();
-    this.props.addTask(this.state.task);
-    console.log(this.state.task);
-    this.setState({
+    props.addTask(state.task);
+    console.log(state.task);
+    setState({
         task: ""
     });
   };
-  render() {
     return (
       <div>
-      <form className="todoForm"onSubmit={this.submitForm}>
+      <form className="todoForm"onSubmit={submitForm}>
         {/* This is an uncontrolled component 😬 We want it to be controlled by state */}
         <input
           className="inputStyle"
           type="text"
           name="task"
-          value={this.state.task}
-          onChange={this.handleChanges}
+          value={state.task}
+          onChange={handleChanges}
           placeholder="...todo"
         />
         <button className="todoButton">Add to List</button>
       </form>
       </div>
-    );
+    )
   }
-}
+
 
 export default TodoForm;

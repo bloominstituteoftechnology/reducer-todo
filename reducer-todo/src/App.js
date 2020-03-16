@@ -21,12 +21,14 @@ function App() {
   ];
   
 
-  const [todo,setTodo] = useState(list);
-  const [task,setTask] = useState("");
+  const [state,setState] = useState({
+    todo: list,
+    task: ""
+  })
 
   const toggleCompleted = clickedItemId => {
-    setTodo({
-      todo: this.state.todo.map(task => {
+    setState({
+      todo: state.todo.map(task => {
         if (task.id === clickedItemId) {
           return {
             ...task,
@@ -40,8 +42,8 @@ function App() {
   };
 
   const clearCompleted = e => {
-    setTodo({
-      todo: this.state.todo.filter(task => (task.completed !== true))
+    setState({
+      todo: state.todo.filter(task => (task.completed !== true))
     });
     console.log("cleared")
   }
@@ -52,16 +54,18 @@ function App() {
       id: new Date(),
       completed: false
     };
-    setTodo({
-      todo: [...this.state.todo, newTask]
+    setState({
+      todo: [...state.todo, newTask]
     });
   };
 
 
   return (
-    <div className="App">
-      
-    </div>
+    <div className="todoList">
+        <h2>Welcome to your Todo App!</h2>
+      <TodoList todo={state.todo} toggleCompleted={toggleCompleted} clearCompleted={clearCompleted}/>
+      <TodoForm addTask={addTask} />
+      </div>
   );
 }
 
