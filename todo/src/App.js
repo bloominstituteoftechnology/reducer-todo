@@ -8,13 +8,21 @@ import { todoReducer, initialState } from './reducers/todoReducer';
 
 function App() {
   const [state, dispatch] = useReducer(todoReducer, initialState);
-  console.log('initial state', state);
+  //console.log('initial state', state);
   
   const addNewTask = newTaskName => {
     dispatch({
       type: 'ADD_NEW_TASK',
       payload: newTaskName
     });
+  }
+
+  const toggleTask = clickedId => {
+    dispatch({
+      type: 'TOGGLE_TASK_STATUS',
+      payload: clickedId
+    })
+    //console.log('clicked id:', clickedId, state.tasks);
   }
 
 
@@ -24,7 +32,7 @@ function App() {
         <h1>Elysia's To Do List</h1>
       </header>
       <TodoForm addNewTask={addNewTask}/>
-      <TodoList tasks={state.tasks} />
+      <TodoList tasks={state.tasks} toggleTask={toggleTask} />
     </div>
   );
 }
