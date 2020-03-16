@@ -5,7 +5,7 @@ const Todo = () => {
     
     const [state, dispatch] = useReducer(reducer, initialState);
   
-    const [newTodo, setNewTodo] = useState();
+    const [newTodo, setNewTodo] = useState([]);
 
     const handleChanges = e => {
         setNewTodo(e.target.value);
@@ -15,9 +15,12 @@ const Todo = () => {
     
     return (
         <div>
-            <h1 
-                onClick={() => dispatch({type: 'TOGGLE_COMPLETED'})}
-                >{state.item}</h1>
+            {state.todos.map(elem => (
+                 <h1 
+                 key={elem.id}
+                 onClick={() => dispatch({type: 'TOGGLE_COMPLETED'})}
+                 className={state.completed ? 'completed' : ''}
+                 >{elem.item}</h1>
             ))}
             <form>
                 <label htmlFor='todo'>Todo:
@@ -30,7 +33,8 @@ const Todo = () => {
                         onChange={handleChanges}
                         />
                 </label>
-                <button onSubmit={() => dispatch({type: 'ADD_TODO', payload: newTodo})}>Add New Todo</button>
+                <button onClick={() => dispatch({type: 'ADD_TODO', payload: newTodo})}>Add New Todo</button>
+                <button onClick={() => dispatch({type: 'CLEAR_COMPLETED'})}>Clear Completed</button>
             </form>
         </div>
     );

@@ -1,7 +1,11 @@
  export const initialState = {
-    item: 'Learn About Reducers',
-    completed: false,
-    id: 3892987589
+       todos: [
+        {
+        item: 'Learn About Reducers',
+        completed: false,
+        id: 3892987589
+        } 
+       ]
 };
 
  export const reducer = (state, action) => {
@@ -27,7 +31,9 @@
         case 'CLEAR_COMPLETED':
 
             return {
-                
+                ...state.todos.filter(elem => {
+                    return elem.completed === false;
+                })
             }
 
         default: 
