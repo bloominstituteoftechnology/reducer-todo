@@ -4,7 +4,7 @@ export function Todo(props) {
 	//console.log("Todo.js ~ ", props);
 
 	return(
-		<div>
+		<div className="Todo">
 			<h3 className={props.item.completed ? 'completed' : ''}
 				onClick={(event) => {
 					event.preventDefault();

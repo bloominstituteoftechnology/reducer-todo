@@ -1,0 +1,55 @@
+body{
+	background-color: rgba(0,0,0,1);
+	color: white;	
+
+	.App {
+		background-color: rgba(128,128,128,0.5);
+		border-radius: 20px;
+		text-align: center;
+		width: 800px;
+		height: auto;
+		margin: 50px auto;
+		padding: 75px 0px;
+		display: flex;
+		flex-direction: column;
+
+		form{
+			display: flex;
+			justify-content: space-around;
+			width: 50%;
+			margin: 0px auto;
+
+			input{
+				line-height: 1.8rem;
+				font-size: 1.2rem;
+			}
+		}
+
+		.list{
+			margin: 10px auto;
+			max-width: 400px;
+
+			.Todo{
+				width: 100%;
+
+				&:hover{
+					background-color: rgba(128,128,128,0.2);
+				}
+			}//Todo
+		}//List
+
+		.ClearButton{
+			border: 1px white solid;
+			cursor: pointer;
+			width: 33%;
+			margin: 0px auto;
+		}
+
+		.completed{
+			text-decoration: line-through;
+			cursor: pointer;
+			color: rgba(0,0,0,0.4);
+		}
+
+	}//App
+}//body

@@ -1,7 +1,7 @@
 import React, { useReducer} from 'react';
 import { TodoForm } from './component/TodoForm';
 import { TodoList } from './component/TodoList';
-import './App.css';
+import './style/App.scss';
 import { initialState, reducer } from './reducers/reducer';
 
 function App() {
@@ -22,19 +22,22 @@ function App() {
     const handleComplete = (id) => {
         dispatch({type:"COMPLETED_TODO", payload: id})
     }
-    
+
     const clearCompleted = () => {
         dispatch({type: "CLEAR_COMPLETED_TODO"})
     }
 
 return (
         <div className="App">
+            <h2>React Todo App</h2>
+            <p></p>
             <TodoForm addTodo={addTodo} />
             <TodoList state={state} handleComplete={handleComplete} />
 
-            <button onClick={(event) =>{
-                event.preventDefault();
-                clearCompleted();}}
+            <button className="ClearButton" 
+                onClick={(event) =>{
+                    event.preventDefault();
+                    clearCompleted();}}
             >Clear Completed</button>
 
         </div>
