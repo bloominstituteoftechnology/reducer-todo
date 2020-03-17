@@ -23,6 +23,7 @@ h1 {
 }
 
 h2 {
+  font-family: 'Crimson Text', serif;
   font-size: 2rem;
   font-weight: 600;
 }
@@ -38,7 +39,7 @@ p {
 
 header {
   background-color: white;
-  padding: 20px 0 16px;
+  padding: 20px 0 60px;
 }
 
 header p {
@@ -63,11 +64,27 @@ form {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  background-color: #F7F6F2;
+  padding: 16px 20px 4px;
+  border-radius: 8px;
+  transform: translateY(-50px)
 }
 
 form div {
   display: flex;
   justify-content: space-between;
+
+}
+
+input {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.4rem;
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: none;
+  /* background-color: #FFEBE3; */
+  color: #E48159;
+  margin-bottom: 8px;
 }
 
 button {
@@ -94,6 +111,7 @@ button[type=button] {
   width: 50%;
   max-width: 500px;
   margin: 0 auto;
+  transform: translateY(-20px)
 }
 
 .task {
@@ -116,6 +134,11 @@ i {
   cursor: pointer;
 }
 
+.task-status {
+  display: flex;
+  align-items: baseline;
+}
+
 .task-completed {
   background-color: #E3E9DE;
   color: #799F66;
@@ -123,7 +146,7 @@ i {
   display: inline-block;
   padding: 2px 8px;
   border-radius: 8px;
-  margin: 4px 0;
+  margin: 4px 10px 4px 0;
 }
 
 .task-incomplete {

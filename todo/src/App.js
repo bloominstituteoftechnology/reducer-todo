@@ -37,7 +37,6 @@ function App() {
       <header>
         <div className="header-text">
           <h1>Hello, Elysia!</h1>
-          {/* <p>Here's what you're working on today.</p> */}
         </div>
       </header>
       <TodoForm 

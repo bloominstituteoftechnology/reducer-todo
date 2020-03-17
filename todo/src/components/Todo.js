@@ -11,8 +11,10 @@ let Todo = props => {
 
             <div className="task-details">
                 <h3>{props.name}</h3>
-                <p className={props.status ? "task-completed" : "task-incomplete"}>{props.status ? 'Completed' : 'Incomplete'}</p>
-                {props.date != null ? <p>{moment(props.date).calendar()}</p> : null}
+                <div className="task-status">
+                    <p className={props.status ? "task-completed" : "task-incomplete"}>{props.status ? 'Completed' : 'Incomplete'}</p>
+                    {props.date != null ? <p>{moment(props.date).calendar()}</p> : null}
+                </div>
             </div>
         </div>
     )

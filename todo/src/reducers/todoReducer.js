@@ -32,7 +32,7 @@ export const todoReducer = (state, action) => {
             }
             return {
                 ...state,
-                tasks: [...state.tasks, newTask]
+                tasks: [newTask, ...state.tasks]
             }
         case 'TOGGLE_TASK_STATUS':
             const updatedTasks = state.tasks.map(task => {

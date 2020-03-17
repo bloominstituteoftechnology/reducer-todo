@@ -14,7 +14,7 @@ const TodoList = props => {
     return (
         <div className="task-panel">
             <h2>Your Tasks</h2>
-            <p>You have {`${getIncompleteTasks().length}`} tasks to work on.</p>
+            <p>You have {`${getIncompleteTasks().length}`} tasks to work on today.</p>
             <div className="incomplete-list">
                 {getIncompleteTasks().map(task => {
                     return (
