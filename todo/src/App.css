@@ -1,5 +1,12 @@
 .App {
   text-align: center;
+ background-image: linear-gradient(#e383b9, #5f65e9);
+ color: white;
+}
+
+button{
+  background-color: #61dafb;
+  border-radius: 25px;
 }
 
 .App-logo {
