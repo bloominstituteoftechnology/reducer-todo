@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Crimson+Text|Nunito:400,600&display=swap');
 
+/*** BASE STYLES ***/
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -48,15 +50,7 @@ header p {
   text-align: center;
 }
 
-/* .header-text {
-  color: white;
-  background-color: #FF9D73;
-  border-radius: 20px;
-  margin: 0 auto;
-  padding: 12px 0 16px;
-  width: 50%;
-  transform: translateY(30px);
-} */
+/*** FORM STYLES ***/
 
 form {
   width: 50%;
@@ -73,7 +67,6 @@ form {
 form div {
   display: flex;
   justify-content: space-between;
-
 }
 
 input {
@@ -82,7 +75,6 @@ input {
   padding: 4px 8px;
   border-radius: 8px;
   border: none;
-  /* background-color: #FFEBE3; */
   color: #E48159;
   margin-bottom: 8px;
 }
@@ -106,6 +98,8 @@ button[type=submit] {
 button[type=button] {
   border: 1px solid #2D2D2D;
 }
+
+/*** TASK STYLES ***/
 
 .task-panel {
   width: 50%;

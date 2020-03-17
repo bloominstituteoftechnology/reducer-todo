@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 const TodoForm = ({ addNewTask, filterTasks }) => {
     //console.log('to do form props', props)
-    
 
     const [newTaskName, setNewTaskName] = useState('');
 
@@ -20,8 +19,6 @@ const TodoForm = ({ addNewTask, filterTasks }) => {
         e.preventDefault();
         filterTasks();
     }
-
-    //console.log(newTaskName);
 
     return (
         <div>
