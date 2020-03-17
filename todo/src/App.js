@@ -1,7 +1,6 @@
 import React, {useState, useReducer} from 'react';
 import {reducerState, initialState} from './reducer/reducer';
 import List from './components/list';
-import Todo from './components/todo';
 import './App.css';
 
 function App() {
