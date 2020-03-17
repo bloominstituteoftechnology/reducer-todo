@@ -4,7 +4,7 @@ import { initialState, reducer } from "../reducers/reducer";
 const Todo = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const [newTodo, setNewTodo] = useState();
+  const [newTodo, setNewTodo] = useState("");
 
   //   const [input, setInput] = useState("");
 
