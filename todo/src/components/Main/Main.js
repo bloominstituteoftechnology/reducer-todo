@@ -2,10 +2,10 @@ import React from 'react';
 import Stats from './Stats/Stats';
 import './scss/main.scss';
 
-function Main() {
+function Main(props) {
     return (
     <div className="main">
-        <Stats />
+        <Stats state={props.state}/>
     </div>
     );
 }

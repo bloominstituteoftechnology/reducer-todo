@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="container">
       <Header state={state} dispatch={dispatch}/>
-      <Main />
+      <Main state={state} dispatch={dispatch}/>
       <TodoList state={state} dispatch={dispatch}/>
     </div>
   );

@@ -9,9 +9,10 @@ function TodoList(props) {
         <>
             <h1>Here are your todos:</h1>
             <div className="todo-container">
-            {props.state.todos.map(todo => 
+            {props.state.todos.map((todo) => 
                 <Todo 
                     key={todo.id}
+                    dispatch={props.dispatch({type: "TOGGLE COMPLETED", id: todo.id})}
                     item={todo.name}
                     completed={todo.completed}
                     />
