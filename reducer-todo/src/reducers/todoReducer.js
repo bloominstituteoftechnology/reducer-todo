@@ -1,17 +1,22 @@
 import moment from 'moment';
 
 export const initialTodoState = [
-  {id: 1, description: "Stuff", done: false},
-  {id: 2, description: "more stuff", done: false},
+
 ];
+
+const emojiTable = {
+  study: "📚",
+  workout: "💪",
+  fun: "😃"
+}
 
 export const todoReducer = (state, action) => {
   switch (action.type) {
     case "ADD_TODO":
-      const { description, dueDate } = action.payload
+      const { description, dueDate, tag } = action.payload
       return [
         ...state,
-        { id: state.length + 1, description, done: false, dueDate  }
+        { id: state.length + 1, description, done: false, dueDate, tag: emojiTable[tag] }
       ]
     case "CHECK_TODO":
       state = [...state];

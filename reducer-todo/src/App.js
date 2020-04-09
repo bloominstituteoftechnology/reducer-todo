@@ -11,6 +11,10 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Checkbox from "@material-ui/core/Checkbox";
 import moment from "moment";
+import Select from "@material-ui/core/Select";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from '@material-ui/core/MenuItem';
+
 
 import { todoReducer, initialTodoState } from "./reducers/todoReducer";
 
@@ -84,6 +88,18 @@ const useStyles = makeStyles({
   },
   completedText: {
     color: "green"
+  },
+  todoDescriptionContainer: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: 300
+  },
+  emptyTodosHeader: {
+    textAlign: "center"
+  },
+  todoTag: {
+    fontSize: 25
   }
 });
 
@@ -91,7 +107,8 @@ function App() {
   const classes = useStyles();
   const [todos, dispatch] = useReducer(todoReducer, initialTodoState);
   const [description, setDescription] = useState("");
-  const [dueDate, setDueDate] = useState("");
+  const [dueDate, setDueDate] = useState(moment().valueOf());
+  const [tag, setTag] = useState("study")
   const [time, setTime] = useState(moment().valueOf());
 
   const c = console.log;
@@ -99,7 +116,7 @@ function App() {
   const handleOnSubmit = e => {
     e.preventDefault();
     if (description) {
-      dispatch({ type: "ADD_TODO", payload: { description, dueDate } });
+      dispatch({ type: "ADD_TODO", payload: { description, dueDate, tag } });
       setDescription("");
     }
   };
@@ -135,6 +152,16 @@ function App() {
               setDueDate(moment(value).valueOf())
             }
           />
+          <InputLabel id="select-tag-label">Tags</InputLabel>
+          <Select
+            label="select-tag-label"
+            onChange={(e) => setTag(e.target.value)}
+            value={tag}
+          >
+            <MenuItem value="study">📚 Study</MenuItem>
+            <MenuItem value="workout">💪 Workout</MenuItem>
+            <MenuItem value="fun">😃 Treat yo self</MenuItem>
+          </Select>
           <Fab
             className={classes.submitButton}
             variant="extended"
@@ -155,12 +182,14 @@ function App() {
         </Fab>
       </Card>
       <List className={classes.list}>
+        {todos.length === 0 && <h2 className={classes.emptyTodosHeader}>Add something to do here!</h2>}
         {todos.map(todo => {
           return (
             <ListItem key={todo.id} className={classes.listItem} divider>
               {time > todo.dueDate && (
                 <h3 className={classes.overDueText}>🚨 OVER DUE!</h3>
               )}
+              <div className={classes.todoDescriptionContainer}>
               <div className={classes.todoDiv}>
                 <Checkbox
                   checked={todo.done}
@@ -173,13 +202,18 @@ function App() {
                     {todo.description}
                   </span>
                 </ListItemText>
+                
+              </div>
+              <span className={classes.todoTag}>{todo.tag}</span>
               </div>
               <ListItemText>
-                <span className={classes.dueText}>Due date</span>: {moment(todo.dueDate).format("MMM Do YYYY h:mm a")}
+                <span className={classes.dueText}>Due date</span>:{" "}
+                {moment(todo.dueDate).format("MMM Do YYYY h:mm a")}
               </ListItemText>
               {todo.doneTime && (
                 <ListItemText className={classes.doneTime}>
-                  ⭐ <span className={classes.completedText}>Completed</span>: {todo.doneTime}
+                  ⭐ <span className={classes.completedText}>Completed</span>:{" "}
+                  {todo.doneTime}
                 </ListItemText>
               )}
             </ListItem>
