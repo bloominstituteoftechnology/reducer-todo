@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
-import Header from '../components/Header/Header';
-import Main from '../components/Main/Main';
-import TodoList from '../components/TodoList/TodoList';
+import Header from '../components/Header';
+import Main from '../components/Main';
+import TodoList from '../components/TodoList';
 import { reducerContainer, initialState } from '../reducers/reducerContainer';
 import './scss/index.scss';
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import AddTodo from './AddToDo/AddTodo';
-import './scss/Header.scss';
+import AddTodo from './AddTodo';
+import '../../scss/Header.scss';
 
 function Header(props) {
   return (

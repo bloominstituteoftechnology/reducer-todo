@@ -1,5 +1,5 @@
 import React from 'react';
-import './scss/stats.scss';
+import '../../scss/stats.scss'
 
 function Stats(props) {
 

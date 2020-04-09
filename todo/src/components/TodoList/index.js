@@ -1,7 +1,7 @@
 import React from 'react';
-import Todo from './Todo/Todo';
+import Todo from './Todo';
 import { Button } from 'reactstrap';
-import './scss/todolist.scss';
+import '../../scss/todolist.scss';
 
 function TodoList(props) {
 

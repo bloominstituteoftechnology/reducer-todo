@@ -1,6 +1,6 @@
 import React from 'react';
-import Stats from './Stats/Stats';
-import './scss/main.scss';
+import Stats from './Stats';
+import '../../scss/main.scss';
 
 function Main(props) {
     return (
