@@ -1,4 +1,5 @@
 import React, { useState, useReducer } from "react"
+import '../App.css';
 import { initialState, reducer } from '../reducers/reducer.js';
 
 
@@ -25,7 +26,14 @@ const Todo = () => {
       e.preventDefault();
       //empties the form after submitting
       // setNewItem("");
-      dispatch({ type: "UPDATE_ITEM", payload: addItem || state.item})
+      dispatch({ type: "ADD_ITEM", payload: addItem || state.item})
+      setAddItem("")
+   };
+
+   //filter handler
+   const handleFilter = e => {
+      e.preventDefault();
+      dispatch({ type: "REMOVE_COMPLETED" })
    };
 
    return (
@@ -35,7 +43,7 @@ const Todo = () => {
                <input
                   type="text"
                   name="addItem"
-                  placeholder={state.item}
+                  placeholder="add next todo..."
                   value={addItem}
                   onChange={handleChanges}
                />
@@ -47,11 +55,10 @@ const Todo = () => {
                <h1 className= {state.completed ? "completed" : ""}
                               onClick={handleToggle}
                               > 
-                              
                               {state.item}
                </h1>
 
-               <button onClick={handleToggle}>Completed</button>
+               <button onClick={handleFilter}>Completed</button>
             </div> 
          
       </div>
