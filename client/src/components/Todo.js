@@ -1,10 +1,13 @@
-import React from "react"
+import React, { useState, useReducer } from "react"
+import { initialState, reducer } from '../reducers/reducer.js';
+
 
 const Todo = () => {
    //state hook
    const [addItem, setAddItem] = useState();
+
    //this hook will hook our state up to our reducer
-   const [state, dispatch] = useState();
+   const [state, dispatch] = useReducer(reducer, initialState);
 
    //toggle handler
    const handleToggle = e => {
@@ -21,29 +24,36 @@ const Todo = () => {
    const handleSubmit = e => {
       e.preventDefault();
       //empties the form after submitting
-      setNewItem("");
+      // setNewItem("");
       dispatch({ type: "UPDATE_ITEM", payload: addItem || state.item})
    };
 
    return (
       <div>
-         {state.completed ? (
+      
             <form onSubmit={handleSubmit}>
                <input
                   type="text"
                   name="addItem"
                   placeholder={state.item}
-                  value={setAddItem}
+                  value={addItem}
                   onChange={handleChanges}
                />
-               <button type="submit">Add Todo</button>
+               <button onClick={handleSubmit}>Add Todo</button>
             </form>
-         ) : (
+         
+         
             <div>
-               <h1>{state.item}</h1>
+               <h1 className= {state.completed ? "completed" : ""}
+                              onClick={handleToggle}
+                              > 
+                              
+                              {state.item}
+               </h1>
+
                <button onClick={handleToggle}>Completed</button>
-            </div>
-         )}
+            </div> 
+         
       </div>
    );
 };

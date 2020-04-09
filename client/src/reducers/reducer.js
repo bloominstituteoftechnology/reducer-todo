@@ -1,7 +1,7 @@
 //export reducer
 export function reducer(state, action){
    switch(action.type) {
-      case "TOGGLE_EDITING":
+      case "TOGGLE_COMPLETED":
          return {
             state,
             completed: !state.completed
