@@ -8,11 +8,14 @@ function TodoList(props) {
     return (
         <>
             <h1>Here are your todos:</h1>
+            <button onClick={() => props.dispatch({type: 'CLEAR'})}>Clear Completed</button>
             <div className="todo-container">
+
             {props.state.todos.map((todo) => 
                 <Todo 
                     key={todo.id}
-                    dispatch={props.dispatch({type: "TOGGLE COMPLETED", id: todo.id})}
+                    id={todo.id}
+                    dispatch={props.dispatch}
                     item={todo.name}
                     completed={todo.completed}
                     />

@@ -15,14 +15,14 @@ export const reducerContainer = ( state, action) => {
             }
         case 'TOGGLE-COMPLETED':
             return {
-                todos: [...state.todos.map(( todo) => {
-                    if ( action.id )
+                todos: [...state.todos.map( todo => {
+                    if(todo.id === action.id ) {
                         return {
                             ...todo,
                             completed: !todo.completed
                         }
                     }
-                )],
+                })]
             }
         case 'CLEAR':
             return {
