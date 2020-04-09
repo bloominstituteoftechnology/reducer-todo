@@ -17,14 +17,14 @@ export function todoReducer(state, action) {
       return [
         ...state,
         {
-          item: action.payload.name,
+          item: action.payload,
           completed: false,
           id: Date.now(),
         },
       ];
     case "TOGGLE_COMPLETED":
       return state.map((x) =>
-        x.id !== action.payload.id
+        x.id !== action.payload
           ? x
           : {
               item: x.item,

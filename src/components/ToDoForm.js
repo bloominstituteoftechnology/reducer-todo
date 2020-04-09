@@ -9,7 +9,7 @@ export default class ToDoForm extends React.Component {
   handleSubmit = (event) => {
     this.props.dispatch({
       name: "ADD_ITEM",
-      payload: { name: this.state.name },
+      payload: this.state.name,
     });
     this.handleReset();
     event.preventDefault();

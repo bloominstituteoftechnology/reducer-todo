@@ -1,7 +1,7 @@
 import React from "react";
 export default function ToDoItem(props) {
   function handleToggle(e) {
-    props.dispatch({ name: "TOGGLE_COMPLETED", payload: { id: props.id } });
+    props.dispatch({ name: "TOGGLE_COMPLETED", payload: props.id });
     e.stopPropagation();
   }
   return (
