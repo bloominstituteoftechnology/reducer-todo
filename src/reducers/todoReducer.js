@@ -2,12 +2,13 @@ export const initialState = [
   {
     item: "Dishes",
     completed: false,
-    id: Date.now() + Math.random() * 1000,
+    id: Date.now(),
   },
   {
     item: "Laundry",
     completed: true,
-    id: Date.now() + Math.random() * 1000,
+    //to ensure the initial items have different IDs
+    id: Date.now() + 1000,
   },
 ];
 
@@ -27,9 +28,8 @@ export function todoReducer(state, action) {
         x.id !== action.payload
           ? x
           : {
-              item: x.item,
+              ...x,
               completed: !x.completed,
-              id: x.id,
             }
       );
     case "CLEAR_COMPLETED":

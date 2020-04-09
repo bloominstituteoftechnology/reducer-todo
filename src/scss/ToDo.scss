@@ -1,18 +1,17 @@
-
-ul {
-    padding: 0;
-    list-style-type: none;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: flex-start;
+.to-do-list {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
 }
-li {
-    min-width: 100px;
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid black;
-    &.completed {
-        text-decoration: line-through;
-        background-color: lightgrey;
-    }
+.to-do-item {
+  min-width: 100px;
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid black;
+  &.completed {
+    text-decoration: line-through;
+    background-color: lightgrey;
+  }
 }

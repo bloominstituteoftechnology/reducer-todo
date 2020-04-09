@@ -5,7 +5,10 @@ export default function ToDoItem(props) {
     e.stopPropagation();
   }
   return (
-    <li className={props.completed ? "completed" : ""} onClick={handleToggle}>
+    <li
+      className={"to-do-item" + (props.completed ? " completed" : "")}
+      onClick={handleToggle}
+    >
       <input
         type="checkbox"
         checked={props.completed}
