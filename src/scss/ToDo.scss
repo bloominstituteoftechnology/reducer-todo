@@ -1,0 +1,16 @@
+
+ul {
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-flow: column nowrap;
+}
+li {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid black;
+    &.completed {
+        text-decoration: line-through;
+        background-color: lightgrey;
+    }
+}

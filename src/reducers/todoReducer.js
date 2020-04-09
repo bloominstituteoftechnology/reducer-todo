@@ -6,7 +6,7 @@ export const initialState = [
   },
   {
     item: "Laundry",
-    completed: false,
+    completed: true,
     id: Date.now() + Math.random() * 1000,
   },
 ];
@@ -17,11 +17,21 @@ export function todoReducer(state, action) {
       return [
         ...state,
         {
-          item: action.payload,
+          item: action.payload.name,
           completed: false,
           id: Date.now(),
         },
       ];
+    case "TOGGLE_COMPLETED":
+      return state.map((x) =>
+        x.id !== action.payload.id
+          ? x
+          : {
+              item: x.item,
+              completed: !x.completed,
+              id: x.id,
+            }
+      );
     default:
       return state;
   }

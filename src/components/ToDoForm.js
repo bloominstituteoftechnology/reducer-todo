@@ -7,12 +7,15 @@ export default class ToDoForm extends React.Component {
     this.setState({ name: value });
   };
   handleSubmit = (event) => {
-    this.props.dispatch({name: "ADD_ITEM", payload:this.state.name});
+    this.props.dispatch({
+      name: "ADD_ITEM",
+      payload: { name: this.state.name },
+    });
     this.handleReset();
     event.preventDefault();
   };
   handleReset = () => {
-      this.setState({name: ""});
+    this.setState({ name: "" });
   };
   render() {
     return (

@@ -10,7 +10,7 @@ export default function ToDoList(props) {
       <ToDoForm dispatch={dispatch} />
       <ul>
         {toDoState.map((item) => (
-          <ToDoItem key={item.id} {...item} />
+          <ToDoItem key={item.id} {...item} dispatch={dispatch} />
         ))}
       </ul>
     </>
