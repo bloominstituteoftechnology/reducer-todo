@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, useEffect } from "react";
 import "./App.css";
 import TextField from "@material-ui/core/TextField";
 import Container from "@material-ui/core/Container";
@@ -9,7 +9,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import Divider from "@material-ui/core/Divider";
+import Checkbox from "@material-ui/core/Checkbox";
+import moment from "moment";
 
 import { todoReducer, initialTodoState } from "./reducers/todoReducer";
 
@@ -22,13 +23,13 @@ const useStyles = makeStyles({
     flexDirection: "column"
   },
   formCard: {
-    width: 300,
-    height: 300,
+    width: 400,
+    height: 350,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-evenly",
-    marginTop: 200,
+    marginTop: 20,
     border: "1px solid",
     padding: "10px",
     boxShadow: "5px 10px"
@@ -40,19 +41,49 @@ const useStyles = makeStyles({
   form: {
     display: "flex",
     justifyContent: "center",
-    flexDirection: "column"
+    flexDirection: "column",
+    alignItems: "center"
   },
   submitButton: {
     marginTop: 20
   },
   list: {
     background: "white",
-    width: 300,
-    marginTop: 20,
+    width: 400,
+    margin: "20px 0",
     border: "1px solid",
     padding: "10px",
     boxShadow: "5px 10px",
     borderRadius: 3
+  },
+  todoDiv: {
+    display: "flex",
+    alignItems: "center"
+  },
+  listItem: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start"
+  },
+  doneTime: {
+    color: "grey"
+  },
+  dueDateField: {
+    width: 250,
+    margin: "20px 0"
+  },
+  description: {
+    fontWeight: 600,
+    fontSize: "18px"
+  },
+  overDueText: {
+    color: "red"
+  },
+  dueText: {
+    color: "blue"
+  },
+  completedText: {
+    color: "green"
   }
 });
 
@@ -60,13 +91,28 @@ function App() {
   const classes = useStyles();
   const [todos, dispatch] = useReducer(todoReducer, initialTodoState);
   const [description, setDescription] = useState("");
-  const c = code => console.log(code);
-  // c(todos);
+  const [dueDate, setDueDate] = useState("");
+  const [time, setTime] = useState(moment().valueOf());
+
+  const c = console.log;
+
   const handleOnSubmit = e => {
     e.preventDefault();
-    dispatch({ type: "ADD_TODO", payload: description });
-    setDescription("");
+    if (description) {
+      dispatch({ type: "ADD_TODO", payload: { description, dueDate } });
+      setDescription("");
+    }
   };
+
+  useEffect(() => {
+    const updateTime = setInterval(() => {
+      setTime(moment().valueOf());
+    }, 1000);
+    return function cleanup() {
+      clearInterval(updateTime);
+    };
+  }, [time]);
+
   return (
     <Container className={classes.container}>
       <Card className={classes.formCard} variant="outlined">
@@ -78,21 +124,64 @@ function App() {
             value={description}
             onChange={({ target: { value } }) => setDescription(value)}
           />
+          <TextField
+            label="Set due date"
+            type="datetime-local"
+            defaultValue={moment()
+              .format()
+              .slice(0, 16)}
+            className={classes.dueDateField}
+            onChange={({ target: { value } }) =>
+              setDueDate(moment(value).valueOf())
+            }
+          />
           <Fab
             className={classes.submitButton}
             variant="extended"
             size="medium"
             color="primary"
+            onClick={e => handleOnSubmit(e)}
           >
             Add Todo
           </Fab>
         </form>
+        <Fab
+          variant="extended"
+          size="medium"
+          color="secondary"
+          onClick={() => dispatch({ type: "CLEAR_CHECKED" })}
+        >
+          Clear completed
+        </Fab>
       </Card>
       <List className={classes.list}>
-        {todos.map((todo, i) => {
+        {todos.map(todo => {
           return (
-            <ListItem key={i} className={classes.listItem} divider button>
-              <ListItemText>{todo.description}</ListItemText>
+            <ListItem key={todo.id} className={classes.listItem} divider>
+              {time > todo.dueDate && (
+                <h3 className={classes.overDueText}>🚨 OVER DUE!</h3>
+              )}
+              <div className={classes.todoDiv}>
+                <Checkbox
+                  checked={todo.done}
+                  onChange={() =>
+                    dispatch({ type: "CHECK_TODO", payload: todo.id })
+                  }
+                />
+                <ListItemText>
+                  <span className={classes.description}>
+                    {todo.description}
+                  </span>
+                </ListItemText>
+              </div>
+              <ListItemText>
+                <span className={classes.dueText}>Due date</span>: {moment(todo.dueDate).format("MMM Do YYYY h:mm a")}
+              </ListItemText>
+              {todo.doneTime && (
+                <ListItemText className={classes.doneTime}>
+                  ⭐ <span className={classes.completedText}>Completed</span>: {todo.doneTime}
+                </ListItemText>
+              )}
             </ListItem>
           );
         })}
