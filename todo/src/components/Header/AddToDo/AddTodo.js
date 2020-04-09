@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { Button } from 'reactstrap';
 
 
 
@@ -14,7 +15,7 @@ function AddTodo(props) {
     <div className="addToDo">
         <form onSubmit={addToDo}>
             <input type='text' placeholder="Add a todo" ref={todo}/>
-            <input type='submit'/>
+            <Button color='primary' type='submit'>Submit</Button>
         </form> 
     </div>
     );

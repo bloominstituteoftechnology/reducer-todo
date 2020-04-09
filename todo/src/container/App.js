@@ -11,11 +11,11 @@ function App() {
   const [ state, dispatch ] = useReducer(reducerContainer, initialState);
 
   return (
-    <div className="container">
-      <Header state={state} dispatch={dispatch}/>
-      <Main state={state} dispatch={dispatch}/>
-      <TodoList state={state} dispatch={dispatch}/>
-    </div>
+      <div className="container">
+        <Header state={state} dispatch={dispatch}/>
+        <Main state={state} dispatch={dispatch}/>
+        <TodoList state={state} dispatch={dispatch}/>
+      </div>
   );
 }
 

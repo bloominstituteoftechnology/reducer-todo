@@ -1,5 +1,12 @@
+.button-container {
+    text-align: center;
+    margin-top: 3%;
+}
+
 .todo-container {
     display: flex;
+    margin-top: 3%;
     text-align: center;
+    flex-wrap: wrap;
     justify-content: center;
 }

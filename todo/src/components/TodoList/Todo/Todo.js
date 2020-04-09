@@ -5,10 +5,9 @@ function Todo(props) {
     return (
     <>
         <div className="todo-box">
-            <p>Todo</p>
             <input type='checkbox' checked={props.completed} onChange={() => props.dispatch({type: 'TOGGLE-COMPLETED', id: props.id})} />Completed
-            <p>{props.item}</p>
-            <p>date created </p>  
+            <h1>{props.item}</h1>
+            <p>Date Created: {props.dateCreated} </p>  
         </div>     
     </>
     );

@@ -11,9 +11,9 @@ function Stats(props) {
     return (
     <div className="stats-box">
         <h1>Stats</h1>
-        <p>Total todos: {props.state.todos.length}</p>
-        <p>Completed todos: {todoCompleted} </p>
-        <p>To be Completed todos: {todoToComplete} </p>
+        <p>Total Todos: {props.state.todos.length}</p>
+        <p>Completed Todos: {todoCompleted} </p>
+        <p>To Be Completed Todos: {todoToComplete} </p>
 
     </div>
     );

@@ -2,10 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './container/App';
 import * as serviceWorker from './serviceWorker';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Jumbotron } from 'reactstrap';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <Jumbotron>
+        <App />
+    </Jumbotron>
   </React.StrictMode>,
   document.getElementById('root')
 );

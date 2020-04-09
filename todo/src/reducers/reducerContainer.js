@@ -1,4 +1,4 @@
-
+import moment from 'moment';
 export const initialState = {
     todos: [],
 }
@@ -6,11 +6,13 @@ export const initialState = {
 export const reducerContainer = ( state, action) => {
     switch (action.type) {
         case "ADD-TODO":
+            const timeAdded = moment().format('lll');
             return {
                 todos: [...state.todos, {
                 id: Date.now(),
                 name: action.payload,
                 completed: false,
+                dateCreated: timeAdded
                 }]
             }
         case 'TOGGLE-COMPLETED':
