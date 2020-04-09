@@ -1,10 +1,13 @@
 import React, { useRef } from 'react';
 
-function AddTodo() {
+
+
+function AddTodo(props) {
+
     const todo = useRef()
     const addToDo = (e) => {
         e.preventDefault();
-        console.log(todo.current.value);
+        props.dispatch({type:"ADD-TODO", payload: todo.current.value})
         todo.current.value = "";
     }
     return (

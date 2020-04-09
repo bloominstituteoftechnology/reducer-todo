@@ -2,12 +2,20 @@ import React from 'react';
 import Todo from './Todo/Todo';
 import './scss/todolist.scss';
 
-function TodoList() {
+function TodoList(props) {
+
+    console.log(props.state)
     return (
         <>
             <h1>Here are your todos:</h1>
             <div className="todo-container">
-                <Todo />
+            {props.state.todos.map(todo => 
+                <Todo 
+                    key={todo.id}
+                    item={todo.name}
+                    completed={todo.completed}
+                    />
+            )}
             </div>
         </>
     );
