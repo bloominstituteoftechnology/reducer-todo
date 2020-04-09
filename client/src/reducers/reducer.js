@@ -1,7 +1,21 @@
 //export reducer
 export function reducer(state, action){
-   default:
-      return
+   switch(action.type) {
+      case "TOGGLE_EDITING":
+         return {
+            state,
+            completed: !state.completed
+         }
+      case "UPDATE_ITEM":
+         return {
+            ...state,
+            item: action.payload
+         };
+
+      default:
+         return state;
+
+   }
 }
 
 //build initial state object that has a list of 
@@ -9,5 +23,5 @@ export function reducer(state, action){
 export const initialState = [{
    item: 'Learned about reducers',
    completed: false,
-   id: 12345678901112
+   id: new Date()
 }]
