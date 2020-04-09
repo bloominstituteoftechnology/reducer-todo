@@ -22,6 +22,7 @@ export const reducerContainer = ( state, action) => {
                             completed: !todo.completed
                         }
                     }
+                    return todo;
                 })]
             }
         case 'CLEAR':
