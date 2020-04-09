@@ -6,7 +6,12 @@ export default function ToDoList(props) {
   const [toDoState, dispatch] = React.useReducer(todoReducer, initialState);
   return (
     <>
-      <h2>To-Do List</h2>
+      <h2>
+        {"To-Do List "}
+        <button onClick={() => dispatch({ name: "CLEAR_COMPLETED" })}>
+          Clear completed
+        </button>
+      </h2>
       <ToDoForm dispatch={dispatch} />
       <ul>
         {toDoState.map((item) => (

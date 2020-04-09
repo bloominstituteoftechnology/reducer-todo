@@ -32,7 +32,9 @@ export function todoReducer(state, action) {
               id: x.id,
             }
       );
+    case "CLEAR_COMPLETED":
+      return state.filter((x) => !x.completed);
     default:
-      return state;
+      throw new Error(`${action.name} is not a recognized action name.`);
   }
 }
