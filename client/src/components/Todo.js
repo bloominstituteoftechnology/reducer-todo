@@ -9,11 +9,14 @@ const Todo = () => {
 
    //this hook will hook our state up to our reducer
    const [state, dispatch] = useReducer(reducer, initialState);
+   console.log("State:", state)
 
    //toggle handler
    const handleToggle = e => {
+   
       e.preventDefault();
-      dispatch({ type: "TOGGLE_COMPLETED" });
+      console.log("e:", e.target.className)
+      dispatch({ type: "TOGGLE_COMPLETED", payload: e.target.className });
    };
 
    //item changes handler
@@ -38,28 +41,30 @@ const Todo = () => {
 
    return (
       <div>
-      
-            <form onSubmit={handleSubmit}>
-               <input
-                  type="text"
-                  name="addItem"
-                  placeholder="add next todo..."
-                  value={addItem}
-                  onChange={handleChanges}
-               />
-               <button onClick={handleSubmit}>Add Todo</button>
-            </form>
+         <form onSubmit={handleSubmit}>
+            <input
+               type="text"
+               name="addItem"
+               placeholder="add next todo..."
+               value={addItem}
+               onChange={handleChanges}
+            />
+            <button onClick={handleSubmit}>Add Todo</button>
+         </form>
          
-         
-            <div>
-               <h1 className= {state.completed ? "completed" : ""}
-                              onClick={handleToggle}
-                              > 
-                              {state.item}
+         <div>
+            
+            {state.map(item=> 
+               <h1 className= {item.completed ? "completed" : ""}
+               key = {item.id}
+               onClick={handleToggle}
+               >
+               <div className={item.id}>{item.item}</div>
                </h1>
-
-               <button onClick={handleFilter}>Completed</button>
-            </div> 
+            )}
+            
+            <button onClick={handleFilter}>Completed</button>
+         </div> 
          
       </div>
    );
