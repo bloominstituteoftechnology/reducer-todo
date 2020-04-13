@@ -1,31 +1,45 @@
-import React from 'react';
+import React,{useState,useReducer} from 'react';
 // import TodoList from './components/TodoList'
 import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList'
 
 import './App.css'
-
+import {initialList, reducer} from './reducers/reducers'
 
 
 function App () {
+  const [state, dispatch] = useReducer(reducer, initialList);
+  const [taskInput, setTaskInput] = useState('')
 
+  const taskSubmit = event =>{
+    event.preventDefault();
+    dispatch({type:"ADD_TASK", payload:taskInput})
+}   
 
+const clearCompleted = event =>{
+    event.preventDefault();
+    dispatch({type:"CLEAR_COMPLETED"})
+}
 
+const inputChange = event =>{
+    // console.log("inputChange",event)
+    event.preventDefault();
+    setTaskInput(event.target.value)
+}
 
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
-
+  console.log("APP State",state)
     return (
       <div className="App">
        <div className="header">
          <h1>To-Do List</h1>
-         <TodoForm  />
+         <TodoForm 
+         info={state} 
+         taskSubmit={taskSubmit}
+         clearCompleted={clearCompleted}
+         inputChange={inputChange}
+         />
          </div>
-         <TodoList 
-           
-       
-         
+         <TodoList info={state}
          />
  
         
