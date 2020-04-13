@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react';
 import './App.css';
 import TodoList from "./components/TodoList";
+import TodoForm from "./components/TodoForm";
 import { reducerTodos, initialState } from "./reducers/reducerTodos";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <header>
         <h1>Lisa's Very Important Tasks!</h1>
       </header>
+      <TodoForm />
       <TodoList tasks={state.tasks} />
     </div>
   );
