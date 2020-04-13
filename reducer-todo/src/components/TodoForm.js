@@ -1,36 +1,41 @@
-import React from 'react'
+import React, {useReducer, useState} from 'react'
+import {initialList, reducer} from '../reducers/reducers'
 
-class TodoForm extends React.Component{
-    constructor(){
-        super();
-        this.state ={
-            item: ''
-        };
+const TodoForm = props => {
+    const [state, dispatch] = useReducer(reducer, initialList);
+    const [taskInput, setTaskInput] = useState('')
+
+    const taskSubmit = event =>{
+        event.preventDefault();
+        dispatch({type:"ADD_TASK", payload:taskInput})
+    }   
+
+    const clearCompleted = event =>{
+        event.preventDefault();
+        dispatch({type:"CLEAR_COMPLETED"})
     }
 
-    handleChanges = e => {
-        this.setState({ [e.target.name]: e.target.value });
-      };
+    const inputChange = event =>{
+        // console.log(event)
+        event.preventDefault();
+        setTaskInput(event.target.value)
+    }
     
-
-    submitItem = e => {
-        e.preventDefault();
-        this.setState({item: ''});
-        this.props.addItem(e, this.state.item);
-    };
-    render(){
         return(
-            <form onSubmit={this.submitItem}>
-                <input
-                type="text"
-                value={this.state.item}
-                placeholder="what do you need to do?"
-                name="item"
-                onChange={this.handleChanges}
+            <div>
+              <form >
+                <input type="text"
+                value={taskInput}
+                name="taskInput"
+                onChange={inputChange}
                 />
-            </form>
+                <button onClick={event=> {taskSubmit(event)}}>Add Todo</button>
+                <button onClick={()=> {clearCompleted()}}>Clear Completed</button>
+              </form>
+            </div>
+    
         )
-    }
+   
 
 }
 

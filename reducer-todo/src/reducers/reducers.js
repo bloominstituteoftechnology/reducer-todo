@@ -7,21 +7,6 @@ export const initialList = [
     finished: false
   },
   {
-    what: "Eat two eggs one sausage for",
-    id: 2,
-    finished: false
-  },
-  {
-    what: "Steak",
-    id: 3,
-    finished: false
-  },
-  {
-    what: "Fruits with heavy cream",
-    id: 4,
-    finished: false
-  },
-  {
     what: "Work Out",
     id: 5,
     finished: false
@@ -42,8 +27,19 @@ export const reducer = (state, action) => {
     // switch statement - simplified if/else if/ ... /else statement
     // if or else if blocks become "cases"
     switch (action.type) {
-      case 'SET_EDITING':
-        return {}
+      case 'ADD_TASK':
+          console.log("action.payload",action.payload)
+          console.log("state",state)
+        return [
+            ...state,
+            {what: action.payload,
+            id: new Date(),
+            finished: false
+        }
+           
+        ]
+    //   case "CLEAR_COMPLETED"
+      
       default:
         return state;
     }

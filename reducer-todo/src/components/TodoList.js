@@ -14,18 +14,14 @@ const TodoList = props => {
     console.log(state)
     return (
         <div className="todo-list">
-            {state.map(item => (
-                <Todo 
-                key={item.id} item={item} 
-                toggleItem={props.toggleItem} 
-
-                />
-            ))}
-            <button 
-            className='clear-btn' 
-            onClick={props.clearFinished} 
-            >
-          
+            {state.map(todo => {
+                {/* console.log(todo) */}
+                return(   <div className={`todo${todo.finished ? "finished" : ""}`}>
+                <p>{todo.what}</p>
+                </div>  )
+              
+            })}
+            <button>
             Clear ToDo-List
             </button>
         </div>
