@@ -9,7 +9,7 @@ function App() {
 	console.log('state', state.todoArray);
 	return (
 		<div>
-			<TodoList />
+			<TodoList todoArray={state.todoArray} />
 		</div>
 	);
 }
