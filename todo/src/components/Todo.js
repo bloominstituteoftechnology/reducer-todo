@@ -1,7 +1,11 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 
 const Todo = () => {
-	return <div> Hello</div>;
+	return (
+		<div>{/* {state.todoArray.map((item) => {
+				console.log(item);
+			})} */}</div>
+	);
 };
 
 export default Todo;
