@@ -21,5 +21,18 @@ export const initialState = {
 }
 
 export const reducerTodos = (state, action) => {
-  console.log(state)
+  // console.log(state)
+
+  switch(action.type) {
+    case "Add_New_Task":
+      const newTask = {
+        id: Date.now(),
+        item: action.payload,
+        completed: false
+      }
+      return {
+        ...state,
+        tasks: [...state.tasks, newTask]
+      }
+  }
 }
