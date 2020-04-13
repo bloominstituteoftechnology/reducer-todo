@@ -1,11 +1,13 @@
 import React from "react";
 
-let todo = () => {
+let Todo = props => {
+  console.log("todo props", props)
   return (
     <div>
-      <p>This is where the tasks go</p>
+      <h3>{props.name}</h3>
+      <p>{props.status ? "Completed" : "Incomplete"}</p>
     </div>
   )
 }
 
-export default todo;
+export default Todo;

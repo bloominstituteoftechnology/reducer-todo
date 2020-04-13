@@ -1,21 +1,20 @@
 export const initialState = {
-  todos = [
+  tasks : [
     {
+      id: 1,
       item: "Buy ingredients to make pie",
       completed: false,
-      id: 04112020
     },
-
     {
+      id: 2,
       item: "Make pie",
       completed: false,
-      id: 04122020
     },
 
     {
+      id: 3,
       item: "Eat pie",
       completed: false,
-      id: 04132020
     }
 
   ]
