@@ -1,0 +1,21 @@
+.completed {
+  text-decoration: line-through;
+  text-decoration-color: red;
+}
+.app {
+  font-size:1.2rem;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+button {
+  margin-bottom:10px;
+  width:70%;
+}
+input {
+  width:90%;
+  margin-bottom:10px;
+}
+h1 {
+  text-align: center;
+}
