@@ -4,14 +4,14 @@ import Todo from './Todo';
 const TodoList = props => {
 
     const handleSubmit = () => {
-        props.removetodo();
+        props.removeTodo();
     }
 
     return (
         <div>
-            {props.todo.map(todo => {
+            {props.todo.map(todo => (
                 <Todo key={todo.id} todo={todo} toggleTodo={props.toggleTodo} />
-            })}
+            ))}
             <button className='completed-btn' onClick={handleSubmit}>Clear Completed</button>
         </div>
     )
