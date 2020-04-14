@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const TodoForm = ({ addNewTask }) => {
+const TodoForm = ({ addNewTask, filterTasks }) => {
 
 
   const [newTaskName, setNewTaskName] = useState('');
@@ -14,6 +14,11 @@ const TodoForm = ({ addNewTask }) => {
     addNewTask(newTaskName);
     setNewTaskName('');
   }
+
+  const handleClearCompleted = e => {
+    e.preventDefault();
+    filterTasks();
+}
 
   console.log(newTaskName);
 
@@ -29,6 +34,7 @@ const TodoForm = ({ addNewTask }) => {
           onChange={handleChanges}
           />
           <button type="Submit">Add</button>
+          <button type="button" onClick={handleClearCompleted}>Clear</button>
           </form>
     </div>
   )

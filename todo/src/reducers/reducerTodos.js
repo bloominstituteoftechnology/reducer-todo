@@ -34,5 +34,31 @@ export const reducerTodos = (state, action) => {
         ...state,
         tasks: [...state.tasks, newTask]
       }
+
+      case 'Toggle_Task_Status':
+        const updatedTasks = state.tasks.map(task => {
+          if (task.id === action.payload) {
+            return {...task, completed: !task.completed}
+          } else {
+            return task
+          }
+        })
+        return {
+          ...state,
+          tasks: updatedTasks
+        }
+
+        case 'FILTER_COMPLETED_TASKS':
+          const incompleteTasks = state.tasks.filter( task => {
+              if (task.completed === false) {
+                  return {...task}
+              }
+          })
+          return {
+              ...state,
+              tasks: incompleteTasks
+          }
+      default:
+          return state;
   }
 }

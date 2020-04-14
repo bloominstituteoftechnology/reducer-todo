@@ -15,13 +15,31 @@ function App() {
     });
   }
 
+    const toggleTask = clickedId => {
+      dispatch({
+        type: "Toggle_Task_Status",
+        payload: clickedId
+      })
+    }
+    const filterTasks = () => {
+      dispatch({
+        type: 'Filter_Completed_Tasks'
+      })
+    }
+
   return (
     <div className="App">
       <header>
         <h1>Lisa's Very Important Tasks!</h1>
       </header>
-      <TodoForm addNewTask={addNewTask}/>
-      <TodoList tasks={state.tasks} />
+      <TodoForm
+        addNewTask={addNewTask}
+        filterTasks={filterTasks}
+      />
+      <TodoList
+        tasks={state.tasks}
+        toggleTask={toggleTask}
+      />
     </div>
   );
 }
