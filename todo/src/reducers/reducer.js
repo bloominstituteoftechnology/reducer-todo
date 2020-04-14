@@ -1,9 +1,11 @@
+import * as moment from 'moment';
 export const initialState = {
 	todoArray: [
 		{
 			item: '',
 			completed: false,
 			id: 3892987589,
+			time: '',
 		},
 	],
 };
@@ -16,6 +18,7 @@ export const reducer = (state, action) => {
 				item: action.payload,
 				completed: false,
 				id: Date.now(),
+				time: moment().format('LLLL'),
 			};
 			return {
 				...state,

@@ -20,7 +20,7 @@ const TodoForm = (props) => {
 					placeholder="Add Todo"
 				/>
 				=>
-				<button>Add +</button>
+				<button>Add + </button>
 				<button onClick={clearCompleted}> Clear Complete</button>
 			</form>
 		</div>

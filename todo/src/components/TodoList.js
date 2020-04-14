@@ -11,7 +11,7 @@ const TodoList = ({ todoArray, toggleTodo }) => {
 					style={{
 						textDecoration: todo.completed ? 'line-through' : 'none',
 					}}>
-					{todo.item}
+					{todo.item} {todo.time}
 				</div>
 			))}
 		</div>
