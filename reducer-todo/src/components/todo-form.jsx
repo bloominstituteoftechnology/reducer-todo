@@ -27,7 +27,9 @@ const TodoForm = props => {
         onChange={handleChanges}
         placeholder="...todo"
       />
+
       <button onClick={addTodo}>Add Task</button>
+      <br></br>
       <button onClick={removeTodo}>Remove Completed</button>
     </form>
   );
