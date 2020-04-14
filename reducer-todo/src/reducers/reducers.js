@@ -27,10 +27,11 @@ todo: [
 export const reducer = (state, action) => {
     // switch statement - simplified if/else if/ ... /else statement
     // if or else if blocks become "cases"
+    console.log("STATE",state)
     switch (action.type) {
       case 'ADD_TASK':
-          console.log("action.payload",action.payload)
-          console.log("state",state)
+        //   console.log("action.payload",action.payload)
+        //   console.log("state",state)
         return {
             ...state,
             todo: [...state.todo,
@@ -42,8 +43,39 @@ export const reducer = (state, action) => {
             ]
 
         }
+      case 'CLEAR_ALL':
+          return{
+              ...state,
+              todo: [...state.todo,
+                {
+                    // ...state,
+                    finished: !state.todo.finished
+                }
+            ]
+          }
+          case 'TOGGLE_IT':
+        
+            return{
+                ...state,
+               todo: state.todo.map(item =>{
+                   if(action.payload == item.id){
+                       return{
+                           ...item,
+                           finished: !item.finished
+                       }
+                   }
+                   else{
+                       return{
+                           ...item
+                       }
+                   }
+               })
+             
+            }
+            console.log("call me",state)
     //   case "CLEAR_COMPLETED"
       default:
         return state;
     }
+    
   };

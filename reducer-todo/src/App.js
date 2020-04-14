@@ -16,6 +16,12 @@ function App () {
     dispatch({type:"ADD_TASK", payload:taskInput})
 }   
 
+  const toggleItem = item => {
+    console.log("TOGGLEITEM", item)
+    // event.preventDefault();
+    dispatch({type:"TOGGLE_IT", payload:item})
+  }
+
 const clearCompleted = event =>{
     event.preventDefault();
     dispatch({type:"CLEAR_COMPLETED"})
@@ -39,11 +45,11 @@ const inputChange = event =>{
          inputChange={inputChange}
          />
          </div>
-         <TodoList info={state}
+         <TodoList 
+         info={state}
+         toggleItem={toggleItem}
          />
- 
-        
-      </div>
+          </div>
     )
   
     }

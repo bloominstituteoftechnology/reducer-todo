@@ -9,7 +9,7 @@ import React, { useReducer } from 'react'
 // import './Todo.css'
 
 const TodoList = props => {
-    console.log("props1321312",props.info)
+    // console.log("props1321312",props.info)
     // const [state, dispatch] = useReducer(reducer, initialList)
 
     // console.log("stateeeeeeeeeeeee",state)
@@ -17,8 +17,12 @@ const TodoList = props => {
         <div className="todo-list">
             {props.info.todo.map(todo => {
                 {/* console.log(todo) */}
-                return(   <div className={`todo${todo.finished ? "finished" : ""}`}>
-                <p>{todo.what}</p>
+                return(   
+                    <div 
+                    key={todo.id}
+                    onClick={()=>{props.toggleItem(todo.id)}}
+                    className={`todo${todo.finished ? "finished" : ""}`}>
+                <p >{todo.what}</p>
                 </div>  )
               
             })}
