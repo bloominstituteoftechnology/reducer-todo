@@ -7,7 +7,10 @@ const TodoList = ({ todoArray, toggleTodo }) => {
 				<div
 					key={todo.id}
 					onClick={() => toggleTodo(todo.id)}
-					className={todo.completed ? 'completed' : ''}>
+					className={todo.completed ? 'completed' : ''}
+					style={{
+						textDecoration: todo.completed ? 'line-through' : 'none',
+					}}>
 					{todo.item}
 				</div>
 			))}

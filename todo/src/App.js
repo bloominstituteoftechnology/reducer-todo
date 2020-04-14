@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react';
+import React, { useReducer } from 'react';
 import { initialState, reducer } from './reducers/reducer';
 import './App.css';
 import TodoList from './components/TodoList';
@@ -7,8 +7,7 @@ import TodoForm from './components/TodoForm';
 //This file will hold state and render components
 function App() {
 	const [state, dispatch] = useReducer(reducer, initialState); //this came from reducer.js
-	const addItem = (e, item) => {
-		e.preventDefault();
+	const addTodo = (item) => {
 		dispatch({ type: 'ADD_TODO', payload: item });
 	};
 	const toggleTodo = (id) => {
@@ -21,7 +20,7 @@ function App() {
 	return (
 		<div>
 			<TodoList todoArray={state.todoArray} toggleTodo={toggleTodo} />
-			<TodoForm addItem={addItem} clearCompleted={clearCompleted} />
+			<TodoForm addTodo={addTodo} clearCompleted={clearCompleted} />
 		</div>
 	);
 }

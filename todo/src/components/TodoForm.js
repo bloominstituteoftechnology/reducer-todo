@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 
 const TodoForm = (props) => {
 	const [item, setItem] = useState('');
-	const { addItem } = props;
+	const { addTodo, clearCompleted } = props;
 	const handleChange = (event) => setItem(event.target.value);
-	const submitItem = (e) => {
-		//e.preventDefault();
-		addItem(item);
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		addTodo(item);
 		setItem('');
 	};
 	return (
 		<div>
-			<form onSubmit={submitItem}>
+			<form onSubmit={handleSubmit}>
 				<input
 					type="text"
 					name="item"
@@ -21,6 +21,7 @@ const TodoForm = (props) => {
 				/>
 				=>
 				<button>Add +</button>
+				<button onClick={clearCompleted}> Clear Complete</button>
 			</form>
 		</div>
 	);
