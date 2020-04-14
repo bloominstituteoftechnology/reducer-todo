@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 const TodoForm = (props) => {
+	console.log('props:', props);
 	const [item, setItem] = useState('');
 	const handleChange = (event) => setItem(event.target.value);
 	const submitItem = (e) => {
@@ -10,7 +11,8 @@ const TodoForm = (props) => {
 	return (
 		<div>
 			<form onSubmit={submitItem}>
-				<input type="text"></input>
+				<input type="text" />
+				=>
 				<button>Add +</button>
 			</form>
 		</div>

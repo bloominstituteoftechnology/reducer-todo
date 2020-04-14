@@ -8,10 +8,21 @@ import TodoForm from './components/TodoForm';
 function App() {
 	const [state, dispatch] = useReducer(reducer, initialState); //this came from reducer.js
 	console.log('state', state.todoArray);
+	const addItem = (e, item) => {
+		e.preventDefault();
+		const newItem = {
+			name: item,
+			id: Date.now(),
+			completed: false,
+		};
+		this.setState({
+			todos: [...this.state.todos, newItem],
+		});
+	};
 	return (
 		<div>
 			<TodoList todoArray={state.todoArray} />
-			<TodoForm />
+			<TodoForm addItem={addItem} />
 		</div>
 	);
 }
