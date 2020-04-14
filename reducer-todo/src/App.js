@@ -24,7 +24,7 @@ function App () {
 
 const clearCompleted = event =>{
     event.preventDefault();
-    dispatch({type:"CLEAR_COMPLETED"})
+    dispatch({type:"CLEAR_ALL"})
 }
 
 const inputChange = event =>{
@@ -48,6 +48,7 @@ const inputChange = event =>{
          <TodoList 
          info={state}
          toggleItem={toggleItem}
+        //  clearCompleted={clearCompleted}
          />
           </div>
     )

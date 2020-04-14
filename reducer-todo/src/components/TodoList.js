@@ -26,9 +26,9 @@ const TodoList = props => {
                 </div>  )
               
             })}
-            <button>
+            {/* <button onClick={(event)=>{props.clearCompleted(event)}}>
             Clear ToDo-List
-            </button>
+            </button> */}
         </div>
     )
 }

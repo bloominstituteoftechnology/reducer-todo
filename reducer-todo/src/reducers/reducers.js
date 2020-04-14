@@ -46,12 +46,7 @@ export const reducer = (state, action) => {
       case 'CLEAR_ALL':
           return{
               ...state,
-              todo: [...state.todo,
-                {
-                    // ...state,
-                    finished: !state.todo.finished
-                }
-            ]
+              todo: state.todo.filter(item => !item.finished)
           }
           case 'TOGGLE_IT':
         
