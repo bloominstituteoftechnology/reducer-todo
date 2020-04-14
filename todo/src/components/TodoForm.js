@@ -13,15 +13,18 @@ const TodoForm = (props) => {
 		<div>
 			<form onSubmit={handleSubmit}>
 				<input
+					className="inputBox"
 					type="text"
 					name="item"
 					value={item}
 					onChange={handleChange}
 					placeholder="Add Todo"
 				/>
-				=>
-				<button>Add + </button>
-				<button onClick={clearCompleted}> Clear Complete</button>
+				<button className="addBtn">Add + </button>
+				<button className="clearBtn" onClick={clearCompleted}>
+					{' '}
+					Clear Complete
+				</button>
 			</form>
 		</div>
 	);

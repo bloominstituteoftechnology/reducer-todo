@@ -1,8 +1,8 @@
 import React from 'react';
 const TodoList = ({ todoArray, toggleTodo }) => {
 	return (
-		<div>
-			<h1>Todo List:</h1>
+		<div className="form">
+			<h1>You got things to do:</h1>
 			{todoArray.map((todo) => (
 				<div
 					key={todo.id}
@@ -11,7 +11,8 @@ const TodoList = ({ todoArray, toggleTodo }) => {
 					style={{
 						textDecoration: todo.completed ? 'line-through' : 'none',
 					}}>
-					{todo.item} {todo.time}
+					<p className="form">{todo.item}</p>
+					{/* {todo.time} */}
 				</div>
 			))}
 		</div>

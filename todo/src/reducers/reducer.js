@@ -3,8 +3,8 @@ export const initialState = {
 	todoArray: [
 		{
 			item: '',
-			completed: false,
-			id: 3892987589,
+			completed: '',
+			id: '',
 			time: '',
 		},
 	],
@@ -32,6 +32,7 @@ export const reducer = (state, action) => {
 						return {
 							...todo,
 							completed: !todo.completed,
+							time: !todo.time,
 						};
 					} else {
 						return todo;
