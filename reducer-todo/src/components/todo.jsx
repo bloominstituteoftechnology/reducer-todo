@@ -11,7 +11,6 @@ const Todo = props => {
       className={`todo${props.todo.completed ? " completed" : ""}`}
       onClick={toggleTodo}
     >
-      {" "}
       {props.todo.item}
     </div>
   );
