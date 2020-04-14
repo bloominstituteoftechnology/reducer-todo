@@ -11,7 +11,7 @@ const TodoList = ({ todoArray, toggleTodo }) => {
 					style={{
 						textDecoration: todo.completed ? 'line-through' : 'none',
 					}}>
-					<p className="form">{todo.item}</p>
+					<h3 className="form">{todo.item}</h3>
 					{/* {todo.time} */}
 				</div>
 			))}
