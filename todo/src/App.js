@@ -2,6 +2,7 @@ import React, { useReducer, useState } from 'react';
 import { initialState, reducer } from './reducers/reducer';
 import './App.css';
 import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm';
 
 //This file will hold state and render components
 function App() {
@@ -10,6 +11,7 @@ function App() {
 	return (
 		<div>
 			<TodoList todoArray={state.todoArray} />
+			<TodoForm />
 		</div>
 	);
 }

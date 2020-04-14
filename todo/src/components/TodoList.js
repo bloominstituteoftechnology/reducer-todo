@@ -6,7 +6,7 @@ const TodoList = ({ todoArray }) => {
 			<h1>Todo List:</h1>
 
 			{todoArray.map((todo) => {
-				return <p> {todo.item} </p>;
+				return <p> {todo.item} </p>; //This somehow works
 			})}
 		</div>
 	);
