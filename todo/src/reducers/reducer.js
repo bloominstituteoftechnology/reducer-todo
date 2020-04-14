@@ -1,7 +1,7 @@
 export const initialState = {
 	todoArray: [
 		{
-			item: 'Learn about reducers',
+			item: '',
 			completed: false,
 			id: 3892987589,
 		},
