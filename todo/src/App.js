@@ -28,6 +28,7 @@ function App() {
   // }
 
   const toggleCompleted = (id) => {
+    // console.log('this is id in togglecompleted dispatch: ', id);
     dispatch({ type: 'TOGGLE_COMPLETED', payload: id });
   };
   // toggleCompleted = clickedItemId => {

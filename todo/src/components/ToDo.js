@@ -3,7 +3,7 @@ import React from 'react';
 import '../App.css';
 
 const ToDo = (props) => {
-  console.log('this is props in todo: ', props);
+  // console.log('this is props in todo: ', props);
   return (
     <div
       className={props.item.completed ? 'completed' : ''}
@@ -12,15 +12,21 @@ const ToDo = (props) => {
         props.toggleCompleted(props.item.id);
       }}
     >
-      <br />
+      {/* <br />
       <label>
         <input
           type="checkbox"
           checked={props.item.completed}
-          onChange={() => props.toggleCompleted(props.item.id)}
+          onChange={(event) => {
+            event.preventDefault();
+            props.toggleCompleted(props.item.id);
+            // console.log('this is props in onchange: ', props.item.id);
+          }}
         />
         {props.item.task}
-      </label>
+      </label> */}
+
+      {props.item.task}
     </div>
   );
 };
