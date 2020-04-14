@@ -1,6 +1,6 @@
 // your components will all go in this `component` directory.
 // feel free to change this component.js into TodoList.js
-import React, { useReducer } from 'react'
+import React from 'react'
 
 // import Todo from './Todo'
 
@@ -16,8 +16,7 @@ const TodoList = props => {
     return (
         <div className="todo-list">
             {props.info.todo.map(todo => {
-                {/* console.log(todo) */}
-                return(   
+                 return(   
                     <div 
                     key={todo.id}
                     onClick={()=>{props.toggleItem(todo.id)}}

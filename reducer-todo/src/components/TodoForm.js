@@ -1,10 +1,10 @@
-import React, {useState} from 'react'
+import React from 'react'
 // import {initialList, reducer} from '../reducers/reducers'
 
 const TodoForm = props => {
     // console.log("props",props)
     // const [state, dispatch] = useReducer(reducer, initialList);
-    const [taskInput, setTaskInput] = useState('')
+    // const [taskInput, setTaskInput] = useState('')
 
     
         return(

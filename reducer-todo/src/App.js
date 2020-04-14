@@ -9,7 +9,15 @@ import {initialList, reducer} from './reducers/reducers'
 
 function App () {
   const [state, dispatch] = useReducer(reducer, initialList);
+  console.log("useReducer=state",state)
+  console.log("useReducer=dispatch",dispatch)
   const [taskInput, setTaskInput] = useState('')
+
+  const inputChange = event =>{
+    // console.log("inputChange",event)
+    event.preventDefault();
+    setTaskInput(event.target.value)
+}
 
   const taskSubmit = event =>{
     event.preventDefault();
@@ -17,7 +25,7 @@ function App () {
 }   
 
   const toggleItem = item => {
-    console.log("TOGGLEITEM", item)
+    // console.log("TOGGLEITEM", item)
     // event.preventDefault();
     dispatch({type:"TOGGLE_IT", payload:item})
   }
@@ -27,19 +35,14 @@ const clearCompleted = event =>{
     dispatch({type:"CLEAR_ALL"})
 }
 
-const inputChange = event =>{
-    // console.log("inputChange",event)
-    event.preventDefault();
-    setTaskInput(event.target.value)
-}
 
-  console.log("APP State",state)
+  // console.log("APP State",state)
     return (
       <div className="App">
        <div className="header">
          <h1>To-Do List</h1>
          <TodoForm 
-         info={state} 
+        //  info={state} 
          taskSubmit={taskSubmit}
          clearCompleted={clearCompleted}
          inputChange={inputChange}

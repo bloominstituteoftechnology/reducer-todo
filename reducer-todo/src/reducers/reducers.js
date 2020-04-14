@@ -1,7 +1,5 @@
-import React from "react"
-
 export const initialList = {
-todo: [
+    todo: [
   {
     what: "Code 2 hours besides school",
     id: 1,
@@ -27,10 +25,10 @@ todo: [
 export const reducer = (state, action) => {
     // switch statement - simplified if/else if/ ... /else statement
     // if or else if blocks become "cases"
-    console.log("STATE",state)
+    // console.log("STATE",state)
     switch (action.type) {
       case 'ADD_TASK':
-        //   console.log("action.payload",action.payload)
+          console.log("action.payload",action)
         //   console.log("state",state)
         return {
             ...state,
@@ -41,34 +39,29 @@ export const reducer = (state, action) => {
                     finished: false
                 }
             ]
-
         }
       case 'CLEAR_ALL':
           return{
               ...state,
               todo: state.todo.filter(item => !item.finished)
           }
-          case 'TOGGLE_IT':
-        
-            return{
+      case 'TOGGLE_IT':
+           return{
                 ...state,
                todo: state.todo.map(item =>{
-                   if(action.payload == item.id){
+                   if(action.payload === item.id){
                        return{
                            ...item,
                            finished: !item.finished
                        }
                    }
-                   else{
-                       return{
+                   return{
                            ...item
-                       }
-                   }
+                         }
                })
              
             }
-            console.log("call me",state)
-    //   case "CLEAR_COMPLETED"
+  
       default:
         return state;
     }
