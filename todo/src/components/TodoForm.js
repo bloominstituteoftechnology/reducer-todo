@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const TodoForm = () => {
+const TodoForm = (props) => {
+	const [item, setItem] = useState('');
+	const handleChange = (event) => setItem(event.target.value);
+	const submitItem = (e) => {
+		e.preventDefault();
+		setItem('');
+	};
 	return (
 		<div>
-			<form>
+			<form onSubmit={submitItem}>
 				<input type="text"></input>
 				<button>Add +</button>
 			</form>
