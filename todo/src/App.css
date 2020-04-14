@@ -1,0 +1,35 @@
+.body{
+    margin: 4% 30%;
+    text-align: center;
+    border: 10px double black;
+    background-color: #ffe6ff;
+}
+
+h1{
+    font-size: 3rem;
+    text-decoration: underline;
+}
+
+.completed{
+    text-decoration: line-through;  
+    color:grey; 
+}
+
+button{
+    background-color: #d9b3ff;
+    font-size:1.2rem;
+    text-align: center;
+    margin: 1%;
+    padding: 1%;
+}
+
+.clear-btn{
+    padding: 1%;
+    margin: 1% auto 2%;
+}
+
+.inputField{
+    padding: 1%;
+    font-size:1.2rem;
+    text-align: center;
+}
