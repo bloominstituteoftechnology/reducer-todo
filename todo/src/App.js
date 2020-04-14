@@ -7,22 +7,21 @@ import TodoForm from './components/TodoForm';
 //This file will hold state and render components
 function App() {
 	const [state, dispatch] = useReducer(reducer, initialState); //this came from reducer.js
-	console.log('state', state.todoArray);
 	const addItem = (e, item) => {
 		e.preventDefault();
-		const newItem = {
-			name: item,
-			id: Date.now(),
-			completed: false,
-		};
-		this.setState({
-			todos: [...this.state.todos, newItem],
-		});
+		dispatch({ type: 'ADD_TODO', payload: item });
+	};
+	const toggleTodo = (id) => {
+		dispatch({ type: 'TOGGLE_TODO', payload: id });
+	};
+
+	const clearCompleted = () => {
+		dispatch({ type: 'CLEAR_COMPLETED' });
 	};
 	return (
 		<div>
-			<TodoList todoArray={state.todoArray} />
-			<TodoForm addItem={addItem} />
+			<TodoList todoArray={state.todoArray} toggleTodo={toggleTodo} />
+			<TodoForm addItem={addItem} clearCompleted={clearCompleted} />
 		</div>
 	);
 }
