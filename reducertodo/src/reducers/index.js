@@ -1,7 +1,7 @@
-const initialState = {
+export const initialState = {
     tasks: [
         {
-            item: 'learn useReducer',
+            item: 'Learn useReducer',
             id: 5619815445651654456,
             completed: false,
         },
@@ -13,7 +13,7 @@ const initialState = {
     ],
 };
 
-const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
     switch (action.type) {
         case 'ADD_TODO':
             return {
