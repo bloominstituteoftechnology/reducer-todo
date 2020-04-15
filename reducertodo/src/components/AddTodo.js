@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function AddTodo(props) {
-    console.log(props);
-    props.state.tasks.map((itemInfo) => console.log(itemInfo.item));
+    // console.log(props);
+    // props.state.tasks.map((itemInfo) => console.log(itemInfo.item));
 
     const [state, setState] = useState({
         name: '',
@@ -13,14 +13,20 @@ function AddTodo(props) {
         event.preventDefault();
         setState(event.target.value);
     };
+    const submitForm = (e) => {
+        e.preventDefault();
+        props.addItem(state);
+    };
     return (
-        <section>
-            {props.state.tasks.map((itemInfo) => (
-                <h4 key={itemInfo.id} onClick={}>
-                    {itemInfo.item}
-                </h4>
-            ))}
-        </section>
+        <form onSubmit={submitForm}>
+            <input
+                item="item"
+                placeholder="Add Todo Item"
+                value={state.tasks}
+                onChange={handleChanges}
+            />
+            <button>Add Todo</button>
+        </form>
     );
 }
 

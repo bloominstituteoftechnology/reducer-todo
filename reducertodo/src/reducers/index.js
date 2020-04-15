@@ -2,12 +2,12 @@ export const initialState = {
     tasks: [
         {
             item: 'Learn useReducer',
-            id: 5619815445651654456,
+            id: 159,
             completed: false,
         },
         {
             item: 'Complete useReducer challenge',
-            id: 5619815445651654459,
+            id: 201,
             completed: false,
         },
     ],

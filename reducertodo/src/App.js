@@ -16,7 +16,7 @@ function App() {
     let newId = 0;
     const addItem = (item) => {
         const newItem = {
-            name: item,
+            item: item,
             completed: false,
             id: newId++,
         };
@@ -27,7 +27,7 @@ function App() {
             <section>
                 <h1>React useReducer</h1>
                 <AddTodo state={state} addItem={addItem} />
-                {/* <TodoList /> */}
+                <TodoList state={state} toggleItem={toggleItem} />
             </section>
         </div>
     );
