@@ -31,6 +31,15 @@ export const reducer = (state = initialState, action) => {
                     } else return todo;
                 }),
             };
+        case 'CLEAR_LIST':
+            return {
+                ...state,
+                tasks: state.tasks.map((todo) => {
+                    if (todo.completed) {
+                        return { ...(todo - todo.completed) };
+                    } else return todo;
+                }),
+            };
         default:
             return state;
     }
