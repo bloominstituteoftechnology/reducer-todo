@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
 import { Button, Form, Input } from "semantic-ui-react";
 
-function ItemForm({addItem}) {
+function ItemForm({addItem, listData}) {
     const [todoItem, setTodoItem] = useState({
         userEntry:""
     })
-
+    console.log("listData", listData.itemData)
     const handleChange = (event) => {
         const { name, value } = event.target
         setTodoItem({
@@ -20,7 +20,7 @@ function ItemForm({addItem}) {
         setTodoItem({userEntry: ""})
     }
 
-    const propsOjbectLenth = Object.keys(addItem).length
+    const propsOjbectLenth = Object.keys(listData.itemData).length
     console.log(propsOjbectLenth)
     return(
         <Form onSubmit={handleSubmit}>
@@ -36,7 +36,7 @@ function ItemForm({addItem}) {
                 />
             </Form.Field>
             {propsOjbectLenth > 0 && (
-                <p>Click Item to Check off of List</p>
+                <p className={"itemCheckPopUp"}>Click Item to Check off of List</p>
             )}
             <Button type="submit" color="blue"><i>EnterItem</i></Button>
         </Form>

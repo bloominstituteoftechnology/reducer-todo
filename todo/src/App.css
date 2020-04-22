@@ -4,6 +4,21 @@
   margin: 150px auto 0 ;
 }
 
+.onList {
+  text-decoration: none;
+  color: dimgray;
+}
+
+.checkedOff {
+  text-decoration: line-through;
+  font-size: 10px;
+  color: dimgray;
+}
+
+.itemCheckPopUp {
+  font-size: 8.5px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
