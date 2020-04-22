@@ -2,10 +2,11 @@ import React from "react";
 import { Container, Header } from "semantic-ui-react";
 //components:
 import ItemForm from "./ItemForm";
-import TodoItem from './TodoItem'
+import TodoItem from './TodoItem';
+import DeleteList from './DeleteList'
 
 function TodoWrapper({addItem, toggleItem, listData, deleteAll}) {
-    const objectLength = Object.keys(listData).length
+    const objectLength = Object.keys(listData.itemData).length
   return (
     <Container>
       <Header>To Do List!</Header>
@@ -17,9 +18,9 @@ function TodoWrapper({addItem, toggleItem, listData, deleteAll}) {
               )
           })
       }
-     {/* {
-         objectLength > 0 && <
-     } */}
+     {
+         objectLength > 0 && <DeleteList deleteAll={deleteAll}/>
+     }
     </Container>
   );
 }

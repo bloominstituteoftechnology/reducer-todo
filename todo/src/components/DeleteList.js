@@ -5,7 +5,8 @@ function DeleteList({deleteAll}){
     return(
         <Button
             color="red"
-            onClick={() => {deleteAll}}
+            onClick={deleteAll}
+            style={{marginTop:"8px"}}
         >Clear List</Button>
     )
 }

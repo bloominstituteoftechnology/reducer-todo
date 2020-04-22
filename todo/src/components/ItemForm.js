@@ -38,7 +38,7 @@ function ItemForm({addItem, listData}) {
             {propsOjbectLenth > 0 && (
                 <p className={"itemCheckPopUp"}>Click Item to Check off of List</p>
             )}
-            <Button type="submit" color="blue"><i>EnterItem</i></Button>
+            <Button type="submit" color="blue"><i>Enter Item</i></Button>
         </Form>
     )
 }
