@@ -1,24 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+
 import './App.css';
 
+//components:
+import TodoWrapper from './components/TodoWrapper';
+//reducers
+// import useReducer, { initialState } from './reducers/useReducer'
+
+// const [state, dispatch] = useState(todoListReducer, initialState)
+
+
+
 function App() {
+
+  //List Data stored in state:
+  const [listData, setListData ] = useState({
+    itemData: []
+  })
+  console.log("App-State: listData", listData)
+
+  //Add Item to list
+  const addItem = (userEntry) => {
+    const newListItem = {
+      item:userEntry,
+      completed: false,
+      id: Math.random()
+    }
+
+    setListData({
+      itemData: [...listData.itemData, newListItem]
+    })
+  }
+
+  console.log("test")
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TodoWrapper addItem={addItem} />
     </div>
   );
 }
