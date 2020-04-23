@@ -11,6 +11,10 @@ export const todoListReducer = ( state, action ) => {
                 {todoItem: action.payload, completed: false}
             ]
         }
+        case "DELETE_ITEM" :
+            return {
+                todoItem: []
+            }
         default:
             return state;
     }

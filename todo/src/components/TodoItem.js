@@ -19,6 +19,3 @@ function TodoItem({data, toggleItem}){
 }
 
 export default TodoItem
-    // onClick={() => {
-    //     toggleItem(data.id)
-    // }}

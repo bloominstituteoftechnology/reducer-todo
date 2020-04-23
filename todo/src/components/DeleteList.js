@@ -1,11 +1,12 @@
 import React from 'react'
 import { Button } from "semantic-ui-react";
 
-function DeleteList({deleteAll}){
+
+function DeleteList({dispatch}){
     return(
         <Button
             color="red"
-            onClick={deleteAll}
+            onClick={() => dispatch({ type: "DELETE_ITEM"})}
             style={{marginTop:"8px"}}
             className="shake-clunk"
         >Clear List</Button>
