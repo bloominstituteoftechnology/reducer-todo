@@ -13,6 +13,7 @@ function App() {
 
   return (
     <div className="App">
+      <header>My Todo App!</header>
       <TodoList state={state} dispatch={dispatch} />
       <TodoForm dispatch={dispatch} />
     </div>
