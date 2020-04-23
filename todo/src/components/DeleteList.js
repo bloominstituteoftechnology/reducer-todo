@@ -7,6 +7,7 @@ function DeleteList({deleteAll}){
             color="red"
             onClick={deleteAll}
             style={{marginTop:"8px"}}
+            className="shake-clunk"
         >Clear List</Button>
     )
 }

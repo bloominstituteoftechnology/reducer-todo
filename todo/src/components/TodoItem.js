@@ -1,15 +1,17 @@
-import React from 'react'
+import React, {useReducer} from 'react'
 import { List } from "semantic-ui-react";
+import { todoListReducer, initialState } from '../reducers/useReducer';
 
 function TodoItem({data, toggleItem}){
+
+    const [state, dispatch] = useReducer(todoListReducer, initialState)
+
     return(
         <List size="big">
             <List.Item
              className={`${data.completed ? "checkedOff" : ""}`}
-             onClick={() => {
-                 toggleItem(data.id)
-             }}
-            >
+             onClick={()=> dispatch({type:"ITEM_COMPLETED-"})}
+             >
             {data.item}
             </List.Item>
         </List>
@@ -17,3 +19,6 @@ function TodoItem({data, toggleItem}){
 }
 
 export default TodoItem
+    // onClick={() => {
+    //     toggleItem(data.id)
+    // }}

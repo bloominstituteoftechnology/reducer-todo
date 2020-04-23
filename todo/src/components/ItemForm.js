@@ -1,11 +1,26 @@
-import React, {useState} from 'react'
+import React, {useState, useReducer} from 'react'
 import { Button, Form, Input } from "semantic-ui-react";
 
-function ItemForm({addItem, listData}) {
+
+//import reducer
+import {initialState, todoListReducer} from '../reducers/useReducer'
+
+function ItemForm() {
+    
     const [todoItem, setTodoItem] = useState({
         userEntry:""
     })
-    console.log("listData", listData.itemData)
+
+
+    const [state, dispatch] = useReducer(todoListReducer, initialState);
+
+
+    const handleSubmit = event => {
+        event.preventDefault()
+        dispatch({ type: "ADD_ITEM", payload: todoItem.userEntry})
+        setTodoItem({userEntry: ""})
+    }
+
     const handleChange = (event) => {
         const { name, value } = event.target
         setTodoItem({
@@ -14,15 +29,10 @@ function ItemForm({addItem, listData}) {
 
     }
 
-    const handleSubmit = event => {
-        event.preventDefault()
-        addItem(todoItem.userEntry)
-        setTodoItem({userEntry: ""})
-    }
+    console.log("%c ReducerState:", "color:red", state.todoItem)
 
-    const propsOjbectLenth = Object.keys(listData.itemData).length
-    console.log(propsOjbectLenth)
     return(
+        <>
         <Form onSubmit={handleSubmit}>
             <Form.Field>
                 <label />Add Item:
@@ -35,11 +45,20 @@ function ItemForm({addItem, listData}) {
                     style={{marginTop:"10px"}}
                 />
             </Form.Field>
-            {propsOjbectLenth > 0 && (
-                <p className={"itemCheckPopUp"}>Click Item to Check off of List</p>
+            {state.todoItem.length > 0 && (
+                <p className="itemCheckPopUp">Click on Item to check off list!</p>
             )}
-            <Button type="submit" color="blue"><i>Enter Item</i></Button>
+            <Button 
+                type="submit" color="blue" style={{marginBottom:"10px"}}><i>Enter Item</i></Button>
         </Form>
+        {
+            state.todoItem.map(item => {
+                return (
+                    <p key={Math.random()}>{item.todoItem}</p>
+                )
+            })
+        }
+        </>
     )
 }
 
