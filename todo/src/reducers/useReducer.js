@@ -15,6 +15,16 @@ export const todoListReducer = ( state, action ) => {
             return {
                 todoItem: []
             }
+        case "COMPLETED" :
+            return {
+               todoItem: state.todoItem.map((todoItem, index) => {
+                   return(
+                    index === action.payload
+                    ? {...todoItem, completed:!todoItem.completed}
+                    : todoItem
+                   )
+               })
+            }
         default:
             return state;
     }

@@ -51,12 +51,15 @@ function ItemForm() {
           <i>Enter Item</i>
         </Button>
       </Form>
-      {state.todoItem.map((item) => {
-        return <p key={Math.random()}>{item.todoItem}</p>;
+      {state.todoItem.map((item, index) => {
+          console.log("item:",item)
+        return <p
+         className={`${item.completed ? "checkedOff": ""}`}
+         onClick={() => dispatch({type: "COMPLETED", payload:index})}
+         key={Math.random()}>{item.todoItem}</p>;
       })}
       {state.todoItem.length > 0 && (
         <DeleteList dispatch={dispatch}/>
-        // <Button onClick={}>Delete All</Button>
       )}
     </>
   );
