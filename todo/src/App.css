@@ -1,5 +1,22 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
+  max-width: 400px;
+  margin: 150px auto 0 ;
+}
+
+.onList {
+  text-decoration: none;
+  color: dimgray;
+}
+
+.checkedOff {
+  text-decoration: line-through;
+  font-size: 10px;
+  color: dimgray;
+}
+
+.itemCheckPopUp {
+  font-size: 8.5px;
 }
 
 .App-logo {
