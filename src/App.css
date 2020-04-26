@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+}
+
+
+.completed {
+  text-decoration: line-through;
+}
+
+button {
+  margin: 5%;
+  width: 20%;
+  height: 100px;
+  background-color: aquamarine;
+  border-radius: 5px;
+  border: solid grey 3px;
+  font-size: 20px;
+}
+
+input {
+  width: 30%;
+  height: 100px;
+}
+.title {
+  font-size: 50px;
+
+}
+.todo {
+  font-size: 50px;
+}
