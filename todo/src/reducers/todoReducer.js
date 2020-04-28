@@ -1,3 +1,11 @@
+export const todo = [
+    {
+        item: 'completed items',
+        completed: true,
+        id: 0
+    }
+]
+
 export const todoReducer = ( state, action ) => {
     switch (action.type) {
         case 'ADD_TODO':
@@ -12,31 +20,16 @@ export const todoReducer = ( state, action ) => {
 
         case 'TOGGLE_TODO':
             return (
-                console.log(state),
-                state.map(todo => {
-                    console.log(todo)
+                    state.map(todo => {
                     if (todo.id === action.payload) {
-                        return {
-                            ...todo,
-                            completed: !todo.completed
-                        }
+                        return { ...todo, completed: !todo.completed}
                     } else {
                         return todo;
                     }
                 })
             )
         case 'REMOVE_TODO':
-            return (
-                state.filter(todo => !todo.completed)
-            )
-        default: return state;
+            return state.filter(todo => !todo.completed)
+            default: return state;
     }
-}
-
-export const todo = [
-    {
-        item: 'Pending items:',
-        completed: false,
-        id: 3892987589
-    }
-]
+};
