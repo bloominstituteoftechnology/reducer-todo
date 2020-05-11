@@ -4,8 +4,8 @@ import { initialState, todoReducer } from "../reducers";
 export const TodoForm = () => {
   const [state, dispatch] = useReducer(todoReducer, { todos: [] });
   const [todo, addTodo] = useState();
-
-  const handleChange = e => {
+  //solution
+  const handleChange = (e) => {
     addTodo(e.target.value);
   };
 
@@ -20,7 +20,7 @@ export const TodoForm = () => {
           onChange={handleChange}
         />
         <button
-          onClick={e => {
+          onClick={(e) => {
             e.preventDefault();
             dispatch({ type: "ADD_TODO", todo });
             console.log(state.todos, todo);
