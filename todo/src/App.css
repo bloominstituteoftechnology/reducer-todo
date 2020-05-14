@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css?family=Sawarabi+Mincho&display=swap");
+/* <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&display=swap" rel="stylesheet"> */
+/* font-family: 'Sawarabi Mincho', sans-serif; */
+
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+.App {
+  font-family: Sawarabi Mincho;
+}
+
+.header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: baseline;
+  height: 25vh;
+  background: #000000;
+  color: white;
+}
+
+h2{
+  font-size: 2rem;
+  margin-right: 20px;
+}
+
+.todo-list{
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  align-items: center;
+}
+
+.not-completed{    
+  background-color: none;
+  font-size: 1.25rem;
+  cursor: pointer
+}
+
+.not-completed:hover{
+  cursor: pointer;
+  color: #000000d2; 
+}
+.completed{
+  background-color: none;
+  font-size: 1.20rem;
+  text-decoration: line-through;
+  color: #0000008f;
+  cursor: pointer
+}
+
+button {
+  background: #b4c517;
+  border: none;
+  font-size: 1.05rem;
+  padding: 7px 15px;
+  margin: 5px;
+  color: #000;
+  font-family: Sawarabi Mincho;
+  cursor: pointer
+}
+button:hover{
+  transform: scale(1.025);
+}
+
+.clear-button{
+  margin-top: 30px;
+  cursor: pointer
+}
+
+form{
+  display: flex;
+}
+
+input{
+  height: 2rem;
+  width: 30vw;
+  margin-top: 20px;
+  border: none;
+  background: none;
+  border-bottom: 2px solid #fff;
+  font-size: 1.75rem;
+  color: #fff;
+  font-size: 1.25rem;
+}
