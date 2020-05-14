@@ -1,0 +1,35 @@
+.App{
+  background: black;
+}
+
+.Container{
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: auto;
+  background: silver;
+  text-align: center;
+ 
+}
+
+.Items{
+  padding: 10px;
+
+}
+
+
+.Input{
+  display: flex;
+  margin: 10px;
+  
+
+}
+.BtnAddItem{
+  border-radius: 20px;
+  margin: 10px;
+}
+
+.completed {
+  text-decoration: line-through;
+}
