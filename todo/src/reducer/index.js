@@ -2,23 +2,23 @@
 export const initialTodoState = [{
 
     item:"Learn about reducers",
-    completed: false,
-    id: Date.now()
+    complete: false,
+    id: 7979799009997
 
 },
 
 {
 
     item: "Learn Redux",
-    completed: false,
-    id: Date.now()
+    complete: false,
+    id: 242522
 },
 
 {
 
-    item: "",
-    completed: false,
-    id: Date.now()
+    item: "Learn UX design",
+    complete: false,
+    id: 353635322222
 }
 ];
 
@@ -29,12 +29,12 @@ export const todoReducer = (state = initialTodoState, action = null) => {
         case 'DO_TODO':
           return state.map((item) => {
               return item.id === action.payload ? 
-              {...item, completed: !item.completed} : item
-          })
+              {...item, complete: !item.complete} : item
+          });
 
         case 'UNDO_TODO':
           return state.map(item => {
-           return state.filter((item) => !item.completed)
+           return state.filter((item) => !item.complete)
           });
 
         case 'ADD_TODO':

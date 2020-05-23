@@ -1,5 +1,7 @@
 import React, { useReducer, useState } from 'react';
 import {initialTodoState, todoReducer} from '../reducer';
+import filterReducer from '../reducer/filter';
+import cuid from 'cuid';
 
 
 
@@ -7,14 +9,28 @@ import {initialTodoState, todoReducer} from '../reducer';
 const Item = () => {
 
 
+    const [filter, dispatchFilter] = useReducer(filterReducer, 'ALL');
+
     const [itemState, dispatch] = useReducer(todoReducer, initialTodoState);
 
   const [item, setTask] = useState('');
 
+  const handleShowAll = () => {
+    dispatchFilter({ type: 'SHOW_ALL' });
+  };
+
+  const handleShowComplete = () => {
+    dispatchFilter({ type: 'SHOW_COMPLETE' });
+  };
+
+  const handleShowIncomplete = () => {
+    dispatchFilter({ type: 'SHOW_INCOMPLETE' });
+  };
+
     const handleChanges = todo => {
         dispatch({
-          type: todo.completed ? 'UNDO_TODO' : 'DO_TODO',
-          id: todo.id,
+          type: todo.complete ? 'UNDO_TODO' :'DO_TODO'  ,
+          id: todo.id
         });
       };
 
@@ -27,7 +43,7 @@ const Item = () => {
             type: "ADD_TODO", 
             payload: {
                 item: item,
-                completed: false,
+                complete: false,
                 id: Date.now()
 
             }
@@ -37,16 +53,43 @@ const Item = () => {
         event.preventDefault();
       };
 
+
+      const filteredTodos = itemState.filter(todo => {
+        if (filter === 'ALL') {
+          return true;
+        }
+    
+        if (filter === 'COMPLETE' && todo.complete) {
+          return true;
+        }
+    
+        if (filter === 'INCOMPLETE' && !todo.complete) {
+          return false;
+        }
+    
+        return true;
+      });
+
     return (
         <div>
-
+  <div>
+        <button type="button" onClick={handleShowAll}>
+          Show All
+        </button>
+        <button type="button" onClick={handleShowComplete}>
+          Show Complete
+        </button>
+        <button type="button" onClick={handleShowIncomplete}>
+          Show Incomplete
+        </button>
+      </div>
              <ul>
-        {itemState.map(todo => (
-          <li key={todo.id}>
+             {filteredTodos.map((todo) => (
+          <li key={cuid()}>
             <label>
               <input
-                type="checkbox"
-                checked={todo.completed}
+              type="checkbox"
+                checked={todo.complete}
                 onChange={() => handleChanges(todo)}
               />
               {todo.item}
