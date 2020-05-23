@@ -9,8 +9,6 @@ import React from 'react'
 // import './Todo.css'
 
 const TodoList = props => {
-    // console.log("props1321312",props.info)
-    // const [state, dispatch] = useReducer(reducer, initialList)
 
     // console.log("stateeeeeeeeeeeee",state)
     return (
@@ -25,9 +23,6 @@ const TodoList = props => {
                 </div>  )
               
             })}
-            {/* <button onClick={(event)=>{props.clearCompleted(event)}}>
-            Clear ToDo-List
-            </button> */}
         </div>
     )
 }
