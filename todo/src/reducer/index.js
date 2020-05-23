@@ -1,33 +1,46 @@
-export const TOGGLE_COMPLETE = "TOGGLE_COMPLETE";
 
-export const initialTodoState = {
+export const initialTodoState = [{
 
     item:"Learn about reducers",
     completed: false,
-    id: 3892987589
+    id: Date.now()
 
+},
+
+{
+
+    item: "Learn Redux",
+    completed: false,
+    id: Date.now()
+},
+
+{
+
+    item: "",
+    completed: false,
+    id: Date.now()
 }
+];
 
 
-export const todoReducer = (state, action) => {
+export const todoReducer = (state = initialTodoState, action = null) => {
 
-    switch(action.type) {
+    switch (action.type) {
+        case 'DO_TODO':
+          return state.map((item) => {
+              return item.id === action.payload ? 
+              {...item, completed: !item.completed} : item
+          })
 
-        case TOGGLE_COMPLETE:
-            return {
-                ...state,
-                completed: !state.completed
-            };
-            case "END_ITEM_UPDATE":
-                return {
-                    ...state,
-                    item: action.payload ? action.payload: state.item,
-                    completed: false
-                };
-                default:
-                    return state;   
+        case 'UNDO_TODO':
+          return state.map(item => {
+           return state.filter((item) => !item.completed)
+          });
 
-    }
-
+        case 'ADD_TODO':
+          return [...state, action.payload]
+        default:
+          return state;
+      }
 
 }

@@ -1,58 +1,74 @@
-import React, {useState, useReducer} from 'react';
-import {TOGGLE_COMPLETE, initialTodoState, todoReducer} from '../reducer';
+import React, { useReducer, useState } from 'react';
+import {initialTodoState, todoReducer} from '../reducer';
+
+
+
 
 const Item = () => {
 
 
     const [itemState, dispatch] = useReducer(todoReducer, initialTodoState);
-    const [newTodoItem, setNewTodoItem] = useState(initialTodoState.item);
 
-    const handleChanges = e => {
+  const [item, setTask] = useState('');
 
-        setNewTodoItem(e.target.value);
+    const handleChanges = todo => {
+        dispatch({
+          type: todo.completed ? 'UNDO_TODO' : 'DO_TODO',
+          id: todo.id,
+        });
+      };
 
-    };
+      const handleChangeInput = event => {
+        setTask(event.target.value);
+      };
+    
+      const handleSubmit = event => {
+        dispatch({
+            type: "ADD_TODO", 
+            payload: {
+                item: item,
+                completed: false,
+                id: Date.now()
+
+            }
+        })
+        setTask('');
+     
+        event.preventDefault();
+      };
 
     return (
-
         <div>
 
-            {!itemState.completed ? (
-                <h1> 
-                    {itemState.item}{" "}
-                <i 
-                onClick={() => {
-
-                        dispatch({ type: TOGGLE_COMPLETE});
-
-                }}
-                />
-            </h1>
-
-            ) : (
-<div> 
-
+             <ul>
+        {itemState.map(todo => (
+          <li key={todo.id}>
+            <label>
+              <input
+                type="checkbox"
+                checked={todo.completed}
+                onChange={() => handleChanges(todo)}
+              />
+              {todo.item}
+            </label>
+          </li>
+        ))}
+      </ul>
+ 
+        <form onSubmit={handleSubmit}>
         <input
-        type="text"
-        name="newItemText"
-        value={newTodoItem}
-        onChange={handleChanges}
+          type="text"
+          value={item}
+          onChange={handleChangeInput}
         />
+        <button type="submit">Add Todo</button>
+      </form>
 
-            <button
-            onClick={() => {
+      </div>
 
-                dispatch({ type: "END_ITEM_UPDATE", payload: newTodoItem})
-
-            }}
-            >
-                Update item
-            </button>
-        </div>
-            )}
-        </div>
     )
 
+      
 }
 
 
