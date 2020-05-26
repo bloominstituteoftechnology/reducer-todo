@@ -1,7 +1,6 @@
 import React, { useReducer, useState } from 'react';
 import {initialTodoState, todoReducer} from '../reducer';
 import filterReducer from '../reducer/filter';
-import cuid from 'cuid';
 
 
 
@@ -85,7 +84,7 @@ const Item = () => {
       </div>
              <ul>
              {filteredTodos.map((todo) => (
-          <li key={cuid()}>
+          <li key={todo.id}>
             <label>
               <input
               type="checkbox"
