@@ -1,5 +1,5 @@
 import * as moment from "moment";
-// 'npm moment' in a timestamp that gets inputed into the object
+// 'npm moment' is a timestamp that gets inputed into the object
 import shortid from "shortid";
 // 'npm install shortid' for a short unique user id placed within the object
 
@@ -27,7 +27,7 @@ export const reducer = (state, action) => {
       };
       return {
         ...state,
-        todoArray: [...state.todoArray, newTodo], // state.todoArray.concat(newTodo)
+        todoArray: [...state.todoArray, newTodo],
       };
     case "TOGGLE_TODO":
       return {

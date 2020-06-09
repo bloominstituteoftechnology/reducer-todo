@@ -12,7 +12,7 @@ const TodoForm = (props) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <button className="addBtn"> + </button>
+        <button className="addBtn"> + Add + </button>
         <input
           className="inputBox"
           type="text"
@@ -23,7 +23,7 @@ const TodoForm = (props) => {
         />
         <button className="clearBtn" onClick={clearCompleted}>
           {" "}
-          Clear those finished tasks
+          - Clear -
         </button>
       </form>
     </div>
