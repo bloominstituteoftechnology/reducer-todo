@@ -1,6 +1,8 @@
-import React, {useState} from "react";
+import React, {useState, useReducer} from "react";
+import {reducer, initialState} from "../reducers/reducer";
 
-const TodoForm = (props) => {
+const TodoForm = () => {
+    const [state, dispatch] = useReducer(reducer, initialState);
     const [newTodo, setnewTodo] = useState("");
 
     const handleChanges = event => {
@@ -14,8 +16,10 @@ const TodoForm = (props) => {
     const addTodo = event => {
         event.preventDefault();
         dispatch({
-
+            type: "UPDATE_TODO",
+            payload: {item: newTodo, completed: false}
         })
+        setnewTodo('');
     }
 
     return (
@@ -23,7 +27,7 @@ const TodoForm = (props) => {
             <form className="form-box">
                 <input className="input" type="text" name="todo" onChange={handleChanges} />
             </form>
-            <button className="btn">Add Task</button>
+            <button onClick={addTodo} className="btn">Add Task</button>
             <button className="btn">Clear Task</button>
         </div>
     )
