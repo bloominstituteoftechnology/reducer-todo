@@ -141,6 +141,7 @@ header {
   align-items: center;
   flex-direction: row;
   height: 50px;
+  background-color: #b6b2b2;
   width: 100%;
 }
 header h1 {
@@ -200,6 +201,7 @@ header .right-image img {
   align-items: center;
   flex-direction: row;
   height: 50px;
+  background-color: grey;
   margin-top: 1%;
   width: 98%;
   border-radius: 3px;
