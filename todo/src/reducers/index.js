@@ -1,11 +1,15 @@
 const todos = [
-    {item: 'Learn about reducers',
+    {
+     item: 'Learn about reducers',
      completed: false,
-     id: 84320984239},
+     id: 84320984239
+    },
 
-    {item: 'Learn rudux',
+    {
+    item: 'Learn rudux',
     completed: false,
-    id: 984239} // crashes if the first digit is '0'
+    id: 984239 // crashes if the first digit is '0'
+    } 
 ]
 
 export const initialState = (todos);
@@ -19,12 +23,13 @@ export const todoReducer = (state, action) => {
         case "TOGGLE_COMPLETED":
             console.log(`ITEM_TOGGLE ${action.payload}`);
                        
-            return [...state, state.map(todo =>{
+            return state.map(todo =>{
                 if(todo.id === action.payload){
-                    todo.completed = !todo.completed;
+                    return {...todo, completed: !todo.completed};
+                }else{
+                    return todo;
                 }
-                //return(`new state ${state}`);
-            })]
+            })
             
             //return {...state, item: action.payload,completed: !state.completed, id: state.id};
         default:
