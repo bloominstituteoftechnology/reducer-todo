@@ -5,7 +5,7 @@ import TodoList from "../components/TodoList";
 
 const TodoForm = () => {
   
-    const [newTodo, setNewTodo] = useState("");
+  const [newTodo, setNewTodo] = useState("");
   const [state, dispatch] = useReducer(todoReducer, initialState);
 
   const handleChanges = e => {

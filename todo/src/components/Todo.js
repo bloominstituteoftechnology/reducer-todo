@@ -2,7 +2,7 @@ import React from 'react';
 import "../css/index.css";
 
 const Todo = props => {
-    console.log(props.todo);
+    console.log("Coming from Todolist", props.todo);
   return (
     <div
       className={`item${props.todo.completed ? ' completed' : ''}`}
