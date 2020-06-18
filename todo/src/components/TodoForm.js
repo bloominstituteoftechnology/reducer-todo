@@ -4,15 +4,18 @@ import { initialState, todoReducer } from "../reducers";
 import TodoList from "../components/TodoList";
 
 const TodoForm = () => {
-  // const [title, setTitle] = useState('Hello earthlings!');
-  // const [editing, setEditing] = useState(false);
-
-  const [newTodo, setNewTodo] = useState("");
+  
+    const [newTodo, setNewTodo] = useState("");
   const [state, dispatch] = useReducer(todoReducer, initialState);
 
   const handleChanges = e => {
     setNewTodo(e.target.value);
   };
+
+  const saveTheTodo = () =>{
+    dispatch({ type: "ADD_TODO", payload: newTodo });
+    setNewTodo("");
+  }
 
   return (
     <div className="todo-form-container">      
@@ -21,12 +24,12 @@ const TodoForm = () => {
             className="title-input"
             type="text"
             name="newTitleText"
-            //value={newTitleText}
+            value={newTodo}
             onChange={handleChanges}
           />
           <button
             onClick={() => {
-              //dispatch({ type: "UPDATE_TITLE", payload: newTitleText });
+              saveTheTodo();
             }}
           >
             Add Todo
