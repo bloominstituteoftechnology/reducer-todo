@@ -4,12 +4,13 @@ import '../css/index.css';
 import Header from "./Header";
 import MainContent from "./MainContent";
 import Footer from "./Footer";
+import TodoForm from "./TodoForm";
 
 function App() {
   return (
     <div className="app">
       <Header />
-      <MainContent />
+      <TodoForm />
       <Footer />
     </div>
   );
