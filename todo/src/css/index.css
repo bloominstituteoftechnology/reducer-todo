@@ -168,9 +168,13 @@ header .right-image img {
   border: 1px solid grey;
   padding: 2px;
 }
+.todo-form-container button {
+  border-radius: 3px;
+}
 .todo-list-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-top: 5%;
 }
 .todo-list-container .item {
@@ -188,6 +192,7 @@ header .right-image img {
   text-decoration: line-through;
 }
 .todo-list-container button {
+  border-radius: 3px;
   margin-top: 5%;
 }
 .footer-container {
