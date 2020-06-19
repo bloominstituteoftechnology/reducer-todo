@@ -18,8 +18,11 @@ export const todoReducer = (state, action) => {
     switch(action.type) {
         case "ADD_TODO":
             return [...state, {item: action.payload, completed: false, id: Date.now()}];
-        case "TOGGLE_ITEM":
-            return state;
+        case "CLEAR_COMPLETED":
+            return [...state.filter(item => item.completed === false)];
+            /*return state.filter(todo => {
+                !todo.completed;
+            })*/
         case "TOGGLE_COMPLETED":
             console.log(`ITEM_TOGGLE ${action.payload}`);
                        

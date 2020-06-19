@@ -17,6 +17,10 @@ const TodoForm = () => {
     setNewTodo("");
   }
 
+  const clearCompleted = () =>{
+
+  }
+
   return (
     <div className="todo-form-container">      
         <div className="todo-form">

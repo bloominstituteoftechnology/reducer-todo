@@ -10,7 +10,7 @@ const TodoList = props => {
         <Todo key={todo.id} todo={todo} dispatch={props.dispatch} />
         
       ))}
-      <button className="complete-btn" onClick={props.clearCompleted}>
+      <button className="complete-btn" onClick={() => props.dispatch({ type: "CLEAR_COMPLETED"})}>
         Clear completed
       </button>
     </div>
