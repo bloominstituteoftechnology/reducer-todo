@@ -134,6 +134,7 @@ html {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  background-color: #e9c4c4;
 }
 header {
   display: flex;

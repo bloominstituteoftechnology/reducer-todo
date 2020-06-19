@@ -27,6 +27,12 @@ export const todoReducer = (state, action) => {
             console.log(`ITEM_TOGGLE ${action.payload}`);
                        
             return state.map(todo =>{
+                /*todo.id === action.payload ? 
+                    return {...todo, completed: !todo.completed};
+                :
+                   return todo;*/
+                
+                
                 if(todo.id === action.payload){
                     return {...todo, completed: !todo.completed};
                 }else{
