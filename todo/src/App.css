@@ -2,3 +2,6 @@
   text-align: center;
 }
 
+.completed {
+  text-decoration: line-through overline underline orange;
+}

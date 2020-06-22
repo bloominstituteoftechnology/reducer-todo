@@ -16,11 +16,20 @@ export const Reducer =
 (state, action) => {
     switch (action.type) {
         case "UPDATE_ITEM" :
-            return {...state,
+            return [...state,{
             item: action.payload,
-            completed: false}
-        case "UPDATE_COMPLETED" :
-            return {...state, completed: !state.completed}
+            completed: false,
+            id: Date.now()}]
+
+        case "TOGGLE_COMPLETED" :
+                return state.map(item => {return(
+                    item.id === action.payload ? {...item, completed: !item.completed} : item
+                )})
+
+        case "CLEAR_ITEMS" :
+                return (
+                state.filter(itemFilter => {return (!itemFilter.completed)}))
+
         default:
             return state;
     }

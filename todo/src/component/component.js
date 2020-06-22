@@ -25,14 +25,13 @@ const Component = () => {
             />
             <button onClick={() =>
             dispatch({ type: "UPDATE_ITEM", payload: newItem })}>Add New Item</button>
+            <button onClick={() => dispatch({ type: "CLEAR_ITEMS"})}>Clear Items</button>
 
             <div>
                 <ul>
-                {state.map(itemMap => {
-                    return (<li onClick={() =>
-                        dispatch({ type: "UPDATE_COMPLETE" })}>{itemMap.item}</li>)
+                {state.map(item => {
+                    return (<li className={item.completed ? "completed" : ""}onClick={(() => dispatch({ type: 'TOGGLE_COMPLETED', payload: item.id}))}>{item.item}</li>)
                 })}
-                    <li>{newItem}</li>
                 </ul>
             </div>
              
