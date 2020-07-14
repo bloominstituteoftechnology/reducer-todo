@@ -16,16 +16,16 @@ In this project, you build an app that let's you display a todo list from reduce
 
 ## Project Set Up
 
-- [ ] Create a forked copy of this project.
-- [ ] Add your team lead as collaborator on Github.
-- [ ] Clone your OWN version of the repository in your terminal.
-- [ ] CD into the project base directory `cd reducer-todo`.
-- [ ] Create a new react app running `npx create-react-app todo --use-npm`.
-- [ ] CD into the react app directory `cd todo`.
-- [ ] Start up the app using `npm start`.
-- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
-- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
+- [x] Create a forked copy of this project.
+- [x] Add your team lead as collaborator on Github.
+- [x] Clone your OWN version of the repository in your terminal.
+- [x] CD into the project base directory `cd reducer-todo`.
+- [x] Create a new react app running `npx create-react-app todo --use-npm`.
+- [x] CD into the react app directory `cd todo`.
+- [x] Start up the app using `npm start`.
+- [x] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [x] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+- [x] Push commits: git push origin `<firstName-lastName>`.
 
 Follow these steps for completing your project.
 
@@ -41,7 +41,7 @@ Follow these steps for completing your project.
 3. Build a function that let's you mark todo items as completed when you click on them
 4. Build a function that let's you clear completed todos when you click on a "Clear Completed" button
 
-### STEP 1 - Build a simple reducer and initial state
+### [x] STEP 1 - Build a simple reducer and initial state
 
 - In a folder called `reducers` add a reducer file and build out a simple reducer with just a default return for now
 - In the same file, build your initial state object that has a list of todos with the following shape:
