@@ -11,7 +11,7 @@ export const ToDoForm = ({dispatch}) => {
   };
 
   return (
-    <div>
+    <div className= 'form'>
       <label className='sronly' >To-Do Input:</label>
       <input
         className="todoInput"
