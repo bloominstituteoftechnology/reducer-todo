@@ -1,21 +1,21 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+
+
 const TodoForm = (props) => {
     const [newTodo, setNewTodo] = useState("");
 
     const handleChanges = event => {
-       setNewTodo(event.target.value);
+        setNewTodo(event.target.value);
     };
 
     const handleSubmit = event => {
         event.preventDefault();
-        props.dispatch({type:'ADD_TODO', payload: newTodo})
+        props.dispatch({ type: 'ADD_TODO', payload: newTodo })
         setNewTodo('');
     }
 
-    
-
-    return(
-        <div>
+    return (
+        <div className="todoFormParent">
             <form onSubmit={handleSubmit} >
                 <input
                     type="text"
@@ -24,7 +24,7 @@ const TodoForm = (props) => {
                     onChange={handleChanges}
                     placeholder="Enter Todo"
                 />
-                <button> Add </button>
+                <button className="addButton"> Add </button>
             </form>
 
         </div>

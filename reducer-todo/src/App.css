@@ -1,28 +1,41 @@
 .App {
   text-align: center;
-  border: 1px solid red;
   height: 100vh;
-  padding: 5rem;
   background: #edc3a3;
 }
 
-.App-logo {
-  height: 40vmin;
+h1{
+  color: #874312;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.todoFormParent{
+  padding: 2rem 0;
 }
 
-.App-link {
-  color: #09d3ac;
+input{
+  border-radius: 0.5rem;
+  width: 20%;
+  height: 2rem;
+  border: 0px;
+  text-align: center;
+}
+
+input:focus {
+  outline: none;
+}
+
+.addButton{
+  width: 4rem;
+  height: 2rem;
+  border: 0px;
+  border-radius: 0.5rem;
+  margin-left: 0.25rem;
+  cursor: pointer;
+  background-color: #D38A52;
+}
+
+.addButton:hover{
+  color:white;
 }
 
 .addedTask{
@@ -30,6 +43,16 @@
   /* border: 2px solid black; */
 }
 
+.listParent{
+  /* border: 1px solid black; */
+  border-radius: 0.5rem;
+  width: 80%;
+  height: 60%;
+  margin: 0 auto;
+  background-color: white;
+  padding: 2rem;
+  overflow: auto;
+}
 .item {
   background-color: #d38a52;
   width: 30%;
@@ -47,4 +70,15 @@
 
 li{
   list-style: none;
+}
+
+.clearButton{
+  width: 8rem;
+  height: 2rem;
+  border: 0px;
+  border-radius: 0.5rem;
+  margin-left: 0.25rem;
+  cursor: pointer;
+  background-color: #D38A52;
+  
 }
