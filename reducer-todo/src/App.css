@@ -1,15 +1,21 @@
-.App {
-  text-align: center;
-  height: 100vh;
-  background: #edc3a3;
+body, a, h1, h2, h3, h4, h5, h6, p {
+  font-family: 'Gruppo';
 }
 
 h1{
   color: #874312;
 }
 
-.todoFormParent{
-  padding: 2rem 0;
+button{
+  font-family: 'Baloo 2', cursive;
+}
+
+button:hover{
+  color:white;
+}
+
+button:focus{
+  outline: 0;
 }
 
 input{
@@ -18,10 +24,24 @@ input{
   height: 2rem;
   border: 0px;
   text-align: center;
+  font-family: 'Baloo 2', cursive;
 }
 
 input:focus {
   outline: none;
+}
+
+li{
+  list-style: none;
+}
+.App {
+  text-align: center;
+  height: 100vh;
+  background: #edc3a3;
+}
+
+.todoFormParent{
+  padding: 2rem 0;
 }
 
 .addButton{
@@ -34,12 +54,9 @@ input:focus {
   background-color: #D38A52;
 }
 
-.addButton:hover{
-  color:white;
-}
-
 .addedTask{
   cursor: pointer;
+  color: white;
   /* border: 2px solid black; */
 }
 
@@ -53,23 +70,32 @@ input:focus {
   padding: 2rem;
   overflow: auto;
 }
+
+.listParent::-webkit-scrollbar{
+  width: 10px;
+  height: 0px;
+  background-color: #EDC3A3;
+}
+
+.listParent::-webkit-scrollbar-thumb{
+  background-color:  #874312;
+}
+
 .item {
   background-color: #d38a52;
-  width: 30%;
+  /* width: 30%; */
   text-align: left;
   margin: 4px auto;
   cursor: pointer;
   border-radius: 0.75rem;
   text-align: center; 
+  padding-bottom: 0.25rem;
 }
 
 .item.Done{
+  color: black;
   text-decoration: line-through;
   background-color: #9e541c;
-}
-
-li{
-  list-style: none;
 }
 
 .clearButton{
