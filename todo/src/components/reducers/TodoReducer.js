@@ -1,6 +1,5 @@
-import React from 'react';
 
-export const tasks = [
+export const initialState = [
     {
         item: 'Learn about reducers',
         completed: false,
@@ -36,5 +35,10 @@ export const tasks = [
         completed: false,
         id: 3892987595
     }
-];
+]
 
+export const TodoReducer = (state, action) => {
+
+
+    return state;
+}
