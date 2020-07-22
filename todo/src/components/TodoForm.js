@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useReducer, useState } from 'react';
+import { TodoReducer, initialState } from '../reducers/TodoReducer';
 
 const TodoForm = () => {
+    const [newTask, setNewTask] = useState('');
+    const [state, dispatch] = useReducer(TodoReducer, initialState);
 
     // addTask = taskName => {
     //     setState({
@@ -22,11 +25,17 @@ const TodoForm = () => {
                 name='task'
                 value=''>
             </input>
-            <button>
+            <button
+                onClick={() => {
+                    dispatch({ type: 'ADD_TASK', payload: newTask });
+                }}>
                 Add Task
             </button>
-            <button>
-                Clear Task(s)
+            <button
+                onClick={() => {
+                    dispatch({ type: 'CLEAR_COMPLETED' })
+                }}>
+                Clear Completed
             </button>
         </form>
     )

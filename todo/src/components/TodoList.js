@@ -9,15 +9,18 @@ const TodoList = () => {
     const [state, dispatch] = useReducer(TodoReducer, initialState);
 
     return (
-        <div>
+        <>
             {tasks.map(taskName => {
                 return (
                     <Todo
+                        onClick={() => {
+                            dispatch({ type: 'TOGGLE_COMPLETED' })
+                        }}
                         task={taskName.item}
-                        id={taskName.id}
+                        key={taskName.id}
                         completed={taskName.completed} />)
             })}
-        </div>
+        </>
     )
 };
 
