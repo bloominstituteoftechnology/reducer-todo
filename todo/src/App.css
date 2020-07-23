@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.lineThru{
+  text-decoration:line-through
+}
+
+.none{
+  color:blue;
+}
