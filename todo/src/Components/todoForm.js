@@ -12,16 +12,16 @@ const todoForm = (props) => {
         />
         <button
           onClick
-          {...(event) => {
-            props.taskSubmit(event);
+          {...(e) => {
+            props.taskSubmit(e);
           }}
         >
           Add Todo
         </button>
         <button
           onClick
-          {...(event) => {
-            props.clearCompleted(event);
+          {...(e) => {
+            props.clearCompleted(e);
           }}
         >
           Clear Completed
