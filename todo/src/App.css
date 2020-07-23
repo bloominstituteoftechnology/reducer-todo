@@ -7,6 +7,7 @@
   pointer-events: none;
 }
 
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -39,4 +40,8 @@
 
 body{
   background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+}
+
+.completed{
+  text-decoration: line-through;
 }

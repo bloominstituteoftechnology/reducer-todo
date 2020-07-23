@@ -1,29 +1,35 @@
-export const initialState = {
-    item: [],
-    completed: false,
-    id: 3892987589,
-    
-  };
+export const TOGGLE_TODO = 'TOGGLE_TODO'
 
+export const initialNoteState = [
+	{
+		item: 'Learn about reducers',
+		id: 3892987589,
+    completed: false
+	}
+]
 
-  export const formReducer = (state,action) =>{
-    switch(action.type){
-        case 'CHANGE_ITEM':
-        return{
-            ...state,
-            item: [...state.item,action.payload],
-            completed:false
-        };
-        case 'CHANGE_COMPLETED':
-        return {
-            ...state,
-            completed:true
-        };
-        default:
-            return state;
-
+export const noteReducer = (state, action) => {
+	switch (action.type) {
+		case 'ADD_TODO':
+			console.log(action.note)
+			return ([
+				...state,
+				{
+					item: action.note,
+					completed: false,
+					id: Date.now()
+				}
+			])
+    case 'TOGGLE_TODO':
+			return state.map(todo => {return todo.id == action.id
+			    ? {...todo, completed: !todo.completed}: todo}
+			)
+      // return state.map((todo) => todo.id == action.id ? console.log : console.log("yo"))
+      case 'DELETE_COMPLETED':
+        return state.filter(todo => {
+          return todo.completed === false
+        })
+		default:
+			return state
     }
-    
-    
-   
-  }
+}
