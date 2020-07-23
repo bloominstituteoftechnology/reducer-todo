@@ -9,11 +9,13 @@ function App() {
   return (
     <div className="App">
       <h1>Reducer Todo List</h1>
-      <TodoList />
+      {state.map(tasks => {
+        return <TodoList
+          key={tasks.id} tasks={tasks} />
+      })}
+
       <TodoForm
-        key={state.id}
-        name={state.item}
-        completed={state.completed} />
+        dispatch={dispatch} />
     </div>
   );
 }
