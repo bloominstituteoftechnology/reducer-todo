@@ -17,3 +17,5 @@ const todoList = (props) => {
     })}
   </div>;
 };
+
+export default todoList;
