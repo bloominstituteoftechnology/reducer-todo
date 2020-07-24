@@ -12,6 +12,7 @@ function App() {
   return (
     <div className="App">
       <h1>Reducer Todo List</h1>
+      {console.log('from App', state)}
       {state.tasks.map(tasks => {
         return <TodoList
           key={tasks.id}

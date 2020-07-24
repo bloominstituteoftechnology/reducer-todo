@@ -19,7 +19,7 @@ export const initialState = {
 };
 
 export const TodoReducer = (state, action) => {
-
+    console.log('from TR', action);
     switch (action.type) {
         case 'ADD_TASK':
             return {
@@ -33,9 +33,10 @@ export const TodoReducer = (state, action) => {
 
         case 'TOGGLE_COMPLETED':
             return {
-                tasks: state.tasks.map((taskId) =>
-                    tasks.id === taskId ? { ...state.tasks, completed: !tasks.completed } : tasks)
+                tasks: state.tasks.map((task, taskId) =>
+                    task.id === action.payload ? { ...task, completed: !task.completed } : task)
             }
+
         default:
             return state;
 
