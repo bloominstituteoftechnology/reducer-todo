@@ -1,11 +1,22 @@
 
-export const initialState = [
-    {
+export const initialState = {
+    tasks: [{
         item: 'Learn about reducers',
         completed: false,
         id: 3892987589
     },
-];
+    {
+        item: 'Complete Project',
+        completed: false,
+        id: 3892987590
+    },
+    {
+        item: 'Submit a Retrospective',
+        completed: false,
+        id: 3892987591
+    },
+    ]
+};
 
 export const TodoReducer = (state, action) => {
 
@@ -13,8 +24,14 @@ export const TodoReducer = (state, action) => {
         case 'ADD_TASK':
             return {
                 ...state,
-                item: action.payload,
-                completed: false
+                tasks: [{
+                    ...state.tasks,
+                    item: action.payload,
+                    completed: false,
+                    id: Date.now(),
+                }]
+
+
             };
         default:
             return state;

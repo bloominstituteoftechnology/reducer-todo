@@ -6,16 +6,18 @@ import { TodoReducer, initialState } from './components/reducers/TodoReducer';
 
 function App() {
   const [state, dispatch] = useReducer(TodoReducer, initialState);
+
+  const AddTask = newText => dispatch({ type: 'ADD_TASK', payload: newText })
   return (
     <div className="App">
       <h1>Reducer Todo List</h1>
-      {state.map(tasks => {
+      {state.tasks.map(tasks => {
         return <TodoList
           key={tasks.id} tasks={tasks} />
       })}
 
       <TodoForm
-        dispatch={dispatch} />
+        additem={AddTask} />
     </div>
   );
 }

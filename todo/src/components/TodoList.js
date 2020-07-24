@@ -3,7 +3,7 @@ import React from 'react';
 
 
 const TodoList = (props) => {
-    // console.log('from TL', props)
+    console.log('from TL', props)
 
 
     return (
