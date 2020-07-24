@@ -25,6 +25,9 @@ const TodoForm = (props) => {
             <button>
                 Add Task
             </button>
+            <button>
+                Clear Completed
+            </button>
         </form>
     );
 }

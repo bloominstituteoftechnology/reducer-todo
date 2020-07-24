@@ -23,15 +23,12 @@ export const TodoReducer = (state, action) => {
     switch (action.type) {
         case 'ADD_TASK':
             return {
-                ...state,
-                tasks: [{
-                    ...state.tasks,
+                tasks: [...state.tasks,
+                {
                     item: action.payload,
-                    completed: false,
-                    id: Date.now(),
+                    completed: false, id:
+                        Date.now(),
                 }]
-
-
             };
         default:
             return state;
