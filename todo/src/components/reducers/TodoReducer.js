@@ -26,11 +26,19 @@ export const TodoReducer = (state, action) => {
                 tasks: [...state.tasks,
                 {
                     item: action.payload,
-                    completed: false, id:
-                        Date.now(),
+                    completed: false,
+                    id: Date.now(),
                 }]
             };
+
+        case 'TOGGLE_COMPLETED':
+            return {
+                tasks: state.tasks.map((taskId) =>
+                    tasks.id === taskId ? { ...state.tasks, completed: !tasks.completed } : tasks)
+            }
         default:
             return state;
+
+
     }
 }
