@@ -6,10 +6,6 @@ import ToDoForm from './ToDoForm'
 const ToDoList = () => {
     const [state,dispatch] = useReducer(reducer,initialState)
 
-    useEffect(() => {
-        
-    },[state])
-
     return(
         <>
             <ToDoForm dispatch={dispatch}/>

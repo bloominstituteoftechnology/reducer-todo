@@ -10,7 +10,12 @@ const ToDoForm = (props) => {
             setFormData({
                 [e.target.name]: e.target.value                 
             })
+            
         )
+    }
+
+    const addToDo = () => {
+            props.dispatch({type:'ADD', payload:formData}); 
     }
 
     return(
@@ -19,7 +24,7 @@ const ToDoForm = (props) => {
                 What to do?
                 <input name='item' onChange={eHandler}/>    
             </label> 
-            <button onClick={() => props.dispatch({type:'ADD', payload:formData})}>
+            <button onClick={addToDo}>
                 ADD
             </button>
             <button onClick={() => props.dispatch({type:'REMOVE'})}>
