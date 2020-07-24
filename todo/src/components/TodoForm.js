@@ -6,7 +6,7 @@ const TodoForm = (props) => {
 
     const handleChanges = e => {
         console.log('from TForm HC', e.target.value);
-        setTask({ task: e.target.value });
+        setTask(e.target.value);
     };
 
 
