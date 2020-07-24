@@ -8,12 +8,6 @@ const TodoForm = (props) => {
         console.log('from TForm HC', e.target.value);
         setTask({ task: e.target.value });
     };
-    // const AddTask = (e, taskName) => {
-    //     e.preventDefault();
-    //     setTask({
-    //         ...task,
-    //         item: taskName
-    //     })
 
 
     const handleSubmit = e => {
