@@ -15,6 +15,11 @@ const TodoForm = (props) => {
         props.additem(task);
     };
 
+    const clearCompleted = e => {
+        e.preventDefault();
+        props.clear(task);
+    }
+
 
     return (
         <form onSubmit={handleSubmit}>
@@ -27,7 +32,7 @@ const TodoForm = (props) => {
             <button>
                 Add Task
             </button>
-            <button>
+            <button onClick={(e) => clearCompleted(e)}>
                 Clear Completed
             </button>
         </form>

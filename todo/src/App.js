@@ -8,7 +8,8 @@ function App() {
   const [state, dispatch] = useReducer(TodoReducer, initialState);
 
   const AddTask = newText => dispatch({ type: 'ADD_TASK', payload: newText })
-  const toggleCompleted = (taskId) => dispatch({ type: 'TOGGLE_COMPLETED', payload: taskId })
+  const toggleCompleted = (taskId) => dispatch({ type: 'TOGGLE_COMPLETED', payload: taskId });
+  const clearCompleted = (task) => dispatch({ type: 'CLEAR_COMPLETED', payload: task })
   return (
     <div className="App">
       <h1>Reducer Todo List</h1>
@@ -22,7 +23,8 @@ function App() {
 
       <TodoForm
         additem={AddTask}
-        toggle={toggleCompleted} />
+        toggle={toggleCompleted}
+        clear={clearCompleted} />
     </div>
   );
 }
