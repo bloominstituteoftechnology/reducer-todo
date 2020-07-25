@@ -30,10 +30,9 @@ div p {
 }
 
 .completed {
-  background-color: rgba(0, 162, 255, 0.561);
-  color:darkgray;
-  text-decoration: line-through;
-  border: whitesmoke;
+  background-color: whitesmoke;
+  color:black;
+  text-decoration: line-through;;
 }
 h1 {
   background-color: whitesmoke;
