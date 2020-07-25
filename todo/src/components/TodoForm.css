@@ -1,0 +1,18 @@
+form {
+  display: flex;
+  width: 75%;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.todo {
+  width: 200px;
+  margin: 50px auto;
+  border: 2px solid red;
+  padding: 10px;
+  /* margin-top: 10px; */
+}
+
+.paper {
+  border-left: 2px solid red;
+}
