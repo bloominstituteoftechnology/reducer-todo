@@ -1,7 +1,11 @@
 import React, { useState, useReducer } from "react";
 import { initialState, todoReducer, ADD_TODO, TOGGLE_COMPLETED, CLEAR_COMPLETED } from "../reducers/reducer";
-import { TextField, Button, Paper, Fab, Fade, Slide, Typography, Card } from "@material-ui/core";
+import { TextField, Button, Fab, Typography } from "@material-ui/core";
+import { createMuiTheme } from "@material-ui/core/styles";
+import green from "@material-ui/core/colors/green";
+import red from "@material-ui/core/colors/red";
 import AddIcon from "@material-ui/icons/Add";
+import { ThemeProvider } from "@material-ui/styles";
 import RemoveIcon from "@material-ui/icons/Remove";
 import "./TodoForm.css";
 import TodoCard from "./TodoCard";
@@ -35,66 +39,62 @@ export default function TodoForm() {
     });
   };
 
+  const clearCompleted = () => {
+    dispatch({
+      type: CLEAR_COMPLETED
+    })
+  }
+
+  const theme = createMuiTheme({
+    palette: {
+      primary: {
+        main: "#4caf50",
+      },
+      secondary: {
+        main: red["A400"],
+      },
+    },
+  });
+
   return (
     <div>
 
-      <TodoCard state={state} handleClick={handleClick}/>
-
-      <form onSubmit={handleSubmit}>
-        <TextField 
-          variant="outlined"
-          placeholder="What do you have to do?"
-          fullWidth={true}
-          className="input"
-          color="secondary"
-          margin="normal"
-          name="newTodo"
-          value={newTodo}
-          onChange={handleChanges}
-        />
-      </form>
-
-      <div className="button-container">
-        <Fab 
-          size="small" 
-          color="primary" 
-          onClick={handleSubmit}
-        >
-          <AddIcon />
-        </Fab>
-        <Button variant="contained" color="secondary" onClick={() => {
-          dispatch({
-            type: CLEAR_COMPLETED
-          })}}
-        >
-          <Typography variant="button">
-            Clear
-          </Typography>
-        </Button>
+      <div className="todoContainer">
+        <TodoCard state={state} handleClick={handleClick}/>
       </div>
 
-      {/* <div className="todo">
-        <Slide direction="up" in={true} timeout={{ enter: 2000 }}>
-          <Paper variant="outlined" elementType="p" elevation="10" square={false}>
-            <Typography variant="h5">
-              Buy Groceries
-            </Typography>
-          </Paper>
-        </Slide>
-        <Fab color="primary" size="medium" >
-          <AddIcon />
-        </Fab>
-        <Fab color="secondary" size="medium">
-          <RemoveIcon />
-        </Fab>
+      <ThemeProvider theme={theme}>
+        <form onSubmit={handleSubmit}>
+          <TextField 
+            variant="outlined"
+            placeholder="What do you have to do?"
+            fullWidth={true}
+            className="input"
+            color="secondary"
+            margin="normal"
+            name="newTodo"
+            value={newTodo}
+            onChange={handleChanges}
+          />
+        </form>
 
-
-        <Fade in={true} timeout={{ enter: 2000}}>
-          <Typography variant="subtitle1">
-            Hey
-          </Typography>
-        </Fade>
-      </div> */}
+        <div className="button-container">
+          <Fab 
+            size="small" 
+            color="secondary" 
+            onClick={handleSubmit}
+          >
+            <AddIcon />
+          </Fab>
+          <Button 
+            variant="contained" 
+            color="primary" 
+            onClick={() => clearCompleted()}
+          >
+            Clear
+          </Button>
+        </div>
+      </ThemeProvider>
     </div>
   )
 }

@@ -7,8 +7,14 @@ export default function TodoTitle() {
   return (
     <div className="todotitle">
       <AppBar position="sticky">
-          <Slide direction="right" in={true} timeout={{enter: 1500}}>
-              <h1 className="title">Todo</h1>
+          <Slide 
+            direction="right" 
+            in={true} 
+            timeout={{enter: 1500}}
+          >
+              <h1 className="title">
+                Todo
+              </h1>
           </Slide>
       </AppBar>
     </div>

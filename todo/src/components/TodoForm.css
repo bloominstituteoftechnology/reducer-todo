@@ -1,18 +1,24 @@
 form {
   display: flex;
-  width: 75%;
+  width: 40%;
   justify-content: center;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
-.todo {
-  width: 200px;
-  margin: 50px auto;
-  border: 2px solid red;
-  padding: 10px;
-  /* margin-top: 10px; */
+.todoContainer {
+  width: 500px;
+  margin: 0 auto;
+  margin-bottom: 100px;
 }
 
 .paper {
   border-left: 2px solid red;
+}
+
+.button-container {
+  display: flex;
+  width: 150px;
+  margin: 0 auto;
+  justify-content: space-between;
+
 }
