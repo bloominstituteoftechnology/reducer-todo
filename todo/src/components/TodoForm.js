@@ -1,12 +1,10 @@
 import React, { useState, useReducer } from "react";
 import { initialState, todoReducer, ADD_TODO, TOGGLE_COMPLETED, CLEAR_COMPLETED } from "../reducers/reducer";
-import { TextField, Button, Fab, Typography } from "@material-ui/core";
+import { TextField, Button, Fab, } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
-import green from "@material-ui/core/colors/green";
 import red from "@material-ui/core/colors/red";
 import AddIcon from "@material-ui/icons/Add";
 import { ThemeProvider } from "@material-ui/styles";
-import RemoveIcon from "@material-ui/icons/Remove";
 import "./TodoForm.css";
 import TodoCard from "./TodoCard";
 
