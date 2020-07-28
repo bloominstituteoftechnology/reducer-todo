@@ -3,6 +3,7 @@ import './App.css';
 import { toDoReducer, initialToDoState } from "./reducers/Reducers";
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
+import './components/Todo.css'
 
 function App() {
   
@@ -15,6 +16,13 @@ function App() {
     });
   }
 
+  const toggleTask = clickToDo => {
+    dispatch({
+      type: 'TOGGLE_TASK',
+      payload: clickToDo
+    });
+  }
+
   return (
     <div className="App">
       <header>
@@ -23,7 +31,7 @@ function App() {
         </p>
       </header>
       <TodoForm addNewTask={addNewTask}/>
-      <TodoList tasks={state.tasks} />
+      <TodoList tasks={state.tasks} toggleTask={toggleTask}/>
     </div>
   );
 }
