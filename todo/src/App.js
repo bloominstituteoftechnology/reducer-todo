@@ -23,6 +23,12 @@ function App() {
     });
   }
 
+  const clearCompletedTask = ()=> {
+    dispatch({
+      type: 'CLEAR_COMPLETED',
+    })
+  }
+
   return (
     <div className="App">
       <header>
@@ -30,7 +36,7 @@ function App() {
           To Do List
         </p>
       </header>
-      <TodoForm addNewTask={addNewTask}/>
+      <TodoForm addNewTask={addNewTask} clearCompletedTask={clearCompletedTask}/>
       <TodoList tasks={state.tasks} toggleTask={toggleTask}/>
     </div>
   );

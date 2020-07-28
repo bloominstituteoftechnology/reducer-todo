@@ -32,7 +32,12 @@ export const toDoReducer = (state, action) => {
                     }
                 })
             }
+            case 'CLEAR_COMPLETED':
+                return {
+                    tasks: state.tasks.filter((task =>
+                        !task.completed))
+                }
             default:
                 return state;
-    }
+            }
 }

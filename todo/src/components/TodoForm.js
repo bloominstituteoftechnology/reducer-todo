@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 
-const TodoForm = ({addNewTask}) => {
+const TodoForm = ({addNewTask, clearCompletedTask}) => {
     const [newTaskName, setNewTaskName] = useState('');
 
     const handleChanges = e => {
@@ -14,6 +14,11 @@ const TodoForm = ({addNewTask}) => {
         setNewTaskName('');
     }
 
+    const handleCompletedTask = e => {
+        e.preventDefault();
+        clearCompletedTask();
+    }
+
     return (
             <form onSubmit={handleSubmit}>
                 <input
@@ -24,6 +29,7 @@ const TodoForm = ({addNewTask}) => {
                     onChange={handleChanges}
                 />
                 <button type="submit">Add Task</button>
+                <button onClick={handleCompletedTask}>Clear Completed</button>
             </form>
     )
 };
