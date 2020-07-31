@@ -1,6 +1,6 @@
 import React from "react";
 
-const todoForm = (props) => {
+const TodoForm = (props) => {
   return (
     <div>
       <form>
@@ -11,16 +11,14 @@ const todoForm = (props) => {
           onChange={props.inputChange}
         />
         <button
-          onClick
-          {...(e) => {
+          onClick={(e) => {
             props.taskSubmit(e);
           }}
         >
           Add Todo
         </button>
         <button
-          onClick
-          {...(e) => {
+          onClick = {(e) => {
             props.clearCompleted(e);
           }}
         >
@@ -31,4 +29,4 @@ const todoForm = (props) => {
   );
 };
 
-export default todoForm;
+export default TodoForm;

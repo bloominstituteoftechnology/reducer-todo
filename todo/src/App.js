@@ -2,8 +2,8 @@ import React, { useState, useReducer } from "react";
 // import logo from "./logo.svg";
 import "./App.css";
 
-import todoList from "./Components/todoList";
-import todoForm from "./Components/todoForm";
+import TodoList from "./Components/todoList";
+import TodoForm from "./Components/todoForm";
 import { initialState, reducer } from "./reducers/reducer";
 
 function App() {
@@ -33,14 +33,14 @@ function App() {
     <div className="App">
       <div className="header">
         <h1>Todo List</h1>
-        <todoForm
+        <TodoForm
           dispatch={dispatch}
           taskSubmit={taskSubmit}
           clearCompleted={clearCompleted}
           inputChange={inputChange}
         />
       </div>
-      <todoList dispatch={dispatch} info={state} toggleItem={toggleItem} />
+      <TodoList dispatch={dispatch} info={state} toggleItem={toggleItem} />
     </div>
   );
 }

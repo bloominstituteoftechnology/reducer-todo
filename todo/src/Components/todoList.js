@@ -1,6 +1,6 @@
 import React from "react";
 
-const todoList = (props) => {
+const TodoList = (props) => {
   return (
     <div className="todo-list">
       {props.info.todo.map((todo) => {
@@ -20,4 +20,4 @@ const todoList = (props) => {
   );
 };
 
-export default todoList;
+export default TodoList;

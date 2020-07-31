@@ -1,6 +1,7 @@
 // import React from "react";
 
-export const initialState = [
+export const initialState =  {
+  todo: [
   {
     item: "Learn about reducers",
     completed: false,
@@ -16,7 +17,8 @@ export const initialState = [
     completed: false,
     id: 3892987591,
   },
-];
+  
+]};
 
 export const reducer = (state, action) => {
   switch (action.type) {
