@@ -1,6 +1,9 @@
+
+
 import React from 'react';
 import './App.css';
 import useForm from './hooks/useForm'
+import moment from 'moment';
 
 function App() {
   const [useInput, todoList, onChange, onSubmit, toggleCompleted,clearTodos ] = useForm()
@@ -9,7 +12,7 @@ function App() {
     //prefer this way to you can debugge it
     //take all of the array obj descripton text and put in on a li tag to be 
     const  item = todoList.map(aTodo => {
-      return <li id={aTodo.id} onClick={toggleCompleted} className={aTodo.completed ? 'completed': ''}>{aTodo.item}</li>
+    return <li id={aTodo.id} onClick={toggleCompleted} ><span className={aTodo.completed ? 'completed': ''}>{aTodo.item }</span>{aTodo.completed ? ` Completed: ${moment().format('MMMM Do YYYY, h:mm a')}`: ''}</li>
     })
     return item
   }
