@@ -1,18 +1,22 @@
-import React, { useReducer, useState } from 'react';
-import { todoReducer, initialState } from '../reducers/reducer'
+import React from 'react';
 
 
-const TodoForm = () => {
-    const [ state, dispatch ] = useReducer( todoReducer, initialState )
-    const [ value, setValues ] = useState('')
+
+const TodoForm = props => {
+    const { value, setValues, dispatch } = props
 
     const handleChanges = e => {
         setValues(e.target.value)
       }
 
+    const onSubmit = e => {
+        e.preventDefault()
+        dispatch({ type: 'NEW_TODO', payload: value })
+        setValues('')
+    }
     return (
         <div className="todo-form-container">
-            <form>
+            <form onSubmit={onSubmit}>
                 <label> Add:&nbsp;
                   <input 
                   type="text"
@@ -22,6 +26,7 @@ const TodoForm = () => {
                   value={value}
                   />  
                 </label>
+                <button>Submit</button>
             </form>
         </div>
     )
