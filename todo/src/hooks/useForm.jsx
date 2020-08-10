@@ -8,7 +8,11 @@ const todoReducer = (state, action) => {
   switch (action.type) {
     case 'ADD':
       let newList = state.slice()
-      newList.push({ item: action.payload.item })
+      newList.push({
+        item: action.payload.item,
+        completed: false,
+        id: Date.now(),
+      })
       return newList
     case 'EDIT':
       const newEdit = state.slice()
@@ -23,16 +27,13 @@ const todoReducer = (state, action) => {
       let newCompleted = state.slice()
       debugger
       newCompleted.forEach((aTodo) => {
-        // if (aTodo.item === action.payload.item) {
-        //   aTodo.completed = !aTodo.completed
-        // }
-        const isIdMatching = aTodo.id == action.payload.id
-        if(isIdMatching){
+        const isIdMatching = aTodo.id === parseInt(action.payload.id)
+        if (isIdMatching) {
           debugger
           aTodo.completed = !aTodo.completed
         }
       })
-      
+
       return newCompleted //it's flipping correctly but the state is not updating on the app
     case 'CLEAR':
       const clearCompletedTodos = state = action.payload.newTodo
@@ -63,17 +64,19 @@ export default function useForm() {
   //toggle completed
   const toggleCompleted = (e) => {
     e.preventDefault()
+    e.stopPropagation()
+    debugger
     setTodoList({ type: 'COMPLETED', payload: { id: e.target.id } })
 
   }
   //clear the todos
-  function clearTodos(){
+  function clearTodos() {
     //get a copy of how you want the list to look like
-    const newTodo = todoList.filter( aTodo => {
+    const newTodo = todoList.filter(aTodo => {
       return aTodo.completed !== true
     })
     //override the todolist with this new array
-    setTodoList({type:'CLEAR', payload:{ newTodo}})
+    setTodoList({ type: 'CLEAR', payload: { newTodo } })
   }
 
   //return the state and setState
