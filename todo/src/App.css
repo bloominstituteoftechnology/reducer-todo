@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+}
+#todos{
+  transition: ease .5s;
+  width:50%;
+  margin:0 auto;
+  border-radius: 5px;
+  font-size: 1.7rem;
+  letter-spacing: 2px;
+  word-spacing: 5px;
+  
+
+
+  
+}
+#todos:hover{
+  background-color: green;
+}
+.notCompleted{
+  background-color: aqua;
+
+}
+
+.completed{
+  background-color: orchid;
+  text-decoration: line-through yellow;
+}
