@@ -3,7 +3,6 @@
 import React from 'react';
 import './App.css';
 import useForm from './hooks/useForm'
-import moment from 'moment';
 
 function App() {
   const [useInput, todoList, onChange, onSubmit, toggleCompleted, clearTodos] = useForm()
@@ -18,12 +17,25 @@ function App() {
             {aTodo.item}
           </span>
           <span id={aTodo.id}>
-            {aTodo.completed ? ` Completed: ${moment().format('MMMM Do YYYY, h:mm a')}` : ''}
+            {aTodo.timeTag}
           </span>
         </li>
       )
     })
     return item
+    // const item = todoList.map(aTodo => {
+    //   return (
+    //     <li id={aTodo.id} onClick={toggleCompleted} key={aTodo.id}>
+    //       <span className={aTodo.completed ? 'completed' : ''} id={aTodo.id}>   
+    //         {aTodo.item}
+    //       </span>
+    //       <span id={aTodo.id}>
+    //         {aTodo.completed ? ` Completed: ${moment().format('MMMM Do YYYY, h:mm a')}` : ''}
+    //       </span>
+    //     </li>
+    //   )
+    // })
+    // return item
   }
 
   return (
