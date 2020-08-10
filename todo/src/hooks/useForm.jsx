@@ -1,10 +1,15 @@
 import { useState, useReducer } from 'react';
-const initialTodo = [{
+import moment from 'moment';
+
+
+export const initialTodo = [{
   item: 'Your todo Item',
   completed: false,
   id: Date.now(),
+  /*timeCompleted: (this.completed ? moment().format('MMMM Do YYYY, h:mm:ss a') : undefined)*/
 }]
-const todoReducer = (state, action) => {
+export const todoReducer = (state, action) => {
+  console.log(`running todoReducer`)
   switch (action.type) {
     case 'ADD':
       let newList = state.slice()
@@ -12,6 +17,7 @@ const todoReducer = (state, action) => {
         item: action.payload.item,
         completed: false,
         id: Date.now(),
+        /*timeCompleted: this.completed ? moment().format('MMMM Do YYYY, h:mm:ss a') : null*/
       })
       return newList
     case 'EDIT':
@@ -23,8 +29,8 @@ const todoReducer = (state, action) => {
       })
       return newEdit
     case 'COMPLETED':
-    console.log(`running todoReducer case COMPLETED`)
-    //flip the completed boolean
+      console.log(`In case COMPLETED`)
+      //flip the completed boolean
       let newCompleted = state.slice()
       debugger
       newCompleted.forEach((aTodo) => {
@@ -35,7 +41,7 @@ const todoReducer = (state, action) => {
         }
       })
 
-      return newCompleted //it's flipping correctly but the state is not updating on the app
+      return newCompleted //Completed is running 2, but why?
     case 'CLEAR':
       const clearCompletedTodos = state = action.payload.newTodo
       return clearCompletedTodos
@@ -67,11 +73,12 @@ export default function useForm() {
     //prvent page reload, and event propagation
     e.preventDefault()
     e.stopPropagation()
-    
+
     console.log(`running toogleCompleted`)
     debugger
     //call the reducer and flip the completed boolean value
-    setTodoList({ type: 'COMPLETED', payload: { id: e.target.id } })
+    const id = e.target.id
+    setTodoList({ type: 'COMPLETED', payload: { id: id } })
 
   }
   //clear the todos
