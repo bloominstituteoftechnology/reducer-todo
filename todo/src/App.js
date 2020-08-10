@@ -13,7 +13,7 @@ function App() {
     //take all of the array obj descripton text and put in on a li tag to be 
     const item = todoList.map(aTodo => {
       return (
-        <li id={aTodo.id} onClick={toggleCompleted} >
+        <li id={aTodo.id} onClick={toggleCompleted} key={aTodo.id}>
           <span className={aTodo.completed ? 'completed' : ''} id={aTodo.id}>   
             {aTodo.item}
           </span>
@@ -28,7 +28,7 @@ function App() {
 
   return (
     <div className="App">
-      <section class="challange-todo-list">
+      <section className="challange-todo-list">
         <div className="display-todos">
           <h2>Todo List:</h2>
           <ul>

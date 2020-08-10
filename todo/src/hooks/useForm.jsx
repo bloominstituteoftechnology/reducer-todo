@@ -23,7 +23,8 @@ const todoReducer = (state, action) => {
       })
       return newEdit
     case 'COMPLETED':
-      //flip the completed boolean
+    console.log(`running todoReducer case COMPLETED`)
+    //flip the completed boolean
       let newCompleted = state.slice()
       debugger
       newCompleted.forEach((aTodo) => {
@@ -63,9 +64,13 @@ export default function useForm() {
   }
   //toggle completed
   const toggleCompleted = (e) => {
+    //prvent page reload, and event propagation
     e.preventDefault()
     e.stopPropagation()
+    
+    console.log(`running toogleCompleted`)
     debugger
+    //call the reducer and flip the completed boolean value
     setTodoList({ type: 'COMPLETED', payload: { id: e.target.id } })
 
   }
