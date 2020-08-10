@@ -8,7 +8,8 @@ const list = [
 
 const todoReducer = (state, action) => {
     switch (action.type) {
-        case "NEW_TODO": 
+        case "ADD_TODO": 
+
         const newTodo = {
             item: action.payload,
             completed: false,
@@ -17,9 +18,23 @@ const todoReducer = (state, action) => {
 
         return [
             ...state, newTodo
-        ]
+        ];
 
-        default: return state
+        case "CLEAR_TODO":
+                return [...state.map( item => {
+                    if (item.id === action.payload) {
+                        return {
+                            ...item,
+                            completed: !item.completed
+                        } 
+                    } else {
+                        return item
+                    }
+                })]
+                
+
+        default: 
+            return state
     }
 }
 

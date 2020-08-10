@@ -10,13 +10,15 @@ function App() {
   const [ state, dispatch ] = useReducer( todoReducer, list )
   const [ value, setValues ] = useState('')
   console.log(state)
+  
   return (
     <div className="App">
       <div className="form">
+        <h1>Your To-Do List</h1>
       <TodoForm value={value} setValues={setValues} dispatch={dispatch}/>
       </div>
       <div className ="list">
-        <TodoList props={list}/>
+        <TodoList props={state} dispatch={dispatch} />
       </div>
     </div>
   );
