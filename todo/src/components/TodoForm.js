@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-
 const TodoForm = props => {
     const { value, setValues, dispatch } = props
 
