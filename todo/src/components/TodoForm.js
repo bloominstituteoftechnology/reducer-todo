@@ -3,14 +3,19 @@ import React from 'react';
 const TodoForm = props => {
     const { value, setValues, dispatch } = props
     console.log(props)
+
+    const clear = e => {
+        dispatch({ type: "CLEAR" })
+    }
+
     const handleChanges = e => {
         setValues(e.target.value)
       }
 
     const onSubmit = e => {
         e.preventDefault()
-        dispatch({ type: 'ADD_TODO', payload: value })
-        setValues('')
+        dispatch({ type: "ADD_TODO", payload: value })
+        setValues("")
     }
 
     return (
@@ -27,6 +32,7 @@ const TodoForm = props => {
                 </label>
                 <button>Submit</button>
             </form>
+            <button onClick={clear}>Clear All</button>
         </div>
     )
 }

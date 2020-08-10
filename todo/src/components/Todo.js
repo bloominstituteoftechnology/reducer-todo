@@ -7,9 +7,9 @@ const Todo = props => {
 
     return (
     <h3
-    onClick={() => toggle(props.todo.id)}
-    className={`list-item ${props.todo.completed === true ? "completed" : ""}`}
-    >{props.todo.item}</h3>
+    onClick={() => toggle(props.item.id)}
+    className={`list-item ${props.item.completed === true ? "completed" : ""}`}
+    >{props.item.item}</h3>
     )
 }
 

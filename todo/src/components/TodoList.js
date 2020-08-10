@@ -6,7 +6,7 @@ const TodoList = props => {
     const { dispatch } = props
 
     const toggleTodo = id => {
-        dispatch({ type: "CLEAR_TODO", payload: id })
+        dispatch({ type: "COMPLETE_TODO", payload: id })
     }
 
     console.log(props)
@@ -16,7 +16,7 @@ const TodoList = props => {
         <div>
              <h2>Things you want to do</h2>
              {props.props.map(item => (
-                 <Todo key={item.id} todo={item} toggle={toggleTodo} />
+                 <Todo key={item.id} item={item} toggle={toggleTodo} />
              ))}
         </div>
     )

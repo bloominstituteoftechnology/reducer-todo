@@ -20,7 +20,18 @@ const todoReducer = (state, action) => {
             ...state, newTodo
         ];
 
-        case "CLEAR_TODO":
+        case "CLEAR": 
+        return [...state.filter( item => { 
+            if ( item.completed === false ) {
+                return {
+                    ...item
+                }
+            } else {
+                return null
+            }
+        })]
+
+        case "COMPLETE_TODO":
                 return [...state.map( item => {
                     if (item.id === action.payload) {
                         return {
@@ -31,7 +42,6 @@ const todoReducer = (state, action) => {
                         return item
                     }
                 })]
-                
 
         default: 
             return state
