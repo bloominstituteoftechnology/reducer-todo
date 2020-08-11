@@ -4,9 +4,6 @@ export const initialState = {
 };
 
 export const reducer = (state, action) => {
-    console.log(action);
-    //
-    // console.log("this is state", state);
 
   switch (action.type) {
     case "ADD_TODO":
