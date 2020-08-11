@@ -1,16 +1,12 @@
 import { useState, useReducer } from 'react';
 import moment from 'moment';
 
-
 const initialTodo = [{
-
   item: 'Your todo Item',
   completed: false,
   id: Date.now(),
-  /*timeCompleted: (this.completed ? moment().format('MMMM Do YYYY, h:mm:ss a') : undefined)*/
 }]
-export const todoReducer = (state, action) => {
-  console.log(`running todoReducer`)
+const todoReducer = (state, action) => {
   switch (action.type) {
     case 'ADD':
       let newList = state.slice()
@@ -19,11 +15,9 @@ export const todoReducer = (state, action) => {
         completed: false,
         id: Date.now(),
         timeTag: ''
-
       })
       return newList
     case 'COMPLETED':
-
     return state.map(item => {
       if (item.id == action.payload.id){
         //spread operator stops it from running 2 on stright mode.
@@ -34,7 +28,6 @@ export const todoReducer = (state, action) => {
         return item
       }
     })
-
     case 'CLEAR':
       const clearCompletedTodos = state = action.payload.newTodo
       return clearCompletedTodos
@@ -66,12 +59,11 @@ export default function useForm() {
     //prvent page reload, and event propagation
     e.preventDefault()
     e.stopPropagation()
-
+    
     console.log(`running toogleCompleted`)
     debugger
     //call the reducer and flip the completed boolean value
-    const id = e.target.id
-    setTodoList({ type: 'COMPLETED', payload: { id: id } })
+    setTodoList({ type: 'COMPLETED', payload: { id: e.target.id } })
 
   }
   //clear the todos

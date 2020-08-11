@@ -1,22 +1,19 @@
-// https://github.com/royeradames/reducer-todo.git
+// https://github.com/royeradames/reducer-todo
 
-import React, {useReducer} from 'react';
+import React from 'react';
 import './App.css';
 import useForm from './hooks/useForm'
 
 function App() {
-  const [todoListFromApp, setTodoListFromApp] = useReducer(todoReducer, initialTodo)
-  
   const [useInput, todoList, onChange, onSubmit, toggleCompleted, clearTodos] = useForm()
 
   function displayTodos() {
     //prefer this way to you can debugge it
     //take all of the array obj descripton text and put in on a li tag to be 
-    const item = todoListFromApp.map(aTodo => {
+    const item = todoList.map(aTodo => {
       return (
-        // with span
-        <li id={aTodo.id} key={aTodo.id}>
-          <span onClick={(e) => setTodoListFromApp({ type: 'COMPLETED', payload: { id: e.target.id } })} className={aTodo.completed ? 'completed' : ''} id={aTodo.id}>   
+        <li id={aTodo.id} onClick={toggleCompleted} key={aTodo.id}>
+          <span className={aTodo.completed ? 'completed' : ''} id={aTodo.id}>   
             {aTodo.item}
           </span>
           <span id={aTodo.id}>
