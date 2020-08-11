@@ -5,7 +5,9 @@ import { reducer, initialState } from './reducers'
 
 
 const blankTask = {
-  task: ''
+  task: '',
+  id: new Date(),
+  completed: false
 }
 
 function App() {
@@ -14,10 +16,11 @@ function App() {
   const [taskText, setTask] = useState(blankTask)
 
 
-  const onSubmit = event => {
+  const addTodo = event => {
     event.preventDefault()
-    dispatch({ type: "ADD_TODO", payload: taskText.task })
+    dispatch({ type: "ADD_TODO", payload: taskText })
     setTask(blankTask)
+    console.log(taskText, 'onsubmit console')
   }
 
   const onChange = event => {
@@ -36,15 +39,15 @@ function App() {
   return (
     <div className="App">
       <h1>To Do List:</h1>
-      <form>
+      <form onSubmit={addTodo}>
         <div>
-          <input onSubmit={onSubmit}
+          <input
             type="text"
             name="task"
             value={taskText.task}
             onChange={onChange}
           />
-          <button onClick={onSubmit}>Add Task</button>
+          <button type='submit'>Add Task</button>
         </div>
         <div>
           <button onClick={onComplete}>Clear Task</button>
@@ -52,7 +55,7 @@ function App() {
       </form>
 
 
-      <TodoList task={initialState} onToggle={onToggle} dispatch={dispatch} />
+      <TodoList onToggle={onToggle} />
     </div>
   );
 
