@@ -1,0 +1,19 @@
+body{
+  background:  #2A363B;
+  text-align: center;
+  color: #E84A5F; 
+}
+h1{
+  text-align: center;
+  color:  #99B898;
+}
+Button{
+  background: #99B898;
+  color: #2A363B;
+  border: 1px solid #FF847C;
+  border-radius: 2px;
+}
+Button:hover{
+  background: #2A363B;
+  color: #99B898;
+}
