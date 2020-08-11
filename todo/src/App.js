@@ -1,20 +1,20 @@
 import React, {useState, useReducer} from 'react';
 import './App.css';
 import TodoList from './components/TodoList'
-import reducer from './reducers'
+import {reducer, initialState} from './reducers'
 
-const defaultData = [
-  {
-    task: 'Finish Assignment',
-    id: 1001,
-    completed: false
-  },
-  {
-    task: 'Watch Netflix',
-    id: 1002,
-    completed: false
-  }
-]
+// const defaultData = [
+//   {
+//     task: 'Finish Assignment',
+//     id: 1001,
+//     completed: false
+//   },
+//   {
+//     task: 'Watch Netflix',
+//     id: 1002,
+//     completed: false
+//   }
+// ]
 
 const blankTask = {
   task: ''
@@ -22,29 +22,27 @@ const blankTask = {
 
 function App() {
 
-  const [todoData, setData] = useState(defaultData)
+  const [state, dispatch] = useReducer(reducer, initialState)
+  // const [todoData, setData] = useState(defaultData)
   const [taskText, setTask] = useState(blankTask)
 
-const addTask = taskName => {
-  const newTask = {
-    task: taskName.task,
-    id: new Date(),
-    completed: false
-  }
+// const addTask = taskName => {
 
-  console.log(todoData, 'tododata')
-  console.log(newTask, 'new task')
-  console.log(taskText, 'task text')
+  // console.log(todoData, 'tododata')
+  // console.log(newTask, 'new task')
+  // console.log(taskText, 'task text')
 
-  setData(
-   [...todoData, newTask]
-  )
-}
+  // setData(
+  //  [...todoData, newTask]
+  // )
+  
+
 
 
 const onSubmit = event => {
     event.preventDefault()
-    addTask(taskText)
+    // addTask(taskText)
+    dispatch({type: "ADD_TODO", payload: taskText.task})
     setTask(blankTask)
   }
 
@@ -54,24 +52,26 @@ const onChange = event => {
   }
 
 const onComplete = event => {
-    event.preventDefault()
-    setData(
-      todoData.filter(task => {
-          return task.completed === false
-        })
-    )
+    // event.preventDefault()
+    // setData(
+    //   todoData.filter(task => {
+    //       return task.completed === false
+    //     })
+    // )
+    dispatch({type:"IS_CLEARED"})
 }
 
 const onToggle = id => {
-  setData(
-     todoData.map(task => {
-      if (task.id === id){
-        return {...task, completed: !task.completed};
-      } else {
-        return task
-      }
-    })
-  )
+  // setData(
+  //    todoData.map(task => {
+  //     if (task.id === id){
+  //       return {...task, completed: !task.completed};
+  //     } else {
+  //       return task
+  //     }
+  //   })
+  // )
+  dispatch({type:"IS_COMPLETED", payload: state.id})
 }
 
   return (
@@ -93,9 +93,10 @@ const onToggle = id => {
         </form>
 
 
-    <TodoList task={todoData} onToggle={onToggle}/>
+    <TodoList task={initialState} onToggle={onToggle} dispatch={dispatch}/>
     </div>
   );
+  
 }
 
 export default App;
