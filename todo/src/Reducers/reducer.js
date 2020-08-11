@@ -53,33 +53,12 @@ export const reducer = (state, action) => {
                 return task
             })
         }
-        // state.todo.forEach(task => {
-        //     // Find the item with the matching id
-        //     if(task.id === action.payload.id){
-        //       // Return a new object
-        //       return {
-        //         ...task,  // copy the existing item
-        //         completed: !task.completed
-        //       }
-        //     }
-        //     // Leave every other item unchanged
-        //     return task;
-        //   });
-
-
-        // state.todo.forEach(obj => {
-        //     // console.log(obj.completed)
-        //     if(obj.id === action.payload.id){
-        //       return {
-        //            obj: {
-        //             task: action.payload.task,
-        //             id: action.payload.id,
-        //             completed: !action.payload.completed
-        //            }
-        //        }
-        //     }
+    case 'CLEAR_COMPLETED':
+        return{
+            ...state,
+            todo: state.todo.filter(task =>task.completed === false)
             
-        // });
+        }
       default:
         return state;
     }

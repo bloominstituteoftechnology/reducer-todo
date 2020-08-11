@@ -9,7 +9,7 @@ function Todos(props) {
           {
               state.todo.map(task =>{
                   
-                  console.log(task.completed)
+                //   console.log(task.completed)
                   return <div 
                         onClick={()=>{
                             dispatch({type: 'TOGGLE_COMPLETED', payload: task})

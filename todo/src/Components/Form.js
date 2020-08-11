@@ -24,6 +24,9 @@ export default function Form(props) {
               dispatch({type: 'ADD_TASK', payload: newTaskText})
               setNewTaskText('')
           }}>Add</button>
+          <button
+          onClick={() => dispatch({ type: "CLEAR_COMPLETED" })}
+          >Clear</button>
       </div>
     );
   }
