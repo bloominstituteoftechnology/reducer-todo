@@ -23,19 +23,6 @@ function App() {
       )
     })
     return item
-    // const item = todoList.map(aTodo => {
-    //   return (
-    //     <li id={aTodo.id} onClick={toggleCompleted} key={aTodo.id}>
-    //       <span className={aTodo.completed ? 'completed' : ''} id={aTodo.id}>   
-    //         {aTodo.item}
-    //       </span>
-    //       <span id={aTodo.id}>
-    //         {aTodo.completed ? ` Completed: ${moment().format('MMMM Do YYYY, h:mm a')}` : ''}
-    //       </span>
-    //     </li>
-    //   )
-    // })
-    // return item
   }
 
   return (
