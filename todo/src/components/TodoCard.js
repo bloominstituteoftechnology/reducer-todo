@@ -1,10 +1,12 @@
-import React from 'react'
+import React from 'react'; 
 
-export const TodoCard = (props) => {
-    const { todo, key } = props; 
+
+export const TodoCard = ({ todo, dispatch }) => {
+     
 
     return (
-        <div>
+        <div onClick={() => {dispatch({type: 'TOGGLE_COMPLETED', payload: todo.id})}}
+        className={ !todo.completed ? "todo-card" : "todo-card completed"}>
             <h3>{todo.task}</h3>
         </div>
     )
