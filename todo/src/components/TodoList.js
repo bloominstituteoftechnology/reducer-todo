@@ -3,13 +3,13 @@ import Todo from './Todo'
 import {reducer} from '../reducers'
 
 const TodoList = props => {
-    const [state, dispatch] = useReducer(reducer, [])
+    // const [state, dispatch] = useReducer(reducer, [])
 
-    console.log('todo list state', state)
+    console.log('todo list state', props.state)
 return (
     <div>
 
-        {state.map(task => {
+        {props.state.map(task => {
             return(
         <Todo key={task.id} task={task} onToggle={props.onToggle}  />
         )

@@ -7,7 +7,9 @@ export const initialState = [
     }
 ]
 
-export const reducer = (state = initialState, action) => {
+export const reducer = (state = 
+    initialState, action) => {
+        console.log(action, 'action in reducer')
     switch (action.type) {
         case "ADD_TODO":
             return [...state, action.payload]

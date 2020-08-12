@@ -14,7 +14,7 @@ function App() {
 
   const [state, dispatch] = useReducer(reducer, initialState)
   const [taskText, setTask] = useState(blankTask)
-
+console.log(state, 'state')
 
   const addTodo = event => {
     event.preventDefault()
@@ -33,7 +33,7 @@ function App() {
   }
 
   const onToggle = id => {
-    dispatch({ type: "IS_COMPLETED", payload: state.id })
+    dispatch({ type: "IS_COMPLETED", payload: id })
   }
 
   return (
@@ -55,7 +55,7 @@ function App() {
       </form>
 
 
-      <TodoList onToggle={onToggle} />
+      <TodoList onToggle={onToggle} state={state} />
     </div>
   );
 
