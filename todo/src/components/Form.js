@@ -1,5 +1,5 @@
 import React, {useState, useReducer} from "react";
-import { initialState, listReducer } from "../reducers/indexReducer"
+import { listReducer, initialState } from "../reducers/indexReducer"
 
 
 
@@ -13,14 +13,12 @@ const [state, dispatch] = useReducer(listReducer, initialState);
     };
 
     
-
-
-
 return(
-        <div>
-          {!state.completed ? (
-             <h3>
-            {state.title}{""}
+
+        <div> Edit Me!
+          {/* {!state.completed ? (
+           <h3>
+            {state.item}{""}
              <i 
                 onClick = {() => {
                     dispatch({item: "TOGGLE_COMPLETED"});
@@ -29,7 +27,8 @@ return(
             />
            </h3>
          ) : (
-             <div>
+             <div> */}
+             
                <input className = "TODO"
                 type= "text"
                 name = "item"
@@ -43,13 +42,14 @@ return(
                 >
                     Add to List
                 </button>
+              
         
     
         </div>
-         )}
-    </div>
+        //  )}
+    //</div>
 
-  );
+    );
 
 };
 
