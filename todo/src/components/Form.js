@@ -7,7 +7,7 @@ const Form = () =>{
 const [newText, setNewText] = useState("");
 const [state, dispatch] = useReducer(listReducer, initialState);
 
-     handleChanges = (e) => {
+    const handleChanges = (e) => {
         setNewText(e.target.value);
         console.log("going through handleChange")
     };
@@ -17,37 +17,42 @@ const [state, dispatch] = useReducer(listReducer, initialState);
 
 
 return(
-    <div className = "formReturn">
-        <h1>Hello from Form.js</h1>
-        <div className = "list">
+        <div>
           {!state.completed ? (
              <h3>
             {state.title}{""}
              <i 
                 onClick = {() => {
-                    dispatch({item: TOGGLE_COMPLETED});
+                    dispatch({item: "TOGGLE_COMPLETED"});
                 }}
+                className = "list"
             />
            </h3>
-         ) </div> : (
-        
-        
-
-        
-            <input className = "TODO"
+         ) : (
+             <div>
+               <input className = "TODO"
                 type= "text"
                 name = "item"
-                value= {!state.completed ? ({state.title}{""} <i onClick = {() => {
-                    dispatch({item: TOGGLE_COMPLETED});
-                }}
-                )}
-                onChange = {this.handleChanges}
-
-            />
+                value= {newText}
+                onChange = {handleChanges}
+                />
+                <button
+                    onClick={ ()=>{
+                        dispatch({type: "UPDATE_ITEM", payload: newText})
+                    }}
+                >
+                    Add to List
+                </button>
+        
     
+        </div>
+         )}
     </div>
-)
+
+  );
 
 };
+
+
 
 export default Form;
