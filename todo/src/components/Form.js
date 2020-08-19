@@ -16,7 +16,7 @@ const [state, dispatch] = useReducer(listReducer, initialState);
 return(
 
         <div> Edit Me!
-          {/* {!state.completed ? (
+          {!state.completed ? (
            <h3>
             {state.item}{""}
              <i 
@@ -27,7 +27,7 @@ return(
             />
            </h3>
          ) : (
-             <div> */}
+             <div>
              
                <input className = "TODO"
                 type= "text"
@@ -46,8 +46,8 @@ return(
         
     
         </div>
-        //  )}
-    //</div>
+         )}
+    </div>
 
     );
 
