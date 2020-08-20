@@ -8,7 +8,9 @@ export const initialState = {
 };
 
 export const actions = {
-    ADD_TODO: "add-todo"
+    ADD_TODO: "add-todo",
+    TOGGLE_TODO: "toggle-todo",
+    DELETE_TODO: "delete-todo"
 };
 
 
@@ -18,9 +20,22 @@ export function newToDo(name){
 
 
 export const listReducer = (todos, action) => {
+    // eslint-disable-next-line default-case
     switch(action.type) {
         case actions.ADD_TODO:
             return [...todos, newToDo(action.payload.name)]
+        case actions.TOGGLE_TODO: 
+            return todos.map(todo => {
+                if(todo.id ===action.payload.id){
+                    return {...todo, complete: !todo.complete}
+                }
+                return todo
+
+            })
+            case actions.DELETE_TODO: 
+            return todos.filter(todo => todo.id !== action.payload.id)
+            default:
+                return todos    
     };
 
 };

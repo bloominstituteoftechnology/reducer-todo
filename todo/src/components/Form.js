@@ -1,12 +1,12 @@
 import React, {useState, useReducer} from "react";
 //import { listReducer, initialState } from "../reducers/indexReducer"
 import { actions, initialState, listReducer, newToDo } from "../reducers/indexReducer.js";
-
+import ToDo from "../components/ToDo"
 
 const Form = () =>{
 
     const [todos, dispatch] = useReducer(listReducer, []);
-    const [newText, setNewText] = useState("");
+    const [name, setName] = useState("");
 
 
 
@@ -19,8 +19,8 @@ const Form = () =>{
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        dispatch({type: actions.ADD_TODO, payload: {name: newText} });
-        setNewText("");
+        dispatch({type: actions.ADD_TODO, payload: {name: name} });
+        setName("");
         console.log("hey hey hanldeChange", {type: actions.ADD_TODO});
     }
 
@@ -32,9 +32,12 @@ const Form = () =>{
 return(
     <>
         <form onSubmit = {handleSubmit}>
-            <input type= "text" value= {newText} onChange={e => 
-             setNewText(e.target.value)} />
+            <input type= "text" value= {name} onChange={e => 
+             setName(e.target.value)} />
         </form>
+        {todos.map(todo =>{
+           return <ToDo key={todo.id} todo={todo} dispatch = {dispatch} />
+        })}
 
      </>  
 
