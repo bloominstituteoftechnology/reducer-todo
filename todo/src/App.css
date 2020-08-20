@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Nunito:400,600&display=swap');
+
+/*** BASE STYLES ***/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  font-size: 62.5%;
+}
+
+body {
+  line-height: 1.4;
+  color: #2D2D2D;
+  background-color: #F7F6F2;
+  font-family: 'Nunito', sans-serif;
+}
+
+h1 {
+  font-family: 'Crimson Text', serif;
+  font-size: 3.6rem;
+  text-align: center;
+
+}
+
+h2 {
+  font-family: 'Crimson Text', serif;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+header {
+  background-color: white;
+  padding: 20px 0 60px;
+}
+
+header p {
+  font-size: 1.4rem;
+  /* font-weight: 600; */
+  text-align: center;
+}
+
+/*** FORM STYLES ***/
+
+form {
+  width: 50%;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #F7F6F2;
+  padding: 16px 20px 4px;
+  border-radius: 8px;
+  transform: translateY(-50px)
+}
+
+form div {
+  display: flex;
+  justify-content: space-between;
+}
+
+input {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.4rem;
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: none;
+  color: #E48159;
+  margin-bottom: 8px;
+}
+
+button {
+  width: 49%;
+  font-size: 1.4rem;
+  font-family: 'Nunito', sans-serif;
+  border: none;
+  border-radius: 12px;
+  padding: 4px;
+  margin: 4px 0 12px;
+  cursor: pointer;
+}
+
+button[type=submit] {
+  background-color: #2D2D2D;
+  color: white;
+}
+
+button[type=button] {
+  border: 1px solid #2D2D2D;
+}
+
+/*** TASK STYLES ***/
+
+.task-panel {
+  width: 50%;
+  max-width: 500px;
+  margin: 0 auto;
+  transform: translateY(-20px)
+}
+
+.task {
+  background-color: white;
+  /* border: 1px solid #2D2D2D; */
+  border-radius: 12px;
+  padding: 10px 8px;
+  margin: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.task-details {
+  width: 90%;
+}
+
+i {
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.task-status {
+  display: flex;
+  align-items: baseline;
+}
+
+.task-completed {
+  background-color: #E3E9DE;
+  color: #799F66;
+  font-weight: 600;
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 8px;
+  margin: 4px 10px 4px 0;
+}
+
+.task-incomplete {
+  background-color: #FFEBE3;
+  color: #E48159;
+  font-weight: 600;
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 8px;
+  margin: 4px 0;
+}
