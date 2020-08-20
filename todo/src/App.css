@@ -4,7 +4,7 @@ body {
   width: 100%;
   padding: 0;
   margin: 0;
-  background-color: linear-gradient(#e383b9, #5f65e9);
+  background: linear-gradient(#e0adca, #5fb2e9);
   color: black;
 }
 
@@ -12,43 +12,44 @@ body {
   font-family: sans-serif;
   text-align: center;
   padding: 36px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
-i {
-  font-size: 12px;
+.form {
+  display: flex;
+  flex-direction: column;
+  color: rgb(37, 105, 114);
+  font-size: 2rem;
+  width: 100%;
 }
 
-input {
-  padding: 6px;
-  background: none;
-  border: none;
-  color: white;
-  border-bottom: 1px solid white;
-  margin-top: 0;
-  margin-right: 8px;
+.newItems{
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  align-items: center;
+  
 }
 
-input::placeholder {
-  color: #4147ad;
+.Item{
+  padding: 2%;
+  font-size: 1.5rem;
+  
+  
+  
+  
+
 }
 
-.title-input {
-  font-size: 24px;
-}
-
-input:focus {
-  outline: none;
-}
-
-h1 {
-  margin: 0;
-}
 
 button {
   padding: 6px 8px;
   font-size: 16px;
   background: none;
-  color: rgb(206, 22, 22);
+  color: rgb(10, 108, 121);
+  font-weight: bolder;
   border: 1px solid white;
   border-radius: 4px;
 }

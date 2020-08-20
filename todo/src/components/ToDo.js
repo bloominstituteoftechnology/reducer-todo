@@ -4,8 +4,8 @@ import { actions } from '../reducers/indexReducer'
 export default function ToDo({todo, dispatch}) {
 
     return (
-        <div>
-            <span style = {{color: todo.complete ? '#AAA' : "#000"}}>
+        <div className = "newItems">
+            <span style = {{color: todo.complete ? '#EEE' : "#023"}}>
                 {todo.name}
             </span>
             <button onClick={()=> dispatch({type: actions.TOGGLE_TODO, payload: {id: todo.id}})}>

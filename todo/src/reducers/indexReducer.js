@@ -1,12 +1,4 @@
 
-
-export const initialState = {
-    item: "This is the initial State in Reducer",
-    completed: false,
-    id: 1
-
-};
-
 export const actions = {
     ADD_TODO: "add-todo",
     TOGGLE_TODO: "toggle-todo",
@@ -39,6 +31,13 @@ export const listReducer = (todos, action) => {
     };
 
 };
+
+// export const initialState = {
+//     item: "This is the initial State in Reducer",
+//     completed: false,
+//     id: 1
+
+// };
 
 
 

@@ -1,7 +1,8 @@
 import React, {useState, useReducer} from "react";
 //import { listReducer, initialState } from "../reducers/indexReducer"
 import { actions, initialState, listReducer, newToDo } from "../reducers/indexReducer.js";
-import ToDo from "../components/ToDo"
+import ToDo from "../components/ToDo";
+import App from "../App.css"
 
 const Form = () =>{
 
@@ -30,13 +31,13 @@ const Form = () =>{
 
     
 return(
-    <>
-        <form onSubmit = {handleSubmit}>
+    <> 
+        <form onSubmit = {handleSubmit} className="form"> What's on your list?
             <input type= "text" value= {name} onChange={e => 
              setName(e.target.value)} />
         </form>
         {todos.map(todo =>{
-           return <ToDo key={todo.id} todo={todo} dispatch = {dispatch} />
+           return <div className = "Item"><ToDo key={todo.id} todo={todo} dispatch = {dispatch} /></div>
         })}
 
      </>  
