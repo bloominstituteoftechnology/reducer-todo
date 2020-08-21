@@ -16,13 +16,14 @@ const TodoForm = (props) => {
   return (
     <form>
       <input
+      className="item-input"
         type="text"
         name="item"
         value={newItem}
         onChange={handleChanges}
         placeholder="Add Item"
       />
-      <button onClick={handleSubmit}>
+      <button className="add-btn" onClick={handleSubmit}>
         Add
       </button>
     </form>
