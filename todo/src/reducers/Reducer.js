@@ -1,7 +1,7 @@
 export const initialState = {
     item: 'Learn about reducers',
     // I want to be able to click on a button that says "Add New ToDo" that creates a line where I can type a new task, submit the task, and have it populate as a list with a circle next to it that when tapped completes the task and moves it to the bottom
-    completed: false,
+    completing: false,
     id: 3892987589
 }
 

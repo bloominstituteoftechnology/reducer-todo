@@ -37,7 +37,7 @@ const ToDo = () => {
           </button>
                 </div>
             )}
-        <div/>
+        </div>
     );
 };
 

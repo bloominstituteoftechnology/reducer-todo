@@ -7,7 +7,7 @@ function ToDoForm({dispatch}){
         setItemInput(e.target.value);
     }
 
-    const handleSubmit = e => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         dispatch({type: 'TODO_ADD', payload: itemInput})
         setItemInput('');
@@ -23,4 +23,4 @@ function ToDoForm({dispatch}){
     )
 }
 
-default export ToDoForm;
+export default ToDoForm;
