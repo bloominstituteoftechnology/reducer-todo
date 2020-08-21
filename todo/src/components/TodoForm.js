@@ -16,7 +16,7 @@ const TodoForm = (props) => {
   return (
     <form>
       <input
-      className="item-input"
+        className="item-input"
         type="text"
         name="item"
         value={newItem}
