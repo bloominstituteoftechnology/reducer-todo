@@ -48,7 +48,7 @@ export const TodoForm=()=>{
                 onChange={handleChanges}    
             />
             <button onClick={()=>{dispatch({type:NEW_TODO, payload:newTodo})}}>Add to do</button>
-            <button onClick={()=>{dispatch({FILTER_COMPLETED_TODOS})}}>clear completed</button>  
+            <button onClick={()=>{dispatch({type:FILTER_COMPLETED_TODOS})}}>clear completed</button>  
             </form> 
             <TodoList todos={state} toggled={toggled}/>
             

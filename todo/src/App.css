@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.task {
+  text-decoration: line-through;
+}
+
+.task.completed {
+  text-decoration: line-through;
+  color:red;
+}
+

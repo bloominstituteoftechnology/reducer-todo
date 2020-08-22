@@ -1,5 +1,4 @@
 // import { reducer, initialState } from "../reducers/reducer";
-import React from 'react';
 
 export const initialState=[{
     item:'',
@@ -25,10 +24,12 @@ export const reducer=(state=initialState,action)=>{
         case NEW_TODO:
             return [...state, {item: action.payload, completed: false, id:new Date()}];
         case TOGGLE_TODO:
-            return state.map((task,id)=>{
+            return state.map((task)=>{
                 if(task.id===action.payload){
-                    task.completed=!task.completed}
-                }),[...state];
+                  return{...task, completed:!task.completed}}
+                  else{return task}
+                
+                });
             // add map of state
             // if else 
         case FILTER_COMPLETED_TODOS:
@@ -40,6 +41,6 @@ export const reducer=(state=initialState,action)=>{
     }
     
 }
-
+// ,[...state]
 
 

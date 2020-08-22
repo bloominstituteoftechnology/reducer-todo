@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import {TodoList} from './components/todoList';
 import {TodoForm} from './components/todoForm';
 
 
