@@ -77,7 +77,7 @@ const Form = () => {
       })}
       <hr />
       <button onClick={() => dispatch({ type: "CLEAN_TODOS"})}>
-        Clear 'em  thar completed's
+       Clear the list
       </button>
     </div>
   )
