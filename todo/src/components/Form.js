@@ -30,7 +30,57 @@ function reducer (state, action) {
   }
 }
 
-
+const Form = () => {
+    const [inputState, setInputState] = useState("");
+    const [state, dispatch] = useReducer(reducer, [{
+      item: "Learn about reducers",
+      completed: false,
+      id: 3892987589
+    }])
+  
+    const handleChange = (e) => {
+      setInputState(e.target.value)
+    }
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      setInputState("");
+      dispatch({ type: "ADD_TODO", payload: inputState})
+    }
+  
+    return (
+      <div>
+        <h1>Scratch form</h1>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="input"
+            value={inputState}
+            onChange={handleChange}
+          />
+          <button
+            type="submit"
+          > Add Todo</button>
+        </form>
+        {state.map((todo) => {
+          return (
+            <>
+              <h2
+                onClick={() =>dispatch({ type: "TOGGLE_TODO", id: todo.id})}
+                style={todo.completed ? {textDecoration: "line-through"} : null}
+              >
+                {todo.item}
+              </h2>
+            </>
+          )
+        })}
+        <hr />
+        <button onClick={() => dispatch({ type: "CLEAN_TODOS"})}>
+         Clear the lists
+        </button>
+      </div>
+    )
+  }
 
 
 export default Form;
