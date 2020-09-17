@@ -21,13 +21,17 @@ export const todoReducer = (todos, action) => {
     case TOGGLE_TODO:
       return todos.map((todo) => {
         if (todo.id === action.payload.id) {
-          console.log("todo", todo);
+          //   console.log("todo", todo);
           return {
             ...todo,
             completed: !todo.completed,
           };
         }
         return todo;
+      });
+    case CLEAR_COMPLETED:
+      return todos.filter((todo) => {
+        return !todo.completed;
       });
 
     default:
