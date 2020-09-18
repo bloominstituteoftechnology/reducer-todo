@@ -1,27 +1,15 @@
-import React,{ useState, useReducer } from "react"
 
-import { initialTodoState, todoReducer } from "../Reducers/todoReducer"
+import React from 'react';
 
-const Todo = () =>{
-    const [state, dispatch] = useReducer(todoReducer, initialTodoState);
-        console.log("state", state)
-
-        render() {
-            console.log('rendering form');
-            return (
-              <form onSubmit={this.submitItem}>
-                <input
-                  type="text"
-                  value={this.state.item}
-                  name="item"
-                  onChange={this.handleChanges}
-                />
-                <button>Add</button>
-              </form>
-            );
-          }
-          
-   
+const Todo = (props) => {
+    return (
+        <div 
+        onClick= {() => props.toggleTask(props.todo.id)}
+        className={`task${props.todo.completed ? " completed" : ""}`}
+        >
+            <p>{props.todo.task}</p>
+        </div>
+    )
 }
 
-export default Todo;
+export default Todo; 
