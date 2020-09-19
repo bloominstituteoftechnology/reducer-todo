@@ -4,51 +4,50 @@ export const TOGGLE_TASK = 'TOGGLE_TASK';
 export const CLEAR_TASK = 'CLEAR_TASK';
 
 export const initialState ={
-    list: [
-        {
-            task: 'Learn about reducers',
-            completed: false,
-            id: 3892987589
-        },
-        {
-            task: 'Learn how to kickflip',
-            completed: false,
-            id: 3892987590
-        },
-        {
-            task: 'Learn how to swim',
-            completed: false,
-            id: 3892987591
-        },
-        {
-            task: 'Learn how to drift',
-            completed: false,
-            id: 3892987592
-        },
+    data: [
+    {
+      task: 'Learn how to make vegan donuts',
+      id: 1324,
+      completed:false
+    },
+    {
+        task: 'Learn how to drift',
+        id: 643874,
+        completed:false
+      },
+      {
+        task: 'Learn how to kickflip',
+        id: 789681,
+        completed:false
+      },
+      {
+        task: 'Learn how to swim',
+        id:854841,
+        completed:false
+      }
   ]
 }
 
 export const todoReducer = (state, action) => {
-      switch (action.type){
-          case "ADD_TODO":
-            const newTask ={
-                name:action.payload,
+    switch(action.type) {
+        case "ADD_TODO":
+            const newTask = {
+                task: action.payload,
                 id:Date.now(),
-                completed:false  
-          };
-            
+                completed:false
+            };
             return {
                 ...state,
-                list:[...state.list, newTask]
+                data:[...state.data, newTask]
             };
         case "TOGGLE_TASK":
             return {
                 ...state,
-                list: state.list.map(list => {
-                    if (action.payload === list.id) {
+                data: state.data.map(data => {
+                    if (action.payload === data.id) {
                         return {
-                          ...list,
-                          completed: !list.completed
+                          ...data,
+                          completed: !data.completed
                         }
                     }
                 })
@@ -56,7 +55,7 @@ export const todoReducer = (state, action) => {
         case "CLEAR_TASK":
             return {
                 ...state,
-                list:state.list.filter(task => !task.completed)
+                data:state.data.filter(task => !task.completed)
             }
         default:
             return state;

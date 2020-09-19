@@ -7,7 +7,7 @@ const TodoForm = (props) => {
     const initialState = {
         todo: ""
     }
-  
+    //onChange 
    const handleChanges = (e) => {
     const newInput = {
         ...formState,
@@ -15,7 +15,7 @@ const TodoForm = (props) => {
     }
     setFormState(newInput);
 } 
-   
+    //onSubmit
     const handleSubmit = (e) => {
         setFormState(initialState);
         props.addTask(e , formState.todo)
@@ -32,4 +32,4 @@ const TodoForm = (props) => {
     )
 }
 
-export default TodoForm;
+export default TodoForm; 
