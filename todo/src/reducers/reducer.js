@@ -48,7 +48,7 @@ export const reducer = (state = initialState, action) => {
               completed: !item.completed,
             };
           }
-          console.log(item.id);
+          //   console.log(item.id);
           return item;
         }),
       };
