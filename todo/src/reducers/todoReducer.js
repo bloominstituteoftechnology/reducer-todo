@@ -24,5 +24,18 @@ export const initialTodoState = {
 };
 
 export const todoReducer = (state, action) => {
+    if(action.type === "TOGGLE"){
+        return {
+            ...state,
+            completed:false
+        }
+    }
+    else if (action.type === "SET_ITEM") {
+        return{
+            ...state, 
+            item: action.payload
+        }
+    }
+
     return state;
 };

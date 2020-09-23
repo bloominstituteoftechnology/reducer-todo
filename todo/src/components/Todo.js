@@ -9,7 +9,8 @@ const Item = (props) => {
 
     return(
         <div onClick={()=> 
-            {props.toggleItem(state.item.id)}} >
+            // {props.toggleItem(state.item.id)}} 
+            dispatch({type:"TOGGLE"})}>
         <p className={state.item.completed ? "completed" : ""}>{state.item.name}</p>
         </div>
     )
