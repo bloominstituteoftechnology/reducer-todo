@@ -1,19 +1,27 @@
-import React, {Component, useState, useReducer} from "react"
-import {initialTodoState, todoReducer} from "../reducers/todoReducer"
+import React from 'react';
+import moment from 'moment';
 
-const Item = (props) => {
-  //reducer
-  const [newTodoItem, setNewTodoItem] = useState("");
-  const [state, dispatch] = useReducer(todoReducer, initialTodoState);
-  console.log("km: App.js : Title: reducer state: ", state);
-
-    return(
-        <div onClick={()=> 
-            // {props.toggleItem(state.item.id)}} 
-            dispatch({type:"TOGGLE"})}>
-        <p className={state.item.completed ? "completed" : ""}>{state.item.name}</p>
+const Todo = props => {
+    return (
+    <div>
+        {props.item.completed ?  
+        <div className = 'item completed' onClick={() => props.toggleItem(props.item.id)}> 
+        <p style={{textDecoration:'line-through'}}>{props.item.task}</p>
+        <div>
+        <p className='date-completed'>Completed: {moment().format("dddd, MMMM Do YYYY, h:mm:ss a")} </p>
         </div>
-    )
-};
+        </div>
+    :    
+        <div
+        onClick={() => props.toggleItem(props.item.id)}
+        className={`item`}
+        >
+        <p>{props.item.task}</p>
+        </div>
+        }
+    </div>
+    
+    );
+}
 
-export default Item;
+export default Todo;

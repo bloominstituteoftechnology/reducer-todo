@@ -1,84 +1,59 @@
-import React, {Component} from 'react';
-import TodoList from "./components/TodoList"
-import TodoForm from './components/TodoForm';
-import "./components/Todo.css"
+import React, {useReducer, useState} from 'react';
+import TodoList from './components/TodoList';
+import {
+  reducer,
+  initialState
+} from './reducers/todoReducer'
+import './App.css';
 
+function App() {
 
+  const [newTodo, setNewTodo] = useState('');
+  const [state, dispatch] = useReducer(reducer, initialState);
+  console.log('state',state)
 
-//created a sample list
-const list = [
-  {
-    task: 'Organize Garage',
-    id: 1528817077286,
-    completed: false
-  },
-  {
-    task: 'Bake Cookies',
-    id: 1528817084358,
-    completed: false
+  const handleChanges = e => {
+    console.log('the handle changes',e.target.value)
+    setNewTodo(e.target.value)
   }
-];
+  console.log(newTodo)
 
-class App extends Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
-  
-  constructor(){  //CONSTRUCTOR
-    super();
-    this.state = {
-      list: list
-    };
-  }
-
-  //class methods to update state
-  //toggle item
-  toggleItem = (itemId) => {
-    this.setState({
-      list: this.state.list.map((item) => {
-        if (item.id === itemId) {
-          return {
-            ...item,
-            completed: !item.completed
-          };
-        }
-        return item;
-      })
-    });
+  const toggleItem = itemId => {
+    console.log('itemId:', itemId);
+    dispatch({type: 'toggle', payload: itemId})
   };
 
-  //clear purchased
-  clearCompleted = () => {
-    this.setState({
-      list: this.state.list.filter((item) =>{
-        return !item.completed
-      })
-    });
-  };
-
-  //addItem 
-  addItem = (itemName) =>{
-    console.log("bk: index.js: App: AddItem: addName: ", itemName)
-    this.setState({
-      list: [
-        ...this.state.list,
-        {id:Date.now(), name: itemName, completed: false}
-      ]
-    })
+  const clearCompleted = e => {
+    e.preventDefault();
+    dispatch({type: 'completed'})
   }
 
-  render() {
-    return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoForm addItem={this.addItem} />
-        <TodoList 
-        list = {this.state.list}
-        clearCompleted={this.clearCompleted}
-        toggleItem = {this.toggleItem}/>
+
+  return (
+    <div style = {{textAlign: 'center'}}>
+      <h2>Welcome to your Todo App !</h2>
+      <div className='form'>
+          <div>
+            <input 
+            className='input'
+            type='text'
+            name = 'newTodo'
+            value = { newTodo }
+            onChange = { handleChanges }
+            placeholder = 'Add a Task...'
+            />
+            <button onClick={() => {
+              dispatch({type: 'new_todo', payload: newTodo})
+            }}> ADD </button>
+          </div>
       </div>
-    );
-  }
+      <TodoList 
+        list = { state } 
+        toggleItem = { toggleItem }
+        clearCompleted = { clearCompleted }
+      />
+    </div>
+  );
 }
 
 export default App;
