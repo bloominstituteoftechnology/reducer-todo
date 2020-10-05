@@ -1,0 +1,73 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(#e0adca, #5fb2e9);
+  color: black;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 36px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  color: rgb(37, 105, 114);
+  font-size: 2rem;
+  width: 100%;
+}
+
+.newItems{
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  align-items: center;
+  
+}
+
+.Item{
+  padding: 2%;
+  font-size: 1.5rem;
+  
+  
+  
+  
+
+}
+
+
+button {
+  padding: 6px 8px;
+  font-size: 16px;
+  background: none;
+  color: rgb(10, 108, 121);
+  font-weight: bolder;
+  border: 1px solid white;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #ffffff22;
+}
+
+button:focus {
+  outline: none;
+}
+
+
+/* @keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
