@@ -13,7 +13,7 @@ const ACTIONS = {
     return { id: Date.now(), name: name, complete: false }
   }
 
-export const reducer = (state, action) => {
+export const reducer = (state = initialState, action) => {
         switch (action.type) {
           case ACTIONS.ADD_TODO:
             return [...todos, newTodo(action.payload.name)]
