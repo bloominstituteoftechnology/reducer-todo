@@ -7,7 +7,7 @@ const ACTIONS = {
 
 }
 
-function reducer(state, action) {
+function reducer(todos, action) {
   switch (action.type) {
     case ACTIONS.ADD_TODO:
       return [...todos, newTodo(action.payload.name)]
@@ -16,14 +16,13 @@ function reducer(state, action) {
         if (todo.id === action.payload.id) {
           return { ...todo, complete: !todo.complete}
         }  
-        return todos   
+        return todo   
       })
       case ACTIONS.DELETE_TODO:
-        return todos.filter(todo => {
+        return todos.filter(todo => 
           todo.id !== action.payload.id) 
       default:
-          return todos   
-      
+        return todos    
   }
 }
 
@@ -37,7 +36,7 @@ export default function App() {
 
   function handleSubmit() {
     e.preventDefault()
-    dispatch({ type: ACTIONS.ADD_TODO, payload { name: name } })
+    dispatch({ type: ACTIONS.ADD_TODO, payload: { name: name } })
     setName('')
   }
 
@@ -55,3 +54,4 @@ return(
   })}
   </>
 )
+}
