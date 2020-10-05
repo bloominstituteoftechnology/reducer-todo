@@ -15,7 +15,6 @@ In this project, you build an app that let's you display a todo list from reduce
 ### Task 1: Project Set Up
 
 - [ ] Create a forked copy of this project.
-- [ ] Add your team lead as collaborator on Github.
 - [ ] Clone your OWN version of the repository in your terminal.
 - [ ] CD into the project base directory `cd reducer-todo`.
 - [ ] Create a new react app running `npx create-react-app todo --use-npm`.
@@ -84,3 +83,4 @@ After finishing your required elements, you can push your work further. These go
 
 ## Submission Format
 * [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's  Repo). **Please don't merge your own pull request**
+* [ ] Submit the link to your branch to Canvas
