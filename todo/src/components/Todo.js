@@ -1,5 +1,6 @@
 import React from 'react';
-import { ACTIONS } from '../App'
+import { ACTIONS } from '../reducers/reducer'
+
 
 export default function Todo({ todo, dispatch }) {
     return (
@@ -13,7 +14,7 @@ export default function Todo({ todo, dispatch }) {
         <button onClick={() => dispatch({ type: ACTIONS.DELETE_TODO, payload: { id:todo.id }})}>
             Clear Completed
         </button>
-        
+
         </>
     )
 }
