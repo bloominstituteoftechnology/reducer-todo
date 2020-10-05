@@ -1,0 +1,32 @@
+.addForm{
+
+    display:flex;
+    flex-direction:column;
+    height: 15vh;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 10px;
+
+}
+
+.addInput{
+   border: 2px dashed mediumpurple;
+   border-radius: 10px;
+   height: 25px;
+   width: 80%;
+}
+
+.addButton{
+    width:40%;
+    border: 1px solid mediumpurple;
+    height: 25px;
+    border-radius: 10px;
+    color:mediumpurple
+}
+.deleteButton{
+    width:40%;
+    border: 1px solid mediumpurple;
+    height: 25px;
+    border-radius: 10px;
+    color:mediumpurple
+}
