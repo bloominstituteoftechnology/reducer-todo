@@ -1,0 +1,98 @@
+.App {
+  margin: 0 auto;
+  /* border: 5px solid black; */
+  padding-bottom: 100px;
+  font-family: 'Dosis', sans-serif;
+}
+h1{
+  text-align: center;
+}
+.form-main {
+  background-image: linear-gradient( grey,white);
+  height: 60px;
+  position: center;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  /* border: 2px solid black; */
+  
+}
+
+
+
+.bForm {
+  font-size: 1.9rem;
+  font-weight: bold;
+  border-radius: 20px;
+  border: 3px solid black;
+  background-color: lightgray;
+  font-family: 'Dosis', sans-serif;
+}
+
+.bCard {
+  font-size: 1.9rem;
+  font-weight: bold;
+  border-radius: 20px;
+  border: 5px solid black;
+  font-family: 'Dosis', sans-serif;
+  
+}
+
+.container {
+  
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+.input {
+  font-size: 2rem;
+  font-weight: bold;
+  border: 2px solid black;
+  margin-right: 20px;
+  border-radius: 20px;
+  font-family: 'Dosis', sans-serif;
+}
+
+.Card {
+  width: 200px;
+  border: 5px solid black;
+  border-radius: 50px ;
+  padding: 20px;
+  margin: 20px;
+  align-items: end;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient( grey,white);
+  color: #7e3434;
+}
+
+.cTop{
+  width: 100%;
+}
+
+.cBottom{
+  width: 100%;  
+  text-align: center;
+  
+}
+
+.bMap {
+  display: flex;
+  justify-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.completed {
+  align-content: center;
+}
+
+.bMap.completed {
+  text-decoration: line-through rgb(25, 182, 19);
+  margin-bottom: 20px;
+  
+}
+.button-div{
+  padding-top: 5px;
+}
