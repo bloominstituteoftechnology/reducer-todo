@@ -1,11 +1,11 @@
 import React from "react";
 
-export default function Todo(props) {
+export default function Todo({ text, toggle, completed, i }) {
 	return (
-		<div>
-			<h3 className="todo" onClick={props.toggleComplete}>
-				{props.todo}
-			</h3>
+		<div
+			onClick={toggle(i)}
+			style={{ textDecoration: completed ? "line-through" : "none" }}>
+			<h3>{text}</h3>
 		</div>
 	);
 }

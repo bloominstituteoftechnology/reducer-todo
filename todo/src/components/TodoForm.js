@@ -1,36 +1,16 @@
 import React, { useReducer, useState } from "react";
-
-function reducer(state, action) {
-	switch (action.type) {
-		case "addTodo":
-			return {
-				todos: [
-					...state.todos,
-					{ text: action.payload, completed: false, id: Date.now() },
-				],
-			};
-		case "toggleTodo":
-			return {
-				todos: state.todos.map((todo, i) =>
-					i === action.i ? { ...todo, complete: !todo.completed } : todo
-				),
-			};
-		default:
-			return state;
-	}
-}
+import { initialState, reducer } from "../reducers/todoReducer";
+// import Todo from "./Todo";
 
 export default function TodoForm() {
-	const [{ todos }, dispatch] = useReducer(reducer, { todos: [] });
+	const [{ todos }, dispatch] = useReducer(reducer, initialState);
 	const [text, setText] = useState();
-
+	console.log({ todos });
 	return (
 		<div>
-			<h2>Create a todo here!</h2>
 			<form
 				onSubmit={(e) => {
 					e.preventDefault();
-					dispatch({ type: "addTodo", payload: text });
 					setText("");
 				}}>
 				<input
@@ -39,14 +19,19 @@ export default function TodoForm() {
 					type="text"
 					name="todo"
 				/>
-				<button onClick={() => dispatch({ type: "addTodo" })}>Add Todo</button>
+				<button onClick={() => dispatch({ type: "addTodo", payload: text })}>
+					Add Todo
+				</button>
+				<button onClick={() => dispatch({ type: "deleteTodo" })}>
+					Delete Completed
+				</button>
 			</form>
 			{todos.map((todo, i) => (
 				<div
 					key={todo.id}
 					onClick={() => dispatch({ type: "toggleTodo", i })}
 					style={{ textDecoration: todo.completed ? "line-through" : "none" }}>
-					{todo.text}
+					<h3>{todo.text}</h3>
 				</div>
 			))}
 		</div>

@@ -1,14 +1,14 @@
-import React from "react";
+export const initialState = {
+	todos: [
+		{
+			text: "Learn about reducers",
+			completed: false,
+			id: 3892987589,
+		},
+	],
+};
 
-const initialState = [
-	{
-		text: "Learn about reducers",
-		completed: false,
-		id: Date.now(),
-	},
-];
-
-export default function reducer(state, action) {
+export function reducer(state, action) {
 	switch (action.type) {
 		case "addTodo":
 			return {
@@ -20,10 +20,14 @@ export default function reducer(state, action) {
 		case "toggleTodo":
 			return {
 				todos: state.todos.map((todo, i) =>
-					i === action.i ? { ...todo, complete: !todo.completed } : todo
+					i === action.i ? { ...todo, completed: !todo.completed } : todo
 				),
 			};
+		case "deleteTodo":
+			return {
+				todos: state.todos.filter((todo, i) => todo.completed === false),
+			};
 		default:
-			return state;
+			return state.todos;
 	}
 }
