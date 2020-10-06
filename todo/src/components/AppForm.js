@@ -1,6 +1,7 @@
-import React from 'react'
+import React from "react"
 
-const Todo = () => {
+
+export function AppForm ( { submitTodo, handleChange, inputTodo } ) {
     return (
         <div className="formContainer">
             <form>
@@ -9,12 +10,12 @@ const Todo = () => {
                     id="newTodo"
                     placeholder="What do you need to do?"
                     type="textarea"
+                    onChange={handleChange}
+                    value={inputTodo}
                 />
-                <button>Submit</button>
+                <button onClick={submitTodo}>Submit</button>
             </form>
-
         </div>
     )
 }
-
-export default Todo;
+export default AppForm;
