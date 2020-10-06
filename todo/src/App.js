@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect, useReducer } from "react";
+import "./App.css";
+import ToDo from "./components/ToDo";
+import { initialState, reducer } from "./reducers/reducer.js";
 
-function App() {
+const App = () => {
+  const [toDos, setToDos] = useState([]);
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  // useEffect(() => {
+  //   toDos = setToDos(...toDos, )
+  // });
+  //console.log()
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1> ToDos using Reducers </h1>
+      <div className="todo-list">
+        <ol>
+          {toDos.map((toDo) => (
+            <li>
+              <ToDo key={toDo.id} item={toDo.item} />{" "}
+            </li>
+          ))}
+          {/* <li>{state.item}</li> */}
+        </ol>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
