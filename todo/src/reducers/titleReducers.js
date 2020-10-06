@@ -43,7 +43,7 @@ export const initialState = {
                  editing: !state.editing
                  };
             case 'UPDATE_ITEM':
-                
+              
                toDo[action.id].done=!toDo[action.id].done
                 console.log(toDo)
                     return{
