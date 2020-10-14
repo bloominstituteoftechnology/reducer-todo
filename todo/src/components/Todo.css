@@ -1,0 +1,13 @@
+.task {
+    width: 100%;
+    background-color: white;
+    margin: 1% 0;
+    color:black;
+
+}
+
+.task.completed {
+    text-decoration: line-through;
+    background-color: red;
+
+}
