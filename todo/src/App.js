@@ -1,6 +1,6 @@
 import React from 'react';
-import TodoForm from './components/TodoForm';
-import TodoList from './components/TodoList';
+import TodoForm from "./components/todoForm"
+import './App.css'
 
 
 function App() {
@@ -8,8 +8,7 @@ function App() {
   return (
     <div className="App">
       <h1>React TODO</h1>
-        <TodoForm />
-        <TodoList />
+      <TodoForm />
     </div>
   );
 }
