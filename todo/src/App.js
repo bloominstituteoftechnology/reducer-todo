@@ -1,23 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useReducer, useState} from "react";
+import styled from "styled-components";
+import Form from "./components/form";
+import List from "./components/todoList";
+import {reducer, initialState} from "./reducers/todoReducer";
+
 
 function App() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const [value, setValue] = useState("");
+
+  function toggleComplete(e) {
+    for(let i in state) {
+      if (state[i].item === e.target.textContent) {
+        dispatch({type: "TOGGLE_COMPLETED", payload: i}); 
+      }
+    }
+  }
+
+  function addTodo(title) {
+    dispatch({type: "ADD_TODO", payload: title});
+    setValue("");
+  }
+
+  function clearCompleted() {
+    dispatch({type: "CLEAR_COMPLETED"});
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Form 
+        value={value}
+        setValue={setValue}
+        add={addTodo}
+        clear={clearCompleted}
+      />
+      <List 
+        toggle={toggleComplete}
+        state={state}
+      />
     </div>
   );
 }
