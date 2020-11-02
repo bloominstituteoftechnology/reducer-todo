@@ -1,0 +1,16 @@
+.App {
+   box-sizing: border-box;
+   margin: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 50rem 0 10rem;
+}
+
+ul{
+   
+}
+
+List{
+background-color: red;
+
+}
