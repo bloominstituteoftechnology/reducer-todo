@@ -1,0 +1,47 @@
+
+
+.form-div {
+  display: flex;
+  justify-content: center;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+}
+ul {
+  list-style: none;
+}
+.completed {
+  text-decoration: line-through;
+}
+
+.li-div {
+  display: flex;
+  justify-content: center;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  margin: .5rem;
+  margin-right: 2.8rem;
+  font-size: 2rem;
+  width: 15rem;
+  height: 3rem;
+}
+
+.button-div {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  width: 5rem;
+  height: 3rem;
+  border: none;
+  background-color: slategray;
+  color: whitesmoke;
+}
