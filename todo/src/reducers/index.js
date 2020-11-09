@@ -11,8 +11,9 @@ export const todoReducer = (state = initialState, action) => {
     case ADD_TODO:
       return {
         ...state,
-        actionWorking: true,
-        todo: action.payload,
+        item: action.payload,
+        completed: false,
+        id: Date(),
       };
     default:
       return state;
