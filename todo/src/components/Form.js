@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { addTodo } from "../actions";
+import { holdTodo } from "../actions";
 
 const Form = (props) => {
-  console.log("Props passed down to Form component from Global State: ", props);
+  console.log("Props in Form: ", props);
   const [todo, setTodo] = useState("");
 
   const handleChange = (e) => {
     setTodo(e.target.value);
   };
+  console.log("todo: ", todo);
 
   const captureTodo = (e) => {
     e.preventDefault();
-    props.addTodo(todo);
+    props.holdTodo(todo);
     //logic to send the value to the global state
-    //me thinks it's an action
     setTodo("");
   };
 
@@ -42,4 +42,4 @@ const mapStateToProps = (state) => {
     id: state.id,
   };
 };
-export default connect(mapStateToProps, { addTodo })(Form);
+export default connect(mapStateToProps, { holdTodo })(Form);
