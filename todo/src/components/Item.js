@@ -1,8 +1,19 @@
 import React from "react";
 
 const Item = (props) => {
-  console.log("Props in the Item component: ", props);
-  return <p>This is the Item Component</p>;
+  console.log("Props in the Item component: ", props.task);
+
+  return (
+    <div>
+      <h3>Item.js</h3>
+      {props.task.map((item) => (
+        <div>
+          <p>{item.item}</p>
+          {item.completed === false ? <p>Completed</p> : <></>}
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default Item;
