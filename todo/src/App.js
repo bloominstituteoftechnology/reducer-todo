@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from 'react';
-import { state, reducer } from './reducers/reduce';
-import TodoList from './Components/TodoList';
+import { state, reducer } from './reducers';
+import TodoList from './Components/Todos/TodoList';
 import './App.css';
 
 function App() {

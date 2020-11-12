@@ -13,7 +13,7 @@ const Todo = props => {
 
   return (
     <div
-      className={`todo${todo.completed ? 'completed' : ''}`}
+      className={`todo${todo.completed ? ' completed' : ''}`}
       onClick={toggleCompletedItem}
     >
       {todo.item}
