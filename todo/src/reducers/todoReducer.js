@@ -1,9 +1,13 @@
 export const TOGGLE_DONE = "TOGGLE_DONE";
-export const SET_TODO = "SET_TODO";
+export const ADD_TODO = "ADD_TODO";
 
 export const initTodoState = {
-  todo: "whatever you got to do on your busy schedule today :(!",
-  doneit: false
+
+  
+    item: 'Learn about reducers',
+    completed: false,
+    id: 3892987589
+  
 };
 
 export const todoReducer = (state, action) => {
@@ -13,13 +17,13 @@ export const todoReducer = (state, action) => {
     case TOGGLE_DONE:
       return {
         ...state,
-        doneit: true
+        completed: true
       };
-    case SET_TODO:
+    case ADD_TODO:
       return {
         ...state,
-        todo: action.payload,
-        doneit: false
+        item: action.payload,
+        completed: false
       };
     default:
       return state;

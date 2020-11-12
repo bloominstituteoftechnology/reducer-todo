@@ -5,7 +5,7 @@ import {
   initTodoState,
   todoReducer,
   TOGGLE_DONE,
-  SET_TODO
+  ADD_TODO
 
 } from "../reducers/todoReducer";
 
@@ -33,7 +33,7 @@ const Todo = (props) => {
     <div>
       
         <h1>
-          {state.todo}{" "}
+          {state.item}{" "}
           <i
             className="far fa-edit"
             onClick={() => { 
@@ -53,15 +53,9 @@ const Todo = (props) => {
           <button
             onClick={() => {
               dispatch({
-                type: SET_TODO,
+                type: ADD_TODO,
                 payload: newTodoText
               });
-              // dispatch({
-              //   type: "TOGGLE_EDITING"
-              // });
-              // setTitle(newTitleText);
-              // setEditing(false);
-              // setNewTitleText("");
             }}
           >
             New Todo
