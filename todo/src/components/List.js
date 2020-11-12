@@ -5,6 +5,7 @@ import { holdTodo } from "../actions";
 import Item from "./Item";
 
 const List = (props) => {
+  console.log("Props passed down to the List component: ", props);
   return (
     <div>
       <h3>This is the List component. </h3>

@@ -3,9 +3,10 @@ import { connect, useDispatch } from "react-redux";
 import { holdTodo } from "../actions";
 
 const Form = (props) => {
+  console.log("directly from the store: ", props);
   console.log(
     "The state.task object directly from the store to the Form: ",
-    props
+    props.tasks
   );
   const [task, setTask] = useState([
     {
@@ -18,13 +19,11 @@ const Form = (props) => {
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
-    setTask([
-      {
-        item: e.target.value,
-        id: Date.now(),
-        completed: false,
-      },
-    ]);
+    setTask({
+      item: e.target.value,
+      id: Date.now(),
+      completed: false,
+    });
   };
   console.log("Task object been sent to state: ", task);
 
@@ -32,13 +31,11 @@ const Form = (props) => {
     e.preventDefault();
     dispatch(props.holdTodo(task));
     //logic to send the value to the global state
-    setTask([
-      {
-        item: "",
-        id: Date.now(),
-        completed: false,
-      },
-    ]);
+    setTask({
+      item: "",
+      id: Date.now(),
+      completed: false,
+    });
   };
 
   return (
