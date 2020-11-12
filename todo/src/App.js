@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
 import Todo from './Components/Todo'
-
+import TodoList from './Components/TodoList'
 
 /* 
  <header className="App-header">
@@ -20,6 +20,7 @@ import Todo from './Components/Todo'
       </header>
 
 */
+
 
 function App() {
   return (
