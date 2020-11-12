@@ -8,13 +8,11 @@ const Form = (props) => {
     "The state.task object directly from the store to the Form: ",
     props.tasks
   );
-  const [task, setTask] = useState([
-    {
-      item: "",
-      id: Date.now(),
-      completed: false,
-    },
-  ]);
+  const [task, setTask] = useState({
+    item: "",
+    id: Date.now(),
+    completed: false,
+  });
 
   const dispatch = useDispatch();
 
