@@ -20,7 +20,7 @@ import {
   1. object that has a required `type` key <---- - Required
   2. object that has an optional `payload` key (doesn't need to be called payload) <--- -Not required
 */
-
+//TODO: Switch Todo Form as Todo and TOdo as TodoForm 1 day
 const Todo = (props) => {
   const [newTodoText, setNewTodoText] = useState();
   const [state, dispatch] = useReducer(todoReducer, initTodoState);
@@ -42,25 +42,27 @@ const Todo = (props) => {
           />
         </h1>
 
-        <div>
-          <input
-            className="title-input"
-            type="text"
-            name="newTitleText"
-            value={newTodoText}
-            onChange={handleChanges}
-          />
-          <button
-            onClick={() => {
-              dispatch({
-                type: ADD_TODO,
-                payload: newTodoText
-              });
-            }}
-          >
-            New Todo
-          </button>
-        </div>
+        <form>
+            <div>
+                <input
+                    className="title-input"
+                    type="text"
+                    name="newTitleText"
+                    value={newTodoText}
+                    onChange={handleChanges}
+                />
+                <button
+                    onClick={() => {
+                    dispatch({
+                        type: ADD_TODO,
+                        payload: newTodoText
+                    });
+                    }}
+                >
+                    New Todo
+                </button>
+            </div>
+        </form>
     
     </div>
   );
