@@ -1,14 +1,13 @@
 
 
-
-
 export const intitalState = {
         item: 'Learn about reducers',
         completed: false,
-        id: 3892987589
-      }
+        id: 3892987581,
+    }
 
 
 export const toDoReducer = (state, action) => {
-    return (null)
+    return (state)
 }
+
