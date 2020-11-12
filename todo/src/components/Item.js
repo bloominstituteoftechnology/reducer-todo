@@ -1,13 +1,13 @@
 import React from "react";
 
 const Item = (props) => {
-  console.log("Props in the Item component: ", props.task);
+  console.log("Props in the Item component: ", props);
 
   return (
     <div>
       <h3>Item.js</h3>
       {props.task.map((item) => (
-        <div>
+        <div key={item.id}>
           <p>{item.item}</p>
           {item.completed === false ? <p>Completed</p> : <></>}
         </div>

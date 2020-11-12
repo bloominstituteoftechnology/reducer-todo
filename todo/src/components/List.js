@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { addTask } from "../actions";
+
 import Item from "./Item";
 
 const List = (props) => {
   console.log("Props in the List component: ", props);
-  const [list, setList] = useState([{ ...props }]);
+  const [list, setList] = useState([{ ...props.tasks }]);
+
   console.log("This is a list item: ", list);
   return (
     <div>
@@ -21,6 +24,7 @@ const mapStateToProps = (state) => {
     completed: state.completed,
     id: state.id,
     item: state.item,
+    tasks: state.tasks,
   };
 };
-export default connect(mapStateToProps, {})(List);
+export default connect(mapStateToProps, { addTask })(List);
