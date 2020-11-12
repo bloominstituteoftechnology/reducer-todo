@@ -1,35 +1,29 @@
-import React from 'react'
-
-const ADD_TODO = 'ADD_TODO'
-const TOGGLE_COMPLETED = 'TOGGLE_COMPLETED'
-const CLEAR_COMPLETED = 'CLEAR_COMPLETED'
-const GET_TODOS = 'GET_TODOS'
-
+import React from 'react';
 
 export const state = {
   todos: [
     {
       id: 1,
-      task: 'Study Class Components',
-      completed: false
+      item: 'Study Class Components',
+      completed: true
     },
     {
       id: 2,
-      task: 'The React Lifecycle',
-      completed: false
+      item: 'The React Lifecycle',
+      completed: true
     },
     {
       id: 3,
-      task: 'Composing and Sharing Non - Visual Behavior',
+      item: 'Composing and Sharing Non - Visual Behavior',
       completed: false
     },
     {
       id: 4,
-      task: 'Testing Web Applications',
-      completed: false
+      item: 'Testing Web Applications',
+      completed: true
     }
   ]
-}
+};
 
 export const reducer = (initialState, action) => {
   switch (action.type) {
@@ -40,7 +34,7 @@ export const reducer = (initialState, action) => {
           {
             id: Date.now(),
             item: action.payload,
-            completed: true
+            completed: false
           }
         ]
       };

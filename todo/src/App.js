@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from 'react';
-import { state, reducer } from './reducers';
-import TodoList from './Components/Todos/TodoList';
+import { state, reducer } from './reducers/index';
+import TodoList from './components/Todos/TodoList';
 import './App.css';
 
 function App() {
@@ -35,5 +35,5 @@ function App() {
     </div>
   );
 }
-export default App
 
+export default App;

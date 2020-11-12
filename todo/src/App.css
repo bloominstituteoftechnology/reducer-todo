@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+input, textarea {
+  width: 200px;
+  padding: 15px 22px;
+  margin: 10px 5px;
+  box-sizing: border-box;  
+  border: 1px solid #ff65a3;
+  border-radius: 4px;
+}

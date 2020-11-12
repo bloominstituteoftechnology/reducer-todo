@@ -1,7 +1,7 @@
-import React from 'react'
-import TodoForm from '../TodoForm/TodoForm'
-import Todo from './Todo'
-
+import React from 'react';
+import TodoForm from '../TodoForm/TodoForm';
+import Todo from './Todo';
+import '../../App.css'
 
 const TodoList = props => {
   const {
@@ -12,7 +12,7 @@ const TodoList = props => {
   } = props;
 
   return (
-    <div>
+    <div className="note-list">
       {todos && todos.map((todo) => {
         return <Todo
           key={todo.id}
@@ -25,6 +25,8 @@ const TodoList = props => {
         clearCompletedItems={clearCompleted}
       />
     </div>
-  )
-}
-export default TodoList
+  );
+};
+
+export default TodoList;
+

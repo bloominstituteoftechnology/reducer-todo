@@ -1,5 +1,6 @@
-import React from 'react'
-import { useForm } from '../../hooks/useForm'
+import React from 'react';
+import { useForm } from '../../hooks/useForm';
+import '../../App.css'
 
 const initialValues = {
   todo: ''
@@ -14,11 +15,11 @@ const TodoForm = props => {
   const [values, handleChange] = useForm(initialValues);
 
   const handleSubmit = e => {
-    handleAddTodo(e, values.todo)
+    handleAddTodo(e, values.todo);
   };
 
   return (
-    <div className='todo-form'>
+    <div >
       <form onSubmit={handleSubmit}>
         <label htmlFor='todo'>
           <input
@@ -32,8 +33,8 @@ const TodoForm = props => {
         <button
           type='submit'
         >
-          Add Task
-              </button>
+          Add Item
+                </button>
         <button
           onClick={(e) => {
             e.preventDefault();
@@ -41,7 +42,7 @@ const TodoForm = props => {
           }}
         >
           Clear Completed
-              </button>
+                </button>
       </form>
     </div>
   );
