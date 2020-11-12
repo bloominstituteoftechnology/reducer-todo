@@ -1,4 +1,4 @@
-import { HOLD_TODO, ADD_TASK } from "../actions";
+import { HOLD_TODO } from "../actions";
 
 const initialState = {
   item: "Learn about reducers",
@@ -14,11 +14,6 @@ export const todoReducer = (state = initialState, action) => {
         ...state,
         tasks: [...state.tasks, action.payload],
       };
-    case ADD_TASK:
-      return {
-        ...state,
-      };
-
     default:
       return state;
   }

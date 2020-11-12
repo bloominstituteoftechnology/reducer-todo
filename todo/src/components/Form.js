@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
-import { holdTodo, addTask } from "../actions";
+import { connect, useDispatch } from "react-redux";
+import { holdTodo } from "../actions";
 
 const Form = (props) => {
   console.log(
@@ -15,6 +15,8 @@ const Form = (props) => {
     },
   ]);
 
+  const dispatch = useDispatch();
+
   const handleChange = (e) => {
     setTask([
       {
@@ -28,7 +30,7 @@ const Form = (props) => {
 
   const captureTodo = (e) => {
     e.preventDefault();
-    props.holdTodo(task);
+    dispatch(props.holdTodo(task));
     //logic to send the value to the global state
     setTask([
       {
@@ -64,4 +66,4 @@ const mapStateToProps = (state) => {
     tasks: state.tasks,
   };
 };
-export default connect(mapStateToProps, { holdTodo, addTask })(Form);
+export default connect(mapStateToProps, { holdTodo })(Form);
