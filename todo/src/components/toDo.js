@@ -1,5 +1,5 @@
 import React, {useState, useReducer} from "react";
-import {intitalState, toDoReducer} from "../reducers/toDoReducer"
+import {intitalState, toDoReducer, ADD_ITEM, DONE, CLEAR} from "../reducers/toDoReducer"
 
 
 const List = (props) => {
@@ -11,9 +11,13 @@ const handleChanges = (e) => {
 }
 
 
+
+
     return(
         <div>
-            <p>{state.item}</p>
+            {state.list.map(todo => {
+                return <p onClick={() => dispatch({type: DONE, payload: todo.id})}>{todo.item}</p>
+            })}
 
         <div>
             <input
@@ -22,6 +26,22 @@ const handleChanges = (e) => {
             value={newItem}
             onChange={handleChanges}
             />
+            <button
+            onClick={()=>{
+                dispatch({
+                    type: ADD_ITEM,
+                    payload: newItem
+                })
+            }}>
+            Add Item</button>
+            <button
+            onClick={()=>{
+                dispatch({
+                    type: CLEAR,
+                    payload: newItem
+                })
+            }}>
+            Clear Item</button>
         </div>
         </div>
 
