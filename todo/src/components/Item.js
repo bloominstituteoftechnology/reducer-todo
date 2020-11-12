@@ -1,8 +1,6 @@
 import React from "react";
 
 const Item = (props) => {
-  console.log("Props in the Item component: ", props);
-
   return (
     <div>
       <h3>Item.js</h3>

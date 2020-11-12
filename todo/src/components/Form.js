@@ -3,19 +3,26 @@ import { connect } from "react-redux";
 import { holdTodo, addTask } from "../actions";
 
 const Form = (props) => {
-  console.log("Props in Form: ", props);
-  const [task, setTask] = useState({
-    item: "",
-    id: Date.now(),
-    completed: false,
-  });
-
-  const handleChange = (e) => {
-    setTask({
-      item: e.target.value,
+  console.log(
+    "The state.task object directly from the store to the Form: ",
+    props
+  );
+  const [task, setTask] = useState([
+    {
+      item: "",
       id: Date.now(),
       completed: false,
-    });
+    },
+  ]);
+
+  const handleChange = (e) => {
+    setTask([
+      {
+        item: e.target.value,
+        id: Date.now(),
+        completed: false,
+      },
+    ]);
   };
   console.log("Task object been sent to state: ", task);
 
@@ -23,11 +30,13 @@ const Form = (props) => {
     e.preventDefault();
     props.holdTodo(task);
     //logic to send the value to the global state
-    setTask({
-      item: "",
-      id: Date.now(),
-      completed: false,
-    });
+    setTask([
+      {
+        item: "",
+        id: Date.now(),
+        completed: false,
+      },
+    ]);
   };
 
   return (
@@ -52,6 +61,7 @@ const mapStateToProps = (state) => {
     item: state.item,
     completed: state.completed,
     id: state.id,
+    tasks: state.tasks,
   };
 };
 export default connect(mapStateToProps, { holdTodo, addTask })(Form);

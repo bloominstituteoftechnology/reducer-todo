@@ -8,9 +8,9 @@ export const holdTodo = (todo) => {
   };
 };
 
-export const addTask = (task) => {
+export const addTask = (todo) => {
   return {
     type: ADD_TASK,
-    payload: task,
+    payload: todo,
   };
 };

@@ -12,14 +12,11 @@ export const todoReducer = (state = initialState, action) => {
     case HOLD_TODO:
       return {
         ...state,
-        item: action.payload,
-        completed: false,
-        id: Date.now(),
+        tasks: [...state.tasks, action.payload],
       };
     case ADD_TASK:
       return {
         ...state,
-        tasks: [...action.payload],
       };
 
     default:
