@@ -13,7 +13,7 @@ export const todoReducer = (state, action) => {
     case TOGGLE_DONE:
       return {
         ...state,
-        doneit: !state.doneit
+        doneit: true
       };
     case SET_TODO:
       return {
