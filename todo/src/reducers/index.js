@@ -17,7 +17,7 @@ export const todoReducer = (state = initialState, action) => {
     case MARK_COMPLETE:
       return {
         ...state,
-        completed: true,
+        tasks: [...state.tasks, { ...state.tasks.completed, completed: true }],
       };
     default:
       return state;
