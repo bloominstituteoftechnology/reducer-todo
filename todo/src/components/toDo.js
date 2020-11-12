@@ -16,7 +16,7 @@ const handleChanges = (e) => {
     return(
         <div>
             {state.list.map(todo => {
-                return <p onClick={() => dispatch({type: DONE, payload: todo.id})}>{todo.item}</p>
+                return <p className={`item${todo.completed ? " purchased" : ""}`} onClick={() => dispatch({type: DONE, payload: todo.id})}>{todo.item}</p>
             })}
 
         <div>
