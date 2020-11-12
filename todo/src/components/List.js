@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { markComplete } from "../actions";
 
 import Item from "./Item";
 
@@ -19,4 +20,4 @@ const mapStateToProps = (state) => {
     tasks: state.tasks,
   };
 };
-export default connect(mapStateToProps, {})(List);
+export default connect(mapStateToProps, { markComplete })(List);

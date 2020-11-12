@@ -3,7 +3,6 @@ import { connect, useDispatch } from "react-redux";
 import { holdTodo } from "../actions";
 
 const Form = (props) => {
-  console.log("directly from the store: ", props);
   console.log(
     "The state.task object directly from the store to the Form: ",
     props.tasks
@@ -23,7 +22,7 @@ const Form = (props) => {
       completed: false,
     });
   };
-  console.log("Task object been sent to state: ", task);
+  console.log("Task object being sent to state: ", task);
 
   const captureTodo = (e) => {
     e.preventDefault();

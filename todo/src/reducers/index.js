@@ -1,4 +1,4 @@
-import { HOLD_TODO } from "../actions";
+import { HOLD_TODO, MARK_COMPLETE } from "../actions";
 
 const initialState = {
   item: "Learn about reducers",
@@ -13,6 +13,11 @@ export const todoReducer = (state = initialState, action) => {
       return {
         ...state,
         tasks: [...state.tasks, action.payload],
+      };
+    case MARK_COMPLETE:
+      return {
+        ...state,
+        completed: true,
       };
     default:
       return state;
