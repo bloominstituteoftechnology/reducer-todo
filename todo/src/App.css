@@ -112,16 +112,16 @@ h1 {
 }
 .task {
   padding: 6px 8px;
-  font-size: 16px;
+  font-size: 5rem;
   background: none;
-  color: white;
+  color: yellow;
   border: 1px solid white;
   border-radius: 4px;
   
 }
 
 .task.completed {
-  background-color: #000000;
+  background-color:black;
   text-decoration: line-through;
   
 }
@@ -150,14 +150,16 @@ input::placeholder {
 }
 
 .clear-btn {
-  margin-top: 6rempx;
+  margin-top: 6rem;
   background-color: teal;
   color:peachpuff;
   align-items: center;
 
 }
 p{
-  color:purple;
+  color:yellow;
+  font-size: 2rem;
+  font-weight: bolder;
   font-family: "Courier New", Courier, monospace;
 
 }
