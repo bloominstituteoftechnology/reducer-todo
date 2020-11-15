@@ -25,7 +25,7 @@ const Item = (props) => {
   return (
     <div>
       <p>{props.tasks.item}</p>
-      <p onClick={addCompleted}>Mark as Completed</p>
+      <button onClick={addCompleted}>Mark as Completed</button>
     </div>
   );
 };
