@@ -1,8 +1,8 @@
 // import logo from './logo.svg';
 import './App.css';
-import Todo from './Components/Todo'
+import TodoForm from './Components/TodoForm'
 import TodoList from './Components/TodoList'
-
+import React, { Component } from "react";
 /* 
  <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -21,14 +21,35 @@ import TodoList from './Components/TodoList'
 
 */
 
+const todolist = [
+  {
+    task: 'Edit Individual Todos',
+    id: 1528817077286,
+    completed: false
+  },
+  {
+    task: 'Brush Teeth',
+    id: 1528817084358,
+    completed: false
+  }
+];
 
-function App() {
-  return (
-    <div className="App">
-     
-      <Todo />
-    </div>
-  );
+
+class  App extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      todolist
+    };
+  }
+  render() {
+    return (
+      <div className="App">
+       
+        <TodoForm />
+      </div>
+    );
+  }
 }
 
 export default App;
