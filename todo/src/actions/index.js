@@ -1,9 +1,9 @@
-export const HOLD_TODO = "HOLD_TODO";
+export const ADD_TODO = "HOLD_TODO";
 export const MARK_COMPLETE = "MARK_COMPLETE";
 
-export const holdTodo = (todo) => {
+export const addTodo = (todo) => {
   return {
-    type: HOLD_TODO,
+    type: ADD_TODO,
     payload: todo,
   };
 };

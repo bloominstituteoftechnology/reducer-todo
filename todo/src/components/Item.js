@@ -9,7 +9,13 @@ const Item = (props) => {
     <div>
       <p>{props.tasks.item}</p>
       {props.tasks.completed === false ? (
-        <p onClick={dispatch({ type: "MARK_COMPLETE" })}>Completed</p>
+        <p
+          onClick={(e) => {
+            props.tasks.completed = true;
+          }}
+        >
+          Mark as Completed
+        </p>
       ) : (
         <> </>
       )}

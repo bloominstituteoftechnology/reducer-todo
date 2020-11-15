@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect, useDispatch } from "react-redux";
-import { holdTodo } from "../actions";
+import { addTodo } from "../actions";
 
 const Form = (props) => {
   console.log(
@@ -60,4 +60,4 @@ const mapStateToProps = (state) => {
     tasks: state.tasks,
   };
 };
-export default connect(mapStateToProps, { holdTodo })(Form);
+export default connect(mapStateToProps, { addTodo })(Form);
