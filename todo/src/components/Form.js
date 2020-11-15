@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { connect, useDispatch } from "react-redux";
+import { connect } from "react-redux";
 import { addTodo } from "../actions";
 
 const Form = (props) => {
@@ -13,20 +13,17 @@ const Form = (props) => {
     completed: false,
   });
 
-  const dispatch = useDispatch();
-
   const handleChange = (e) => {
     setTask({
+      ...task,
       item: e.target.value,
-      id: Date.now(),
-      completed: false,
     });
   };
   console.log("Task object being sent to state: ", task);
 
   const captureTodo = (e) => {
     e.preventDefault();
-    dispatch(props.holdTodo(task));
+    props.holdTodo(task);
     //logic to send the value to the global state
     setTask({
       item: "",
@@ -54,9 +51,6 @@ const Form = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    item: state.item,
-    completed: state.completed,
-    id: state.id,
     tasks: state.tasks,
   };
 };
