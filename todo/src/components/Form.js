@@ -3,10 +3,6 @@ import { connect } from "react-redux";
 import { addTodo } from "../actions";
 
 const Form = (props) => {
-  console.log(
-    "The state.task object directly from the store to the Form: ",
-    props.tasks
-  );
   const [task, setTask] = useState({
     item: "",
     id: Date.now(),
@@ -19,7 +15,6 @@ const Form = (props) => {
       item: e.target.value,
     });
   };
-  console.log("Task object being sent to state: ", task);
 
   const captureTodo = (e) => {
     e.preventDefault();
@@ -33,7 +28,7 @@ const Form = (props) => {
 
   return (
     <div>
-      <h3>This is the Form component</h3>
+      <h3>Add a To Do Item</h3>
       <form onSubmit={captureTodo}>
         <input
           type="text"

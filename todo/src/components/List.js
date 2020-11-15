@@ -5,9 +5,9 @@ import { markComplete } from "../actions";
 import Item from "./Item";
 
 const List = (props) => {
-  console.log("Props passed down to the List component: ", props.tasks);
   return (
     <div>
+      <h3>Your items will appear below</h3>
       {props.tasks.map((task) => (
         <Item tasks={task} key={task.id} markComplete={markComplete} />
       ))}
