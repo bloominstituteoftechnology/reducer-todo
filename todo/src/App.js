@@ -2,7 +2,17 @@
 import './App.css';
 import TodoForm from './Components/TodoForm'
 import TodoList from './Components/TodoList'
-import React, { Component } from "react";
+import React, { Component,  useState, useReducer } from "react";
+ 
+
+import {
+
+  initTodoState,
+  todoReducer,
+  TOGGLE_DONE,
+  ADD_TODO
+
+} from "./reducers/todoReducer";
 /* 
  <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -35,21 +45,27 @@ const todolist = [
 ];
 
 
-class  App extends React.Component {
-  constructor(){
-    super();
-    this.state = {
-      todolist
-    };
+const   App = () =>{
+
+  const [newTodoText, setNewTodoText] = useState();
+  const [state, dispatch] = useReducer(todoReducer, initTodoState);
+
+  const handleSubmit = () =>{
+    dispatch({
+      type: ADD_TODO,
+      payload: newTodoText
+  })
   }
-  render() {
+
+
     return (
       <div className="App">
        
-        <TodoForm />
+        <TodoForm  handleSubmit={handleSubmit}  initTodoState={initTodoState} todoReducer={todoReducer} 
+                  TOGGLE_DONE={TOGGLE_DONE} ADD_TODO={ADD_TODO} />
       </div>
     );
-  }
+  
 }
 
 export default App;

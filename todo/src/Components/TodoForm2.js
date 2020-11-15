@@ -1,4 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from   "react";
+
+import {
+
+  initTodoState,
+  todoReducer,
+  TOGGLE_DONE,
+  ADD_TODO
+
+} from "../reducers/todoReducer";
 
 /*
   what is a reducer?
@@ -13,10 +22,9 @@ import React, { useState } from "react";
 */
  
 const TodoForm = (props) => {
+  const [newTodoText, setNewTodoText] = useState();
+  const [state, dispatch] = useReducer(todoReducer, initTodoState);
 
-
-
-  const [newTodoText, setNewTodoText] = useState('Its react');
   const handleChanges = (e) => {
     setNewTodoText(e.target.value);
   };
@@ -25,13 +33,24 @@ const TodoForm = (props) => {
 
   const handleSub   = (e) =>{
     e.preventDefault();
-    props.handleSubmit();
-
+    
+      dispatch({
+          type: ADD_TODO,
+          payload: newTodoText
+      })
   }
 
   return (
     <div> 
-       
+        <h1>
+            {state.item}{" "}
+            <i
+              className="far fa-edit"
+              onClick={() => { 
+                dispatch({ type: TOGGLE_DONE });
+              }}
+            />
+        </h1>
 
         <form onSubmit={e => handleSub}>
             <div>
@@ -39,10 +58,10 @@ const TodoForm = (props) => {
                     className="title-input"
                     type="text"
                     name="newTitleText"
-                    value={props.newTodoText}
+                    value={newTodoText}
                     onChange={handleChanges}
                 />
-                <button type="submit"
+                <button
                 >
                     ☠New🐊 🥵Todo☠ 
                 </button>
