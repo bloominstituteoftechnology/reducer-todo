@@ -9,7 +9,7 @@ const List = (props) => {
   return (
     <div>
       {props.tasks.map((task) => (
-        <Item tasks={task} key={task.id} />
+        <Item tasks={task} key={task.id} markComplete={markComplete} />
       ))}
     </div>
   );

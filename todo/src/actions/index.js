@@ -1,4 +1,4 @@
-export const ADD_TODO = "HOLD_TODO";
+export const ADD_TODO = "ADD_TODO";
 export const MARK_COMPLETE = "MARK_COMPLETE";
 
 export const addTodo = (todo) => {
@@ -8,8 +8,9 @@ export const addTodo = (todo) => {
   };
 };
 
-export const markComplete = () => {
+export const markComplete = (completed) => {
   return {
     type: MARK_COMPLETE,
+    payload: completed,
   };
 };

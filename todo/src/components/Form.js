@@ -24,7 +24,6 @@ const Form = (props) => {
   const captureTodo = (e) => {
     e.preventDefault();
     props.addTodo(task);
-    //logic to send the value to the global state
     setTask({
       item: "",
       id: Date.now(),
