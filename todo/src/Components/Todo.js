@@ -1,26 +1,37 @@
 import React from "react";
 
-const Todo = (props) => {
-  const handleClick = () => {
-    props.dispatch(props.item.id);
+class Todo extends React.Component {
+  constructor(props){
+    super(props);
+    this.state ={
+      item:'',id:'',completed:false
+    }
+  }
+
+    handleClick = () => {
+    this.props.dispatch(this.props.todolist.id);
   };
 
-  return (
-    <>
-    <div
-      onClick={handleClick}
-      className={`item${props.item.completed ? " completed" : ""}`}
-    >
-      <p>{props.item.task}</p>
-    </div>
+  render(){
+    return (
+      <>
+      <div
+        onClick={this.handleClick}
+        className={` ${this.props.completed ? " completed" : ""}`}
+      >
+        <p>{this.props.item}</p>
+      </div>
+  
+        <button className="clear-btn" 
+        onClick={!this.props.completed}>
+          Edit Todo
+        </button>
+      </>
+     
+    );
+  }
 
-      <button className="clear-btn" 
-      onClick={props.editTodo}>
-        Edit Todo
-      </button>
-    </>
-   
-  );
+
 };
 
 export default Todo;
