@@ -1,4 +1,4 @@
-import React from "react";
+import React  from "react";
 
 class Todo extends React.Component {
   constructor(props){
@@ -9,7 +9,8 @@ class Todo extends React.Component {
   }
 
     handleClick = () => {
-    this.props.dispatch(this.props.todolist.id);
+    this.props.dispatch(!this.props.completed);
+    console.log('nal',this.props)
   };
 
   render(){
@@ -23,6 +24,10 @@ class Todo extends React.Component {
       </div>
   
         <button className="clear-btn" 
+        onClick={!this.props.completed}>
+          Delete
+        </button>
+        <button className="edit-btn" 
         onClick={!this.props.completed}>
           Edit Todo
         </button>

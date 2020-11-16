@@ -81,7 +81,7 @@ const   App = () =>{
         </h1>
 
               
-       <TodoList key={todolist.id}todolist={todolist} />
+       <TodoList dispatch={dispatch}key={todolist.id}todolist={todolist} />
        <TodoForm  handleSubmit={handleSubmit} />
       </div>
     );
