@@ -33,12 +33,12 @@ import {
 
 const todolist = [
   {
-    task: 'Edit Individual Todos',
+    item: 'Edit Individual Todos',
     id: 1528817077286,
     completed: false
   },
   {
-    task: 'Brush Teeth',
+    item: 'Brush Teeth',
     id: 1528817084358,
     completed: false
   }
@@ -47,7 +47,7 @@ const todolist = [
 
 const   App = () =>{
 
-  const [newTodoText, setNewTodoText] = useState();
+  const [newTodoText, setNewTodoText] = useState([todolist]);
   const [state, dispatch] = useReducer(todoReducer, initTodoState);
 
   const handleSubmit = (subState) =>{
@@ -65,7 +65,10 @@ const   App = () =>{
     return (
       <div className="App">
          <h1>
-            {state.item}{" ⌛ 😭 ⏰ ⌛ ⛺ "}
+            {newTodoText.map( (i) =>{
+              return    i
+              
+            })}{" ⌛ 😭 ⏰ ⌛ ⛺ "}
             <i
               className="far fa-edit"
               onClick={() => { 

@@ -1,19 +1,26 @@
-import React, { useState, useReducer } from "react";
+import React from "react";
 
-const Todo = () =>{
+const Todo = (props) => {
+  const handleClick = () => {
+    props.dispatch(props.item.id);
+  };
 
+  return (
+    <>
+    <div
+      onClick={handleClick}
+      className={`item${props.item.completed ? " completed" : ""}`}
+    >
+      <p>{props.item.task}</p>
+    </div>
 
-
-        
-    return(
-        <div>
-
-        </div>
-    );
-
+      <button className="clear-btn" 
+      onClick={props.editTodo}>
+        Edit Todo
+      </button>
+    </>
+   
+  );
 };
 
-
-export default Todo; 
-
-
+export default Todo;
