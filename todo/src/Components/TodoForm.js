@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Component, useState } from "react";
 
 /*
   what is a reducer?
@@ -19,20 +19,19 @@ const TodoForm = (props) => {
   const [newTodoText, setNewTodoText] = useState('Its react');
   const handleChanges = (e) => {
     setNewTodoText(e.target.value);
+    // console.log('nal ',newTodoText)
   };
 
 
 
   const handleSub   = (e) =>{
     e.preventDefault();
-    props.handleSubmit();
+    props.handleSubmit(newTodoText);
 
   }
 
   return (
     <div> 
-       
-
         <form onSubmit={e => handleSub}>
             <div>
                 <input

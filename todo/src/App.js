@@ -2,7 +2,7 @@
 import './App.css';
 import TodoForm from './Components/TodoForm'
 import TodoList from './Components/TodoList'
-import React, { Component,  useState, useReducer } from "react";
+import React, { useState, useReducer } from "react";
  
 
 import {
@@ -50,18 +50,29 @@ const   App = () =>{
   const [newTodoText, setNewTodoText] = useState();
   const [state, dispatch] = useReducer(todoReducer, initTodoState);
 
-  const handleSubmit = () =>{
+  const handleSubmit = (subState) =>{
+    console.log('right',subState)
     dispatch({
       type: ADD_TODO,
-      payload: newTodoText
+      payload: subState
   })
   }
 
 
     return (
       <div className="App">
+         <h1>
+            {state.item}{" "}
+            <i
+              className="far fa-edit"
+              onClick={() => { 
+                dispatch({ type: TOGGLE_DONE });
+              }}
+            />
+        </h1>
        
-        <TodoForm  handleSubmit={handleSubmit}  initTodoState={initTodoState} todoReducer={todoReducer} 
+        <TodoForm  handleSubmit={handleSubmit} 
+         initTodoState={initTodoState} todoReducer={todoReducer} 
                   TOGGLE_DONE={TOGGLE_DONE} ADD_TODO={ADD_TODO} />
       </div>
     );
