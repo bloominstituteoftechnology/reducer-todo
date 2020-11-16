@@ -49,7 +49,7 @@ const   App = () =>{
 
   const [newTodoText, setNewTodoText] = useState([todolist]);
   const [state, dispatch] = useReducer(todoReducer, initTodoState);
-
+  const [sub,setSub] = useState(false);
   const handleSubmit = (subState) =>{
     // e.preventDefault();
 
@@ -59,24 +59,29 @@ const   App = () =>{
       type: ADD_TODO,
       payload: subState
   })
+  todolist.push({subState})
+  setSub(!sub)
   }
 
 
     return (
       <div className="App">
+         {sub &&
          <h1>
-            {newTodoText.map( (i) =>{
-              return    i
-              
+            {todolist.map( (e,i) =>{
+              return <p>{e.item}</p>
             })}{" ⌛ 😭 ⏰ ⌛ ⛺ "}
             <i
               className="far fa-edit"
-              onClick={() => { 
+              onClick={() => {  
                 dispatch({ type: TOGGLE_DONE });
               }}
             />
+   
         </h1>
-       
+
+   
+}
         <TodoForm  handleSubmit={handleSubmit} />
       </div>
     );
