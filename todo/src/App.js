@@ -51,7 +51,10 @@ const   App = () =>{
   const [state, dispatch] = useReducer(todoReducer, initTodoState);
 
   const handleSubmit = (subState) =>{
-    console.log('right',subState)
+    // e.preventDefault();
+
+    setNewTodoText(subState); // TODO: Renders first undefined, then is one render off
+    console.log('right',newTodoText)
     dispatch({
       type: ADD_TODO,
       payload: subState
@@ -62,7 +65,7 @@ const   App = () =>{
     return (
       <div className="App">
          <h1>
-            {state.item}{" "}
+            {state.item}{" ⌛ 😭 ⏰ ⌛ ⛺ "}
             <i
               className="far fa-edit"
               onClick={() => { 
