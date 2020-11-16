@@ -12,43 +12,51 @@ import React, { Component, useState } from "react";
   2. object that has an optional `payload` key (doesn't need to be called payload) <--- -Not required
 */
  
-const TodoForm = (props) => {
+class TodoForm extends React.Component {
 
 
+  constructor(props){
+    super(props);
+    this.state = {
+      newTodoText: 'Its something'
+    }
+  }
 
-  const [newTodoText, setNewTodoText] = useState('Its react');
-  const handleChanges = (e) => {
-    setNewTodoText(e.target.value);
+  // const [newTodoText, setNewTodoText] = useState('Its react');
+   handleChanges = (e) => {
+    this.setState({newTodoText: e.target.value});
     // console.log('nal ',newTodoText)
   };
 
 
 
-  const handleSub   = (e) =>{
-    e.preventDefault();
-    props.handleSubmit(newTodoText);
+   handleSub   = (e) =>{
+    // e.preventDefault();
+    this.props.handleSubmit(this.state.newTodoText);
 
   }
 
-  return (
-    <div> 
-        <form onSubmit={e => handleSub}>
-            <div>
-                <input
-                    className="title-input"
-                    type="text"
-                    name="newTitleText"
-                    value={props.newTodoText}
-                    onChange={handleChanges}
-                />
-                <button type="submit"
-                >
-                    ☠New🐊 🥵Todo☠ 
-                </button>
-            </div>
-        </form> 
-    </div>
-  );
+  render(){
+    return (
+      <div> 
+          <form onSubmit={e => this.handleSub}>
+              <div>
+                  <input
+                      className="title-input"
+                      type="text"
+                      name="newTitleText"
+                      value={this.state.newTodoText}
+                      onChange={this.handleChanges}
+                  />
+                  <button type="submit"
+                  >
+                      ☠New🐊 🥵Todo☠ 
+                  </button>
+              </div>
+          </form> 
+      </div>
+    );
+  }
 };
 
 export default TodoForm;
