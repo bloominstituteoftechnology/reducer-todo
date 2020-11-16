@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 
 /*
   what is a reducer?
@@ -31,7 +31,7 @@ class TodoForm extends React.Component {
 
 
    handleSub   = (e) =>{
-    // e.preventDefault();
+    e.preventDefault();
     this.props.handleSubmit(this.state.newTodoText);
 
   }
@@ -39,7 +39,7 @@ class TodoForm extends React.Component {
   render(){
     return (
       <div> 
-          <form onSubmit={e => this.handleSub}>
+          <form onSubmit={ this.handleSub}>
               <div>
                   <input
                       className="title-input"
