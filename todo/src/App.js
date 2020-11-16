@@ -71,9 +71,7 @@ const   App = () =>{
             />
         </h1>
        
-        <TodoForm  handleSubmit={handleSubmit} 
-         initTodoState={initTodoState} todoReducer={todoReducer} 
-                  TOGGLE_DONE={TOGGLE_DONE} ADD_TODO={ADD_TODO} />
+        <TodoForm  handleSubmit={handleSubmit} />
       </div>
     );
   
