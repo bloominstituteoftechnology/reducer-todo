@@ -1,17 +1,35 @@
-import './App.css';
 import React, { useReducer, useState } from "react";
-import reducer from './reducers/reducer'
+import "./App.css";
 
-const App = () => {
-  const initialState = {
+function reducer(state, action) {
+  switch (action.type) {
+    case "ADD_TODO":
+      return {
+        todos: [...state.todos, { text: action.text, completed: false }],
+      };
+    case "TOGGLE_TODO":
+      return {
+        todos: state.todos.map((t, idx) =>
+        idx === action.idx ? { ...t, completed: !t.completed } : t
+      ),
+      
+      };
+      case "DELETE_TODO":
+        return {
+          todos: state.todos.filter((t) => !t.completed)
+        };
 
+    default:
+      return state;
   }
-  const [state, dispatch] = useReducer(reducer, initialState);
+}
+
+function App() {
+  const [{ todos }, dispatch] = useReducer(reducer, { todos: [] });
   const [text, setText] = useState();
 
   return (
     <div className="App">
-
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -27,7 +45,7 @@ const App = () => {
           e.preventDefault()
           dispatch({type: "DELETE_TODO"})
         }}
-
+        
         >Clear Completed</button>
       </form>
       {todos.map((t, idx) => (
