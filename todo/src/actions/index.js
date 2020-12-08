@@ -1,10 +1,19 @@
-const set_todo = "set_todo";
-const set_new_todo_text = "set_new_todo_text";
+const ADD_TODO = "add_todo";
+const NEW_TODO = "new_todo";
+const COMPLETED_TODO = "completed_todo";
 
-export const setTodo = todo => {
-  return { type: set_todo, payload: todo };
+export const addTodo = newTodo => {
+  return { type: ADD_TODO, payload: newTodo };
 };
 
-export const setNewTodoText = todoText => {
-  return { type: set_new_todo_text, payload: todoText };
+export const newTodo = todo => {
+  return { type: NEW_TODO, payload: todo };
 };
+
+// export const completedTodo = completed => {
+//   return { type: COMPLETED_TODO, payload: completed };
+// };
+
+// export const newId = () => {
+//     return
+// }
