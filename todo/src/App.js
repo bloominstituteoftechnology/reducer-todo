@@ -1,14 +1,13 @@
 import logo from "./logo.svg";
 import "./App.css";
 import TodoForm from "./components/TodoForm";
-import TodoList from "./components/TodoList";
 
 import reducer, { initialState } from "./reducers";
 
 import { useReducer } from "react";
 
 const App = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state] = useReducer(reducer, initialState);
 
   console.log("current state: ", state);
 
@@ -21,7 +20,6 @@ const App = () => {
         <h1>My Todo:</h1>
         <TodoForm />
       </div>
-      <TodoList />
     </div>
   );
 };

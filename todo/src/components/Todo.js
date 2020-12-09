@@ -1,9 +1,20 @@
 import React from "react";
+import "../App.css";
 
-const Todo = () => {
+const Todo = ({ todo, handleCompleted }) => {
+  console.log("Todojs: ", todo);
+
+  console.log("todo");
+
+  const handleClick = () => {
+    handleCompleted(todo.id);
+  };
   return (
-    <div>
-      <div></div>
+    <div
+      className={todo.completed === true ? "todo completed" : "todo"}
+      onClick={handleClick}
+    >
+      <div>{todo.item}</div>
     </div>
   );
 };
