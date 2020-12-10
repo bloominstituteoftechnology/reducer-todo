@@ -1,4 +1,4 @@
-import {SET_ADD_TASK, SET_TOGGLE_TASK} from '../actions/action';
+import {SET_ADD_TASK, SET_TOGGLE_TASK, SET_CLEAR_TASK} from '../actions/action';
 
 export const initialState = [
     {
@@ -19,6 +19,10 @@ const reducer = (state, action) => {
         return state.map((todo) => (
             todo.id === action.payload ? {...todo, completed: !todo.completed} : todo
         ))
+
+        case(SET_CLEAR_TASK):
+        const clearItems = state.filter((item) => !item.completed)
+        return clearItems
 
         default:
             return(state);

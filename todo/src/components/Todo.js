@@ -9,6 +9,8 @@ const Todo = (props) => {
         dispatch(setToggleTask(todo.id))
     }
 
+    
+
     const {dispatch, todo } = props
 
     return (
