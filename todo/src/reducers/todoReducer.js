@@ -1,4 +1,4 @@
-import {SET_ADD_TASK, SET_TOGGLE_TASK, SET_CLEAR_TASK} from '../actions/action';
+import {SET_ADD_TASK, SET_TOGGLE_TASK, SET_CLEAR_TASK, SET_NEW_TODO_ITEM} from '../actions/action';
 
 export const initialState = [
     {
@@ -23,6 +23,9 @@ const reducer = (state, action) => {
         case(SET_CLEAR_TASK):
         const clearItems = state.filter((item) => !item.completed)
         return clearItems
+
+        case (SET_NEW_TODO_ITEM):
+            return ({ ...state, newTodoItem: action.payload });
 
         default:
             return(state);
