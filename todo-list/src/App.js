@@ -10,10 +10,11 @@ let todoList = [];
 
 function App() {
   const [active, dispatch] = useReducer(inputReducer);
-  const todos = { completed: false, todo: "Example Todo" };
+  const todos = { id: Date.now(), completed: true, todo: "Example Todo" };
   const [newTodo, addTodo] = useReducer(todoReducer, todos);
 
   const renderTodos = todoList;
+
 
 
   useEffect(() => {
