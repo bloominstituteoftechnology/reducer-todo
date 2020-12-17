@@ -19,6 +19,7 @@ function App() {
   useEffect(() => {
     todoList.push(newTodo);
     console.log(todoList);
+    dispatch({ type: "TOGGLE_INPUT_FIELD" });
     return todoList;
   }, [newTodo]);
 

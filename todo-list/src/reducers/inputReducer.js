@@ -1,6 +1,6 @@
 import {TOGGLE_INPUT_FIELD} from "../Actions/actions.js";
 
-const inputReducer = (state, action) => {
+const inputReducer = (state = true, action) => {
     switch(action.type) {
         case TOGGLE_INPUT_FIELD :
             return(!state);
