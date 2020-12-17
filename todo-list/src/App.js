@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./components/Header";
 import TodoList from "./components/TodoList";
 import Input from "./components/Input";
+import Footer from "./components/Footer";
 import inputReducer from "./reducers/inputReducer";
 import todoReducer from "./reducers/todoReducer";
 
@@ -29,6 +30,7 @@ function App() {
       <Header active={active} dispatch={dispatch} />
       {active ? <Input addTodo={addTodo} /> : ""}
       <TodoList renderTodos={renderTodos} />
+      <Footer />
     </div>
   );
 }
