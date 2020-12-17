@@ -25,7 +25,10 @@ body {
 	color: #fff;
 }
 
-form {
+.form__container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	margin-bottom: 4rem;
 }
 
@@ -42,6 +45,18 @@ form {
 
 form button {
 	letter-spacing: 0.1rem;
+	font-size: 1rem;
+	cursor: pointer;
+	outline: none;
+	color: #fff;
+	border: none;
+	background: rgba(27, 17, 89, 0.3);
+	padding: 0.6rem 1.5rem;
+}
+
+.clear__btn {
+	text-transform: uppercase;
+	margin-left: 1rem;
 	font-size: 1rem;
 	cursor: pointer;
 	outline: none;

@@ -30,6 +30,11 @@ const todoReducer = (state, action) => {
 					})
 				]
 			};
+		case 'CLEAR_TODO':
+			return {
+				...state,
+				todos: [...state.todos.filter(item => !item.completed)]
+			};
 
 		default: {
 			return state;

@@ -34,12 +34,15 @@ function App() {
 	return (
 		<div className="App">
 			<h1>Todo App</h1>
-			<form onSubmit={handleSubmit}>
-				<input className="todo__input" type="text" value={newTodo} onChange={changeHandler} />
-				<button disabled={!newTodo} type="submit">
-					ADD
+			<div className="form__container">
+				<form onSubmit={handleSubmit}>
+					<input className="todo__input" type="text" value={newTodo} onChange={changeHandler} />
+					<button disabled={!newTodo}>ADD</button>
+				</form>
+				<button onClick={() => dispatch({ type: 'CLEAR_TODO' })} className="clear__btn">
+					Clear Completed
 				</button>
-			</form>
+			</div>
 			<div>
 				<TodoList todos={state.todos} dispatch={dispatch} />
 			</div>
