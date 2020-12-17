@@ -1,0 +1,91 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {
+	background: linear-gradient(rgb(94, 80, 252), rgb(27, 17, 89)) no-repeat;
+	min-height: 100%;
+}
+
+body {
+	height: 100%;
+}
+
+.App {
+	text-align: center;
+	font-family: 'Poppins', sans-serif;
+	max-width: 80vw;
+	margin: 0 auto;
+}
+
+.App h1 {
+	margin: 2rem 0;
+	color: #fff;
+}
+
+.form__container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 4rem;
+}
+
+.todo__input {
+	font-size: 1.2rem;
+	color: #fff;
+	outline: none;
+	padding: 0.2rem 0.3rem;
+	margin-right: 1rem;
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid #fff;
+}
+
+form button {
+	letter-spacing: 0.1rem;
+	font-size: 1rem;
+	cursor: pointer;
+	outline: none;
+	color: #fff;
+	border: none;
+	background: rgba(27, 17, 89, 0.3);
+	padding: 0.6rem 1.5rem;
+}
+
+.clear__btn {
+	text-transform: uppercase;
+	margin-left: 1rem;
+	font-size: 1rem;
+	cursor: pointer;
+	outline: none;
+	color: #fff;
+	border: none;
+	background: rgba(27, 17, 89, 0.3);
+	padding: 0.6rem 1.5rem;
+}
+
+.todo__container {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-evenly;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.todo {
+	color: #fff;
+	width: 33%;
+	text-align: left;
+	margin: 2rem 2rem;
+	padding: 1rem 1rem;
+	cursor: pointer;
+	border-radius: 5px;
+	background: rgba(255, 255, 255, 0.1);
+}
+
+.completed {
+	text-decoration: line-through;
+	color: rgba(255, 255, 255, 0.2);
+}
