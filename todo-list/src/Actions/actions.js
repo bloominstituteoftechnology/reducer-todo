@@ -1,0 +1,5 @@
+export const TOGGLE_INPUT_FIELD = "TOGGLE_INPUT_FIELD";
+
+export const ADD_NEW_TODO = "ADD_NEW_TODO";
+export const MARK_TODO_COMPLETED = "MARK_TODO_COMPLETED";
+export const REMOVE_TODO = "REMOVE_TODO";
