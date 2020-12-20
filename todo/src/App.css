@@ -1,0 +1,14 @@
+body {
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.todo-items{
+  display: flex;
+  flex-direction: column;
+  padding: 6px 14px;
+}
+
+.clear-btn{
+  font-size:16px;
+}
