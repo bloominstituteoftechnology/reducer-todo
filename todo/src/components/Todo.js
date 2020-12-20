@@ -1,48 +1,12 @@
-import React, { useState, useReducer } from 'react';
-import TodoReducer from '../reducers/TodoReducer';
-import actions from "../actions/todoActions";
+import React from 'react';
+import { ACTIONS } from '../reducers/reducer';
 
-const Todo = () => {
-  const [newTodo, setNewTodo] = useState('');
-
-  const initialState = 
-  {
-    item: 'Learn about reducers',
-    completed: false,
-    id: 3892987589
-  }
-
-  const [state, dispatch] = useReducer(TodoReducer, initialState);
-
-  const handleChanges = e => {
-    setNewTodo(e.target.value);
-  };
-
-  return (
-    <div>
-      {!state.editing ? (
-        <h1>
-          {state.title}{' '}
-          <i onClick={() => dispatch(actions.toggleEditing())} className="far fa-edit" />
-        </h1>
-      ) : (
-        <div>
-          <input
-            className="title-input"
-            type="text"
-            name="newTitleText"
-            value={newTodo}
-            onChange={handleChanges}
-          />
-          <button
-            onClick={() => dispatch(actions.updateTitle(newTodo))}
-          >
-            Update title
-          </button>
+export default function Todo({ todo, dispatch }) {
+    return (
+        <div className="todo-items">
+            <span onClick={() => dispatch({ type: ACTIONS.TOGGLE_TODO, payload: { id: todo.id }})} style={{ textDecoration: todo.complete ? 'line-through' : 'none'}}>
+                {todo.name}
+            </span>
         </div>
-      )}
-    </div>
-  );
+    )
 };
-
-export default Todo;
