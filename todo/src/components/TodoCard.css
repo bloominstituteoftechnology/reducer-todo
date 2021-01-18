@@ -1,0 +1,24 @@
+.todoCards {
+  width: 300px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.incomplete {
+  width: 10px;
+  max-height: 100%;
+  background-color: red;
+  margin-right: 15px;
+}
+
+.completed {
+  width: 10px;
+  max-height: 100%;
+  background-color: #4caf50;
+  margin-right: 15px;
+}
+
+.todo {
+  display: flex;
+  flex-direction: row;
+}
