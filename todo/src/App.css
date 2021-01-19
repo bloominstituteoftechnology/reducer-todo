@@ -1,38 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@500&family=Ubuntu&display=swap");
+
+/*Universal Styles*/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-size: 10px;
+}
+
+body {
+	background: rgb(28, 30, 34);
+}
+
+h1 {
+	font-family: "Ubuntu", sans-serif;
+	font-size: 3.5em;
+}
+
+a,
+p,
+button {
+	font-family: "Lora", serif;
+	font-size: 1.6em;
+}
+
+button {
+	cursor: pointer;
+}
+
+/*Specific Button Styles*/
+
+.submit-btn {
+	border: none;
+}
+
+.complete-btn {
+	border: 2px solid rgb(255, 174, 0);
+}
+
+.submit-btn,
+.complete-btn {
+	background: rgb(167, 92, 0);
+	color: #fff;
+	padding: 1%;
+	margin: 0 2% 2%;
+}
+
+/*Component Styles by Class*/
+
 .App {
-  text-align: center;
+	text-align: center;
+	margin: 10%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*All To-Do Components*/
+
+.outer-bounding-box {
+	display: flex;
+	flex-direction: column;
+	background: rgba(134, 108, 84, 0.3);
+	padding: 10% 0 10%;
+	border: 2px solid rgb(255, 174, 0);
+	box-shadow: 2px 2px 80px rgba(122, 80, 16, 0.3);
+	background-image: url(./Assets/pexels-photo-1103971.jpeg);
+	background-blend-mode: multiply;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.list-bounding-box {
+	background: rgba(255, 255, 255, 0.5);
+	padding-bottom: 5%;
+	margin: 0 4%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.todo-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todo-container {
+	background: rgb(167, 92, 0);
+	color: #fff;
+	border: 2px solid rgb(255, 174, 0);
+	margin: 0 8% 1%;
 }
