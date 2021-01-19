@@ -1,4 +1,9 @@
  import React from 'react'
+ import reducer, { initialState } from "../reducer/reducer"
+
+ let currentState = reducer(initialState,{type:"ADD_TODO",payload:"walk dog"})
+ currentState = reducer(currentState, {type:"EDIT_TODO", payload:true})
+ console.log(currentState)
 
 const onClick = (e) =>{
     e.preventDefault()

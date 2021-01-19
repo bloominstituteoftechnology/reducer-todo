@@ -1,5 +1,5 @@
 
-const initialState = {
+export const initialState = {
     todo:"Feed Dog",
     complete: false,
     id: Date.now()
@@ -7,17 +7,17 @@ const initialState = {
 
 
 const reducer = (state, action) =>{
-         switch(action.type)
+         switch(action.type){
             case("ADD_TODO"):
-                return (state):
-            case("EDIT_TODO")
-                return(state)
+                return ({...state,todo:action.payload});
+            case("EDIT_TODO"):
+                return({...state, complete:action.payload});
             case("DELETE_TODO"):
-                return(state):
+                return({...state, id:action.payload});
             default:
-                return(state):
+                return(state);
 
-
+         }
 
 
 }

@@ -3,11 +3,10 @@ import React from 'react'
 export default function () {
 
     handleToggle = (itemId)=> {
-        this.setState({
-          todo: todo.map(item=>{
+           todo.map(item=>{
             if(item.id === itemId) {
               return {
-                ...item,
+                ...todo,
                 completed: !item.completed
               }
             
@@ -15,7 +14,7 @@ export default function () {
             return(item);
           }
           })
-        });
+        }
 
     const handleClick =( )=>{
         handleItemToggle(todo.id)
