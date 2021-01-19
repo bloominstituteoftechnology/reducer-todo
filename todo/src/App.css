@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  width: 900px;
+  margin: 0 auto;
 }
 
 .App-logo {
@@ -35,4 +37,27 @@
   to {
     transform: rotate(360deg);
   }
+}
+.completed {
+  text-decoration: line-through;
+}
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+  margin: 10px auto;
+}
+.list-item:hover {
+  background: lightgray;
+}
+.list-item p {
+  margin: 0;
+  width: 90%;
+  text-align: center;
+}
+.list-item button {
+  outline: none;
+  border: none;
+  background-color: transparent;
 }
