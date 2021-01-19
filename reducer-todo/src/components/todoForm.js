@@ -1,40 +1,26 @@
- import React from 'react'
- import reducer, { initialState } from "../reducer/reducer"
+import React, { useReducer} from 'react'
 
- let currentState = reducer(initialState,{type:"ADD_TODO",payload:"walk dog"})
- currentState = reducer(currentState, {type:"EDIT_TODO", payload:true})
- console.log(currentState)
 
-const onClick = (e) =>{
-    e.preventDefault()
-}
+export default function TodoForm() {
+    const [state,dispatch] = useReducer()
+    
+      
+   const   handleSubmit = (e) => {
+        e.preventDefault();
+        handleItemAdd(state.inputValue);
+        state({
+          inputValue:""
+        });
+      }
+  const     handleClick = ()=> {
+       handleItemCompleted(todos);
+      }
 
-const todoForm = () => {
     return (
-        <div className="form-container">
-          <form className="form">
-              <label>
-                TODO
-                 <input 
-                 
-                //   onChange={onChange}
-                  name= "todo"
-                  type= "text"
-                  />
-              </label>
-          </form>
-          <div className="btn">
-              <button onClick={onClick}>
-                  Clear todo
-              </button>
-               <button>
-                   Add Todo
-               </button>
-          </div>
-          
-            
-        </div>
+        <form onSubmit={handleSubmit}>
+        <input value={state.inputValue} onChange={handleChange} type="text" name="item" />
+        <button>Add Task</button>
+        <button onClick={handleClick}>Clear</button>
+      </form>
     )
 }
-
-export default todoForm

@@ -1,27 +1,34 @@
-import React from 'react'
-
-export default function () {
-
-    handleToggle = (itemId)=> {
-           todo.map(item=>{
-            if(item.id === itemId) {
-              return {
-                ...todo,
-                completed: !item.completed
-              }
+import React, {useReducer} from 'react'
+import Todo from "./todo"
+import { initialState } from '../reducer/reducer'
+  
+export default function Todo() {
+    const [state,dispatch] = useReducer()
+    const    handleClick = () =>{
+       handleToggle = (itemId)=> {
             
-            }else {
-            return(item);
+              state.initialState.map(item=>{
+                if(item.id === itemId) {
+                  return {
+                    ...item,
+                    completed: !item.completed
+                  }
+                
+                }else {
+                return(item);
+              }
+              })
+            ;
           }
-          })
-        }
+         }
 
-    const handleClick =( )=>{
-        handleItemToggle(todo.id)
-    }
+
+
+
     return (
-        <div {`item ${todo.completed ? ' completed' : ''}`} onClick = {handleClick}>
-            <p>{todo.task}</p>
-        </div>
+        <div  className={`item ${props.item.completed ? ' completed' : ''}`} onClick = {handleClick}>
+       <p>{item.task}</p>  
+
+           </div>
     )
 }

@@ -1,15 +1,23 @@
 export const ADD_TODO = "ADD_TODO"
-export const EDIT_TODO = "EDIT_TODO"
 export const DELETE_TODO = "DELETE_TODO"
+export const TOGGLE_TODO_COMPLETEd = "TOGGLE_TODO_COMPLETED
 
-export const addTodo = () =>{
+const addTodo = (todo) =>{
     return({type:ADD_TODO, payload:todo})
 }
-export const EditTodo = (willEdit) => {
-    return ({type:EDIT_TODO, payload:willEdit})
+
+
+
+const deleteTodo = (willDelete) => {
+    return ({type:DELETE_TODO, payload:willDelete})
 
 }
-export const deleteTodo = (willdelete) => {
-    return ({type:DELETE_TODO, payload:willdelete})
+const toggleTodo = (toggle) =>{
+    return ({type:TOGGLE_TODO_COMPLETE,  payload:toggle})
+}
+export default{
+addTodo:addTodo,
+deleteTodo:deleteTodo,
+toggleTodo:toggleTodo
 
 }
