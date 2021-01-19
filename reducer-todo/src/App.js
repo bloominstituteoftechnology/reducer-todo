@@ -12,8 +12,8 @@ function App() {
     
       <div className="App">
         <div className="header">
-           <h1>Shopping List</h1>
-           <TodoForm handleItemAdd={handleItemAdd}/>
+           <h1>LIST OF TODOS</h1>
+           <TodoForm />
          </div>
                <Todos/>
       
