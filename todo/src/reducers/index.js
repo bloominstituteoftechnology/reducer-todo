@@ -1,18 +1,26 @@
-import { ADD_TODO, TOGGLE_COMPLETED } from '../actions/index';
+import { ADD_TODO, TOGGLE_COMPLETED, NEW_TODO } from '../actions/index';
 
 
-export const todo ={
-    item: 'Learn about reducers',
-    completed: false,
-    id: 3892987589
+export const initialState ={
+    todo: [
+        {
+            item: 'Learn about reducers',
+            completed: false,
+            id: Date.now()  
+        }
+    ],
+    newTodo: ''
+    
 }
 
 const reducer = (state, action) =>{
     switch(action.type){
         case('ADD_TODO'):
-            return {...state, item: action.payload};
+            return {...state, todo: [action.payload]};
         case('TOGGLE_COMPLETED'):
-            return{...state, completed: action.payload};
+            return{...state, todo: [action.payload]};
+            case('NEW_TODO'):
+            return{...state, newTodo: action.payload }
         default:
             return(state);
     }
