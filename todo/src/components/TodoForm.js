@@ -1,7 +1,6 @@
 import React, { useReducer } from 'react';
-import TodoList from './TodoList'
-import reducer, { initialState } from './reducers/index';
-import { setAddTodo, setToggleCompleted, setNewTodo } from './actions/index';
+import reducer, { initialState } from '../reducers/'
+import { setAddTodo, setToggleCompleted, setNewTodo, setClearComplete } from '../actions';
 
 
 const TodoForm = () =>{
@@ -24,7 +23,7 @@ const TodoForm = () =>{
     }
 
     const clearComplete = () =>{
-        dispatch();
+        dispatch(setClearComplete(state.todo));
     }
 
 
@@ -33,14 +32,10 @@ const TodoForm = () =>{
     //     const newTodo = this.state.todo.filter(todo=>{
     //       return(!todo.completed);
     //     })
-    //     this.setState({
-    //       todo: newTodo
-    //     })
-    //   }
 
     return(
         <div>
-            <form onSubmit={handleSubmit}>
+            <form>
                 <input 
                     value={state.newTodo} 
                     onChange={handleAddTodo} 
@@ -48,10 +43,20 @@ const TodoForm = () =>{
                     name='todo'
                     placeholder='...todo'
                 />
-                <button onClick={this.handleSubmit} >Add Todo</button>
-                <button className='clear-btn' onClick={this.handleClear} >Clear Completed</button>
+                <button onClick={handleSubmit} >Add Todo</button>
+                <button className='clear-btn' onClick={clearComplete} >Clear Completed</button>
             </form>
-            <TodoList state={state.todo} />
+            <div className='todo-list'>
+                <h1>TODO LIST:</h1>
+                {state.todo.map(todos =>{
+                    return(
+                        <div className='todo-item' onClick={()=> toggleCompleted(todos.id)}>
+                            <p key={todos.id}>{todos.item}</p>
+                        </div>
+                    )
+                })}
+            </div>
+            
         </div>
         )
         
