@@ -1,5 +1,5 @@
  import React from 'react'
- import TodoList from "../src/components/todoList"
+ import TodoForm from "../src/components/todoList"
  import './App.css';
  
 
@@ -10,7 +10,7 @@ function App() {
       <div className="App">
         <div className="header">
            <h1>LIST OF TODOS</h1>
-           <TodoList />
+           <TodoForm />
          </div>
                
       
