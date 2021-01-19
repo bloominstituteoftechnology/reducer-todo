@@ -1,6 +1,6 @@
 import React, { useState} from 'react'
 
-export const TodoForm = ({setTask, clearChecked}) => {
+const TodoForm = ({setTask, clearChecked}) => {
     const [newTask, setNewTask] = useState('')
 
     const formSubmit = (e) => {

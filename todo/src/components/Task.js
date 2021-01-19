@@ -2,7 +2,7 @@ import React from 'react'
 
 const Task = ({task, completeTask}) => {
     return (
-        <div onClick={() => completeTask(task.id)} className={task.completed ? 'completed' : ''}>{task.task}
+        <div onClick={() => completeTask(task.id)} className={task.completed ?  'completed' : ''}>{task.task}
         </div>
     )
 }

@@ -18,8 +18,6 @@ export const initialState = []
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
   
- 
-
   const setTask = (task) => {
     dispatch(addTask(task))
   }
