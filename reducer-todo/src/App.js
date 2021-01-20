@@ -1,4 +1,4 @@
-import {useReducer, useState } from 'react';
+import {useReducer} from 'react';
 import React from 'react'
 import './App.css';
 import TodoForm from './TodoForm';
@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <TodoForm dispatch={dispatch} />
-      <Todos todos={state} />
+      <Todos todos={state} dispatch={dispatch} />
     </div>
   );
 }

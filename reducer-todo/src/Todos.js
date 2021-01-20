@@ -1,11 +1,13 @@
 import React from 'react'
 
 export default function Todos(props) {
-    console.log(props.todos);
+    const handleToggle=(e)=>{
+        return({type:"TOGGLE_TODO",payload:e.target})
+    }
     return (
         <div>
            {props.todos.map((todo)=>{
-               return <p>{todo.item}</p>
+               return <p onClick={handleToggle}>{todo.item}</p>
            })}
         </div>
     )
