@@ -5,14 +5,23 @@
  import {todos} from "./components/reducer/reducer"
 
 function App() {
+  const todos= [
+   {
+    todo: "learn about reducers",
+    complete:false,
+    id: 1
+  }]
+
+
+
   
   return (
     
       <div className="App">
         <div className="header">
            <h1>LIST OF TODOS</h1>
-           <TodoForm />
-           <Todo todos={todos}/>
+           <TodoForm todos={todos}/>
+           
          </div>
                
       
