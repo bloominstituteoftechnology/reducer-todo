@@ -1,30 +1,29 @@
 import React from 'react'
+import { useReducer } from 'react'
 
 
 import './App.css';
 import TodoList from './components/TodoList'
 import TodoForm from './components/TodoForm'
+import reducer,{ initialState } from './reducers';
+import {addTodo} from './actions/index'
 
 function App() {
-  const todos = [{
-    title: "todo a",
-    id: 0,
-    completed: false,
-  },{
-    title: "todo b",
-    id: 1,
-    completed: false,
-  },{
-    title: "todo c",
-    id: 2,
-    completed: false,
-  }]
+  const [state, dispatch] = useReducer(reducer, initialState)
+
+  const handleAddTodo = (title) => {
+
+    dispatch(addTodo(title))
+  }
+
+  console.log(state)
+
   return (
     <div className="App">
       <h1>Todo App</h1>
-
-      <TodoList todos={todos}/>
-      <TodoForm />
+      {/* <button onClick={handleClick}>Test</button> */}
+      <TodoList todos={state.todos}/>
+      <TodoForm handleAddTodo={handleAddTodo} />
 
     </div>
 
