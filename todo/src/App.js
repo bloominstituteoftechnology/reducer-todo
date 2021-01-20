@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useReducer } from 'react'
 import reducer, { initialState, todos } from './reducers';
 import {addTodo} from './actions'
 import './App.css';
@@ -18,32 +18,23 @@ import TodoForm from './components/TodoForm';
 // console.log(currentList);
 
 function App() {
-  const [inputValue, setinputValue] = useState('');
-  const [state, dispatch] = reducer(reducer, initialState)
-const onChange = (e) => {
-  setinputValue(e.target.value)
+  // const [inputValue, setinputValue] = useState('');
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+// const onChange = (e) => {
+//   setinputValue(e.target.value)
+// }
+
+const handleAddTodo = (title)=> {
+  dispatch(addTodo(title))
 }
 
-const handleClick = ()=> {
-  dispatch({type:"ADD_TODO", payload: 'new todo'})
-}
-
-const handleSubmit = (e)=>{
-  e.preventDefault()
-  handle
-}
+console.log(state.todos)
 
   return (
     <div className="App">
-      ToDo List
-      <input 
-      type='text'
-      placeholder='toDo'
-      name='todoForm'
-      onChange={onChange}
-      value={inputValue}
-      />
-      <button onClick={handleClick}></button>
+      <TodoList todos={state.todos} />
+      <TodoForm  handleAddTodo={handleAddTodo}/>
     </div>
 
   );

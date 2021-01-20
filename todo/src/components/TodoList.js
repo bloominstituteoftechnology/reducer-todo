@@ -4,11 +4,11 @@ import Todo from './Todo'
 const ToDoList = (props) => {
     return (
         <div className='todoList'>
-            <h3>ToDo List</h3>
+            <h1>ToDo List</h1>
             <ul>
                 {
                     props.todos.map(todo => {
-                        return(<Todo todo={todo} />)
+                        return(<Todo key={todo.id} todo={todo} />)
                     })
                 }
             </ul>
