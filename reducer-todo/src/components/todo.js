@@ -9,6 +9,7 @@ export default function Todo({todo,dispatch}) {
     return (
         <>
         <div>
+        
       <span  className={`item ${todo.complete ? ' complete' : ''}`} >   
             {todo.name}
         </span> 

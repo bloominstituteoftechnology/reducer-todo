@@ -5,18 +5,7 @@ import { reducer} from "./reducer/reducer"
 
 export default function TodoForm() {
 
-  const initalTodos = [{
-    todo: "clean car",
-    complete:false,
-    id:1
-  },
-   {todo:"learn about reducers",
-    complete:false,
-    id:2
-   },
   
-]
-    
     
    
   
@@ -25,7 +14,7 @@ export default function TodoForm() {
 
 
 
-const [todos, dispatch] = useReducer(reducer, initalTodos);
+const [todos, dispatch] = useReducer(reducer, []);
 
 
 
