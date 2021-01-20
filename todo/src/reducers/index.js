@@ -25,7 +25,18 @@ export const reducer = (state, action) => {
         case("REMOVE_TODO"):
             return({...state, todos:action.payload });
         case("TOGGLE_COMPLETE"):
-            return({...state, completed: action.payload});
+        // 1. map through each todo
+        //2. if todo has the id we are looking for (in the action.payload)
+        //3. return a copy of the item with completed flipped
+        // if todo does not have id we are looking for, return the item as is
+            return({...state, todos:state.todos.map(todo=>{
+                if (todo.id === action.payload) {
+                    return ({...todo, completed: !todo.completed})
+                }
+                else {
+                    return(todo)
+                }
+            }) });
         case("CLEAR_COMPLETE"):
             return({})
         default:

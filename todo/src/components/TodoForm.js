@@ -5,12 +5,16 @@ state = {
     inputValue : ''
 }
  onChange = (e) => {
-    this.setState(e.target.value)
+    this.setState({
+        inputValue: e.target.value})
   }
 
   onSubmit = (e) => {
       e.preventDefault();
-      this.props.handleAddTodo(e.target.value)
+      this.props.handleAddTodo(this.state.inputValue)
+      this.setState({
+          inputValue: ''
+      })
 
   }
     render() {
@@ -20,7 +24,7 @@ state = {
 <form onSubmit={this.onSubmit}>
     <label>
         Task:
-        <input  />
+        <input onChange = {this.onChange} value={this.state.inputValue} />
     </label>
     <button>Submit Todo</button>
 </form>

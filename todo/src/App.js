@@ -1,6 +1,6 @@
 import React, { useState, useReducer } from 'react'
 import reducer, { initialState, todos } from './reducers';
-import {addTodo} from './actions'
+import {addTodo, toggleCompleted} from './actions'
 import './App.css';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
@@ -29,11 +29,16 @@ const handleAddTodo = (title)=> {
   dispatch(addTodo(title))
 }
 
+const handleToggleCompleted = (id) => {
+  dispatch(toggleCompleted(id));
+}
+
 console.log(state.todos)
+// Good idea to make a test button and hook up your imported actions to make sure they are functioning in your UI components
 
   return (
     <div className="App">
-      <TodoList todos={state.todos} />
+      <TodoList handleToggleCompleted={handleToggleCompleted} todos={state.todos} />
       <TodoForm  handleAddTodo={handleAddTodo}/>
     </div>
 

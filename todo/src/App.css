@@ -2,6 +2,7 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+  color: black;
 }
 
 .App-logo {
@@ -37,4 +38,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.completed {
+  text-decoration: line-through;
+  color: red;
 }
