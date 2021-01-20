@@ -38,6 +38,11 @@ export const reducer = (state, action) => {
                 }
             }) });
         case("CLEAR_COMPLETE"):
+        // Return an array of todos where todo.completed is false
+            return({...state, todos:state.todos.filter(todo=>{
+                    return (!todo.completed)
+                
+            })})
             return({})
         default:
             return(state)

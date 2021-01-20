@@ -33,12 +33,12 @@ state = {
     }
 }
 
-{/* <input 
+/* <input 
 type='text'
 placeholder='toDo'
 name='todoForm'
 onChange={onChange}
 value={inputValue}
-/> */}
+/> */
 
 export default TodoForm;
