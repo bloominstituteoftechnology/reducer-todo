@@ -1,44 +1,38 @@
 import React, { useReducer, useState } from "react";
 import Todo from "./todo";
 import { ACTIONS} from "./action"
+import { reducer} from "./reducer/reducer"
 
+export default function TodoForm() {
 
-export default function TodoForm(props) {
-     const {todos} =props
+  const initalTodos = [{
+    todo: "clean car",
+    complete:false,
+    id:1
+  },
+   {todo:"learn about reducers",
+    complete:false,
+    id:2
+   },
+  
+]
     
-     const reducer = (todos, action) => {
-        switch (action.type) {
-          case ACTIONS.ADD_TODO:
-            return [...todos, newTodo(action.payload.name)];
-          case ACTIONS.TOGGLE_TODO:
-            return todos.map((todo) => {
-              if (todo.id === action.payload.id){
-                return { ...todos, complete: !todo.complete };
-              
-            } return todos
-          })
-          case ACTIONS.DELETE_TODO:
-            return todos.filter((todo) => todo.id !== action.payload.id);
-      
-          default:
-            return todos;
-        }
-      };
+    
+   
   
   const [name, setName] = useState("")
 
 
 
 
-const [state, dispatch] = useReducer(reducer, todos);
+const [todos, dispatch] = useReducer(reducer, initalTodos);
 
-function newTodo(name) {
-  return { id: Date.now(), name: name, complete: false };
-}
+
 
 const handleSubmit = (e) => {
   e.preventDefault();
   dispatch({ type: ACTIONS.ADD_TODO, payload:{name:name} });
+  setName("")
 };
 const onChange = e => {
     setName(e.target.value)
@@ -51,7 +45,7 @@ return(
   </form>
  { todos.map((todo) => {
       
-  return  <Todo key={todo.id} todos={todos} dispatch={dispatch} />;
+  return  <Todo key={todo.id} todo={todo} dispatch={dispatch} />;
     
   })}
 
