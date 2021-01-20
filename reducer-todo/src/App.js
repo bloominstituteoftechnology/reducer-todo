@@ -2,7 +2,7 @@
  import TodoForm from "./components/TodoForm"
  import './App.css';
  import Todo from "./components/todo"
- 
+ import {todos} from "./components/reducer/reducer"
 
 function App() {
   
@@ -12,7 +12,7 @@ function App() {
         <div className="header">
            <h1>LIST OF TODOS</h1>
            <TodoForm />
-           <Todo/>
+           <Todo todos={todos}/>
          </div>
                
       
