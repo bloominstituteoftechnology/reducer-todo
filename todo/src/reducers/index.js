@@ -33,7 +33,7 @@ const reducer = (state, action) =>{
         };
         case('CLEAR_COMPLETE'):
         return{...state, todo: state.todo.filter(todo=>{
-                  return(!todo.completed);
+                  return(todo.completed === false);
                 })}
             case('NEW_TODO'):
             return{...state, newTodo: action.payload }

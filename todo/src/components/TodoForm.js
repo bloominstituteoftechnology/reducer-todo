@@ -6,7 +6,7 @@ import { setAddTodo, setToggleCompleted, setNewTodo, setClearComplete } from '..
 const TodoForm = () =>{
     const [state, dispatch] = useReducer(reducer, initialState);
 
-    const handleAddTodo = e =>{
+    const handleChanges = e =>{
         dispatch(setAddTodo(e.target.value))
     }
 
@@ -38,7 +38,7 @@ const TodoForm = () =>{
             <form>
                 <input 
                     value={state.newTodo} 
-                    onChange={handleAddTodo} 
+                    onChange={handleChanges} 
                     type='todo' 
                     name='todo'
                     placeholder='...todo'

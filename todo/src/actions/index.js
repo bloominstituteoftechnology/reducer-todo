@@ -8,8 +8,8 @@ export const setAddTodo = (newTodo) =>{
     return( {type: ADD_TODO, payload:newTodo} )
 }
 
-export const setToggleCompleted = (completed) =>{
-    return( {type: TOGGLE_COMPLETED, id: completed } )
+export const setToggleCompleted = (id) =>{
+    return( {type: TOGGLE_COMPLETED, id: id } )
 }
 
 export const setNewTodo = (todo) =>{
