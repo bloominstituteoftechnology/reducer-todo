@@ -12,7 +12,7 @@ export const initialState =
         id: 579113
     },
     {
-        item: 'Attend the Temple',
+        item: 'Go to the Temple',
         completed: false,
         id: 579114
     }

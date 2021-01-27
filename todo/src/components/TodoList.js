@@ -3,14 +3,14 @@ import todoReducer, { initialState } from '../reducers/todoReducer';
 
 const TodoList = () => {
     const [state, dispatch] = useReducer(todoReducer, initialState);
-        const task = state.item
+
     return (
         <>
-            {/* {task.map((item) => {
-                <h2>{item}</h2>
-            })} */}
+            {state.map((list) => {
+                return <h2>{list.item}</h2>
+            })}
         </>
-    )
+    );
 };
 
 export default TodoList;
