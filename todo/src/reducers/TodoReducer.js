@@ -7,10 +7,17 @@ export const TOGGLE_COMPLETE = "TOGGLE_COMPLETE";
 export const TodoReducer = (state, action) => {
 	switch (action.type) {
 		case ADD_ITEM:
-			return { ...state, item: action.payload, editing: false };
+			return {
+				...state,
+				item: action.payload,
+				completed: false,
+				id: Date.now(),
+			};
 		case TOGGLE_COMPLETE:
-			return { ...state, editing: !state.editing };
+			return { ...state, completed: !state.completed };
 		default:
 			return state;
 	}
 };
+
+export default TodoReducer;
