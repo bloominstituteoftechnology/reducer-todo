@@ -1,7 +1,3 @@
-import React, { useReducer } from "react";
-// import ReactDom from 'react-dom'
-// import { reducer, initialState}
-
 export const ADD_ITEM = "ADD_ITEM";
 export const TOGGLE_ITEM = "TOGGLE_ITEM";
 export const CLEAR_COMPLETED = "CLEAR_COMPLETED";

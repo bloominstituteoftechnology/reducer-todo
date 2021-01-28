@@ -2,7 +2,11 @@ import React, { useState } from "react";
 // import useTodoForm from "../hooks/useTodoForm";
 
 const TodoForm = (props) => {
-  const [item, setItem] = useState();
+  const [item, setItem] = useState({
+    name: "",
+    id: Date.now(),
+    completed: false,
+  });
   //     {
   //   item: "",
   //   id: Date.now(),
@@ -16,8 +20,8 @@ const TodoForm = (props) => {
 
   const submitItem = (e) => {
     e.preventDefault();
-    setItem({ item: "", id: Date.now(), completed: false });
-    props.addItem(e, item.item);
+    setItem({ name: "", id: Date.now(), completed: false });
+    props.addItem(e, item.name);
   };
 
   console.log(item);
@@ -25,7 +29,12 @@ const TodoForm = (props) => {
   return (
     <div>
       <form onSubmit={submitItem}>
-        <input type="text" value={item} name="item" onChange={handleChanges} />
+        <input
+          type="text"
+          value={item.name}
+          name="name"
+          onChange={handleChanges}
+        />
         <button>Add Item</button>
       </form>
     </div>
