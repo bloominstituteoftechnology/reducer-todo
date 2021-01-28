@@ -1,13 +1,16 @@
-import React, { useReducer, useState } from 'react';
-import todoReducer, { initialState } from '../reducers/todoReducer';
+import React, { useState } from 'react';
+import { ADD_TODO } from '../reducers/todoReducer';
 
-const TodoForm = () => {
-    const [state, dispatch] = useReducer(todoReducer, initialState);
+const TodoForm = (props) => {
     const [newItem, setNewItem] = useState('');
 
     const handleChange = e => {
+        setNewItem(e.target.value)
+    }
+
+    const handleSubmit = e => {
         e.preventDefault()
-        setNewItem({[e.target.name]: e.target.value})
+        props.dispatch({ type: ADD_TODO, payload: newItem })
     }
     return (
         <form>
@@ -17,7 +20,8 @@ const TodoForm = () => {
                 value={newItem}
                 onChange={handleChange}
             />
-            <button>Add to list</button>
+            <button
+                onClick={handleSubmit}>Add to list</button>
         </form>
     );
 };

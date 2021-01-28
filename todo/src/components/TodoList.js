@@ -8,9 +8,9 @@ const TodoList = () => {
 
     return (
         <>
-            <TodoForm />
+            <TodoForm dispatch={dispatch}/>
             {state.map((list) => {
-                return <h2>{list.item}</h2>
+                return <h2 key={list.id}>{list.item}</h2>
             })}
         </>
     );

@@ -17,10 +17,15 @@ export const initialState =
         id: 579114
     }
 ];
-console.log(initialState)
+    export const ADD_TODO='ADD_TODO'
+
 const todoReducer = (state, action) => {
     switch (action.type) {
-    default: return state
+        case ADD_TODO: return [...state, {
+            item: action.payload,
+            completed: false,
+            id: Date.now()}]
+        default: return state
    };
 };
 
