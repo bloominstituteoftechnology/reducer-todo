@@ -18,13 +18,24 @@ export const initialState =
     }
 ];
     export const ADD_TODO='ADD_TODO'
+    export const TOGGLE_COMPLETED='TOGGLE_COMPLETED'
 
 const todoReducer = (state, action) => {
+    console.log(action.payload)
     switch (action.type) {
         case ADD_TODO: return [...state, {
             item: action.payload,
             completed: false,
             id: Date.now()}]
+        case TOGGLE_COMPLETED: return state.map((todo) => {
+            if (todo.id === action.payload) {
+                return {...todo,
+            completed: !todo.completed}
+            }
+            return todo
+        })
+            
+        
         default: return state
    };
 };
