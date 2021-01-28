@@ -10,6 +10,7 @@ const TodoForm = (props) => {
 
     const handleSubmit = e => {
         e.preventDefault()
+        setNewItem('');
         props.dispatch({ type: ADD_TODO, payload: newItem })
     }
     return (

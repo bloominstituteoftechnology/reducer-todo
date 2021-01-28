@@ -14,18 +14,21 @@ const TodoList = () => {
     }
     console.log(state)
     return (
-        <>
+        <div className='card'>
+            <div className='content'>
             <TodoForm dispatch={dispatch}/>
-            <div>
-            {state.map((list) => {
-                return <h2 key={list.id} 
-                onClick={() => handleComplete(list.id)}
-                className={`${list.completed ? ' complete' : ''}`}
-                >{list.item}</h2>
-            })}
-            </div>
+                <div className='list'>
+                {state.map((list) => {
+                    return <h2 key={list.id} 
+                    onClick={() => handleComplete(list.id)}
+                    className={`${list.completed ? ' complete' : ''}`}
+                    >{list.item}</h2>
+                })}
+                </div>
             <TodoClear dispatch={dispatch}/>
-        </>
+        </div>
+        </div>
+        
     );
 };
 
