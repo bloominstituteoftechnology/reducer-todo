@@ -1,21 +1,16 @@
 import React, { useState, useReducer } from "react";
 
 import todoReducer, {
+	initialState,
 	ADD_ITEM,
 	TOGGLE_COMPLETE,
-	TOGGLE_EDITING,
+	CLEAR_COMPLETED,
 } from "../reducers/todoReducer";
-
-const initialState = {
-	item: "wash dishes",
-	completed: false,
-	id: "1234",
-};
 
 const Todo = () => {
 	// !! Application level state
 	const [state, dispatch] = useReducer(todoReducer, initialState);
-	const { item, completed, editing } = state;
+	const { item, completed } = state;
 
 	// !! Component level state
 	const [newItem, setNewItem] = useState(item);
@@ -28,13 +23,13 @@ const Todo = () => {
 	// !! JSX
 	return (
 		<div>
-			{!editing ? (
+			{!completed ? (
 				<h1>
 					{item}{" "}
 					<i
 						onClick={() => {
 							// ?? setEditing
-							dispatch({ type: TOGGLE_EDITING });
+							dispatch({ type: TOGGLE_COMPLETE });
 						}}
 						className="far fa-edit"
 					/>
