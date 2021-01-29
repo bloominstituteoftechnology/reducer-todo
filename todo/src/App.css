@@ -36,3 +36,13 @@
 		transform: rotate(360deg);
 	}
 }
+
+.fa-dragon {
+	position: absolute;
+	right: 12px;
+	top: 9px;
+}
+
+i {
+	font-size: 12px;
+}
