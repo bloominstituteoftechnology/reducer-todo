@@ -27,14 +27,28 @@ export const initialState = {
 export const todoReducer = (state, action) => {
 	switch (action.type) {
 		case ADD_ITEM:
-			return {
-				...state,
+			const newItem = {
 				item: action.payload,
 				completed: false,
 				id: Date.now(),
 			};
+			return {
+				...state,
+				todoList: [...state.todoList, newItem],
+			};
 		case TOGGLE_COMPLETE:
-			return { ...state, completed: !state.completed };
+			return {
+				...state,
+				todoList: state.todoList.map((item) => {
+					if (action.payload === item.id) {
+						return {
+							...item,
+							completed: !item.completed,
+						};
+					}
+					return item;
+				}),
+			};
 		case CLEAR_COMPLETED:
 			return {
 				...state,
@@ -44,5 +58,3 @@ export const todoReducer = (state, action) => {
 			return state;
 	}
 };
-
-export default todoReducer;

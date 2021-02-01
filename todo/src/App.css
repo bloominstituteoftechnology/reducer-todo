@@ -46,3 +46,15 @@
 i {
 	font-size: 12px;
 }
+
+.completed {
+	text-decoration: line-through;
+}
+
+button {
+	cursor: pointer;
+}
+
+p {
+	cursor: pointer;
+}
