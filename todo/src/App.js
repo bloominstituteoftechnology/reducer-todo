@@ -1,10 +1,10 @@
 import React from 'react'
-import AddTodo from './reducers/AddTodo';
+import TodoList from './components/TodoList';
 
 export default function App() {
   return (
     <div className="App">
-      <AddTodo />
+      <TodoList />
     </div>
   );
 }
