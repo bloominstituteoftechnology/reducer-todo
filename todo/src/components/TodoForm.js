@@ -7,14 +7,14 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import { TweenMax, Power3 } from "gsap";
-import useStyles from './useStyles'
-
+import useStyles from "./useStyles";
 
 export default function TodoForm() {
+  //initializations
   const [newTodo, setNewTodo] = useState("");
   const [state, dispatch] = useReducer(todoReducer, initialState);
   const classes = useStyles();
-  let card = useRef(null)
+  let card = useRef(null);
 
   //helper functions
   const handleChanges = (e) => {
@@ -38,20 +38,21 @@ export default function TodoForm() {
 
   useEffect(() => {
     //conditional useEffect add to cure crash when there are no items to be animate
-    if (animatedState !== 0 ){
-    TweenMax.from(
-      card, //item
-      3, // duration
-      {
-        //gsap options
-        opacity: 0,
-        y: 200,
-        ease: Power3.easeInOut,
-      }
-    );}
+    if (animatedState !== 0) {
+      TweenMax.from(
+        card, //item
+        3, // duration
+        {
+          //gsap options
+          opacity: 0,
+          y: 200,
+          ease: Power3.easeInOut,
+        }
+      );
+    }
     //animation on triggers on state.length change (when an item is created or deleted)
   }, [animatedState]);
-  
+
   return (
     <div style={{ paddingBottom: "4rem" }}>
       <form position="sticky" className="bg-dark" onSubmit={handleSubmit}>
@@ -73,14 +74,13 @@ export default function TodoForm() {
           size="large"
           color="primary"
           onClick={() => {
-            dispatch({ type: "ADD_TODO", payload: newTodo })
-            setNewTodo('')
+            dispatch({ type: "ADD_TODO", payload: newTodo });
+            setNewTodo("");
           }}
         >
           Add Todo
         </Button>
       </form>
-
       {state.map((item) => {
         return (
           <Card

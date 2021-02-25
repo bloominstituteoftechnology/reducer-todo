@@ -63,6 +63,12 @@ const useStyles = makeStyles({
       backgroundColor: "#222",
       opacity: "0.8",
     },
+    appBar: {
+        boxShadow: "0 0 1.5rem black",
+        backgroundColor: 'orangered',
+        color: "white",
+        opacity: '0.9'
+      }
   });
 
   export default useStyles
