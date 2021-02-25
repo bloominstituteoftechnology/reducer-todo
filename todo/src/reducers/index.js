@@ -4,10 +4,11 @@ export const todoReducer = (state, action) => {
     switch (action.type) {
         case ADD_TODO:
             return {
-                ...state,
-                item: action.payload,
-                completed: false,
-                id: new Date()
+                ...state.push({
+                    item: action.payload,
+                    completed: false,
+                    id: new Date()
+                })
             }
         case CLEAR_TODO:
             if (state.completed) {

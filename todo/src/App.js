@@ -8,13 +8,13 @@ import Todos from './componenets/Todos'
 
 function App() {
 
-  const initialState = {
+  const initialState = [{
     item: 'Learn about reducers',
     completed: false,
     id: 3892987589
-  }
+  }]
 
-  const [state, dispatch] = useReducer(todoReducer, initialState)
+  const [state, dispatch] = useReducer(initialState, todoReducer)
   const [values, setValues] = useState('')
   
   const handleChanges = (e) => {
