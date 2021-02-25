@@ -9,6 +9,12 @@
   background-color: black;
   min-height: 100vh;
 }
-h1, h5 {
+h1, h3, h5 {
   font-family: 'Seymour One', sans-serif;
+  margin-top: 2rem;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #ccc;
 }
