@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState, useReducer } from "react";
 import { todoReducer, initialState } from "../reducers/todoSwitchReducer";
-import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -8,69 +7,8 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import { TweenMax, Power3 } from "gsap";
-import MaskUp from "../assets/maskup.jpg";
+import useStyles from './useStyles'
 
-const useStyles = makeStyles({
-  root: {
-    minWidth: "40%",
-    maxWidth: "45%",
-    minHeight: "42.5%",
-    borderRadius: "50%",
-    margin: "7rem 2.5%",
-    textAlign: "center",
-    backgroundImage: `url(${MaskUp})`,
-    backgroundPosition: "left bottom",
-    backgroundSize: "50%",
-    backgroundRepeat: "no-repeat",
-    backgroundAttachment: "fixed",
-    boxShadow: "0 0 3rem orangered",
-  },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
-  },
-  nav: {
-    color: "black",
-    margin: "2rem 0",
-    backgroundColor: "#f8d568",
-    padding: "1.5rem",
-  },
-  addButton: {
-    margin: "4rem 2rem",
-  },
-  cardContent: {
-    backgroundColor: "#222",
-    opacity: "0.8",
-  },
-  h2: {
-    margin: "6rem 2rem",
-    marginBottom: "1rem",
-    color: "white",
-    textShadow: "0 0 1.5rem orangered",
-  },
-  h1: {
-    fontSize: "3rem",
-    padding: "0 5rem",
-    color: "white",
-    textShadow: "0 0 1.5rem orangered",
-  },
-  popButton: {
-    backgroundColor: "red",
-    color: "white",
-    marginBottom: "6rem",
-    maxWidth: "35%",
-    maxHeight: "20%",
-    boxShadow: "0 0 1.5rem orangered",
-  },
-  cardActions: {
-    display: "flex",
-    justifyContent: "center",
-    backgroundColor: "#222",
-    opacity: "0.8",
-  },
-});
 
 export default function TodoForm() {
   const [newTodo, setNewTodo] = useState("");
@@ -95,12 +33,12 @@ export default function TodoForm() {
     }
   };
 
+  //animation block
   const animatedState = state.length;
 
-  
   useEffect(() => {
+    //conditional useEffect add to cure crash when there are no items to be animate
     if (animatedState !== 0 ){
-   
     TweenMax.from(
       card, //item
       3, // duration
@@ -111,6 +49,7 @@ export default function TodoForm() {
         ease: Power3.easeInOut,
       }
     );}
+    //animation on triggers on state.length change (when an item is created or deleted)
   }, [animatedState]);
   
   return (
@@ -133,8 +72,10 @@ export default function TodoForm() {
           variant="outlined"
           size="large"
           color="primary"
-          style={{}}
-          onClick={() => dispatch({ type: "ADD_TODO", payload: newTodo })}
+          onClick={() => {
+            dispatch({ type: "ADD_TODO", payload: newTodo })
+            setNewTodo('')
+          }}
         >
           Add Todo
         </Button>
