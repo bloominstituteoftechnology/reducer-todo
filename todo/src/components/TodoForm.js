@@ -24,6 +24,7 @@ export default function TodoForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch({ type: "ADD_TODO", payload: newTodo });
+    //always reset value once passed into state
     setNewTodo("");
   };
 
@@ -68,13 +69,17 @@ export default function TodoForm() {
           helperText="Click your task to mark as done then hit the button and POP!!"
           onSubmit={handleSubmit}
         />
+        {/*One thing to remember.. when using a textfield return and button click do the same thing so handleSubmit looks almost 
+        identical to onclick minus e.preventDefault found in handleSubmit.*/}
         <Button
           className={classes.addButton}
           variant="outlined"
           size="large"
           color="primary"
           onClick={() => {
+            //dispatch is just as it's name says. like a police dispatcher sending out appropriate helpers to handle the emergency
             dispatch({ type: "ADD_TODO", payload: newTodo });
+            //always reset the value once it's been passed into state
             setNewTodo("");
           }}
         >
