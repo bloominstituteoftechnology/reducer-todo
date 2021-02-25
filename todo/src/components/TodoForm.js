@@ -54,8 +54,8 @@ export default function TodoForm() {
   }, [animatedState]);
 
   return (
-    <div style={{ paddingBottom: "4rem" }}>
-      <form position="sticky" className="bg-dark" onSubmit={handleSubmit}>
+    <div style={{ paddingBottom: "6rem" }}>
+      <form position="sticky" className="bg-dark d-flex align-items-center justify-content-center" onSubmit={handleSubmit}>
         <TextField
           className={classes.nav}
           name="newTodo"

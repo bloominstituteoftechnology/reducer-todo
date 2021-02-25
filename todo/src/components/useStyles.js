@@ -29,7 +29,7 @@ const useStyles = makeStyles({
       marginTop: "5rem",
       backgroundColor: "#f8d568",
       padding: "1.5rem",
-      alignSelf: 'center'
+      
     },
     addButton: {
       margin: "4rem 2rem",
