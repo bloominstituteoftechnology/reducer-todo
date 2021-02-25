@@ -6,8 +6,8 @@ export const addTodo = {
     addTodo: (todo) => {
         return { type: ADD_TODO, payload: todo }
     },
-    toggleCompleted: () => { 
-        return { type: TOGGLE_COMPLETED }
+    toggleCompleted: (id) => { 
+        return { type: TOGGLE_COMPLETED, payload: id }
     },
     clearCompleted: () => { 
         return { type: CLEAR_COMPLETED }

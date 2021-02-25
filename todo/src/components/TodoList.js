@@ -22,11 +22,10 @@ export default function Todo() {
     return(
         <div>
             <h1 className='to-do-list'>
-                To Do List: 
+            To Do List: 
             </h1>
 
-            <form>
-                <input
+            <input
                 className='todo-input'
                 placeholder="Add new task..."
                 type='text'
@@ -34,17 +33,23 @@ export default function Todo() {
                 value={newTodo}
                 onChange={handleChanges}/>
             
-                <button onClick={() => dispatch(actions.addTodo(newTodo))}>
-                Add
-                </button>
-            </form>
-         
+            <button onClick={() => dispatch(actions.addTodo(newTodo))}>
+            Add
+            </button>
+            
+            {console.log(state)}
             {state.map(todo => {
+                console.log(todo)
                 return(
-                <p key={todo.id}>
+                    <p key={todo.id} onClick={() => dispatch(actions.toggleCompleted(todo.id))}>
                     {todo.item}
-                </p>)
+                    </p>
+                )
             })}
+
+            <button onClick={() => dispatch(actions.clearCompleted())}>
+            Clear Completed
+            </button>
         </div>
     )
 }
