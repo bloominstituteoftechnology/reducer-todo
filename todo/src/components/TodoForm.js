@@ -121,6 +121,7 @@ export default function TodoForm() {
                 size="small"
                 className={classes.popButton}
                 onClick={() => dispatch({ type: "CLEAR_COMPLETED" })}
+                //inline styling to override mat ui styling not handled by useStyle
                 style={{backgroundColor: 'orangered', color: 'white', boxShadow: '0 0 1.5rem orangered'}}
               >
                 <h5 style={{ paddingBottom: "1rem" }}>HURRY! Pop me!!</h5>
