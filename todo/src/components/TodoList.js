@@ -37,12 +37,13 @@ export default function Todo() {
             Add
             </button>
             
-            {console.log(state)}
             {state.map(todo => {
-                console.log(todo)
                 return(
-                    <p key={todo.id} onClick={() => dispatch(actions.toggleCompleted(todo.id))}>
-                    {todo.item}
+                    <p 
+                        className={todo.completed === true ? 'completed' : 'not-completed'}
+                        key={todo.id} 
+                        onClick={() => dispatch(actions.toggleCompleted(todo.id))}>
+                        {todo.item}
                     </p>
                 )
             })}
