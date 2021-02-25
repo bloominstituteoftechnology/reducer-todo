@@ -45,6 +45,7 @@ export default function TodoForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch({ type: "ADD_TODO", payload: newTodo })
     setNewTodo("");
   };
 
@@ -66,6 +67,7 @@ export default function TodoForm() {
           value={newTodo}
           placeholder="Enter Todo"
           helperText='Click your task to mark as done then hit the button and POP!!'
+          onSubmit={handleSubmit}
           style={{color: 'white', margin: '2rem 0', backgroundColor: 'white', padding: '1.5rem'}}
         />
         <Button variant='outlined' size='large' color='primary' style={{margin: '4rem 2rem'}}
