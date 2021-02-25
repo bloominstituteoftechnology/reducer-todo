@@ -1,20 +1,15 @@
 import { todoReducer } from "../reducers/TodoReducer";
-import { addTodo } from '../actions/TodoActions';
+import actions from '../actions/TodoActions';
 import React, { useReducer, useState } from 'react';
 
 export default function Todo() {
 
     const initialState = [
         {
-            item: 'Clean house',
-            completed: false,
-            id: new Date(),
-        },
-        {
-            item: 'Walk dog',
+            item: '',
             completed: false,
             id: Date.now(),
-        }
+        },
     ];
     
     const [state, dispatch] = useReducer(todoReducer, initialState);
@@ -30,27 +25,26 @@ export default function Todo() {
                 To Do List: 
             </h1>
 
-            {console.log(state)} 
-            
-            {state.map(todo => 
-                <p key={todo.id}>
-                    {todo.item}
-                </p>
-            )}
-
-            <input
+            <form>
+                <input
                 className='todo-input'
                 placeholder="Add new task..."
                 type='text'
                 name='newTodo'
                 value={newTodo}
-                onChange={handleChanges}
-            />
+                onChange={handleChanges}/>
             
-            <button
-                onClick={() => dispatch({ type: 'ADD_TODO', payload: newTodo })}>
+                <button onClick={() => dispatch(actions.addTodo(newTodo))}>
                 Add
-            </button>
+                </button>
+            </form>
+         
+            {state.map(todo => {
+                return(
+                <p key={todo.id}>
+                    {todo.item}
+                </p>)
+            })}
         </div>
     )
 }
