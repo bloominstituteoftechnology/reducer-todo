@@ -1,15 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
+import Todo from './components/Todo'
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-         TODO LIST 
-        </p>
-      </header>
+    <h1>TODO LIST</h1>
+    <Todo />
     </div>
   );
 }
