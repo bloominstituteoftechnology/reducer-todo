@@ -73,12 +73,12 @@ const useStyles = makeStyles({
 });
 
 export default function TodoForm() {
-  const classes = useStyles();
-
   const [newTodo, setNewTodo] = useState("");
   const [state, dispatch] = useReducer(todoReducer, initialState);
+  const classes = useStyles();
   let card = useRef(null)
 
+  //helper functions
   const handleChanges = (e) => {
     setNewTodo(e.target.value);
   };

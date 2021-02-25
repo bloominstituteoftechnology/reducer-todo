@@ -1,12 +1,7 @@
 export const initialState = [
   {
-    task: 'Organize The Garage',
+    task: 'Keep Calm.. and POP',
     id: 1,
-    completed: false
-  },
-  {
-    task: 'Keep Calm',
-    id: 2,
     completed: false
   }
 ];
