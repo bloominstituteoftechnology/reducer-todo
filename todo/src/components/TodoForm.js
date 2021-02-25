@@ -116,6 +116,7 @@ export default function TodoForm() {
                 size="small"
                 className={classes.popButton}
                 onClick={() => dispatch({ type: "CLEAR_COMPLETED" })}
+                style={{backgroundColor: 'orangered', color: 'white', boxShadow: '0 0 1.5rem orangered'}}
               >
                 <h5 style={{ paddingBottom: "1rem" }}>HURRY! Pop me!!</h5>
               </Button>
