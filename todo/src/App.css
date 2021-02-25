@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.app-background {
+  background-image: url("https://cdn.pixabay.com/photo/2020/03/01/17/50/monalisa-4893660_1280.jpg");
+  height: 200vh;
+  background-attachment: fixed;
+  /* background-position: center -100; */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
