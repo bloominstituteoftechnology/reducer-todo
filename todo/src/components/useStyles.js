@@ -9,7 +9,7 @@ const useStyles = makeStyles({
       maxWidth: "45%",
       minHeight: "42.5%",
       borderRadius: "50%",
-      margin: "7rem 2.5%",
+      margin: "3rem 2.5%",
       textAlign: "center",
       backgroundImage: `url(${MaskUp})`,
       backgroundPosition: "left bottom",
@@ -26,7 +26,7 @@ const useStyles = makeStyles({
     },
     nav: {
       color: "black",
-      margin: "5rem 0",
+      marginTop: "5rem",
       backgroundColor: "#f8d568",
       padding: "1.5rem",
     },
