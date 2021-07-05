@@ -1,0 +1,28 @@
+.todo-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+
+    .item {
+        background-color: #e7837f;
+        width: 100%;
+        text-align: center;
+        margin: 4px 0;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 2rem;
+        padding: 5px;
+    }
+
+    .item.completed {
+        background-color: #493837;
+        text-decoration: line-through;
+        
+    }
+
+    button {
+        border-radius: 3px;
+        margin-top: 5%;
+    }
+}
