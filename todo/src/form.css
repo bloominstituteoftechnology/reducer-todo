@@ -1,0 +1,22 @@
+div{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+
+  }
+
+button{
+    margin:auto;
+    display:block;
+    margin-top:15px;
+    box-shadow: 1px 1px 0 1px grey;
+  }
+
+  input {
+      width:40%;
+      margin:auto;
+     display:block;
+     margin-top: 10%;
+     box-shadow: 3px 3px 0 3px grey;
+  }
