@@ -1,0 +1,8 @@
+{
+    "version": 2,
+    "name": "reducer",
+    "builds": [{ "src": "reducer/package.json", "use": "@now/static-build", "config": {"distDir": "build"} }],
+    "routes": [
+        { "src": "/(.*)", "dest": "reducer/$1" }
+    ]
+}
