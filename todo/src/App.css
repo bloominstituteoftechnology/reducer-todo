@@ -1,0 +1,42 @@
+.app div {
+  background-color: rgba(0, 162, 255, 1);
+  border: 3px ridge black;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+}
+
+div {
+  background-image:linear-gradient(to bottom right, #00a2ff,#000066, whitesmoke);
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+div p {
+  color: whitesmoke;
+  font-weight: bold;
+}
+.parent div {
+  border: none;
+  
+}
+
+.completed {
+  background-color: whitesmoke;
+  color:black;
+  text-decoration: line-through;;
+}
+h1 {
+  background-color: whitesmoke;
+}
+h2 {
+  color: whitesmoke;
+}
