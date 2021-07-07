@@ -1,0 +1,50 @@
+body {
+  background-color: rgb(67, 152, 233);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.todo-card {
+  border-radius: 20px;
+  background-color: rgb(108, 64, 230);
+  /* color: white; */
+  text-align: center;
+  margin: 5% auto;
+  width: 50%;
+  padding-bottom: 2%;
+  overflow: auto;
+}
+
+h1 {
+  font-size: 45px;
+}
+
+input {
+  height: 5rem;
+}
+
+button {
+  border-radius: 15px;
+  margin: 10px;
+  background-color: gray;
+  height: 7rem;
+  width: 15rem;
+}
+
+button:hover {
+  background-color: #988fcf;
+}
+
+.completed-btn {
+  border-radius: 20px;
+}
+
+.todo {
+  cursor: pointer;
+  width: 90%;
+  border-radius: 8px;
+}
+
+.completed {
+  text-decoration: line-through;
+}
