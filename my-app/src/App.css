@@ -1,0 +1,30 @@
+.App{
+
+  background: lightgray;
+}
+
+.Container{
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: auto;
+  background: lightgray;
+ 
+}
+
+.Items{
+  
+  padding: 10px;
+
+}
+
+.Input{
+  display: flex;
+  margin: 10px;
+  
+
+}
+.BtnAddItem{
+  
+  margin: 10px;
+}
