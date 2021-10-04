@@ -56,7 +56,7 @@ export default function TodoForm() {
 
   return (
     <div style={{ paddingBottom: "6rem" }}>
-      <form position="sticky" className="bg-dark d-flex align-items-center justify-content-center" onSubmit={handleSubmit}>
+      <form position="sticky" className="bg-dark d-flex align-items-center justify-items-center justify-content-center" onSubmit={handleSubmit}>
         <TextField
           className={classes.nav}
           name="newTodo"
@@ -89,6 +89,7 @@ export default function TodoForm() {
       {state.map((item) => {
         return (
           <Card
+            style={{width: "40vw", minWidth: 375}}
             className={classes.root}
             variant="outlined"
             ref={(element) => {
