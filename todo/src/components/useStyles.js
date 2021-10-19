@@ -34,7 +34,7 @@ const useStyles = makeStyles({
       
     },
     addButton: {
-      margin: "4rem 2rem",
+      margin: "1rem",
     },
     cardContent: {
       backgroundColor: "#222",
