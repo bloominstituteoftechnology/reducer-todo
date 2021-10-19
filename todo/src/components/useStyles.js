@@ -29,7 +29,7 @@ const useStyles = makeStyles({
       marginTop: "10rem",
       backgroundColor: "#f8d568",
       width: '35vw',
-      height: auto,
+      height: 'auto',
       minWidth: 375,
       marginBottom: '20px'
       
