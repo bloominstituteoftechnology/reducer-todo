@@ -68,7 +68,7 @@ export default function TodoForm() {
           placeholder="Enter Todo"
           helperText="Click your task to mark as done then hit the button and POP!!"
           onSubmit={handleSubmit}
-          style={{width: '30vw', minWidth: 375}}
+          style={{width: '30vw', minWidth: 350}}
         />
         {/*One thing to remember.. when using a textfield return and button click do the same thing so handleSubmit looks almost 
         identical to onclick minus e.preventDefault found in handleSubmit.*/}
@@ -83,7 +83,7 @@ export default function TodoForm() {
             //always reset the value once it's been passed into state
             setNewTodo("");
           }}
-          style={{width: '30vw', minWidth: 375}}
+          style={{width: '30vw', minWidth: 350}}
         >
           Add Todo
         </Button>
