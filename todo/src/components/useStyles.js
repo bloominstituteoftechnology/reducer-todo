@@ -26,9 +26,10 @@ const useStyles = makeStyles({
     },
     nav: {
       color: "black",
-      marginTop: "5rem",
+      marginTop: "10rem",
       backgroundColor: "#f8d568",
       width: '35vw',
+      height: auto,
       minWidth: 375,
       marginBottom: '20px'
       
