@@ -28,9 +28,8 @@ const useStyles = makeStyles({
       color: "black",
       marginTop: "5rem",
       backgroundColor: "#f8d568",
-      padding: "1.5rem",
-      width: '30vw',
-      minWidth: 360,
+      width: '35vw',
+      minWidth: 375,
       marginBottom: '20px'
       
     },
