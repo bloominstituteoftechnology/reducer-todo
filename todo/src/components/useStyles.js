@@ -5,8 +5,8 @@ import MaskUp from "../assets/maskup.jpg";
 //Replacing inline styling on refactoring
 const useStyles = makeStyles({
     root: {
-      minWidth: 375,
-      width: '100vw',
+      minWidth: 325,
+      width: '30vw',
       minHeight: "42.5%",
       borderRadius: "50%",
       margin: "0 2.5%",
@@ -42,7 +42,7 @@ const useStyles = makeStyles({
       opacity: "0.8",
     },
     h2: {
-      margin: "6rem 2rem",
+      margin: "3rem 2rem",
       marginBottom: "1rem",
       color: "white",
       textShadow: "0 0 1.5rem orangered",
@@ -57,7 +57,7 @@ const useStyles = makeStyles({
       backgroundColor: "red",
       color: "white",
       marginBottom: "6rem",
-      maxWidth: "35%",
+      maxWidth: "300",
       maxHeight: "20%",
       boxShadow: "0 0 1.5rem orangered",
     },
