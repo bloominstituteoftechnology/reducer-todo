@@ -56,7 +56,9 @@ export default function TodoForm() {
 
   return (
     <div style={{ paddingBottom: "6rem" }}>
-      <form position="sticky" className="bg-dark d-flex flex-column flex-wrap align-items-center justify-items-center justify-content-center" onSubmit={handleSubmit}>
+      <form position="sticky" className="bg-dark d-flex flex-column flex-wrap align-items-center justify-items-center justify-content-center" 
+      style={{padding: '2rem 0'}}
+      onSubmit={handleSubmit}>
         <TextField
           className={classes.nav}
           name="newTodo"
