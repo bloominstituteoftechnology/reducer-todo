@@ -35,7 +35,7 @@ const useStyles = makeStyles({
       
     },
     addButton: {
-      margin: "1rem",
+      margin: "0 1rem",
     },
     cardContent: {
       backgroundColor: "#222",
@@ -48,7 +48,7 @@ const useStyles = makeStyles({
       textShadow: "0 0 1.5rem orangered",
     },
     h1: {
-      fontSize: "3rem",
+      fontSize: "2rem",
       padding: "0 5rem",
       color: "white",
       textShadow: "0 0 1.5rem orangered",
