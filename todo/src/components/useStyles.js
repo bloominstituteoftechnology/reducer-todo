@@ -6,10 +6,10 @@ import MaskUp from "../assets/maskup.jpg";
 const useStyles = makeStyles({
     root: {
       minWidth: 375,
-      maxWidth: '40vw',
+      width: '100vw',
       minHeight: "42.5%",
       borderRadius: "50%",
-      margin: "3rem 2.5%",
+      margin: "0 2.5%",
       textAlign: "center",
       backgroundImage: `url(${MaskUp})`,
       backgroundPosition: "left bottom",
